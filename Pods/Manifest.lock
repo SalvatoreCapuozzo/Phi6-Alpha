@@ -1,15 +1,21 @@
 PODS:
   - CircularSlider (1.1.2)
+  - iCarousel (1.8.3)
+  - MTCircularSlider (0.2.14)
   - VerticalSlider (1.0.0)
 
 DEPENDENCIES:
   - CircularSlider
+  - iCarousel
+  - MTCircularSlider
   - VerticalSlider
 
 SPEC CHECKSUMS:
   CircularSlider: 448f9f7723b845ccd470dac41981feb192e20c50
+  iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
+  MTCircularSlider: 9df5649916d97de7c768e0f611812572c4554c00
   VerticalSlider: d0e269208ce7aa98e0273c0d244e9625d603b75e
 
-PODFILE CHECKSUM: 12b668d293584d02f5e12812c87fe03d0923b5c5
+PODFILE CHECKSUM: d5a2c93b9a6efc6a47dea03c65e80dc4d15991fb
 
 COCOAPODS: 1.1.1

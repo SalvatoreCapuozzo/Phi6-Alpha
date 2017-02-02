@@ -15,16 +15,30 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var pauseButton: UIButton!
     var scene: GameScene!
-
-    @IBOutlet weak var widthSlider: UISlider!
-    @IBOutlet weak var widthLabel: UILabel!
-    
-    @IBOutlet weak var heightSlider: UISlider!
-    @IBOutlet weak var heightLabel: UILabel!
-    
     
     @IBOutlet var diameterSlider: VerticalSlider!
     @IBOutlet weak var diameterLabel: UILabel!
+    
+    @IBOutlet var massSlider: VerticalSlider!
+    @IBOutlet weak var massLabel: UILabel!
+    
+    @IBOutlet weak var deleteSwitch: UISwitch!
+    
+    @IBOutlet weak var objectListView: ObjectTableViewController!
+    
+    var selectedNode: SKSpriteNode!
+    var myNode: SKSpriteNode!
+    // Da inserire programmaticamente come menù degli oggetti
+    /* 
+     Gli oggetti del menù sono:
+     - Simple Objects
+     - Linkers
+     - Simple Machines
+     - Vectors
+     - Sensors
+     - Special Objects
+     
+     */
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,12 +58,23 @@ class GameViewController: UIViewController {
             
             view.showsFPS = true
             view.showsNodeCount = true
+            
+            view.showsPhysics = true
+            view.showsFields = true
+        }
+        if (selectedNode) != nil {
+            selectedNode = scene.selectedNode
+        } else {
+            selectedNode = scene.triangle
         }
         
-        setWidth()
-        setHeight()
+        
+        //setWidth()
+        //setHeight()
         setDiameter()
+        setMass()
         diameterSlider.slider.addTarget(self, action: #selector(setDiameter), for: .valueChanged)
+        massSlider.slider.addTarget(self, action: #selector(setMass), for: .valueChanged)
     }
 
     override var shouldAutorotate: Bool {
@@ -81,36 +106,49 @@ class GameViewController: UIViewController {
         } else {
             scene.stop()
             pauseButton?.setTitle("Play", for: UIControlState(rawValue: 0))
-            widthSlider.value = Float(scene.pauseTriangleWidth)
-            widthLabel.text! = String(describing: round(scene.pauseTriangleWidth*10)/10) + " m"
-            heightSlider.value = Float(scene.pauseTriangleHeight)
-            heightLabel.text! = String(describing: round(scene.pauseTriangleHeight*10)/10) + " m"
             diameterSlider.value = Float(scene.pauseDiameter)
             diameterLabel.text! = String(describing: round(scene.pauseDiameter*10)/10)
         }
         
     }
     
-    @IBAction func setWidth() {
-        scene.triangle.position.x = scene.triangle.position.x - (scene.triangle.size.width - CGFloat(widthSlider.value))/2
-        scene.triangle.size.width = CGFloat(widthSlider.value)
-        widthLabel.text! = String(describing: round(scene.triangle.size.width*10)/10) + " m"
-    }
-    
-    @IBAction func setHeight() {
-        scene.triangle.position.y = scene.triangle.position.y - (scene.triangle.size.height - CGFloat(heightSlider.value))/2
-        scene.triangle.size.height = CGFloat(heightSlider.value)
-        heightLabel.text! = String(describing: round(scene.triangle.size.height*10)/10) + " m"
-        //scene.triangle.physicsBody?.collisionBitMask.
-
-    }
-    
     @IBAction func setDiameter() {
         scene.phisphere.position.x = scene.phisphere.position.x - (scene.phisphere.size.width - CGFloat(diameterSlider.value))/2
-        scene.phisphere.size.width = CGFloat(diameterSlider.value)
+        //scene.phisphere.size.width = CGFloat(diameterSlider.value)
         scene.phisphere.position.y = scene.phisphere.position.y - (scene.phisphere.size.height - CGFloat(diameterSlider.value))/2
-        scene.phisphere.size.height = CGFloat(diameterSlider.value)
+        //scene.phisphere.size.height = CGFloat(diameterSlider.value)
+        
+        scene.phisphere.xScale = CGFloat(diameterSlider.value)/scene.pauseDiameter
+        scene.phisphere.yScale = CGFloat(diameterSlider.value)/scene.pauseDiameter
+        
         diameterLabel.text! = String(describing: round(scene.phisphere.size.width*10)/10)
         
     }
+    
+    @IBAction func setMass() {
+        scene.phisphere.physicsBody?.mass = CGFloat(massSlider.value)
+        massLabel.text! = String(describing: round((scene.phisphere.physicsBody?.mass)!*10)/10)
+    }
+    
+    @IBAction func addTriangle() {
+        scene.addTriangle()
+    }
+    
+    @IBAction func addRectangle() {
+        scene.addRectangle()
+    }
+    
+    @IBAction func addCircle() {
+        scene.addCircle()
+    }
+    
+    @IBAction func showObjects(_ sender: Any) {
+        // self.showPausedMenu()
+        
+    }
+    
+    @IBAction func deleteSwitch(_ sender: Any) {
+        scene.deleteSwitch()
+    }
+    
 }

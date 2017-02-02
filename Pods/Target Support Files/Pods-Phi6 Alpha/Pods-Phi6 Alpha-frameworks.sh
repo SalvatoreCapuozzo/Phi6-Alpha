@@ -85,9 +85,13 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/CircularSlider/CircularSlider.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MTCircularSlider/MTCircularSlider.framework"
   install_framework "$BUILT_PRODUCTS_DIR/VerticalSlider/VerticalSlider.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/iCarousel/iCarousel.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/CircularSlider/CircularSlider.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MTCircularSlider/MTCircularSlider.framework"
   install_framework "$BUILT_PRODUCTS_DIR/VerticalSlider/VerticalSlider.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/iCarousel/iCarousel.framework"
 fi

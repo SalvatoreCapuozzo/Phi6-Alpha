@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '5522F93009D10F297B175E906690EBEA'
+               BlueprintIdentifier = '730357A6BA49D4A6A8C2ED3E0E64FCFE'
                BlueprintName = 'VerticalSlider'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'VerticalSlider.framework'>

@@ -1,32 +1,36 @@
 //
-//  Triangle.swift
-//  Phi6 Alpha
+//  TriangleNode-Alpha.swift
+//  Phi6
 //
-//  Created by Salvatore Capuozzo on 22/01/2017.
-//  Copyright © 2017 Salvatore Capuozzo. All rights reserved.
+//  Created by Salvatore Capuozzo on 24/01/2017.
+//  Copyright © 2017 ITNH. All rights reserved.
 //
 
+// WARNING: This class is deprecated
 import Foundation
 import SpriteKit
-import GameplayKit
 
-class Triangle : SimpleObject {
-    var alpha: CGFloat
-    var beta: CGFloat
-    var gamma: CGFloat
-    
-    override init(width: CGFloat, height: CGFloat, mass: CGFloat, friction: CGFloat) {
-        self.alpha = 60
-        self.beta = 60
-        self.gamma = 60
-        super.init(width: width, height: height, mass: mass, friction: friction)
-    }
-    
-    func setTriangle(width: CGFloat, height: CGFloat) {
-        self.node = SKSpriteNode(imageNamed: "Triangle.png")
-        self.width = width
-        self.height = height
-        self.node.size.width = width
-        self.node.size.height = height
+class Triangle: SKSpriteNode, SimpleObject {
+    var resizable: Bool = true
+    var imgName: String = "Triangle.png"
+    var simpleObjectName: String = "Triangle"
+    class func triangle(location: CGPoint) -> Triangle {
+        let sprite = Triangle(imageNamed: "Triangle.png")
+        
+        sprite.xScale = 0.075
+        sprite.yScale = 0.075
+        sprite.position = location
+        sprite.imgName = "Triangle.png" // Devo verificare se questa riga è ridondante
+        
+        sprite.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "Triangle.png"), size: sprite.size)
+        if let physics = sprite.physicsBody {
+            physics.affectedByGravity = false
+            physics.allowsRotation = true
+            physics.isDynamic = true;
+            physics.linearDamping = 0.75
+            physics.angularDamping = 0.75
+        }
+        return sprite
     }
 }
+
