@@ -29,12 +29,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var pausePosition: CGPoint!
     var pauseDiameter: CGFloat!
     var pauseMass: CGFloat!
-    var pauseTriangleWidth: CGFloat!
-    var pauseTriangleHeight: CGFloat!
-    var pauseTrianglePos: CGPoint!
-    var pauseBlockWidth: CGFloat!
-    var pauseBlockHeight: CGFloat!
-    var pauseBlockPos: CGPoint!
+    
     var pauseScale: CGFloat!
     var pauseYScale: CGFloat!
     var pausePhiScale: CGFloat!
@@ -73,6 +68,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var firstScene: SKView? = nil
     var levelSelected: String?
     
+    let phisphereCategory: UInt32 = 0x1 << 0
+    let sensorCategory: UInt32 = 0x1 << 1
+    
     override func didMove(to view: SKView) {
         /*
         // Questa è la parte da correggere per poter implementare correttamente i livelli mediante il JSON
@@ -85,7 +83,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         json["character_coordinate_x"] as! Double, yPosition: json["character_coordinate_y"] as! Double)
                     Singleton.shared.addNewObject(anObject: character)
                     self.addChild(character)
-                    character.setScale(<#T##scale: CGFloat##CGFloat#>)
+                    character.setScale()
                     phisphere = character
                     pauseDiameter = phisphere.size.width
                     
@@ -109,7 +107,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        rotateRec = UIRotationGestureRecognizer(target: self, action: #selector(rotated))
 //        self.view?.addGestureRecognizer(rotateRec)
         
+        
+        
         phisphere = childNode(withName: "phisphere") as! SKSpriteNode
+        
+        phisphere.physicsBody?.collisionBitMask = 1
+        phisphere.physicsBody?.categoryBitMask = phisphereCategory
+        phisphere.physicsBody?.contactTestBitMask = sensorCategory
+        
         physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         pausePosition = phisphere.position
         pauseDiameter = phisphere.size.width
@@ -138,6 +143,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
     }
+    
+    func rotated(sender: UIRotationGestureRecognizer) {
+        
+    }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if pause {
@@ -154,10 +163,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                 for object in Singleton.shared.objects {
                                     if sprite == object {
                                         if !deleteMode {
+                                            if object.name == "sensor" {
+                                                object.physicsBody?.collisionBitMask = 1
+                                                object.physicsBody?.categoryBitMask = sensorCategory
+                                                object.physicsBody?.contactTestBitMask = phisphereCategory
+                                            }
+                                            print("Col: \(object.physicsBody?.collisionBitMask)")
                                             object.position = touchLocation
                                             selectedNode = object
-                                            //Singleton.shared.setWidth(myNode: object, scene: self)
-                                            print(selectedNode)
+                                            
                                             addSlider(node: object)
                                             myNode = object
                                         } else {
@@ -189,8 +203,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                     if sprite == object {
                                         object.position = touchLocation
                                         selectedNode = object
-                                        //Singleton.shared.setWidth(myNode: object, scene: self)
-                                        print(selectedNode)
                                         
                                         addSlider(node: object)
                                         myNode = object
@@ -209,17 +221,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     var shapeLayer = CAShapeLayer()
     
+    // Update function
     override func update(_ currentTime: TimeInterval) {
         if !pause {
             phisphere.physicsBody?.affectedByGravity = true
             for object in Singleton.shared.objects {
                 object.physicsBody?.affectedByGravity = false
+                if object.name == "sensor" {
+                    object.physicsBody?.collisionBitMask = 1
+                }
+                print("CollisionBitMask: " + String(describing: object.physicsBody?.collisionBitMask))
             }
             
-            // Costruzione del vettore velocità
-            var path = UIBezierPath()
-            path.move(to: CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2)))
-            path.addLine(to: CGPoint(x: phisphere.position.x + (self.frame.size.width / 2) + (phisphere.physicsBody?.velocity.dx)!/5, y: -phisphere.position.y + (self.frame.size.height / 2) - (phisphere.physicsBody?.velocity.dy)!/5))
+            print("CollisionBitMask Phi: " + String(describing: phisphere.physicsBody?.collisionBitMask))
+            
+            // Vettore velocità
+            var start = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2))
+            
+            var end = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2) + (phisphere.physicsBody?.velocity.dx)!/5, y: -phisphere.position.y + (self.frame.size.height / 2) - (phisphere.physicsBody?.velocity.dy)!/5)
+            
+            var path = UIBezierPath.arrow(from: start, to: end,
+                                          tailWidth: 2.0, headWidth: 7.0, headLength: 7.0)
             
             // Inserimento nel layer
             
@@ -229,15 +251,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             self.view?.layer.addSublayer(shapeLayer)
             
-            /*
-            var path = UIBezierPath()
-            path.move(to: phisphere.position)
-            path.addLine(to: CGPoint(x: phisphere.position.x + 10, y: phisphere.position.y + 10))
-            path.close()
-            UIColor.blue.set()
-            path.stroke()
-            path.fill()
-            */
+            // Cancello il vettore quando la velocita è zero
+            
+            if abs(Double((phisphere.physicsBody?.velocity.dx)!)) < 0.1 &&  abs(Double((phisphere.physicsBody?.velocity.dy)!)) < 0.1{
+                shapeLayer.removeFromSuperlayer()
+            }
         }
     }
     
@@ -305,7 +323,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let sprite = PhotoCell.photoCell(location: CGPoint(x: self.frame.maxX/2, y: self.frame.maxY/2))
         sprite.physicsBody?.affectedByGravity = false
         sprite.physicsBody?.isDynamic = false
-        sprite.physicsBody?.usesPreciseCollisionDetection = true
+        
+        sprite.physicsBody?.collisionBitMask = 0
+        sprite.physicsBody?.categoryBitMask = sensorCategory
+        sprite.physicsBody?.contactTestBitMask = phisphereCategory
         
         sprite.size.width = objectWidth
         sprite.size.height = objectHeight
@@ -326,18 +347,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         sprite.physicsBody?.affectedByGravity = false
         sprite.physicsBody?.isDynamic = false
         sprite.physicsBody?.usesPreciseCollisionDetection = true
-        /*
-        sprite.xScale = 0.1
-        repeat {
-            sprite.xScale += 0.001
-        } while (sprite.size.width < 50)
-        //sprite.size.width = 54.4
-        sprite.yScale = 0.1
-        repeat {
-            sprite.yScale += 0.001
-        } while (sprite.size.height < 50)
-        //sprite.size.height = 54.4
- */
+        
         sprite.size.width = objectWidth
         sprite.size.height = objectHeight
         sprite.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -objectWidth/2, y: -objectHeight/2, width: objectWidth, height: objectHeight))
@@ -357,16 +367,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         sprite.physicsBody?.affectedByGravity = false
         sprite.physicsBody?.isDynamic = false
         sprite.physicsBody?.usesPreciseCollisionDetection = true
-        /*
-        sprite.xScale = 0.1
-        repeat {
-            sprite.xScale += 0.001
-        } while (sprite.size.width < 50)
-        sprite.yScale = 0.1
-        repeat {
-            sprite.yScale += 0.001
-        } while (sprite.size.height < 50)
- */
+        
         sprite.size.width = objectWidth
         sprite.size.height = objectWidth
         sprite.physicsBody = SKPhysicsBody(circleOfRadius: objectWidth/2)
@@ -407,34 +408,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         sliderHeight?.maximumValue = 300
         sliderHeight?.minimumValue = 0.2
         sliderHeight?.value = Float(node.size.height)
-        /*
-        // Set Rotation Slider
-        //sliderRotation = MTCircularSlider.init()
-        sliderRotation = CircularSlider(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        sliderRotation?.layer.position = CGPoint(x: 400 , y: 300)
-        sliderRotation?.backgroundColor = UIColor.clear
-        sliderRotation?.bgColor = UIColor.lightGray
-        sliderRotation?.pgHighlightedColor = UIColor.blue
         
-        sliderRotation.layer.cornerRadius = 15.0
-        sliderRotation?.layer.shadowOpacity = 0.5
-        sliderRotation?.layer.masksToBounds = false
-        /*
-        var attributes = [
-            Attributes.trackMinAngle(0),
-            Attributes.trackMaxAngle(359.9),
-            Attributes.trackWidth(200)
-        ]
- */
-        //sliderRotation?.configure(attributes)
-        sliderRotation?.maximumValue = 360
-        sliderRotation?.minimumValue = 0
-        sliderRotation?.title = ""
-        sliderRotation?.divisa = ""
-        sliderRotation?.hideLabels = true
-        sliderRotation?.fractionDigits = 1
-        sliderRotation?.setValue(0, animated: false)
-        */
         // Set Rotation Slider
         sliderRotationLine = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
         sliderRotationLine?.layer.position = CGPoint(x: (self.view?.frame.width)!/2 + ((mySlider?.frame.width)!/2) , y: (self.view?.frame.height)!-15)
@@ -551,19 +525,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print("Set width to " + myNode.name!)
         removeChildren(in: [myNode])
         
-        if (myNode.name! == "triangle") {
-            print(myNode.xScale)
-            myNode.xScale = CGFloat((mySlider?.value)!)/pauseTriangleWidth
-        } else if (myNode.name! == "block") {
-            print("MySlider: " + String(describing: mySlider.value))
-            print(pauseBlockWidth)
-            print("xScale: " + String(describing: myNode.xScale))
-            print("Actual value / Default value")
-            print(CGFloat(mySlider.value) / pauseBlockWidth)
-            print("slider.val\(mySlider.value)")
-            myNode.xScale = pauseXScale * CGFloat(mySlider.value) / pauseBlockWidth
-            print("New width: " + String(describing: myNode.size.width))
-        } else if (myNode.name! == "object") {
+        if (myNode.name! == "object") {
             
             //myNode.xScale = 0.2 * CGFloat(mySlider.value) / 50
             myNode.size.width = CGFloat(mySlider.value)
@@ -592,19 +554,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print("Set height to " + myNode.name!)
         removeChildren(in: [myNode])
         
-        if (myNode.name! == "triangle") {
-            print(myNode.yScale)
-            myNode.yScale = CGFloat((sliderHeight?.value)!)/pauseTriangleHeight
-        } else if (myNode.name! == "block") {
-            print("MySlider: " + String(describing: sliderHeight.value))
-            print(pauseBlockHeight)
-            print("yScale: " + String(describing: myNode.yScale))
-            print("Actual value / Default value")
-            print(CGFloat(sliderHeight.value) / pauseBlockHeight)
-            print("slider.val\(sliderHeight.value)")
-            myNode.yScale = pauseXScale * CGFloat(sliderHeight.value) / pauseBlockHeight
-            print("New height: " + String(describing: myNode.size.height))
-        } else if (myNode.name! == "object") {
+        if (myNode.name! == "object") {
             
             //myNode.yScale = 0.2 * CGFloat(sliderHeight.value) / 50
             myNode.size.height = CGFloat(sliderHeight.value)

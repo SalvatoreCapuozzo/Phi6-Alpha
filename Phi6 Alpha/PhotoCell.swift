@@ -30,6 +30,10 @@ class PhotoCell : SKSpriteNode, Sensor {
             physics.isDynamic = false;
             physics.linearDamping = 0.75
             physics.angularDamping = 0.75
+            
+            physics.categoryBitMask = 1
+            physics.collisionBitMask = 0
+            physics.contactTestBitMask = 1
         }
         return sprite
     }
@@ -46,6 +50,18 @@ class PhotoCell : SKSpriteNode, Sensor {
             self.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: self.imgName), size: self.size)
         default:
             print("Value not valid")
+        }
+    }
+    
+    func setPhotoCellValue() {
+        if self.value == 1 {
+            self.value = 0
+            self.imgName = "PhotoCellDefault.png"
+            self.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: self.imgName), size: self.size)
+        } else if self.value == 0 {
+            self.value = 1
+            self.imgName = "PhotoCellActivated.png"
+            self.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: self.imgName), size: self.size)
         }
     }
     
