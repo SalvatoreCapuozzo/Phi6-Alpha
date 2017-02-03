@@ -610,5 +610,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             print("Delete Mode On")
         }
     }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        
+        // 1
+        var firstBody: SKPhysicsBody
+        var secondBody: SKPhysicsBody
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+            firstBody = contact.bodyA
+            secondBody = contact.bodyB
+        } else {
+            firstBody = contact.bodyB
+            secondBody = contact.bodyA
+        }
+        print("sto qua")
+        // 2
+        if ((firstBody.categoryBitMask & phisphereCategory != 0) &&
+            (secondBody.categoryBitMask & sensorCategory != 0)) {
+            if let phisphere = firstBody.node as? SKSpriteNode, let
+                Sensor = secondBody.node as? PhotoCell {
+                Sensor.setPhotoCellValue()
+            }
+        }
+        
+    }
 
 }

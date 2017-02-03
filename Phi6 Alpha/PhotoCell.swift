@@ -35,6 +35,8 @@ class PhotoCell : SKSpriteNode, Sensor {
             physics.collisionBitMask = 0
             physics.contactTestBitMask = 1
         }
+        
+        
         return sprite
     }
     
@@ -64,5 +66,4 @@ class PhotoCell : SKSpriteNode, Sensor {
             self.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: self.imgName), size: self.size)
         }
     }
-    
 }
