@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3093494D1E449B920006F622 /* Arrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3093494C1E449B920006F622 /* Arrow.swift */; };
+		5A72AB931E44C49700227938 /* PhysicsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A72AB921E44C49700227938 /* PhysicsCategory.swift */; };
 		8715F5FC1E36510F001E2DEA /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715F5FB1E36510F001E2DEA /* Singleton.swift */; };
 		8715F6081E368279001E2DEA /* ObjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715F6071E368279001E2DEA /* ObjectTableViewCell.swift */; };
 		8715F60A1E36828A001E2DEA /* ObjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715F6091E36828A001E2DEA /* ObjectTableViewController.swift */; };
@@ -57,6 +58,7 @@
 /* Begin PBXFileReference section */
 		127D1FCEE4984D940F70ABB6 /* Pods-Phi6 Alpha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phi6 Alpha.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Phi6 Alpha/Pods-Phi6 Alpha.debug.xcconfig"; sourceTree = "<group>"; };
 		3093494C1E449B920006F622 /* Arrow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arrow.swift; sourceTree = "<group>"; };
+		5A72AB921E44C49700227938 /* PhysicsCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsCategory.swift; sourceTree = "<group>"; };
 		8715F5FB1E36510F001E2DEA /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		8715F6071E368279001E2DEA /* ObjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectTableViewCell.swift; sourceTree = "<group>"; };
 		8715F6091E36828A001E2DEA /* ObjectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectTableViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				8731F2D21E40D746002C5253 /* SimpleObject */,
 				8731F2D31E40D827002C5253 /* Logic */,
 				8731F2D41E40D82B002C5253 /* Sensor */,
+				5A72AB921E44C49700227938 /* PhysicsCategory.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				8731F3001E4129A5002C5253 /* SensorTableViewCell.swift in Sources */,
 				87283AB91E4331DE00FDEE95 /* GameObjectNode.swift in Sources */,
 				8731F2DA1E40DD5C002C5253 /* MainViewController.swift in Sources */,
+				5A72AB931E44C49700227938 /* PhysicsCategory.swift in Sources */,
 				8731F2CE1E40D6FE002C5253 /* Sensor.swift in Sources */,
 				8731F2CF1E40D6FE002C5253 /* SimpleObject.swift in Sources */,
 				8731F2CD1E40D6FE002C5253 /* Rectangle.swift in Sources */,

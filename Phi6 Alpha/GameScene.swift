@@ -68,10 +68,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var firstScene: SKView? = nil
     var levelSelected: String?
     
-    let phisphereCategory: UInt32 = 0x1 << 0
-    let sensorCategory: UInt32 = 0x1 << 1
+//    let phisphereCategory: UInt32 = 0x1 << 0
+//    let sensorCategory: UInt32 = 0x1 << 1
     
     override func didMove(to view: SKView) {
+        
+        physicsWorld.contactDelegate = self
+        
         /*
         // Questa è la parte da correggere per poter implementare correttamente i livelli mediante il JSON
         self.firstScene = self.view
@@ -112,8 +115,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         phisphere = childNode(withName: "phisphere") as! SKSpriteNode
         
         phisphere.physicsBody?.collisionBitMask = 1
-        phisphere.physicsBody?.categoryBitMask = phisphereCategory
-        phisphere.physicsBody?.contactTestBitMask = sensorCategory
+        phisphere.physicsBody?.categoryBitMask = PhysicsCategory.Phisphere
+        phisphere.physicsBody?.contactTestBitMask = PhysicsCategory.Sensor
         
         physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         pausePosition = phisphere.position
@@ -124,6 +127,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         Singleton.shared.createList()
         Singleton.shared.createSensorList()
         Singleton.shared.fillList()
+        
         
         
         /*for object in Singleton.shared.objects {
@@ -165,10 +169,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                         if !deleteMode {
                                             if object.name == "sensor" {
                                                 object.physicsBody?.collisionBitMask = 1
-                                                object.physicsBody?.categoryBitMask = sensorCategory
-                                                object.physicsBody?.contactTestBitMask = phisphereCategory
+                                                object.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
+                                                object.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
                                             }
-                                            print("Col: \(object.physicsBody?.collisionBitMask)")
+//                                            print("Col: \(object.physicsBody?.collisionBitMask)")
                                             object.position = touchLocation
                                             selectedNode = object
                                             
@@ -230,10 +234,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if object.name == "sensor" {
                     object.physicsBody?.collisionBitMask = 1
                 }
-                print("CollisionBitMask: " + String(describing: object.physicsBody?.collisionBitMask))
+//                print("CollisionBitMask: " + String(describing: object.physicsBody?.collisionBitMask))
             }
             
-            print("CollisionBitMask Phi: " + String(describing: phisphere.physicsBody?.collisionBitMask))
+//            print("CollisionBitMask Phi: " + String(describing: phisphere.physicsBody?.collisionBitMask))
             
             // Vettore velocità
             var start = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2))
@@ -325,8 +329,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         sprite.physicsBody?.isDynamic = false
         
         sprite.physicsBody?.collisionBitMask = 0
-        sprite.physicsBody?.categoryBitMask = sensorCategory
-        sprite.physicsBody?.contactTestBitMask = phisphereCategory
+        sprite.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
+        sprite.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
         
         sprite.size.width = objectWidth
         sprite.size.height = objectHeight
@@ -623,10 +627,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             firstBody = contact.bodyB
             secondBody = contact.bodyA
         }
-        print("sto qua")
-        // 2
-        if ((firstBody.categoryBitMask & phisphereCategory != 0) &&
-            (secondBody.categoryBitMask & sensorCategory != 0)) {
+        
+        //2
+        if ((firstBody.categoryBitMask & PhysicsCategory.Phisphere != 0) &&
+            (secondBody.categoryBitMask & PhysicsCategory.Sensor != 0)) {
             if let phisphere = firstBody.node as? SKSpriteNode, let
                 Sensor = secondBody.node as? PhotoCell {
                 Sensor.setPhotoCellValue()

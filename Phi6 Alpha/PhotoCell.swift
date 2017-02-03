@@ -63,7 +63,8 @@ class PhotoCell : SKSpriteNode, Sensor {
         } else if self.value == 0 {
             self.value = 1
             self.imgName = "PhotoCellActivated.png"
-            self.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: self.imgName), size: self.size)
+//            self.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: self.imgName), size: self.size)
+            self.texture = SKTexture(imageNamed: "PhotoCellActivated")
         }
     }
 }
