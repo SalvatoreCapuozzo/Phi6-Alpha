@@ -47,5 +47,7 @@ class Chronometer : SKSpriteNode, Sensor {
         self.value = round(self.value * 10) / 10
     }
 
-    
+    func unset() {
+        self.value = 0
+    }
 }

@@ -67,4 +67,8 @@ class PhotoCell : SKSpriteNode, Sensor {
             self.texture = SKTexture(imageNamed: "PhotoCellActivated")
         }
     }
+    
+    func unset() {
+        self.value = 0
+    }
 }

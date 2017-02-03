@@ -34,4 +34,7 @@ class LoadCell : SKSpriteNode, Sensor {
         return sprite
     }
     
+    func unset() {
+        self.value = 0
+    }
 }

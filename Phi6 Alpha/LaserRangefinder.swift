@@ -56,4 +56,8 @@ class LaserRangefinder : SKSpriteNode, Sensor {
         return sprite
     }
     
+    func unset() {
+        self.value = 0
+    }
+    
 }

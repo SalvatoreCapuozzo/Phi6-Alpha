@@ -23,7 +23,8 @@ class SpeedCamera : SKSpriteNode, Sensor {
         sprite.yScale = 0.075
         sprite.position = location
         
-        sprite.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: sprite.imgName), size: sprite.size)
+        //sprite.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: sprite.imgName), size: sprite.size)
+        sprite.physicsBody = SKPhysicsBody(circleOfRadius: 2)
         if let physics = sprite.physicsBody {
             physics.affectedByGravity = false
             physics.allowsRotation = true
@@ -40,4 +41,7 @@ class SpeedCamera : SKSpriteNode, Sensor {
         }
     }
     
+    func unset() {
+        self.value = 0
+    }
 }

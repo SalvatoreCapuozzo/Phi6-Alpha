@@ -53,9 +53,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var arrayOfSliderRotation = [CircularSlider]()
     var arrayOfSliderRotation2 = [MTCircularSlider]()
     var arrayOfSliderRotationLine = [UISlider]()
+    var arrayOfSensors = [Sensor]()
     var arrayOfLabel = [UILabel]()
     var arrayOfLabelHeight = [UILabel]()
     var arrayOfLabelRotation = [UILabel]()
+    var arrayOfLabelSensors = [UILabel]()
     
     var number: Int = 0
     var firstWidth: CGFloat!
@@ -238,10 +240,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if object.name == "sensor" {
                     object.physicsBody?.collisionBitMask = 1
                 }
-//                print("CollisionBitMask: " + String(describing: object.physicsBody?.collisionBitMask))
             }
-            
-//            print("CollisionBitMask Phi: " + String(describing: phisphere.physicsBody?.collisionBitMask))
             
             // Vettore velocità
             var start = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2))
@@ -298,6 +297,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         shapeLayer.removeFromSuperlayer()
         
+        if arrayOfLabelSensors.count >= 0 {
+            for label in arrayOfLabelSensors {
+                label.removeFromSuperview()
+            }
+            arrayOfLabelSensors.removeAll()
+        }
+        
+        for sensor in arrayOfSensors {
+            sensor.unset()
+        }
     }
     
     func addTriangle() {
@@ -365,6 +374,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print(sprite.xScale)
         Singleton.shared.addNewObject(anObject: sprite)
         self.addChild(sprite)
+        arrayOfSensors.append(sprite)
         
         if sprite.name == nil {
             sprite.name = "speedCamera"// + String(number)
@@ -496,18 +506,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             mySlider?.addTarget(self, action: #selector(setWidth2), for: UIControlEvents.valueChanged)
         }
         
-        arrayOfSlider.append(mySlider!)
-        self.view?.addSubview(mySlider!)
-        arrayOfSliderHeight.append(sliderHeight!)
-        self.view?.addSubview(sliderHeight!)
-        arrayOfSliderRotationLine.append(sliderRotationLine!)
-        self.view?.addSubview(sliderRotationLine!)
-        arrayOfLabel.append(myLabel!)
-        self.view?.addSubview(myLabel!)
-        arrayOfLabelHeight.append(labelHeight!)
-        self.view?.addSubview(labelHeight!)
-        arrayOfLabelRotation.append(labelRotation!)
-        self.view?.addSubview(labelRotation!)
+            arrayOfSlider.append(mySlider!)
+            self.view?.addSubview(mySlider!)
+            arrayOfSliderHeight.append(sliderHeight!)
+            self.view?.addSubview(sliderHeight!)
+            arrayOfSliderRotationLine.append(sliderRotationLine!)
+            self.view?.addSubview(sliderRotationLine!)
+            arrayOfLabel.append(myLabel!)
+            self.view?.addSubview(myLabel!)
+            arrayOfLabelHeight.append(labelHeight!)
+            self.view?.addSubview(labelHeight!)
+            arrayOfLabelRotation.append(labelRotation!)
+            self.view?.addSubview(labelRotation!)
         }
 
         func deleteSliders(){
@@ -548,7 +558,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
                 arrayOfLabelRotation.removeAll()
             }
-
         }
     
     func setWidth2() {
@@ -644,7 +653,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        
         // 1
         var firstBody: SKPhysicsBody
         var secondBody: SKPhysicsBody
@@ -663,8 +671,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if let phisphereNode = firstBody.node as? SKSpriteNode, let
                     Sensor = secondBody.node as? SpeedCamera {
                     let velocity = sqrt(pow((phisphereNode.physicsBody?.velocity.dx)!, 2) + pow((phisphereNode.physicsBody?.velocity.dy)!, 2))
-                    Sensor.setSpeedCameraValue(velocity)
-                    print(Sensor.value)
+                        Sensor.setSpeedCameraValue(velocity)
+                        //print("Position: \(phisphereNode.position)")
+                        print(Sensor.value)
+                        setValueSpeedCamera(Sensor)
                 }
             }
             if let phisphere = firstBody.node as? SKSpriteNode, let
@@ -672,7 +682,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 Sensor.setPhotoCellValue()
             }
         }
-        
     }
+    
+    func setValueSpeedCamera(_ object: SpeedCamera) {
+        myLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        myLabel.layer.position = CGPoint(x: object.position.x + (self.frame.size.width / 2) + 30, y: -object.position.y + (self.frame.size.height / 2) - 15)
+        myLabel.textColor! = UIColor.green
+        myLabel?.text = String(describing: round(object.value*10)/10)
+        if let label = myLabel.text {
+            myLabel.text! = String(describing: round(object.value*10)/10)
+        }
+        myLabel.font = UIFont(name: "AmericanTypewriter-Light", size: 10)
 
+        arrayOfLabelSensors.append(myLabel)
+        self.view?.addSubview(myLabel)
+    }
 }

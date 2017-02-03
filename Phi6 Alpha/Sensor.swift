@@ -15,4 +15,6 @@ protocol Sensor: GameObject {
     var orientation: String {get set}
     var value: Float {get set}
     var sensorName: String {get set}
+    
+    func unset()
 }
