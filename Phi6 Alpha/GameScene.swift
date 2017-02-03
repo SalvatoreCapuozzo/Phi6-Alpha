@@ -11,36 +11,6 @@ import GameplayKit
 import CircularSlider
 import MTCircularSlider
 
-extension UIBezierPath {
-    
-    class func arrow(from start: CGPoint, to end: CGPoint, tailWidth: CGFloat, headWidth: CGFloat, headLength: CGFloat) -> Self {
-        let length = hypot(end.x - start.x, end.y - start.y)
-        let tailLength = length - headLength
-        
-        func p(_ x: CGFloat, _ y: CGFloat) -> CGPoint { return CGPoint(x: x, y: y) }
-        var points: [CGPoint] = [
-            p(0, tailWidth / 2),
-            p(tailLength, tailWidth / 2),
-            p(tailLength, headWidth / 2),
-            p(length, 0),
-            p(tailLength, -headWidth / 2),
-            p(tailLength, -tailWidth / 2),
-            p(0, -tailWidth / 2)
-        ]
-        
-        let cosine = (end.x - start.x) / length
-        let sine = (end.y - start.y) / length
-        var transform = CGAffineTransform(a: cosine, b: sine, c: -sine, d: cosine, tx: start.x, ty: start.y)
-        
-        let path = CGMutablePath()
-        path.addLines(between: points, transform: transform)
-        //CGPathAddLines(path, &transform, &points, points.count)
-        path.closeSubpath()
-        
-        return self.init(cgPath: path)
-    }
-}
-
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var phisphere: SKSpriteNode!
@@ -109,7 +79,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         json["character_coordinate_x"] as! Double, yPosition: json["character_coordinate_y"] as! Double)
                     Singleton.shared.addNewObject(anObject: character)
                     self.addChild(character)
-                    character.setScale(<#T##scale: CGFloat##CGFloat#>)
+                    character.setScale()
                     phisphere = character
                     pauseDiameter = phisphere.size.width
                     
@@ -252,14 +222,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             var path = UIBezierPath.arrow(from: start, to: end,
                                           tailWidth: 2.0, headWidth: 7.0, headLength: 7.0)
             
-            print(phisphere.physicsBody?.velocity.dx)
-            print(phisphere.physicsBody?.velocity.dy)
-            print("-----------------------")
-            
-            /*var path = UIBezierPath()
-             path.move(to: CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2)))
-             path.addLine(to: CGPoint(x: phisphere.position.x + (self.frame.size.width / 2) + (phisphere.physicsBody?.velocity.dx)!/5, y: -phisphere.position.y + (self.frame.size.height / 2) - (phisphere.physicsBody?.velocity.dy)!/5))*/
-            
             // Inserimento nel layer
             
             shapeLayer.path = path.cgPath
@@ -267,6 +229,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             shapeLayer.lineWidth = 4.0
             
             self.view?.layer.addSublayer(shapeLayer)
+            
+            // Cancello il vettore quando la velocita è zero
             
             if abs(Double((phisphere.physicsBody?.velocity.dx)!)) < 0.1 &&  abs(Double((phisphere.physicsBody?.velocity.dy)!)) < 0.1{
                 shapeLayer.removeFromSuperlayer()
