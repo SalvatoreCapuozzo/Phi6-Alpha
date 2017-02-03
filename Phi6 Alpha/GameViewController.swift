@@ -142,6 +142,11 @@ class GameViewController: UIViewController {
         scene.addCircle()
     }
     
+    @IBAction func addPhotoCell() {
+        scene.addPhotoCell()
+    }
+    
+    
     @IBAction func showObjects(_ sender: Any) {
         // self.showPausedMenu()
         

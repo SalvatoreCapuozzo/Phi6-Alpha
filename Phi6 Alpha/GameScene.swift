@@ -201,6 +201,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     var shapeLayer = CAShapeLayer()
+    
     override func update(_ currentTime: TimeInterval) {
         if !pause {
             phisphere.physicsBody?.affectedByGravity = true
@@ -288,6 +289,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if sprite.name == nil {
             sprite.name = "object" //+ String(number)
+            number += 1
+        }
+        print(sprite.name!)
+    }
+    
+    func addPhotoCell() {
+        let sprite = PhotoCell.photoCell(location: CGPoint(x: self.frame.maxX/2, y: self.frame.maxY/2))
+        sprite.physicsBody?.affectedByGravity = false
+        sprite.physicsBody?.isDynamic = false
+        sprite.physicsBody?.usesPreciseCollisionDetection = true
+        
+        sprite.size.width = objectWidth
+        sprite.size.height = objectHeight
+        sprite.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -objectWidth/2, y: -objectHeight/2, width: objectWidth, height: objectHeight))
+        print(sprite.xScale)
+        Singleton.shared.addNewObject(anObject: sprite)
+        self.addChild(sprite)
+        
+        if sprite.name == nil {
+            sprite.name = "sensor"// + String(number)
             number += 1
         }
         print(sprite.name!)
