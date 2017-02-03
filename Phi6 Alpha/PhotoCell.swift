@@ -30,6 +30,10 @@ class PhotoCell : SKSpriteNode, Sensor {
             physics.isDynamic = false;
             physics.linearDamping = 0.75
             physics.angularDamping = 0.75
+            
+            physics.categoryBitMask = 1
+            physics.collisionBitMask = 0
+            physics.contactTestBitMask = 1
         }
         return sprite
     }

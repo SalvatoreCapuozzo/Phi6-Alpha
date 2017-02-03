@@ -97,6 +97,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var firstScene: SKView? = nil
     
+    let phisphereCategory: UInt32 = 0x1 << 0
+    let sensorCategory: UInt32 = 0x1 << 1
+    
     override func didMove(to view: SKView) {
         /*
         // Questa è la parte da correggere per poter implementare correttamente i livelli mediante il JSON
@@ -133,7 +136,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         rotateRec = UIRotationGestureRecognizer(target: self, action: #selector(rotated))
         self.view?.addGestureRecognizer(rotateRec)
         
+        
+        
         phisphere = childNode(withName: "phisphere") as! SKSpriteNode
+        
+        phisphere.physicsBody?.collisionBitMask = 1
+        phisphere.physicsBody?.categoryBitMask = phisphereCategory
+        phisphere.physicsBody?.contactTestBitMask = sensorCategory
+        
         physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         pausePosition = phisphere.position
         pauseDiameter = phisphere.size.width
@@ -182,10 +192,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                 for object in Singleton.shared.objects {
                                     if sprite == object {
                                         if !deleteMode {
+                                            if object.name == "sensor" {
+                                                object.physicsBody?.collisionBitMask = 1
+                                                object.physicsBody?.categoryBitMask = sensorCategory
+                                                object.physicsBody?.contactTestBitMask = phisphereCategory
+                                            }
+                                            print("Col: \(object.physicsBody?.collisionBitMask)")
                                             object.position = touchLocation
                                             selectedNode = object
-                                            //Singleton.shared.setWidth(myNode: object, scene: self)
-                                            print(selectedNode)
+                                            
                                             addSlider(node: object)
                                             myNode = object
                                         } else {
@@ -217,8 +232,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                     if sprite == object {
                                         object.position = touchLocation
                                         selectedNode = object
-                                        //Singleton.shared.setWidth(myNode: object, scene: self)
-                                        print(selectedNode)
                                         
                                         addSlider(node: object)
                                         myNode = object
@@ -237,12 +250,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     var shapeLayer = CAShapeLayer()
     
+    // Update function
     override func update(_ currentTime: TimeInterval) {
         if !pause {
             phisphere.physicsBody?.affectedByGravity = true
             for object in Singleton.shared.objects {
                 object.physicsBody?.affectedByGravity = false
+                if object.name == "sensor" {
+                    object.physicsBody?.collisionBitMask = 1
+                }
+                print("CollisionBitMask: " + String(describing: object.physicsBody?.collisionBitMask))
             }
+            
+            print("CollisionBitMask Phi: " + String(describing: phisphere.physicsBody?.collisionBitMask))
             
             // Vettore velocità
             var start = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2))
@@ -338,7 +358,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let sprite = PhotoCell.photoCell(location: CGPoint(x: self.frame.maxX/2, y: self.frame.maxY/2))
         sprite.physicsBody?.affectedByGravity = false
         sprite.physicsBody?.isDynamic = false
-        sprite.zPosition = 0
+        
+        sprite.physicsBody?.collisionBitMask = 0
+        sprite.physicsBody?.categoryBitMask = sensorCategory
+        sprite.physicsBody?.contactTestBitMask = phisphereCategory
         
         sprite.size.width = objectWidth
         sprite.size.height = objectHeight
