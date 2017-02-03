@@ -171,6 +171,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                                 object.physicsBody?.collisionBitMask = 1
                                                 object.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
                                                 object.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
+                                            } else if object.name == "speedCamera" {
+                                                object.physicsBody?.collisionBitMask = 1
+                                                object.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
+                                                object.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
                                             }
 //                                            print("Col: \(object.physicsBody?.collisionBitMask)")
                                             object.position = touchLocation
@@ -345,6 +349,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         print(sprite.name!)
     }
+    
+    func addSpeedCamera() {
+        let sprite = SpeedCamera.speedCamera(location: CGPoint(x: self.frame.maxX/2, y: self.frame.maxY/2))
+        sprite.physicsBody?.affectedByGravity = false
+        sprite.physicsBody?.isDynamic = false
+        
+        sprite.physicsBody?.collisionBitMask = 0
+        sprite.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
+        sprite.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
+        
+        sprite.size.width = objectWidth
+        sprite.size.height = objectHeight
+        sprite.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -objectWidth/2, y: -objectHeight/2, width: objectWidth, height: objectHeight))
+        print(sprite.xScale)
+        Singleton.shared.addNewObject(anObject: sprite)
+        self.addChild(sprite)
+        
+        if sprite.name == nil {
+            sprite.name = "speedCamera"// + String(number)
+            number += 1
+        }
+        print(sprite.name!)
+    }
+
     
     func addRectangle() {
         let sprite = Rectangle.rectangle(location: CGPoint(x: self.frame.maxX/2, y: self.frame.maxY/2))
@@ -631,6 +659,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //2
         if ((firstBody.categoryBitMask & PhysicsCategory.Phisphere != 0) &&
             (secondBody.categoryBitMask & PhysicsCategory.Sensor != 0)) {
+            if secondBody.node?.name! == "speedCamera" {
+                if let phisphereNode = firstBody.node as? SKSpriteNode, let
+                    Sensor = secondBody.node as? SpeedCamera {
+                    let velocity = sqrt(pow((phisphereNode.physicsBody?.velocity.dx)!, 2) + pow((phisphereNode.physicsBody?.velocity.dy)!, 2))
+                    Sensor.setSpeedCameraValue(velocity)
+                    print(Sensor.value)
+                }
+            }
             if let phisphere = firstBody.node as? SKSpriteNode, let
                 Sensor = secondBody.node as? PhotoCell {
                 Sensor.setPhotoCellValue()

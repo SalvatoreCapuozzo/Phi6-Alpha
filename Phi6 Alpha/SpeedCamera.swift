@@ -34,4 +34,10 @@ class SpeedCamera : SKSpriteNode, Sensor {
         return sprite
     }
     
+    func setSpeedCameraValue(_ value: CGFloat) {
+        if self.value == 0 {
+            self.value = Float(value)
+        }
+    }
+    
 }

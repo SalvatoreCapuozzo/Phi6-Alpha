@@ -152,6 +152,10 @@ class GameViewController: UIViewController {
         scene.addPhotoCell()
     }
     
+    @IBAction func addSpeedCamera() {
+        scene.addSpeedCamera()
+    }
+    
     
     @IBAction func showObjects(_ sender: Any) {
         // self.showPausedMenu()

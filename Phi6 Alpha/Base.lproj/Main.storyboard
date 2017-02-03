@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wgD-cz-GGm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wgD-cz-GGm">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -274,6 +274,25 @@
                                     <constraint firstAttribute="width" constant="60" id="VZP-YZ-Dk2"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KHX-GV-UWW">
+                                <rect key="frame" x="204" y="20" width="60" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppv-xy-4RF">
+                                        <rect key="frame" x="8" y="8" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="SpeedCamera"/>
+                                        <connections>
+                                            <action selector="addSpeedCamera" destination="BV1-FR-VrT" eventType="touchUpInside" id="PGh-NJ-wso"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="KHX-GV-UWW" secondAttribute="height" multiplier="1:1" id="mlG-LM-bjA"/>
+                                    <constraint firstAttribute="height" constant="60" id="oAA-Je-uJs"/>
+                                    <constraint firstAttribute="width" constant="60" id="tlB-Tu-eb9"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -281,9 +300,11 @@
                             <constraint firstItem="5Lc-4L-BMh" firstAttribute="top" secondItem="i3L-Sf-zOB" secondAttribute="bottom" constant="8" id="1Ba-Vn-j77"/>
                             <constraint firstItem="7Mu-O9-7c0" firstAttribute="leading" secondItem="ake-ey-lbl" secondAttribute="trailing" constant="8" id="261-Gy-hZM"/>
                             <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="CUg-2T-RVs" secondAttribute="bottom" id="3Mu-fo-HwM"/>
+                            <constraint firstItem="KHX-GV-UWW" firstAttribute="top" secondItem="8aa-yV-Osq" secondAttribute="bottom" id="4Al-hZ-C7P"/>
                             <constraint firstItem="CUg-2T-RVs" firstAttribute="top" secondItem="Zoj-oX-ia3" secondAttribute="bottom" id="4y9-cv-Bxv"/>
                             <constraint firstItem="82e-5Y-40s" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="5X8-Or-wLE"/>
                             <constraint firstItem="lLB-xw-gzO" firstAttribute="width" secondItem="lLB-xw-gzO" secondAttribute="height" multiplier="1:1" id="9nP-Gi-7YX"/>
+                            <constraint firstItem="KHX-GV-UWW" firstAttribute="width" secondItem="KHX-GV-UWW" secondAttribute="height" multiplier="1:1" id="A4P-MM-Kgc"/>
                             <constraint firstItem="CUg-2T-RVs" firstAttribute="top" secondItem="Zoj-oX-ia3" secondAttribute="bottom" id="AKO-lH-Nul"/>
                             <constraint firstItem="UPE-gR-bbI" firstAttribute="top" secondItem="ake-ey-lbl" secondAttribute="bottom" id="AfS-jL-pAR"/>
                             <constraint firstItem="lLB-xw-gzO" firstAttribute="top" secondItem="8aa-yV-Osq" secondAttribute="bottom" id="Aob-9d-qHi"/>
@@ -303,6 +324,7 @@
                             <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="7Mu-O9-7c0" secondAttribute="bottom" id="MjO-0h-cVe"/>
                             <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="ake-ey-lbl" secondAttribute="bottom" constant="30" id="Ode-an-cnw"/>
                             <constraint firstAttribute="trailing" secondItem="7Mu-O9-7c0" secondAttribute="trailing" id="PI3-Ag-i1J"/>
+                            <constraint firstItem="KHX-GV-UWW" firstAttribute="leading" secondItem="lLB-xw-gzO" secondAttribute="trailing" constant="8" id="PLQ-1E-FOx"/>
                             <constraint firstItem="lLB-xw-gzO" firstAttribute="width" secondItem="lLB-xw-gzO" secondAttribute="height" multiplier="1:1" id="Pht-et-bFD"/>
                             <constraint firstItem="ake-ey-lbl" firstAttribute="leading" secondItem="rE3-EB-Xmh" secondAttribute="trailing" constant="8" id="QAj-Ev-tXQ"/>
                             <constraint firstItem="Zoj-oX-ia3" firstAttribute="leading" secondItem="82e-5Y-40s" secondAttribute="trailing" constant="166" id="QKd-ZK-L8N"/>
@@ -317,6 +339,7 @@
                             <constraint firstItem="ake-ey-lbl" firstAttribute="leading" secondItem="rE3-EB-Xmh" secondAttribute="trailing" constant="8" id="gNc-fC-rHP"/>
                             <constraint firstItem="0Q6-ZX-xqc" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="hyE-hM-Vj0"/>
                             <constraint firstItem="82e-5Y-40s" firstAttribute="top" secondItem="hiw-CJ-c2U" secondAttribute="bottom" constant="15" id="ju4-zC-Ekr"/>
+                            <constraint firstItem="KHX-GV-UWW" firstAttribute="width" secondItem="KHX-GV-UWW" secondAttribute="height" multiplier="1:1" id="kPT-mK-mrn"/>
                             <constraint firstItem="ake-ey-lbl" firstAttribute="width" secondItem="Zoj-oX-ia3" secondAttribute="width" id="mtm-rB-Iow"/>
                             <constraint firstItem="zEM-06-uaL" firstAttribute="top" secondItem="8aa-yV-Osq" secondAttribute="bottom" id="oyE-Q8-eiq"/>
                             <constraint firstItem="lLB-xw-gzO" firstAttribute="leading" secondItem="zEM-06-uaL" secondAttribute="trailing" constant="8" id="rNq-xD-iIt"/>
@@ -324,6 +347,7 @@
                             <constraint firstItem="zEM-06-uaL" firstAttribute="leading" secondItem="i3L-Sf-zOB" secondAttribute="trailing" constant="8" id="uwJ-Vh-LgJ"/>
                             <constraint firstItem="zEM-06-uaL" firstAttribute="width" secondItem="zEM-06-uaL" secondAttribute="height" multiplier="1:1" id="wD2-ZN-HXE"/>
                             <constraint firstItem="0Q6-ZX-xqc" firstAttribute="top" secondItem="r9y-25-dcC" secondAttribute="bottom" constant="8" id="xF9-AO-URS"/>
+                            <constraint firstItem="KHX-GV-UWW" firstAttribute="width" secondItem="KHX-GV-UWW" secondAttribute="height" multiplier="1:1" id="ycM-vc-QtG"/>
                             <constraint firstItem="r9y-25-dcC" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="yiW-rk-lW7"/>
                         </constraints>
                     </view>
@@ -548,7 +572,7 @@
                                 <rect key="frame" x="0.0" y="28" width="200" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7KS-Rx-t6U" id="cR3-5z-QRM">
-                                    <rect key="frame" x="0.0" y="0.0" width="200" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L4F-ju-Bq5">
@@ -594,7 +618,7 @@
                                 <rect key="frame" x="0.0" y="28" width="200" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NxY-tm-xwQ" id="Yf1-h4-Ctf">
-                                    <rect key="frame" x="0.0" y="0.0" width="200" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GG7-Ai-K4N">
@@ -635,6 +659,7 @@
         <image name="Oval 5" width="25" height="25"/>
         <image name="PhotoCellDefault" width="50" height="50"/>
         <image name="Rectangle" width="278" height="278"/>
+        <image name="SpeedCamera" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="awh-ct-Fho"/>
