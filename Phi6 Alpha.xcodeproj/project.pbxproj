@@ -49,6 +49,7 @@
 		87DC85221E34BA4B0068555D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87DC85201E34BA4B0068555D /* Main.storyboard */; };
 		87DC85241E34BA4B0068555D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87DC85231E34BA4B0068555D /* Assets.xcassets */; };
 		87DC85271E34BA4B0068555D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87DC85251E34BA4B0068555D /* LaunchScreen.storyboard */; };
+		87FACC351E449400005B6F67 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FACC341E449400005B6F67 /* Circle.swift */; };
 		F2B4F48959F70FA4D552ED6D /* Pods_Phi6_Alpha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F65B8EB1411AF96B6EE6A9 /* Pods_Phi6_Alpha.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +100,7 @@
 		87DC85231E34BA4B0068555D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87DC85261E34BA4B0068555D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87DC85281E34BA4B0068555D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87FACC341E449400005B6F67 /* Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 		94F65B8EB1411AF96B6EE6A9 /* Pods_Phi6_Alpha.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Phi6_Alpha.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEB1B75A34ACEC9819393C8 /* Pods-Phi6 Alpha.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phi6 Alpha.release.xcconfig"; path = "Pods/Target Support Files/Pods-Phi6 Alpha/Pods-Phi6 Alpha.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -176,6 +178,7 @@
 				87283ABB1E43325100FDEE95 /* Obstacle.swift */,
 				8731F2BF1E40D6FE002C5253 /* SimpleObject.swift */,
 				8731F2BD1E40D6FE002C5253 /* Rectangle.swift */,
+				87FACC341E449400005B6F67 /* Circle.swift */,
 				8731F2C11E40D6FE002C5253 /* Triangle.swift */,
 			);
 			name = SimpleObject;
@@ -403,6 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87FACC351E449400005B6F67 /* Circle.swift in Sources */,
 				8731F2CA1E40D6FE002C5253 /* NotGate.swift in Sources */,
 				8731F2D11E40D6FE002C5253 /* Triangle.swift in Sources */,
 				8731F2C21E40D6FE002C5253 /* AndGate.swift in Sources */,
