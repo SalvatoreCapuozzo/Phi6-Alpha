@@ -252,6 +252,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             var path = UIBezierPath.arrow(from: start, to: end,
                                           tailWidth: 2.0, headWidth: 7.0, headLength: 7.0)
             
+            print(phisphere.physicsBody?.velocity.dx)
+            print(phisphere.physicsBody?.velocity.dy)
+            print("-----------------------")
             
             /*var path = UIBezierPath()
              path.move(to: CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2)))
@@ -265,7 +268,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             self.view?.layer.addSublayer(shapeLayer)
             
-            if (phisphere.physicsBody?.velocity.dx)! < CGFloat(0.1) && (phisphere.physicsBody?.velocity.dy)! < CGFloat(0.1){
+            if abs(Double((phisphere.physicsBody?.velocity.dx)!)) < 0.1 &&  abs(Double((phisphere.physicsBody?.velocity.dy)!)) < 0.1{
                 shapeLayer.removeFromSuperlayer()
             }
         }
