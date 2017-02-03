@@ -11,6 +11,36 @@ import GameplayKit
 import CircularSlider
 import MTCircularSlider
 
+extension UIBezierPath {
+    
+    class func arrow(from start: CGPoint, to end: CGPoint, tailWidth: CGFloat, headWidth: CGFloat, headLength: CGFloat) -> Self {
+        let length = hypot(end.x - start.x, end.y - start.y)
+        let tailLength = length - headLength
+        
+        func p(_ x: CGFloat, _ y: CGFloat) -> CGPoint { return CGPoint(x: x, y: y) }
+        var points: [CGPoint] = [
+            p(0, tailWidth / 2),
+            p(tailLength, tailWidth / 2),
+            p(tailLength, headWidth / 2),
+            p(length, 0),
+            p(tailLength, -headWidth / 2),
+            p(tailLength, -tailWidth / 2),
+            p(0, -tailWidth / 2)
+        ]
+        
+        let cosine = (end.x - start.x) / length
+        let sine = (end.y - start.y) / length
+        var transform = CGAffineTransform(a: cosine, b: sine, c: -sine, d: cosine, tx: start.x, ty: start.y)
+        
+        let path = CGMutablePath()
+        path.addLines(between: points, transform: transform)
+        //CGPathAddLines(path, &transform, &points, points.count)
+        path.closeSubpath()
+        
+        return self.init(cgPath: path)
+    }
+}
+
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var phisphere: SKSpriteNode!
@@ -21,8 +51,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         SKSpriteNode>
     
     var rotateRec = UIRotationGestureRecognizer()
-    
-    
     
     let triangleTexture = SKTexture(imageNamed: "Triangle")
 
@@ -216,10 +244,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 object.physicsBody?.affectedByGravity = false
             }
             
-            // Costruzione del vettore velocità
-            var path = UIBezierPath()
-            path.move(to: CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2)))
-            path.addLine(to: CGPoint(x: phisphere.position.x + (self.frame.size.width / 2) + (phisphere.physicsBody?.velocity.dx)!/5, y: -phisphere.position.y + (self.frame.size.height / 2) - (phisphere.physicsBody?.velocity.dy)!/5))
+            // Vettore velocità
+            var start = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2))
+            
+            var end = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2) + (phisphere.physicsBody?.velocity.dx)!/5, y: -phisphere.position.y + (self.frame.size.height / 2) - (phisphere.physicsBody?.velocity.dy)!/5)
+            
+            var path = UIBezierPath.arrow(from: start, to: end,
+                                          tailWidth: 2.0, headWidth: 7.0, headLength: 7.0)
+            
+            
+            /*var path = UIBezierPath()
+             path.move(to: CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2)))
+             path.addLine(to: CGPoint(x: phisphere.position.x + (self.frame.size.width / 2) + (phisphere.physicsBody?.velocity.dx)!/5, y: -phisphere.position.y + (self.frame.size.height / 2) - (phisphere.physicsBody?.velocity.dy)!/5))*/
             
             // Inserimento nel layer
             
@@ -229,15 +265,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             self.view?.layer.addSublayer(shapeLayer)
             
-            /*
-            var path = UIBezierPath()
-            path.move(to: phisphere.position)
-            path.addLine(to: CGPoint(x: phisphere.position.x + 10, y: phisphere.position.y + 10))
-            path.close()
-            UIColor.blue.set()
-            path.stroke()
-            path.fill()
-            */
+            if (phisphere.physicsBody?.velocity.dx)! < CGFloat(0.1) && (phisphere.physicsBody?.velocity.dy)! < CGFloat(0.1){
+                shapeLayer.removeFromSuperlayer()
+            }
         }
     }
     
