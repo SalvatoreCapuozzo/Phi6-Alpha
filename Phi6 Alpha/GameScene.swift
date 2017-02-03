@@ -73,6 +73,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //    let phisphereCategory: UInt32 = 0x1 << 0
 //    let sensorCategory: UInt32 = 0x1 << 1
     
+    var counter = 0.0
+    var timer = Timer()
+    
     override func didMove(to view: SKView) {
         
         physicsWorld.contactDelegate = self
@@ -241,7 +244,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     object.physicsBody?.collisionBitMask = 1
                 }
             }
-            
+            //timer.invalidate()
+            //timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+            print(counter)
+            // print(phisphere.physicsBody?.velocity.dy)
             // Vettore velocità
             var start = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2))
             
@@ -351,6 +357,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print(sprite.xScale)
         Singleton.shared.addNewObject(anObject: sprite)
         self.addChild(sprite)
+        arrayOfSensors.append(sprite)
         
         if sprite.name == nil {
             sprite.name = "sensor"// + String(number)
@@ -668,6 +675,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if ((firstBody.categoryBitMask & PhysicsCategory.Phisphere != 0) &&
             (secondBody.categoryBitMask & PhysicsCategory.Sensor != 0)) {
             if secondBody.node?.name! == "speedCamera" {
+                //timer.invalidate()
                 if let phisphereNode = firstBody.node as? SKSpriteNode, let
                     Sensor = secondBody.node as? SpeedCamera {
                     let velocity = sqrt(pow((phisphereNode.physicsBody?.velocity.dx)!, 2) + pow((phisphereNode.physicsBody?.velocity.dy)!, 2))
@@ -696,5 +704,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         arrayOfLabelSensors.append(myLabel)
         self.view?.addSubview(myLabel)
+    }
+    
+    func timerAction() {
+        counter += 0.1
+        counter = round(counter * 10) / 10
     }
 }
