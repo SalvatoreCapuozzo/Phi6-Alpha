@@ -113,6 +113,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         Singleton.shared.createSensorList()
         Singleton.shared.fillList()
         
+        
         /*for object in Singleton.shared.objects {
             self.addChild(object as! SKNode)
         }*/
@@ -199,13 +200,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
     }
-    
+    var shapeLayer = CAShapeLayer()
     override func update(_ currentTime: TimeInterval) {
         if !pause {
             phisphere.physicsBody?.affectedByGravity = true
             for object in Singleton.shared.objects {
                 object.physicsBody?.affectedByGravity = false
             }
+            
+            // Costruzione del vettore velocità
+            var path = UIBezierPath()
+            path.move(to: CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2)))
+            path.addLine(to: CGPoint(x: phisphere.position.x + (self.frame.size.width / 2) + (phisphere.physicsBody?.velocity.dx)!/5, y: -phisphere.position.y + (self.frame.size.height / 2) - (phisphere.physicsBody?.velocity.dy)!/5))
+            
+            // Inserimento nel layer
+            
+            shapeLayer.path = path.cgPath
+            shapeLayer.strokeColor = UIColor.blue.cgColor
+            shapeLayer.lineWidth = 4.0
+            
+            self.view?.layer.addSublayer(shapeLayer)
+            
+            /*
+            var path = UIBezierPath()
+            path.move(to: phisphere.position)
+            path.addLine(to: CGPoint(x: phisphere.position.x + 10, y: phisphere.position.y + 10))
+            path.close()
+            UIColor.blue.set()
+            path.stroke()
+            path.fill()
+            */
         }
     }
     
@@ -237,6 +261,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         phisphere.xScale = pausePhiScale
         phisphere.yScale = pausePhiScale
         phisphere.physicsBody?.mass = pauseMass
+        
+        shapeLayer.removeFromSuperlayer()
         
     }
     
@@ -333,8 +359,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         deleteSliders()
         
         // Set Width Slider
-        mySlider = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 100))
-        mySlider?.layer.position = CGPoint(x: (self.view?.frame.width)!/4 - ((mySlider?.frame.width)!/8) , y: 250)
+        mySlider = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
+        mySlider?.layer.position = CGPoint(x: (self.view?.frame.width)!/4 - ((mySlider?.frame.width)!/8) , y: (self.view?.frame.height)!-45)
         mySlider?.backgroundColor = UIColor.clear
         mySlider?.layer.cornerRadius = 15.0
         mySlider?.layer.shadowOpacity = 0.5
@@ -344,8 +370,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         mySlider?.value = Float(node.size.width)
         
         // Set Height Slider
-        sliderHeight = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 100))
-        sliderHeight?.layer.position = CGPoint(x: (self.view?.frame.width)!/4 - ((mySlider?.frame.width)!/8) , y: 300)
+        sliderHeight = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
+        sliderHeight?.layer.position = CGPoint(x: (self.view?.frame.width)!/4 - ((mySlider?.frame.width)!/8) , y: (self.view?.frame.height)!-15)
         sliderHeight?.backgroundColor = UIColor.clear
         sliderHeight?.layer.cornerRadius = 15.0
         sliderHeight?.layer.shadowOpacity = 0.5
@@ -382,8 +408,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         sliderRotation?.setValue(0, animated: false)
         */
         // Set Rotation Slider
-        sliderRotationLine = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 100))
-        sliderRotationLine?.layer.position = CGPoint(x: (self.view?.frame.width)!/2 + ((mySlider?.frame.width)!/2) , y: 250)
+        sliderRotationLine = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
+        sliderRotationLine?.layer.position = CGPoint(x: (self.view?.frame.width)!/2 + ((mySlider?.frame.width)!/2) , y: (self.view?.frame.height)!-15)
         sliderRotationLine?.backgroundColor = UIColor.clear
         sliderRotationLine?.layer.cornerRadius = 15.0
         sliderRotationLine?.layer.shadowOpacity = 0.5
@@ -394,7 +420,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Set Width Label
         myLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        myLabel.layer.position = CGPoint(x: (self.view?.frame.width)!/4 + ((mySlider?.frame.width)!/1.2), y: 250)
+        myLabel.layer.position = CGPoint(x: (self.view?.frame.width)!/4 + ((mySlider?.frame.width)!/1.2), y: (self.view?.frame.height)!-45)
         myLabel.textColor! = UIColor.black
         myLabel?.text = String(describing: round(mySlider.value*10)/10) + " m"
         if let label = myLabel.text {
@@ -403,7 +429,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Set Height Label
         labelHeight = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        labelHeight.layer.position = CGPoint(x: (self.view?.frame.width)!/4 + ((mySlider?.frame.width)!/1.2), y: 300)
+        labelHeight.layer.position = CGPoint(x: (self.view?.frame.width)!/4 + ((mySlider?.frame.width)!/1.2), y: (self.view?.frame.height)!-15)
         labelHeight.textColor! = UIColor.black
         labelHeight?.text = String(describing: round(sliderHeight.value*10)/10) + " m"
         if let label = labelHeight.text {
@@ -412,7 +438,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Set Rotation Label
         labelRotation = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        labelRotation.layer.position = CGPoint(x: (self.view?.frame.width)!/2 + ((mySlider?.frame.width)!*1.5), y: 250)
+        labelRotation.layer.position = CGPoint(x: (self.view?.frame.width)!/2 + ((mySlider?.frame.width)!*1.5), y: (self.view?.frame.height)!-15)
         labelRotation.textColor! = UIColor.black
         labelRotation?.text = String(describing: round(sliderRotationLine.value*10)/10) + "°"
         if let label = labelRotation.text {
