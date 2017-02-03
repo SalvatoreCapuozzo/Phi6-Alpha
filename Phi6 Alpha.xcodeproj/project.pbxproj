@@ -15,7 +15,6 @@
 		87283ABD1E43325100FDEE95 /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87283ABB1E43325100FDEE95 /* Obstacle.swift */; };
 		8731F2C21E40D6FE002C5253 /* AndGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8731F2B21E40D6FE002C5253 /* AndGate.swift */; };
 		8731F2C31E40D6FE002C5253 /* Chronometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8731F2B31E40D6FE002C5253 /* Chronometer.swift */; };
-		8731F2C41E40D6FE002C5253 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8731F2B41E40D6FE002C5253 /* Circle.swift */; };
 		8731F2C51E40D6FE002C5253 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8731F2B51E40D6FE002C5253 /* GameObject.swift */; };
 		8731F2C61E40D6FE002C5253 /* LaserAccelerometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8731F2B61E40D6FE002C5253 /* LaserAccelerometer.swift */; };
 		8731F2C71E40D6FE002C5253 /* LaserRangefinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8731F2B71E40D6FE002C5253 /* LaserRangefinder.swift */; };
@@ -63,7 +62,6 @@
 		87283ABB1E43325100FDEE95 /* Obstacle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Obstacle.swift; sourceTree = "<group>"; };
 		8731F2B21E40D6FE002C5253 /* AndGate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AndGate.swift; path = "Phi6 Alpha/AndGate.swift"; sourceTree = SOURCE_ROOT; };
 		8731F2B31E40D6FE002C5253 /* Chronometer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Chronometer.swift; path = "Phi6 Alpha/Chronometer.swift"; sourceTree = SOURCE_ROOT; };
-		8731F2B41E40D6FE002C5253 /* Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Circle.swift; path = "Phi6 Alpha/Circle.swift"; sourceTree = SOURCE_ROOT; };
 		8731F2B51E40D6FE002C5253 /* GameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameObject.swift; path = "Phi6 Alpha/GameObject.swift"; sourceTree = SOURCE_ROOT; };
 		8731F2B61E40D6FE002C5253 /* LaserAccelerometer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaserAccelerometer.swift; path = "Phi6 Alpha/LaserAccelerometer.swift"; sourceTree = SOURCE_ROOT; };
 		8731F2B71E40D6FE002C5253 /* LaserRangefinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaserRangefinder.swift; path = "Phi6 Alpha/LaserRangefinder.swift"; sourceTree = SOURCE_ROOT; };
@@ -178,7 +176,6 @@
 				87283ABB1E43325100FDEE95 /* Obstacle.swift */,
 				8731F2BF1E40D6FE002C5253 /* SimpleObject.swift */,
 				8731F2BD1E40D6FE002C5253 /* Rectangle.swift */,
-				8731F2B41E40D6FE002C5253 /* Circle.swift */,
 				8731F2C11E40D6FE002C5253 /* Triangle.swift */,
 			);
 			name = SimpleObject;
@@ -436,7 +433,6 @@
 				8731F2D81E40DD5C002C5253 /* CarusiellViewController.swift in Sources */,
 				87DC85171E34BA4B0068555D /* AppDelegate.swift in Sources */,
 				8731F2F21E40E2D1002C5253 /* RBBLinearInterpolation.swift in Sources */,
-				8731F2C41E40D6FE002C5253 /* Circle.swift in Sources */,
 				8731F2CB1E40D6FE002C5253 /* OrGate.swift in Sources */,
 				8731F2C31E40D6FE002C5253 /* Chronometer.swift in Sources */,
 				8715F6081E368279001E2DEA /* ObjectTableViewCell.swift in Sources */,

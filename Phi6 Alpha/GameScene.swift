@@ -31,12 +31,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var pausePosition: CGPoint!
     var pauseDiameter: CGFloat!
     var pauseMass: CGFloat!
-    var pauseTriangleWidth: CGFloat!
-    var pauseTriangleHeight: CGFloat!
-    var pauseTrianglePos: CGPoint!
-    var pauseBlockWidth: CGFloat!
-    var pauseBlockHeight: CGFloat!
-    var pauseBlockPos: CGPoint!
+    
     var pauseScale: CGFloat!
     var pauseYScale: CGFloat!
     var pausePhiScale: CGFloat!
@@ -331,18 +326,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         sprite.physicsBody?.affectedByGravity = false
         sprite.physicsBody?.isDynamic = false
         sprite.physicsBody?.usesPreciseCollisionDetection = true
-        /*
-        sprite.xScale = 0.1
-        repeat {
-            sprite.xScale += 0.001
-        } while (sprite.size.width < 50)
-        //sprite.size.width = 54.4
-        sprite.yScale = 0.1
-        repeat {
-            sprite.yScale += 0.001
-        } while (sprite.size.height < 50)
-        //sprite.size.height = 54.4
- */
+        
         sprite.size.width = objectWidth
         sprite.size.height = objectHeight
         sprite.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -objectWidth/2, y: -objectHeight/2, width: objectWidth, height: objectHeight))
@@ -362,16 +346,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         sprite.physicsBody?.affectedByGravity = false
         sprite.physicsBody?.isDynamic = false
         sprite.physicsBody?.usesPreciseCollisionDetection = true
-        /*
-        sprite.xScale = 0.1
-        repeat {
-            sprite.xScale += 0.001
-        } while (sprite.size.width < 50)
-        sprite.yScale = 0.1
-        repeat {
-            sprite.yScale += 0.001
-        } while (sprite.size.height < 50)
- */
+        
         sprite.size.width = objectWidth
         sprite.size.height = objectWidth
         sprite.physicsBody = SKPhysicsBody(circleOfRadius: objectWidth/2)
@@ -412,34 +387,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         sliderHeight?.maximumValue = 300
         sliderHeight?.minimumValue = 0.2
         sliderHeight?.value = Float(node.size.height)
-        /*
-        // Set Rotation Slider
-        //sliderRotation = MTCircularSlider.init()
-        sliderRotation = CircularSlider(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        sliderRotation?.layer.position = CGPoint(x: 400 , y: 300)
-        sliderRotation?.backgroundColor = UIColor.clear
-        sliderRotation?.bgColor = UIColor.lightGray
-        sliderRotation?.pgHighlightedColor = UIColor.blue
         
-        sliderRotation.layer.cornerRadius = 15.0
-        sliderRotation?.layer.shadowOpacity = 0.5
-        sliderRotation?.layer.masksToBounds = false
-        /*
-        var attributes = [
-            Attributes.trackMinAngle(0),
-            Attributes.trackMaxAngle(359.9),
-            Attributes.trackWidth(200)
-        ]
- */
-        //sliderRotation?.configure(attributes)
-        sliderRotation?.maximumValue = 360
-        sliderRotation?.minimumValue = 0
-        sliderRotation?.title = ""
-        sliderRotation?.divisa = ""
-        sliderRotation?.hideLabels = true
-        sliderRotation?.fractionDigits = 1
-        sliderRotation?.setValue(0, animated: false)
-        */
         // Set Rotation Slider
         sliderRotationLine = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
         sliderRotationLine?.layer.position = CGPoint(x: (self.view?.frame.width)!/2 + ((mySlider?.frame.width)!/2) , y: (self.view?.frame.height)!-15)
