@@ -305,7 +305,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let sprite = PhotoCell.photoCell(location: CGPoint(x: self.frame.maxX/2, y: self.frame.maxY/2))
         sprite.physicsBody?.affectedByGravity = false
         sprite.physicsBody?.isDynamic = false
-        sprite.physicsBody?.usesPreciseCollisionDetection = true
+        sprite.zPosition = 0
         
         sprite.size.width = objectWidth
         sprite.size.height = objectHeight
@@ -504,19 +504,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print("Set width to " + myNode.name!)
         removeChildren(in: [myNode])
         
-        if (myNode.name! == "triangle") {
-            print(myNode.xScale)
-            myNode.xScale = CGFloat((mySlider?.value)!)/pauseTriangleWidth
-        } else if (myNode.name! == "block") {
-            print("MySlider: " + String(describing: mySlider.value))
-            print(pauseBlockWidth)
-            print("xScale: " + String(describing: myNode.xScale))
-            print("Actual value / Default value")
-            print(CGFloat(mySlider.value) / pauseBlockWidth)
-            print("slider.val\(mySlider.value)")
-            myNode.xScale = pauseXScale * CGFloat(mySlider.value) / pauseBlockWidth
-            print("New width: " + String(describing: myNode.size.width))
-        } else if (myNode.name! == "object") {
+        if (myNode.name! == "object") {
             
             //myNode.xScale = 0.2 * CGFloat(mySlider.value) / 50
             myNode.size.width = CGFloat(mySlider.value)
@@ -545,19 +533,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print("Set height to " + myNode.name!)
         removeChildren(in: [myNode])
         
-        if (myNode.name! == "triangle") {
-            print(myNode.yScale)
-            myNode.yScale = CGFloat((sliderHeight?.value)!)/pauseTriangleHeight
-        } else if (myNode.name! == "block") {
-            print("MySlider: " + String(describing: sliderHeight.value))
-            print(pauseBlockHeight)
-            print("yScale: " + String(describing: myNode.yScale))
-            print("Actual value / Default value")
-            print(CGFloat(sliderHeight.value) / pauseBlockHeight)
-            print("slider.val\(sliderHeight.value)")
-            myNode.yScale = pauseXScale * CGFloat(sliderHeight.value) / pauseBlockHeight
-            print("New height: " + String(describing: myNode.size.height))
-        } else if (myNode.name! == "object") {
+        if (myNode.name! == "object") {
             
             //myNode.yScale = 0.2 * CGFloat(sliderHeight.value) / 50
             myNode.size.height = CGFloat(sliderHeight.value)
