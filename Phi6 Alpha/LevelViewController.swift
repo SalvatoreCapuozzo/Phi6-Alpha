@@ -12,6 +12,7 @@ private let reuseIdentifier = "Cell"
 
 class LevelViewController: UICollectionViewController {
 
+    var type: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +51,23 @@ class LevelViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 20
+        
+        var numberOfLevelsPerCategory: Int
+        
+        switch type!{
+            case 0:
+                numberOfLevelsPerCategory = 2
+            case 1:
+                numberOfLevelsPerCategory = 5
+            case 2:
+                numberOfLevelsPerCategory = 7
+            case 3:
+                numberOfLevelsPerCategory = 22
+            default:
+                numberOfLevelsPerCategory = 0
+        }
+        
+        return numberOfLevelsPerCategory
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

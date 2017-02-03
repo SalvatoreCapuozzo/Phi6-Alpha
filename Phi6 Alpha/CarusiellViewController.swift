@@ -45,9 +45,6 @@ class CarusiellViewController: UIViewController, iCarouselDataSource, iCarouselD
         } else {
             imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: CategoryView.frame.width - 160, height: CategoryView.frame.height))
         }
-        
-        
-        
         imageView.image = UIImage(named: "question")
         imageView.contentMode = .scaleAspectFit
         
@@ -66,6 +63,7 @@ class CarusiellViewController: UIViewController, iCarouselDataSource, iCarouselD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "levelSegue" {
             let livelli = segue.destination as! LevelViewController
+            livelli.type = selectedIndex
             print(selectedIndex)
             
         } else {}
