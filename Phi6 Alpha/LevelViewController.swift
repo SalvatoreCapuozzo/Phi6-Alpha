@@ -13,6 +13,7 @@ private let reuseIdentifier = "Cell"
 class LevelViewController: UICollectionViewController {
 
     var type: Int?
+    var levelNumberSelected: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,10 +74,27 @@ class LevelViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "level", for: indexPath)
         
-    
         // Configure the cell
     
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.levelNumberSelected = indexPath.row
+        print("in didSelectItemAt: \(self.levelNumberSelected!)")
+        self.performSegue(withIdentifier: "levelSelection", sender: self)
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        return false
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "levelSelection" {
+            let test = segue.destination as! GameViewController
+            test.levelNumber = levelNumberSelected
+        }
     }
 
     // MARK: UICollectionViewDelegate

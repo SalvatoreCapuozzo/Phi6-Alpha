@@ -56,17 +56,16 @@ class CarusiellViewController: UIViewController, iCarouselDataSource, iCarouselD
     }
     
     func carousel(_ carousel: iCarousel, didSelectItemAt index: Int) {
-        selectedIndex = index
+        self.selectedIndex = index
         self.performSegue(withIdentifier: "levelSegue", sender: carousel)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "levelSegue" {
             let livelli = segue.destination as! LevelViewController
-            livelli.type = selectedIndex
-            print(selectedIndex)
-            
-        } else {}
+            livelli.type = self.selectedIndex
+            print("mannacc a maronn \(self.selectedIndex)")
+        }
         
     }
 

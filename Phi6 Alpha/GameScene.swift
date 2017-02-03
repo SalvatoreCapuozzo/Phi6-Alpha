@@ -20,9 +20,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var arrayTriangle: Array<SKSpriteNode> = Array<Any>(repeating: SKSpriteNode(), count: 100) as! Array<
         SKSpriteNode>
     
-    let rotateRec = UIRotationGestureRecognizer
-    
-    
+//    let rotateRec = UIRotationGestureRecognizer
     
     let triangleTexture = SKTexture(imageNamed: "Triangle")
 
@@ -73,6 +71,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var objectHeight: CGFloat! = 50
     
     var firstScene: SKView? = nil
+    var levelSelected: String?
     
     override func didMove(to view: SKView) {
         /*
@@ -107,8 +106,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         */
         
-        rotateRec = UIRotationGestureRecognizer(target: self, action: #selector(rotated))
-        self.view?.addGestureRecognizer(rotateRec)
+//        rotateRec = UIRotationGestureRecognizer(target: self, action: #selector(rotated))
+//        self.view?.addGestureRecognizer(rotateRec)
         
         phisphere = childNode(withName: "phisphere") as! SKSpriteNode
         physicsBody = SKPhysicsBody(edgeLoopFrom: frame)

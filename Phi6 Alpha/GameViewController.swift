@@ -28,6 +28,8 @@ class GameViewController: UIViewController {
     
     var selectedNode: SKSpriteNode!
     var myNode: SKSpriteNode!
+    
+    var levelNumber: Int?
     // Da inserire programmaticamente come menù degli oggetti
     /* 
      Gli oggetti del menù sono:
@@ -41,13 +43,17 @@ class GameViewController: UIViewController {
      */
     
     override func viewDidLoad() {
+
         super.viewDidLoad()
+        
+//        print("level number: \(levelNumber!)")
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
             if let scene = GameScene(fileNamed: "GameScene") {
                 // Set the scale mode to scale to fit the window
                 self.scene = scene
+                scene.levelSelected = String(describing: self.levelNumber)
                 scene.scaleMode = .aspectFill
                 
                 // Present the scene
@@ -155,5 +161,4 @@ class GameViewController: UIViewController {
     @IBAction func deleteSwitch(_ sender: Any) {
         scene.deleteSwitch()
     }
-    
 }

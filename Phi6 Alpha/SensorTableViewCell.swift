@@ -18,7 +18,7 @@ class SensorTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         Singleton.shared.selectedPath = sensorPath
-        print(Singleton.shared.selectedPath)
+        print("Singleton.shared.selectedPath: \(Singleton.shared.selectedPath)")
 
         // Configure the view for the selected state
     }
