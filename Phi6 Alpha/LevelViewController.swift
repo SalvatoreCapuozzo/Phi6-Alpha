@@ -94,6 +94,7 @@ class LevelViewController: UICollectionViewController {
         if segue.identifier == "levelSelection" {
             let test = segue.destination as! GameViewController
             test.levelNumber = levelNumberSelected
+            print("ciao")
         }
     }
 
