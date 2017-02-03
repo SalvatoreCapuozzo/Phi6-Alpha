@@ -20,7 +20,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var arrayTriangle: Array<SKSpriteNode> = Array<Any>(repeating: SKSpriteNode(), count: 100) as! Array<
         SKSpriteNode>
     
-    let rotateRec = UIRotationGestureRecognizer
+    var rotateRec = UIRotationGestureRecognizer()
     
     
     
@@ -137,6 +137,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             default: print("Oops, something went wrong")
             }
         }
+        
+    }
+    
+    func rotated(sender: UIRotationGestureRecognizer) {
         
     }
 
