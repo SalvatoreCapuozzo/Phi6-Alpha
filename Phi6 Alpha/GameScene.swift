@@ -123,11 +123,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         phisphere.physicsBody?.categoryBitMask = PhysicsCategory.Phisphere
         phisphere.physicsBody?.contactTestBitMask = PhysicsCategory.Sensor
         
+        phisphere.physicsBody?.mass = 10
+        
         physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         pausePosition = phisphere.position
         pauseDiameter = phisphere.size.width
         pausePhiScale = phisphere.xScale
         pauseMass = phisphere.physicsBody?.mass
+        print("PauseMass: \(pauseMass)")
         
         Singleton.shared.createList()
         Singleton.shared.createSensorList()
@@ -180,6 +183,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                                 object.physicsBody?.collisionBitMask = 1
                                                 object.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
                                                 object.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
+                                            } else if object.name == "loadCell" {
+                                                object.physicsBody?.collisionBitMask = 2
                                             }
 //                                            print("Col: \(object.physicsBody?.collisionBitMask)")
                                             object.position = touchLocation
@@ -390,6 +395,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print(sprite.name!)
     }
 
+    func addLoadCell() {
+        let sprite = LoadCell.loadCell(location: CGPoint(x: self.frame.maxX/2, y: self.frame.maxY/2))
+        sprite.physicsBody?.affectedByGravity = false
+        sprite.physicsBody?.isDynamic = false
+        
+        sprite.physicsBody?.collisionBitMask = 0
+        sprite.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
+        sprite.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
+        
+        sprite.size.width = objectWidth
+        sprite.size.height = objectHeight
+        sprite.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -objectWidth/2, y: -objectHeight/2, width: objectWidth, height: objectHeight/2 + 1))
+        print(sprite.xScale)
+        Singleton.shared.addNewObject(anObject: sprite)
+        self.addChild(sprite)
+        arrayOfSensors.append(sprite)
+        
+        if sprite.name == nil {
+            sprite.name = "loadCell"// + String(number)
+            number += 1
+        }
+        print(sprite.name!)
+    }
     
     func addRectangle() {
         let sprite = Rectangle.rectangle(location: CGPoint(x: self.frame.maxX/2, y: self.frame.maxY/2))
@@ -674,15 +702,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //2
         if ((firstBody.categoryBitMask & PhysicsCategory.Phisphere != 0) &&
             (secondBody.categoryBitMask & PhysicsCategory.Sensor != 0)) {
+            print("Body: \(secondBody.node?.position.y)")
+            print("Body: \((firstBody.node?.position.y)! - ((secondBody.node?.frame.height)! / 2))")
             if secondBody.node?.name! == "speedCamera" {
                 //timer.invalidate()
                 if let phisphereNode = firstBody.node as? SKSpriteNode, let
                     Sensor = secondBody.node as? SpeedCamera {
                     let velocity = sqrt(pow((phisphereNode.physicsBody?.velocity.dx)!, 2) + pow((phisphereNode.physicsBody?.velocity.dy)!, 2))
-                        Sensor.setSpeedCameraValue(velocity)
-                        //print("Position: \(phisphereNode.position)")
-                        print(Sensor.value)
-                        setValueSpeedCamera(Sensor)
+                    Sensor.setSpeedCameraValue(velocity)
+                    //print("Position: \(phisphereNode.position)")
+                    print(Sensor.value)
+                    setValueDisplaySC(Sensor)
+                }
+            } else if (secondBody.node?.name)! == "loadCell" && (secondBody.node?.position.y)! < (firstBody.node?.position.y)! - 10 {
+                if let phisphereNode = firstBody.node as? SKSpriteNode, let Sensor = secondBody.node as? LoadCell {
+                    let force = (phisphereNode.physicsBody?.mass)! * 9.81
+                    Sensor.setLoadCellValue(force)
+                    print(Sensor.value)
+                    setValueDisplayLC(Sensor)
                 }
             }
             if let phisphere = firstBody.node as? SKSpriteNode, let
@@ -692,7 +729,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func setValueSpeedCamera(_ object: SpeedCamera) {
+    func setValueDisplaySC(_ object: SpeedCamera) {
         myLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
         myLabel.layer.position = CGPoint(x: object.position.x + (self.frame.size.width / 2) + 30, y: -object.position.y + (self.frame.size.height / 2) - 15)
         myLabel.textColor! = UIColor.green
@@ -702,6 +739,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         myLabel.font = UIFont(name: "AmericanTypewriter-Light", size: 10)
 
+        arrayOfLabelSensors.append(myLabel)
+        self.view?.addSubview(myLabel)
+    }
+    
+    func setValueDisplayLC(_ object: LoadCell) {
+        myLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        myLabel.layer.position = CGPoint(x: object.position.x + (self.frame.size.width / 2) + 30, y: -object.position.y + (self.frame.size.height / 2) + 15)
+        myLabel.textColor! = UIColor.green
+        myLabel?.text = String(describing: round(object.value*10)/10)
+        if let label = myLabel.text {
+            myLabel.text! = String(describing: round(object.value*10)/10)
+        }
+        myLabel.font = UIFont(name: "AmericanTypewriter-Light", size: 10)
+        
         arrayOfLabelSensors.append(myLabel)
         self.view?.addSubview(myLabel)
     }

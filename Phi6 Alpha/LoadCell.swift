@@ -34,6 +34,12 @@ class LoadCell : SKSpriteNode, Sensor {
         return sprite
     }
     
+    func setLoadCellValue(_ value: CGFloat) {
+        if self.value == 0 {
+            self.value = Float(value)
+        }
+    }
+    
     func unset() {
         self.value = 0
     }
