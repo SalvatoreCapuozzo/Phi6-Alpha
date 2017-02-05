@@ -773,7 +773,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
             } else if (secondBody.node?.name)! == "loadCell" && (secondBody.node?.position.y)! < (firstBody.node?.position.y)! - 10 {
                 if let phisphereNode = firstBody.node as? SKSpriteNode, let Sensor = secondBody.node as? LoadCell {
-                    let force = (phisphereNode.physicsBody?.mass)! * 9.81
+                    let force = (phisphereNode.physicsBody?.mass)! * (sqrt(pow(phisphereAccDx, 2)+pow(phisphereAccDy, 2))/150)
                     Sensor.setLoadCellValue(force)
                     print(Sensor.value)
                     setValueDisplayLC(Sensor)
