@@ -237,16 +237,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
     }
-    var shapeLayer = CAShapeLayer()
+    var shapeLayerV = CAShapeLayer()
     var shapeLayerA = CAShapeLayer()
     
     var beforeAfterPosition: [String: CGFloat] = ["final": 0, "initial": 0]
-    var beforeAfterVelocity: [String: CGFloat] = ["final": 0, "initial": 0]
+    var beforeAfterVelocityDx: [String: CGFloat] = ["final": 0, "initial": 0]
+    var beforeAfterVelocityDy: [String: CGFloat] = ["final": 0, "initial": 0] // Aggiungere dy al nome
     var beforeAfterTime: [String: TimeInterval] = ["final": 0, "initial": 0]
     var currentTime: TimeInterval! = 0.04
     var deltaTime: CGFloat! = 0.04
     var phisphereVel: CGFloat = 0
-    var phisphereAcc: CGFloat = 0
+    var phisphereAccDx: CGFloat = 0
+    var phisphereAccDy: CGFloat = 0 // Aggiungere dy al nome
     
     // Update function
     override func update(_ currentTime: TimeInterval) {
@@ -262,40 +264,70 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // print(phisphere.physicsBody?.velocity.dy)
             
             // Vettore velocità
-            let start = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2))
+            let startV = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2))
             
-            let end = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2) + (phisphere.physicsBody?.velocity.dx)!/5, y: -phisphere.position.y + (self.frame.size.height / 2) - (phisphere.physicsBody?.velocity.dy)!/5)
+            let endV = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2) + (phisphere.physicsBody?.velocity.dx)!/10, y: -phisphere.position.y + (self.frame.size.height / 2) - (phisphere.physicsBody?.velocity.dy)!/10)
             
-            let path = UIBezierPath.arrow(from: start, to: end,
-                                          tailWidth: 2.0, headWidth: 7.0, headLength: 7.0)
+            let pathV = UIBezierPath.arrow(from: startV, to: endV,
+                                          tailWidth: 2.0, headWidth: 5.0, headLength: 5.0)
             
-            // Vettore accelerazione (solo y)
+            // Vettore accelerazione (Alla faccia tua, SpriteKit di merda!!!)
+            /*
+             ________________$$$$
+             ______________$$____$$
+             ______________$$____$$
+             ______________$$____$$
+             ______________$$____$$
+             ______________$$____$$
+             __________$$$$$$____$$$$$$
+             ________$$____$$____$$____$$$$
+             ________$$____$$____$$____$$__$$
+             $$$$$$__$$____$$____$$____$$____$$
+             $$____$$$$________________$$____$$
+             $$______$$______________________$$
+             __$$____$$______________________$$
+             ___$$$__$$______________________$$
+             ____$$__________________________$$
+             _____$$$________________________$$
+             ______$$______________________$$$
+             _______$$$____________________$$
+             ________$$____________________$$
+             _________$$$________________$$$
+             __________$$________________$$
+             __________$$$$$$$$$$$$$$$$$$$$
+            */
             let startA = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2))
             
             //var endG = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2) + 9.81*5)
             
-            let endA = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2) + phisphereAcc/25)
+            let endA = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2) + phisphereAccDx/10, y: -phisphere.position.y + (self.frame.size.height / 2) - phisphereAccDy/10)
             
             let pathA = UIBezierPath.arrow(from: startA, to: endA,
-                                          tailWidth: 2.0, headWidth: 7.0, headLength: 7.0)
+                                          tailWidth: 2.0, headWidth: 5.0, headLength: 5.0)
             
             // Inserimento nel layer
             
-            shapeLayer.path = path.cgPath
-            shapeLayer.strokeColor = UIColor.green.cgColor
-            shapeLayer.lineWidth = 4.0
+            shapeLayerV.path = pathV.cgPath
+            shapeLayerV.strokeColor = UIColor.green.cgColor
+            shapeLayerV.lineWidth = 2.0
             
             shapeLayerA.path = pathA.cgPath
             shapeLayerA.strokeColor = UIColor.red.cgColor
-            shapeLayerA.lineWidth = 4.0
+            shapeLayerA.lineWidth = 2.0
             
-            self.view?.layer.addSublayer(shapeLayer)
+            self.view?.layer.addSublayer(shapeLayerV)
             self.view?.layer.addSublayer(shapeLayerA)
             
             // Cancello il vettore quando la velocita è zero
             
             if abs(Double((phisphere.physicsBody?.velocity.dx)!)) < 0.1 &&  abs(Double((phisphere.physicsBody?.velocity.dy)!)) < 0.1{
-                shapeLayer.removeFromSuperlayer()
+                shapeLayerV.removeFromSuperlayer()
+            }
+            
+            // Cancello il vettore quando l'accelerazione è zero
+            
+            if abs(Double(phisphereAccDx)) < 0.1 &&  abs(Double(phisphereAccDy)) < 0.1{
+                shapeLayerA.removeFromSuperlayer()
             }
             
         }
@@ -330,7 +362,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         phisphere.yScale = pausePhiScale
         phisphere.physicsBody?.mass = pauseMass
         
-        shapeLayer.removeFromSuperlayer()
+        shapeLayerV.removeFromSuperlayer()
         shapeLayerA.removeFromSuperlayer()
         
         if arrayOfLabelSensors.count >= 0 {

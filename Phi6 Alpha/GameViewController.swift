@@ -200,14 +200,17 @@ class GameViewController: UIViewController {
         //print("----------")
         
         // The old final velocity becomes the new initial velocity
-        scene.beforeAfterVelocity["initial"] = scene.beforeAfterVelocity["final"]
+        scene.beforeAfterVelocityDx["initial"] = scene.beforeAfterVelocityDx["final"]
+        scene.beforeAfterVelocityDy["initial"] = scene.beforeAfterVelocityDy["final"]
         // The new final velocity is the current velocity of the phisphere
-        scene.beforeAfterVelocity["final"] = scene.phisphere.physicsBody?.velocity.dy
+        scene.beforeAfterVelocityDx["final"] = scene.phisphere.physicsBody?.velocity.dx
+        scene.beforeAfterVelocityDy["final"] = scene.phisphere.physicsBody?.velocity.dy
         
         // Definition of derivative
-        scene.phisphereAcc = CGFloat((abs(scene.beforeAfterVelocity["final"]!) - abs(scene.beforeAfterVelocity["initial"]!)) / (scene.deltaTime))
-        print("--Programmatic acceleration: \(round(scene.phisphereAcc*1000)/1000)")
-        print("----------")
+        scene.phisphereAccDx = CGFloat(((scene.beforeAfterVelocityDx["final"]!) - (scene.beforeAfterVelocityDx["initial"]!)) / (scene.deltaTime))
+        scene.phisphereAccDy = CGFloat(((scene.beforeAfterVelocityDy["final"]!) - (scene.beforeAfterVelocityDy["initial"]!)) / (scene.deltaTime))
+        //print("--Programmatic acceleration: \(round(scene.phisphereAcc*1000)/1000)")
+        //print("----------")
         
 
     }
