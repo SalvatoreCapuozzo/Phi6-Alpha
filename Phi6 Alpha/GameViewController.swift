@@ -109,8 +109,16 @@ class GameViewController: UIViewController {
         if scene.isStopped() {
             scene.play()
             pauseButton?.setTitle("Reset", for: UIControlState(rawValue: 0))
+            scene.timer.invalidate()
+            if scene.deltaTime == 0 {
+                scene.timer = Timer.scheduledTimer(timeInterval: 0.04, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+            } else {
+                scene.timer = Timer.scheduledTimer(timeInterval: TimeInterval(scene.deltaTime), target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+            }
         } else {
             scene.stop()
+            scene.timer.invalidate()
+            scene.counter = 0
             pauseButton?.setTitle("Play", for: UIControlState(rawValue: 0))
             diameterSlider.value = Float(scene.pauseDiameter)
             diameterLabel.text! = String(describing: round(scene.pauseDiameter*10)/10)
@@ -167,5 +175,40 @@ class GameViewController: UIViewController {
     
     @IBAction func deleteSwitch(_ sender: Any) {
         scene.deleteSwitch()
+    }
+    
+    func timerAction() {
+        scene.counter += 1
+        scene.counter = round(scene.counter * 1000) / 1000
+        //print("Running time: \(scene.counter)")
+        if scene.beforeAfterPosition["final"] == 0 {
+            scene.beforeAfterPosition["final"] = scene.phisphere.position.y
+        }
+         scene.beforeAfterPosition["initial"] = scene.beforeAfterPosition["final"]
+         scene.beforeAfterPosition["final"] = scene.phisphere.position.y
+         
+        
+         scene.beforeAfterTime["initial"] = scene.beforeAfterTime["final"]
+         scene.beforeAfterTime["final"] = scene.currentTime
+        scene.deltaTime = CGFloat(scene.beforeAfterTime["final"]! - scene.beforeAfterTime["initial"]!)
+         print("--DeltaTime: \((scene.deltaTime)!)")
+        
+         
+         scene.phisphereVel = CGFloat((scene.beforeAfterPosition["final"]! - scene.beforeAfterPosition["initial"]!) / (scene.deltaTime))
+        //print("--Programmatic velocity: \(round(scene.phisphereVel*10)/10)")
+        //print("--SpriteKit velocity: \(round((scene.phisphere.physicsBody?.velocity.dy)!*10)/10)")
+        //print("----------")
+        
+        // The old final velocity becomes the new initial velocity
+        scene.beforeAfterVelocity["initial"] = scene.beforeAfterVelocity["final"]
+        // The new final velocity is the current velocity of the phisphere
+        scene.beforeAfterVelocity["final"] = scene.phisphere.physicsBody?.velocity.dy
+        
+        // Definition of derivative
+        scene.phisphereAcc = CGFloat((abs(scene.beforeAfterVelocity["final"]!) - abs(scene.beforeAfterVelocity["initial"]!)) / (scene.deltaTime))
+        print("--Programmatic acceleration: \(round(scene.phisphereAcc*1000)/1000)")
+        print("----------")
+        
+
     }
 }

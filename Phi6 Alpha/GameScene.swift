@@ -238,11 +238,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     var shapeLayer = CAShapeLayer()
-    var shapeLayerG = CAShapeLayer()
+    var shapeLayerA = CAShapeLayer()
     
     var beforeAfterPosition: [String: CGFloat] = ["final": 0, "initial": 0]
     var beforeAfterVelocity: [String: CGFloat] = ["final": 0, "initial": 0]
     var beforeAfterTime: [String: TimeInterval] = ["final": 0, "initial": 0]
+    var currentTime: TimeInterval! = 0.04
+    var deltaTime: CGFloat! = 0.04
     var phisphereVel: CGFloat = 0
     var phisphereAcc: CGFloat = 0
     
@@ -256,43 +258,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     object.physicsBody?.collisionBitMask = 1
                 }
             }
-            /*
-            beforeAfterPosition["initial"] = beforeAfterPosition["final"]
-            beforeAfterPosition["final"] = phisphere.position.y
-            print("Programmatic velocity: \(phisphereVel)")
-            
-            beforeAfterTime["initial"] = beforeAfterTime["final"]
-            beforeAfterTime["final"] = currentTime
-            print(CGFloat(beforeAfterTime["final"]! - beforeAfterTime["initial"]!))
-            
-            phisphereVel = CGFloat((beforeAfterPosition["final"]! - beforeAfterPosition["initial"]!) / CGFloat(beforeAfterTime["final"]! - beforeAfterTime["initial"]!))
-            
-            beforeAfterVelocity["initial"] = beforeAfterVelocity["final"]
-            beforeAfterVelocity["final"] = phisphereVel
-            
-            phisphereAcc = CGFloat((beforeAfterVelocity["final"]! - beforeAfterVelocity["initial"]!) / CGFloat(beforeAfterTime["final"]! - beforeAfterTime["initial"]!))
-            print("Programmatic acceleration: \(phisphereAcc)")
-            */
-            
-            //timer.invalidate()
-            //timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
-            print(counter)
+            self.currentTime = currentTime
             // print(phisphere.physicsBody?.velocity.dy)
             
             // Vettore velocità
-            var start = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2))
+            let start = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2))
             
-            var end = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2) + (phisphere.physicsBody?.velocity.dx)!/5, y: -phisphere.position.y + (self.frame.size.height / 2) - (phisphere.physicsBody?.velocity.dy)!/5)
+            let end = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2) + (phisphere.physicsBody?.velocity.dx)!/5, y: -phisphere.position.y + (self.frame.size.height / 2) - (phisphere.physicsBody?.velocity.dy)!/5)
             
-            var path = UIBezierPath.arrow(from: start, to: end,
+            let path = UIBezierPath.arrow(from: start, to: end,
                                           tailWidth: 2.0, headWidth: 7.0, headLength: 7.0)
             
-            // Vettore accelerazione di gravità
-            var startG = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2))
+            // Vettore accelerazione (solo y)
+            let startA = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2))
             
-            var endG = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2) + 9.81*5)
+            //var endG = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2) + 9.81*5)
             
-            var pathG = UIBezierPath.arrow(from: startG, to: endG,
+            let endA = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2) + phisphereAcc/25)
+            
+            let pathA = UIBezierPath.arrow(from: startA, to: endA,
                                           tailWidth: 2.0, headWidth: 7.0, headLength: 7.0)
             
             // Inserimento nel layer
@@ -301,20 +285,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             shapeLayer.strokeColor = UIColor.green.cgColor
             shapeLayer.lineWidth = 4.0
             
-            shapeLayerG.path = pathG.cgPath
-            shapeLayerG.strokeColor = UIColor.red.cgColor
-            shapeLayerG.lineWidth = 4.0
+            shapeLayerA.path = pathA.cgPath
+            shapeLayerA.strokeColor = UIColor.red.cgColor
+            shapeLayerA.lineWidth = 4.0
             
             self.view?.layer.addSublayer(shapeLayer)
-            self.view?.layer.addSublayer(shapeLayerG)
+            self.view?.layer.addSublayer(shapeLayerA)
             
             // Cancello il vettore quando la velocita è zero
             
             if abs(Double((phisphere.physicsBody?.velocity.dx)!)) < 0.1 &&  abs(Double((phisphere.physicsBody?.velocity.dy)!)) < 0.1{
                 shapeLayer.removeFromSuperlayer()
             }
-            
-            // Vettore accelerazione
             
         }
     }
@@ -349,6 +331,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         phisphere.physicsBody?.mass = pauseMass
         
         shapeLayer.removeFromSuperlayer()
+        shapeLayerA.removeFromSuperlayer()
         
         if arrayOfLabelSensors.count >= 0 {
             for label in arrayOfLabelSensors {
@@ -544,7 +527,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         myLabel.layer.position = CGPoint(x: (self.view?.frame.width)!/4 + ((mySlider?.frame.width)!/1.2), y: (self.view?.frame.height)!-45)
         myLabel.textColor! = UIColor.black
         myLabel?.text = String(describing: round(mySlider.value*10)/10) + " m"
-        if let label = myLabel.text {
+        if myLabel.text != nil {
             myLabel.text! = String(describing: round(mySlider.value*10)/10) + " m"
         }
         
@@ -553,7 +536,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         labelHeight.layer.position = CGPoint(x: (self.view?.frame.width)!/4 + ((mySlider?.frame.width)!/1.2), y: (self.view?.frame.height)!-15)
         labelHeight.textColor! = UIColor.black
         labelHeight?.text = String(describing: round(sliderHeight.value*10)/10) + " m"
-        if let label = labelHeight.text {
+        if labelHeight.text != nil {
             labelHeight.text! = String(describing: round(sliderHeight.value*10)/10) + " m"
         }
         
@@ -562,7 +545,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         labelRotation.layer.position = CGPoint(x: (self.view?.frame.width)!/2 + ((mySlider?.frame.width)!*1.5), y: (self.view?.frame.height)!-15)
         labelRotation.textColor! = UIColor.black
         labelRotation?.text = String(describing: round(sliderRotationLine.value*10)/10) + "°"
-        if let label = labelRotation.text {
+        if labelRotation.text != nil {
             labelRotation.text! = String(describing: round(sliderRotationLine.value*10)/10) + "°"
         }
         
@@ -776,7 +759,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         myLabel.layer.position = CGPoint(x: object.position.x + (self.frame.size.width / 2) + 30, y: -object.position.y + (self.frame.size.height / 2) - 15)
         myLabel.textColor! = UIColor.green
         myLabel?.text = String(describing: round(object.value*10)/10)
-        if let label = myLabel.text {
+        if myLabel.text != nil {
             myLabel.text! = String(describing: round(object.value*10)/10)
         }
         myLabel.font = UIFont(name: "AmericanTypewriter-Light", size: 10)
@@ -790,7 +773,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         myLabel.layer.position = CGPoint(x: object.position.x + (self.frame.size.width / 2) + 30, y: -object.position.y + (self.frame.size.height / 2) + 15)
         myLabel.textColor! = UIColor.green
         myLabel?.text = String(describing: round(object.value*10)/10)
-        if let label = myLabel.text {
+        if myLabel.text != nil {
             myLabel.text! = String(describing: round(object.value*10)/10)
         }
         myLabel.font = UIFont(name: "AmericanTypewriter-Light", size: 10)
@@ -799,10 +782,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.view?.addSubview(myLabel)
     }
     
-    func timerAction() {
-        counter += 0.1
-        counter = round(counter * 10) / 10
-    }
+    
     /*
     func derivativeOf(fn: (Double)->Double, atX x: Double) -> Double {
         let h = 0.0000001
