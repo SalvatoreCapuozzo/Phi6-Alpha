@@ -16,7 +16,7 @@ class CarusiellViewController: UIViewController, iCarouselDataSource, iCarouselD
     var i = 0
     var selectedIndex : Int = 0
     @IBOutlet weak var pageControl: UIPageControl!
-    let images = ["Mechanics_Card", "Cinematic_Card", "Dynamic_Card"]
+    let images = ["argumentschoice", "Group 24", "Group 2"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

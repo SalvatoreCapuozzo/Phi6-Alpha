@@ -419,22 +419,22 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDx-0V-crU">
                                 <rect key="frame" x="20" y="319" width="86" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="ARCADE"/>
+                                <state key="normal" image="Arcade-1"/>
                                 <connections>
                                     <segue destination="K7w-WI-y4X" kind="presentation" id="QKA-WW-eJm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cq1-nc-fuk">
-                                <rect key="frame" x="290" y="318" width="92" height="25"/>
+                                <rect key="frame" x="290" y="318" width="92" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="SANDBOX"/>
+                                <state key="normal" image="Sandbox-1"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBr-TM-58n">
                                 <rect key="frame" x="561" y="319" width="86" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="LEARNING"/>
+                                <state key="normal" title="Button" image="Learning-1"/>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Line" translatesAutoresizingMaskIntoConstraints="NO" id="BPP-iy-tFC">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Line-1" translatesAutoresizingMaskIntoConstraints="NO" id="BPP-iy-tFC">
                                 <rect key="frame" x="10" y="340" width="646" height="15"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -532,7 +532,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="92" height="92"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Level_Card" translatesAutoresizingMaskIntoConstraints="NO" id="ghJ-wI-2oa">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="levelchoice" translatesAutoresizingMaskIntoConstraints="NO" id="ghJ-wI-2oa">
                                                     <rect key="frame" x="0.0" y="0.0" width="92" height="92"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -730,19 +730,19 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ARCADE" width="82" height="24"/>
+        <image name="Arcade-1" width="71" height="26"/>
         <image name="Background_Main_Menu" width="667" height="375"/>
         <image name="Circle" width="428" height="428"/>
         <image name="Group" width="54" height="174"/>
-        <image name="LEARNING" width="101" height="25"/>
-        <image name="Level_Card" width="66" height="66"/>
-        <image name="Line" width="521" height="15"/>
+        <image name="Learning-1" width="86" height="25"/>
+        <image name="Line-1" width="521" height="15"/>
         <image name="LoadCell" width="50" height="50"/>
         <image name="Oval 5" width="25" height="25"/>
         <image name="PhotoCellDefault" width="50" height="50"/>
         <image name="Rectangle" width="278" height="278"/>
-        <image name="SANDBOX" width="97" height="25"/>
+        <image name="Sandbox-1" width="87" height="26"/>
         <image name="SpeedCamera" width="50" height="50"/>
+        <image name="levelchoice" width="66" height="66"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="HFc-k2-QxN"/>
