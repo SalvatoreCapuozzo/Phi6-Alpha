@@ -878,7 +878,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 Sensor.setPhotoCellValue()
             }
             pause = true
-            viewController.showAlert()
+            //viewController.showAlert()
         }
     }
     
