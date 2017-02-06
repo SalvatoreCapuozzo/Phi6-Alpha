@@ -75,6 +75,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var counter = 0.0
     var timer = Timer()
+    var timer2 = Timer()
     
     override func didMove(to view: SKView) {
         
@@ -269,7 +270,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // Vettore velocità
             let startV = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2))
             
-            let endV = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2) + (phisphere.physicsBody?.velocity.dx)!/10, y: -phisphere.position.y + (self.frame.size.height / 2) - (phisphere.physicsBody?.velocity.dy)!/10)
+            let endV = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2) + (phisphere.physicsBody?.velocity.dx)!/15, y: -phisphere.position.y + (self.frame.size.height / 2) - (phisphere.physicsBody?.velocity.dy)!/15)
             
             let pathV = UIBezierPath.arrow(from: startV, to: endV,
                                           tailWidth: 2.0, headWidth: 5.0, headLength: 5.0)
@@ -303,7 +304,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             //var endG = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2) + 9.81*5)
             
-            let endA = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2) + phisphereAccDx/10, y: -phisphere.position.y + (self.frame.size.height / 2) - phisphereAccDy/10)
+            let endA = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2) + phisphereAccDx/15, y: -phisphere.position.y + (self.frame.size.height / 2) - phisphereAccDy/15)
             
             let pathA = UIBezierPath.arrow(from: startA, to: endA,
                                           tailWidth: 2.0, headWidth: 5.0, headLength: 5.0)
@@ -531,7 +532,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         mySlider?.layer.cornerRadius = 15.0
         mySlider?.layer.shadowOpacity = 0.5
         mySlider?.layer.masksToBounds = false
-        mySlider?.maximumValue = 300
+        mySlider?.maximumValue = 326
         mySlider?.minimumValue = 0.2
         mySlider?.value = Float(node.size.width)
         
@@ -542,7 +543,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         sliderHeight?.layer.cornerRadius = 15.0
         sliderHeight?.layer.shadowOpacity = 0.5
         sliderHeight?.layer.masksToBounds = false
-        sliderHeight?.maximumValue = 300
+        sliderHeight?.maximumValue = 326
         sliderHeight?.minimumValue = 0.2
         sliderHeight?.value = Float(node.size.height)
         
@@ -561,18 +562,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         myLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
         myLabel.layer.position = CGPoint(x: (self.view?.frame.width)!/4 + ((mySlider?.frame.width)!/1.2), y: (self.view?.frame.height)!-45)
         myLabel.textColor! = UIColor.black
-        myLabel?.text = String(describing: round(mySlider.value*10)/10) + " m"
+        myLabel?.text = String(describing: (round((mySlider.value/163)*100)/100)) + " m"
         if myLabel.text != nil {
-            myLabel.text! = String(describing: round(mySlider.value*10)/10) + " m"
+            myLabel.text! = String(describing: (round((mySlider.value/163)*100)/100)) + " m"
         }
         
         // Set Height Label
         labelHeight = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
         labelHeight.layer.position = CGPoint(x: (self.view?.frame.width)!/4 + ((mySlider?.frame.width)!/1.2), y: (self.view?.frame.height)!-15)
         labelHeight.textColor! = UIColor.black
-        labelHeight?.text = String(describing: round(sliderHeight.value*10)/10) + " m"
+        labelHeight?.text = String(describing: (round((sliderHeight.value/163)*100)/100)) + " m"
         if labelHeight.text != nil {
-            labelHeight.text! = String(describing: round(sliderHeight.value*10)/10) + " m"
+            labelHeight.text! = String(describing: (round((sliderHeight.value/163)*100)/100)) + " m"
         }
         
         // Set Rotation Label
@@ -678,7 +679,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         //myNode.position.x = myNode.position.x - (myNode.size.width - CGFloat((mySlider?.value)!))/2
         
-        myLabel.text! = String(describing: round(myNode.size.width*10)/10) + " m"
+        myLabel.text! = String(describing: (round((myNode.size.width/163)*100)/100)) + " m"
         
         addChild(myNode)
         
@@ -699,7 +700,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         //myNode.position.y = myNode.position.y - (myNode.size.height - CGFloat((sliderHeight?.value)!))/2
         
-        labelHeight.text! = String(describing: round(myNode.size.height*10)/10) + " m"
+        labelHeight.text! = String(describing: (round((myNode.size.height/163)*100)/100)) + " m"
         
         addChild(myNode)
         
@@ -724,7 +725,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         //myNode.position.y = myNode.position.y - (myNode.size.height - CGFloat((sliderHeight?.value)!))/2
         
-        myLabel.text! = String(describing: round(myNode.size.height*10)/10) + " m"
+        myLabel.text! = String(describing: (round((myNode.size.height/163)*100)/100)) + " m"
         
         addChild(myNode)
         
@@ -768,7 +769,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 //timer.invalidate()
                 if let phisphereNode = firstBody.node as? SKSpriteNode, let
                     Sensor = secondBody.node as? SpeedCamera {
-                    let velocity = sqrt(pow((phisphereNode.physicsBody?.velocity.dx)!, 2) + pow((phisphereNode.physicsBody?.velocity.dy)!, 2))
+                    let velocity = (sqrt(pow((phisphereNode.physicsBody?.velocity.dx)!, 2) + pow((phisphereNode.physicsBody?.velocity.dy)!, 2))/163)
                     Sensor.setSpeedCameraValue(velocity)
                     //print("Position: \(phisphereNode.position)")
                     print(Sensor.value)
@@ -776,7 +777,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
             } else if (secondBody.node?.name)! == "loadCell" && (secondBody.node?.position.y)! < (firstBody.node?.position.y)! - 10 {
                 if let phisphereNode = firstBody.node as? SKSpriteNode, let Sensor = secondBody.node as? LoadCell {
-                    let force = (phisphereNode.physicsBody?.mass)! * (sqrt(pow(phisphereAccDx, 2)+pow(phisphereAccDy, 2))/150)
+                    let force = (phisphereNode.physicsBody?.mass)! * ((sqrt(pow(phisphereAccDx, 2)+pow(phisphereAccDy, 2)))/163)
                     Sensor.setLoadCellValue(force)
                     print(Sensor.value)
                     setValueDisplayLC(Sensor)
@@ -801,6 +802,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         arrayOfLabelSensors.append(myLabel)
         self.view?.addSubview(myLabel)
+        print("Running time: ok")
     }
     
     func setValueDisplayLC(_ object: LoadCell) {
