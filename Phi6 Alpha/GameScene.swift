@@ -254,7 +254,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // Update function
     override func update(_ currentTime: TimeInterval) {
         if !pause {
-            phisphere.physicsBody?.affectedByGravity = true
+//            phisphere.physicsBody?.affectedByGravity = true
+            
+            // Da utilizzare in caso di assenza di gravità e velocità iniziale diversa da zero
+            phisphere.physicsBody?.velocity.dx = CGFloat(27.7*163)
+            phisphere.physicsBody?.velocity.dy = CGFloat(0)
+            phisphere.physicsBody?.affectedByGravity = false
+            phisphere.physicsBody?.collisionBitMask = 0
+            phisphere.physicsBody?.categoryBitMask = PhysicsCategory.Phisphere
+            phisphere.physicsBody?.contactTestBitMask = PhysicsCategory.Sensor
+            
+            
             for object in Singleton.shared.objects {
                 object.physicsBody?.affectedByGravity = false
                 if object.name == "sensor" {
