@@ -46,6 +46,7 @@ class GameViewController: UIViewController {
 
         super.viewDidLoad()
         
+        
 //        print("level number: \(levelNumber!)")
         
         if let view = self.view as! SKView? {
@@ -75,12 +76,16 @@ class GameViewController: UIViewController {
         }
         
         
+        
+        
         //setWidth()
         //setHeight()
         setDiameter()
         setMass()
         diameterSlider.slider.addTarget(self, action: #selector(setDiameter), for: .valueChanged)
         massSlider.slider.addTarget(self, action: #selector(setMass), for: .valueChanged)
+        
+        
     }
 
     override var shouldAutorotate: Bool {

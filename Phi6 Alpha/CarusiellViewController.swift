@@ -13,8 +13,10 @@ class CarusiellViewController: UIViewController, iCarouselDataSource, iCarouselD
 
     @IBOutlet weak var CategoryView: UIView!
     @IBOutlet weak var backButton: UIButton!
+    var i = 0
     var selectedIndex : Int = 0
     @IBOutlet weak var pageControl: UIPageControl!
+    let images = ["Mechanics_Card", "Cinematic_Card", "Dynamic_Card"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +36,7 @@ class CarusiellViewController: UIViewController, iCarouselDataSource, iCarouselD
     }
     
     func numberOfItems(in carousel: iCarousel) -> Int {
-        return 4
+        return 3
     }
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
@@ -45,8 +47,9 @@ class CarusiellViewController: UIViewController, iCarouselDataSource, iCarouselD
         } else {
             imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: CategoryView.frame.width - 160, height: CategoryView.frame.height))
         }
-        imageView.image = UIImage(named: "question")
+        imageView.image = UIImage(named: images[i])
         imageView.contentMode = .scaleAspectFit
+        i = i+1
         
         return imageView
     }
