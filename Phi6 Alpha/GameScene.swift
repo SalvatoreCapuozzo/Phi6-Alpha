@@ -77,6 +77,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var timer = Timer()
     var timer2 = Timer()
     
+    //costante della velocità della sfera
+    let sphereVelocityConstant: Double = 30
+    var sphereSpeedI: Double = 0
+    var sphereSpeedF: Double = 27.78
+    
+    //variabile temporanea per il completamento dell'esercizio per il calcolo dello spazio percorso
+    var timing: Double = 13.8
+    var viewController: GameViewController!
+    var alertMessage: Any?
+    
     override func didMove(to view: SKView) {
         
         physicsWorld.contactDelegate = self
@@ -260,7 +270,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //            phisphere.physicsBody?.affectedByGravity = true
             
             // Da utilizzare in caso di assenza di gravità e velocità iniziale diversa da zero
-            phisphere.physicsBody?.velocity.dx = CGFloat(27.7*163)
+            phisphere.physicsBody?.velocity.dx = CGFloat( (sphereSpeedI + sphereSpeedF) / 2 * sphereVelocityConstant)
             phisphere.physicsBody?.velocity.dy = CGFloat(0)
             phisphere.physicsBody?.affectedByGravity = false
             phisphere.physicsBody?.collisionBitMask = 0
@@ -773,17 +783,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //2
         if ((firstBody.categoryBitMask & PhysicsCategory.Phisphere != 0) &&
             (secondBody.categoryBitMask & PhysicsCategory.Sensor != 0)) {
-            print("Body: \(secondBody.node?.position.y)")
-            print("Body: \((firstBody.node?.position.y)! - ((secondBody.node?.frame.height)! / 2))")
+//            print("Body: \(secondBody.node?.position.y)")
+//            print("Body: \((firstBody.node?.position.y)! - ((secondBody.node?.frame.height)! / 2))")
             if secondBody.node?.name! == "speedCamera" {
                 //timer.invalidate()
                 if let phisphereNode = firstBody.node as? SKSpriteNode, let
                     Sensor = secondBody.node as? SpeedCamera {
-                    let velocity = (sqrt(pow((phisphereNode.physicsBody?.velocity.dx)!, 2) + pow((phisphereNode.physicsBody?.velocity.dy)!, 2))/163)
-                    Sensor.setSpeedCameraValue(velocity)
+//                    let velocity = (sqrt(pow((phisphereNode.physicsBody?.velocity.dx)!, 2) + pow((phisphereNode.physicsBody?.velocity.dy)!, 2))/CGFloat(sphereVelocityConstant))
+//                    Sensor.setSpeedCameraValue(velocity)
+                    
+                    Sensor.setSpeedCameraValue(CGFloat(sphereSpeedF))
+                    
                     //print("Position: \(phisphereNode.position)")
-                    print(Sensor.value)
+//                    print(Sensor.value)
                     setValueDisplaySC(Sensor)
+                    phisphere.physicsBody?.velocity.dx = 0
+                    
+                    alertMessage = Int((sphereSpeedF + sphereSpeedI)/2*timing)
+                    print( "la spazio vale: \(Int((sphereSpeedF + sphereSpeedI)/2*timing))")
                 }
             } else if (secondBody.node?.name)! == "loadCell" && (secondBody.node?.position.y)! < (firstBody.node?.position.y)! - 10 {
                 if let phisphereNode = firstBody.node as? SKSpriteNode, let Sensor = secondBody.node as? LoadCell {
@@ -797,6 +814,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 Sensor = secondBody.node as? PhotoCell {
                 Sensor.setPhotoCellValue()
             }
+            pause = true
+            viewController.showAlert()
         }
     }
     

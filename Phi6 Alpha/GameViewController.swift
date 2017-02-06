@@ -46,7 +46,6 @@ class GameViewController: UIViewController {
 
         super.viewDidLoad()
         
-        
 //        print("level number: \(levelNumber!)")
         
         if let view = self.view as! SKView? {
@@ -56,6 +55,7 @@ class GameViewController: UIViewController {
                 self.scene = scene
                 scene.levelSelected = String(describing: self.levelNumber)
                 scene.scaleMode = .aspectFill
+                scene.viewController = self
                 
                 // Present the scene
                 view.presentScene(scene)
@@ -75,16 +75,12 @@ class GameViewController: UIViewController {
             selectedNode = scene.triangle
         }
         
-        
-        
-        
         //setWidth()
         //setHeight()
         setDiameter()
         setMass()
         diameterSlider.slider.addTarget(self, action: #selector(setDiameter), for: .valueChanged)
         massSlider.slider.addTarget(self, action: #selector(setMass), for: .valueChanged)
-        
         
     }
 
@@ -121,6 +117,7 @@ class GameViewController: UIViewController {
                 scene.timer = Timer.scheduledTimer(timeInterval: TimeInterval(scene.deltaTime), target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
             }
             scene.timer2 = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerAction2), userInfo: nil, repeats: true)
+            
         } else {
             scene.stop()
             scene.timer.invalidate()
@@ -130,7 +127,6 @@ class GameViewController: UIViewController {
             diameterSlider.value = Float(scene.pauseDiameter)
             diameterLabel.text! = String(describing: round((scene.pauseDiameter/163)*100)/100)
         }
-        
     }
     
     @IBAction func setDiameter() {
@@ -223,10 +219,25 @@ class GameViewController: UIViewController {
     
     func timerAction2() {
         scene.counter += 0.1
-        print("Running time: \(scene.counter)")
+//        print("Running time: \(scene.counter)")
     }
     
     @IBAction func goBack(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func showAlert(){
+        print("ciao")
+        
+        var alert = UIAlertController()
+        var action = UIAlertAction()
+            alert = UIAlertController(title: "Great!", message: "Result: \(scene.alertMessage!)", preferredStyle: .alert)
+            action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alert.addAction(action)
+            DispatchQueue.main.async {
+                
+                self.present(alert, animated: true, completion: nil)
+                
+            }
     }
 }
