@@ -269,7 +269,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             phisphere.physicsBody?.affectedByGravity = true
             
             if !gravity {
-                phisphere.physicsBody?.velocity.dx = CGFloat(Float(sliderInitV.value))
+                if counter < 0.2 {
+                    phisphere.physicsBody?.velocity.dx = CGFloat(Float(sliderInitV.value))
+                }
                 phisphere.physicsBody?.affectedByGravity = false
                 phisphere.physicsBody?.collisionBitMask = 1
                 phisphere.physicsBody?.categoryBitMask = PhysicsCategory.Phisphere
