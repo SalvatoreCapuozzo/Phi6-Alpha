@@ -46,6 +46,7 @@ class GameViewController: UIViewController {
 
         super.viewDidLoad()
         
+        
 //        print("level number: \(levelNumber!)")
         
         if let view = self.view as! SKView? {
@@ -75,12 +76,16 @@ class GameViewController: UIViewController {
         }
         
         
+        
+        
         //setWidth()
         //setHeight()
         setDiameter()
         setMass()
         diameterSlider.slider.addTarget(self, action: #selector(setDiameter), for: .valueChanged)
         massSlider.slider.addTarget(self, action: #selector(setMass), for: .valueChanged)
+        
+        
     }
 
     override var shouldAutorotate: Bool {
@@ -214,11 +219,14 @@ class GameViewController: UIViewController {
         //print("--Programmatic acceleration: \(round(scene.phisphereAcc*1000)/1000)")
         //print("----------")
         
-
     }
     
     func timerAction2() {
         scene.counter += 0.1
         print("Running time: \(scene.counter)")
+    }
+    
+    @IBAction func goBack(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

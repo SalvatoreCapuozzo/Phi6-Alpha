@@ -139,6 +139,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         
+        
+        
+        
         /*for object in Singleton.shared.objects {
             self.addChild(object as! SKNode)
         }*/
