@@ -115,13 +115,15 @@ class GameViewController: UIViewController {
             } else {
                 scene.timer = Timer.scheduledTimer(timeInterval: TimeInterval(scene.deltaTime), target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
             }
+            scene.timer2 = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerAction2), userInfo: nil, repeats: true)
         } else {
             scene.stop()
             scene.timer.invalidate()
+            scene.timer2.invalidate()
             scene.counter = 0
             pauseButton?.setTitle("Play", for: UIControlState(rawValue: 0))
             diameterSlider.value = Float(scene.pauseDiameter)
-            diameterLabel.text! = String(describing: round(scene.pauseDiameter*10)/10)
+            diameterLabel.text! = String(describing: round((scene.pauseDiameter/163)*100)/100)
         }
         
     }
@@ -135,7 +137,7 @@ class GameViewController: UIViewController {
         scene.phisphere.xScale = CGFloat(diameterSlider.value)/scene.pauseDiameter
         scene.phisphere.yScale = CGFloat(diameterSlider.value)/scene.pauseDiameter
         
-        diameterLabel.text! = String(describing: round(scene.phisphere.size.width*10)/10)
+        diameterLabel.text! = String(describing: round((scene.phisphere.size.width/163)*100)/100)
         
     }
     
@@ -178,8 +180,8 @@ class GameViewController: UIViewController {
     }
     
     func timerAction() {
-        scene.counter += 1
-        scene.counter = round(scene.counter * 1000) / 1000
+        //scene.counter += Double(scene.deltaTime)
+        //scene.counter = round(scene.counter * 1000) / 1000
         //print("Running time: \(scene.counter)")
         if scene.beforeAfterPosition["final"] == 0 {
             scene.beforeAfterPosition["final"] = scene.phisphere.position.y
@@ -191,7 +193,7 @@ class GameViewController: UIViewController {
          scene.beforeAfterTime["initial"] = scene.beforeAfterTime["final"]
          scene.beforeAfterTime["final"] = scene.currentTime
         scene.deltaTime = CGFloat(scene.beforeAfterTime["final"]! - scene.beforeAfterTime["initial"]!)
-         print("--DeltaTime: \((scene.deltaTime)!)")
+        //print("--DeltaTime: \((scene.deltaTime)!)")
         
          
          scene.phisphereVel = CGFloat((scene.beforeAfterPosition["final"]! - scene.beforeAfterPosition["initial"]!) / (scene.deltaTime))
@@ -213,5 +215,10 @@ class GameViewController: UIViewController {
         //print("----------")
         
 
+    }
+    
+    func timerAction2() {
+        scene.counter += 0.1
+        print("Running time: \(scene.counter)")
     }
 }
