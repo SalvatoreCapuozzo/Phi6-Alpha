@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3084EA041E487A0E0064C869 /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084EA031E487A0E0064C869 /* LevelViewController.swift */; };
 		3093494D1E449B920006F622 /* Arrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3093494C1E449B920006F622 /* Arrow.swift */; };
 		5A72AB931E44C49700227938 /* PhysicsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A72AB921E44C49700227938 /* PhysicsCategory.swift */; };
 		8715F5FC1E36510F001E2DEA /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715F5FB1E36510F001E2DEA /* Singleton.swift */; };
@@ -31,7 +32,6 @@
 		8731F2D01E40D6FE002C5253 /* SpeedCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8731F2C01E40D6FE002C5253 /* SpeedCamera.swift */; };
 		8731F2D11E40D6FE002C5253 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8731F2C11E40D6FE002C5253 /* Triangle.swift */; };
 		8731F2D81E40DD5C002C5253 /* CarusiellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8731F2D51E40DD5C002C5253 /* CarusiellViewController.swift */; };
-		8731F2D91E40DD5C002C5253 /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8731F2D61E40DD5C002C5253 /* LevelViewController.swift */; };
 		8731F2DA1E40DD5C002C5253 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8731F2D71E40DD5C002C5253 /* MainViewController.swift */; };
 		8731F2E71E40E209002C5253 /* EAAnimationFuture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8731F2E21E40E209002C5253 /* EAAnimationFuture.swift */; };
 		8731F2E81E40E209002C5253 /* EasyAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8731F2E41E40E209002C5253 /* EasyAnimation.swift */; };
@@ -57,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		127D1FCEE4984D940F70ABB6 /* Pods-Phi6 Alpha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phi6 Alpha.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Phi6 Alpha/Pods-Phi6 Alpha.debug.xcconfig"; sourceTree = "<group>"; };
+		3084EA031E487A0E0064C869 /* LevelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
 		3093494C1E449B920006F622 /* Arrow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arrow.swift; sourceTree = "<group>"; };
 		5A72AB921E44C49700227938 /* PhysicsCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsCategory.swift; sourceTree = "<group>"; };
 		8715F5FB1E36510F001E2DEA /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
@@ -81,7 +82,6 @@
 		8731F2C01E40D6FE002C5253 /* SpeedCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpeedCamera.swift; path = "Phi6 Alpha/SpeedCamera.swift"; sourceTree = SOURCE_ROOT; };
 		8731F2C11E40D6FE002C5253 /* Triangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Triangle.swift; path = "Phi6 Alpha/Triangle.swift"; sourceTree = SOURCE_ROOT; };
 		8731F2D51E40DD5C002C5253 /* CarusiellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarusiellViewController.swift; path = "Phi6 Alpha/CarusiellViewController.swift"; sourceTree = SOURCE_ROOT; };
-		8731F2D61E40DD5C002C5253 /* LevelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LevelViewController.swift; path = "Phi6 Alpha/LevelViewController.swift"; sourceTree = SOURCE_ROOT; };
 		8731F2D71E40DD5C002C5253 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = "Phi6 Alpha/MainViewController.swift"; sourceTree = SOURCE_ROOT; };
 		8731F2E21E40E209002C5253 /* EAAnimationFuture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EAAnimationFuture.swift; path = EasyAnimation/EAAnimationFuture.swift; sourceTree = "<group>"; };
 		8731F2E31E40E209002C5253 /* EasyAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EasyAnimation.h; path = EasyAnimation/EasyAnimation.h; sourceTree = "<group>"; };
@@ -167,8 +167,8 @@
 		8731F2B11E40D654002C5253 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3084EA031E487A0E0064C869 /* LevelViewController.swift */,
 				8731F2D51E40DD5C002C5253 /* CarusiellViewController.swift */,
-				8731F2D61E40DD5C002C5253 /* LevelViewController.swift */,
 				8731F2D71E40DD5C002C5253 /* MainViewController.swift */,
 				87DC851E1E34BA4B0068555D /* GameViewController.swift */,
 				8715F6091E36828A001E2DEA /* ObjectTableViewController.swift */,
@@ -416,7 +416,6 @@
 				8731F2CA1E40D6FE002C5253 /* NotGate.swift in Sources */,
 				8731F2D11E40D6FE002C5253 /* Triangle.swift in Sources */,
 				8731F2C21E40D6FE002C5253 /* AndGate.swift in Sources */,
-				8731F2D91E40DD5C002C5253 /* LevelViewController.swift in Sources */,
 				8731F2C81E40D6FE002C5253 /* LoadCell.swift in Sources */,
 				8731F2CC1E40D6FE002C5253 /* PhotoCell.swift in Sources */,
 				8715F5FC1E36510F001E2DEA /* Singleton.swift in Sources */,
@@ -424,6 +423,7 @@
 				87DC851D1E34BA4B0068555D /* GameScene.swift in Sources */,
 				8731F2D01E40D6FE002C5253 /* SpeedCamera.swift in Sources */,
 				8731F2C71E40D6FE002C5253 /* LaserRangefinder.swift in Sources */,
+				3084EA041E487A0E0064C869 /* LevelViewController.swift in Sources */,
 				8731F2E71E40E209002C5253 /* EAAnimationFuture.swift in Sources */,
 				87DC851F1E34BA4B0068555D /* GameViewController.swift in Sources */,
 				8731F2F31E40E2D1002C5253 /* RBBSpringAnimation.swift in Sources */,

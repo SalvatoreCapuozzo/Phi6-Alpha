@@ -219,11 +219,14 @@ class GameViewController: UIViewController {
         //print("--Programmatic acceleration: \(round(scene.phisphereAcc*1000)/1000)")
         //print("----------")
         
-
     }
     
     func timerAction2() {
         scene.counter += 0.1
         print("Running time: \(scene.counter)")
+    }
+    
+    @IBAction func goBack(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

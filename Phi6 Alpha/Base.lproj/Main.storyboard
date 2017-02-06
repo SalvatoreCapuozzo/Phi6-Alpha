@@ -151,7 +151,10 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBw-m5-fuN">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="f(x)"/>
+                                        <state key="normal" title="Back"/>
+                                        <connections>
+                                            <action selector="goBack:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Odp-IN-M7H"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -488,7 +491,7 @@
                         <outlet property="CategoryView" destination="QrL-3J-2WI" id="SYN-Zc-mHK"/>
                         <outlet property="backButton" destination="f1f-ov-ESs" id="2wn-Tn-Ga8"/>
                         <outlet property="pageControl" destination="yp7-Nd-0Wu" id="fZ3-mc-yWR"/>
-                        <segue destination="dgh-fY-0X0" kind="presentation" identifier="levelSegue" id="ke7-u3-a49"/>
+                        <segue destination="hOQ-KZ-dNo" kind="presentation" identifier="levelSegue" id="AoN-Yd-4t0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="je6-cS-71k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -496,47 +499,71 @@
             <point key="canvasLocation" x="-344.07796101949026" y="-1584.8"/>
         </scene>
         <!--Level View Controller-->
-        <scene sceneID="a4q-Tc-iGO">
+        <scene sceneID="8Qw-22-x4b">
             <objects>
-                <collectionViewController id="dgh-fY-0X0" customClass="LevelViewController" customModule="Phi6_Alpha" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="vS6-jX-xwg">
+                <viewController id="hOQ-KZ-dNo" customClass="LevelViewController" customModule="Phi6_Alpha" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zno-LW-mjq"/>
+                        <viewControllerLayoutGuide type="bottom" id="QI1-Kk-MEo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b6W-yg-uSc">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ITI-hb-TJu">
-                            <size key="itemSize" width="100" height="100"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="level" id="NAi-RI-M1R">
-                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Czb-3E-PLe">
+                                <rect key="frame" x="160" y="59" width="347" height="241"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Giovanni" translatesAutoresizingMaskIntoConstraints="NO" id="ok3-wp-dIA">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                    </subviews>
-                                </view>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="N5y-u5-EEm">
+                                    <size key="itemSize" width="72" height="60"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="level" id="UVt-yC-qfE">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="72" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Giovanni" translatesAutoresizingMaskIntoConstraints="NO" id="ghJ-wI-2oa">
+                                                    <rect key="frame" x="0.0" y="0.0" width="89" height="96"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <size key="customSize" width="72" height="60"/>
+                                        <connections>
+                                            <segue destination="BV1-FR-VrT" kind="presentation" identifier="levelSelection" id="HFc-k2-QxN"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
                                 <connections>
-                                    <segue destination="BV1-FR-VrT" kind="presentation" identifier="levelSelection" id="awh-ct-Fho"/>
+                                    <outlet property="dataSource" destination="hOQ-KZ-dNo" id="DFV-8y-tj4"/>
+                                    <outlet property="delegate" destination="hOQ-KZ-dNo" id="AJf-Wd-gAe"/>
                                 </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="dgh-fY-0X0" id="Wfz-ZB-sH1"/>
-                            <outlet property="delegate" destination="dgh-fY-0X0" id="Zyg-iC-esT"/>
-                        </connections>
-                    </collectionView>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UW9-D7-Frp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VaV-S3-YNp">
+                                <rect key="frame" x="20" y="325" width="58" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title=" Back"/>
+                                <connections>
+                                    <action selector="backPressed:" destination="K7w-WI-y4X" eventType="touchUpInside" id="jXI-Vr-Cdq"/>
+                                    <action selector="goBack:" destination="hOQ-KZ-dNo" eventType="touchUpInside" id="qy3-sB-U95"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="Czb-3E-PLe" id="LvM-x0-o87"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YsS-CN-wLN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-344" y="-721"/>
+            <point key="canvasLocation" x="-344.07796101949026" y="-722.39999999999998"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="nrf-Iu-co0">
@@ -714,6 +741,6 @@
         <image name="SpeedCamera" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="awh-ct-Fho"/>
+        <segue reference="HFc-k2-QxN"/>
     </inferredMetricsTieBreakers>
 </document>
