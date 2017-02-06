@@ -169,6 +169,10 @@ class GameViewController: UIViewController {
         adder.addLoadCell(scene: scene)
     }
     
+    @IBAction func addChronometer() {
+        adder.addChronometer(scene: scene)
+    }
+    
     @IBAction func showObjects(_ sender: Any) {
         // self.showPausedMenu()
         
@@ -217,7 +221,7 @@ class GameViewController: UIViewController {
     
     func timerAction2() {
         scene.counter += 0.1
-//        print("Running time: \(scene.counter)")
+        print("Running time: \(scene.counter)")
     }
     
     @IBAction func goBack(_ sender: UIButton) {

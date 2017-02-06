@@ -15,6 +15,7 @@ class PhotoCell : SKSpriteNode, Sensor {
     var orientation: String = "Any"
     var value: Float = 0
     var sensorName: String = "PhotoCell"
+    var chronometer: Bool = false
     
     class func photoCell(location: CGPoint) -> PhotoCell {
         let sprite = PhotoCell(imageNamed: "PhotoCellDefault.png")
@@ -78,4 +79,10 @@ class PhotoCell : SKSpriteNode, Sensor {
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.isDynamic = false
     }
+    /*
+    func setChronometer(location: CGPoint) {
+        chronometer = true
+        var itsChronometer = Chronometer.chronometer(location: CGPoint(x: location.x, y: location.y + 100))
+    }
+ */
 }
