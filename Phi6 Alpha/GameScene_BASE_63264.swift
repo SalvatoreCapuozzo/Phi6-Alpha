@@ -8,7 +8,7 @@
 
 import SpriteKit
 import GameplayKit
-//import CircularSlider
+import CircularSlider
 import MTCircularSlider
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
@@ -42,7 +42,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var myNode: SKSpriteNode!
     var mySlider: UISlider!
     var sliderHeight: UISlider!
-    //var sliderRotation: CircularSlider!
+    var sliderRotation: CircularSlider!
     var sliderRotation2: MTCircularSlider!
     var sliderRotationLine: UISlider!
     var myLabel: UILabel!
@@ -50,7 +50,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var labelRotation: UILabel!
     var arrayOfSlider = [UISlider]()
     var arrayOfSliderHeight = [UISlider]()
-    //var arrayOfSliderRotation = [CircularSlider]()
+    var arrayOfSliderRotation = [CircularSlider]()
     var arrayOfSliderRotation2 = [MTCircularSlider]()
     var arrayOfSliderRotationLine = [UISlider]()
     var arrayOfSensors = [Sensor]()
@@ -58,12 +58,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var arrayOfLabelHeight = [UILabel]()
     var arrayOfLabelRotation = [UILabel]()
     var arrayOfLabelSensors = [UILabel]()
-    
-    var labelInitV: UILabel!
-    var sliderInitV: UISlider!
-    //var textFieldA: UITextField!
-    var arrayOfLabelInitV = [UILabel]()
-    var arrayOfSliderInitV = [UISlider]()
     
     var number: Int = 0
     var firstWidth: CGFloat!
@@ -82,16 +76,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var counter = 0.0
     var timer = Timer()
     var timer2 = Timer()
-    
-    //costante della velocità della sfera
-    let sphereVelocityConstant: Double = 30
-    var sphereSpeedI: Double = 0
-    var sphereSpeedF: Double = 27.78
-    
-    //variabile temporanea per il completamento dell'esercizio per il calcolo dello spazio percorso
-    var timing: Double = 13.8
-    var viewController: GameViewController!
-    var alertMessage: Any?
     
     override func didMove(to view: SKView) {
         
@@ -191,8 +175,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         if let sprite = node as? SKSpriteNode {
                             if sprite == phisphere {
                                 phisphere.position = touchLocation
-                                addInitSlider()
-                                myNode = sprite
                             } else {
                                 for object in Singleton.shared.objects {
                                     if sprite == object {
@@ -271,7 +253,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var phisphereVel: CGFloat = 0
     var phisphereAccDx: CGFloat = 0
     var phisphereAccDy: CGFloat = 0 // Aggiungere dy al nome
-    var gravity: Bool = true
     
     // Update function
     override func update(_ currentTime: TimeInterval) {
@@ -279,19 +260,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //            phisphere.physicsBody?.affectedByGravity = true
             
             // Da utilizzare in caso di assenza di gravità e velocità iniziale diversa da zero
-            //phisphere.physicsBody?.velocity.dx = CGFloat(27.7*163)
-            phisphere.physicsBody?.affectedByGravity = true
-            
-            if gravity {
-                phisphere.physicsBody?.velocity.dx = 0
-            } else {
-                phisphere.physicsBody?.velocity.dx = CGFloat(Float(sliderInitV.value))
-                phisphere.physicsBody?.affectedByGravity = false
-            }
- 
-            //phisphere.physicsBody?.velocity.dy = CGFloat(0)
-            
-            phisphere.physicsBody?.collisionBitMask = 1
+            phisphere.physicsBody?.velocity.dx = CGFloat(27.7*163)
+            phisphere.physicsBody?.velocity.dy = CGFloat(0)
+            phisphere.physicsBody?.affectedByGravity = false
+            phisphere.physicsBody?.collisionBitMask = 0
             phisphere.physicsBody?.categoryBitMask = PhysicsCategory.Phisphere
             phisphere.physicsBody?.contactTestBitMask = PhysicsCategory.Sensor
             
@@ -406,8 +378,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         shapeLayerV.removeFromSuperlayer()
         shapeLayerA.removeFromSuperlayer()
-        
-        gravity = true
         
         if arrayOfLabelSensors.count >= 0 {
             for label in arrayOfLabelSensors {
@@ -561,37 +531,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print(sprite.name!)
     }
     
-    func addInitSlider() {
-        deleteSliders()
-        // Set Velocity Text Field
-        labelInitV = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        labelInitV.layer.position = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2) + 140, y: -phisphere.position.y + (self.frame.size.height / 2) + 25)
-        labelInitV.textColor! = UIColor.black
-        labelInitV?.text = String(describing: round((phisphere.physicsBody?.velocity.dx)!*10)/10)
-        if labelInitV.text != nil {
-            labelInitV.text! = String(describing: round((phisphere.physicsBody?.velocity.dx)!*10)/10)
-        }
-        
-        sliderInitV = UISlider(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        sliderInitV?.layer.position = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2) + 100, y: -phisphere.position.y + (self.frame.size.height / 2))
-        sliderInitV?.backgroundColor = UIColor.clear
-        sliderInitV?.tintColor = UIColor.green
-        sliderInitV?.layer.cornerRadius = 15.0
-        sliderInitV?.layer.shadowOpacity = 0.5
-        sliderInitV?.layer.masksToBounds = false
-        sliderInitV?.maximumValue = 326
-        sliderInitV?.minimumValue = -326
-        sliderInitV?.value = Float((phisphere.physicsBody?.velocity.dx)!)
-
-        sliderInitV.addTarget(self, action: #selector(setInitialV), for: UIControlEvents.valueChanged)
-        
-        arrayOfSliderInitV.append(sliderInitV)
-        self.view?.addSubview(sliderInitV)
-        arrayOfLabelInitV.append(labelInitV)
-        self.view?.addSubview(labelInitV)
-        
-    }
-    
     func addSlider(node: SKSpriteNode) {
         myNode = nil
         deleteSliders()
@@ -717,25 +656,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 for slider in arrayOfSliderRotationLine{
                     slider.removeFromSuperview()
                 }
-                arrayOfSliderRotationLine.removeAll()
+                arrayOfSliderRotation.removeAll()
             }
             if arrayOfLabelRotation.count >= 0{
                 for label in arrayOfLabelRotation{
                     label.removeFromSuperview()
                 }
                 arrayOfLabelRotation.removeAll()
-            }
-            if arrayOfSliderInitV.count >= 0 {
-                for slider in arrayOfSliderInitV {
-                    slider.removeFromSuperview()
-                }
-                arrayOfSliderInitV.removeAll()
-            }
-            if arrayOfLabelInitV.count >= 0 {
-                for label in arrayOfLabelInitV {
-                    label.removeFromSuperview()
-                }
-                arrayOfLabelInitV.removeAll()
             }
         }
     
@@ -846,24 +773,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //2
         if ((firstBody.categoryBitMask & PhysicsCategory.Phisphere != 0) &&
             (secondBody.categoryBitMask & PhysicsCategory.Sensor != 0)) {
-//            print("Body: \(secondBody.node?.position.y)")
-//            print("Body: \((firstBody.node?.position.y)! - ((secondBody.node?.frame.height)! / 2))")
+            print("Body: \(secondBody.node?.position.y)")
+            print("Body: \((firstBody.node?.position.y)! - ((secondBody.node?.frame.height)! / 2))")
             if secondBody.node?.name! == "speedCamera" {
                 //timer.invalidate()
                 if let phisphereNode = firstBody.node as? SKSpriteNode, let
                     Sensor = secondBody.node as? SpeedCamera {
-//                    let velocity = (sqrt(pow((phisphereNode.physicsBody?.velocity.dx)!, 2) + pow((phisphereNode.physicsBody?.velocity.dy)!, 2))/CGFloat(sphereVelocityConstant))
-//                    Sensor.setSpeedCameraValue(velocity)
-                    
-                    Sensor.setSpeedCameraValue(CGFloat(sphereSpeedF))
-                    
+                    let velocity = (sqrt(pow((phisphereNode.physicsBody?.velocity.dx)!, 2) + pow((phisphereNode.physicsBody?.velocity.dy)!, 2))/163)
+                    Sensor.setSpeedCameraValue(velocity)
                     //print("Position: \(phisphereNode.position)")
-//                    print(Sensor.value)
+                    print(Sensor.value)
                     setValueDisplaySC(Sensor)
-                    phisphere.physicsBody?.velocity.dx = 0
-                    
-                    alertMessage = Int((sphereSpeedF + sphereSpeedI)/2*timing)
-                    print( "la spazio vale: \(Int((sphereSpeedF + sphereSpeedI)/2*timing))")
                 }
             } else if (secondBody.node?.name)! == "loadCell" && (secondBody.node?.position.y)! < (firstBody.node?.position.y)! - 10 {
                 if let phisphereNode = firstBody.node as? SKSpriteNode, let Sensor = secondBody.node as? LoadCell {
@@ -877,8 +797,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 Sensor = secondBody.node as? PhotoCell {
                 Sensor.setPhotoCellValue()
             }
-            pause = true
-            viewController.showAlert()
         }
     }
     
@@ -929,22 +847,4 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func saveSpace() -> CGFloat {
         
     }*/
-    
-    func setInitialV() {
-        //print("SelectedNode is: " + selectedNode.name!)
-        
-        //print("Set width to " + myNode.name!)
-        removeChildren(in: [myNode])
-        
-        //myNode.physicsBody?.velocity.dx = CGFloat(Float(textFieldV.text!)!)
-        
-        labelInitV.text! = String(describing: round((sliderInitV.value/163)*10)/10)
-        if sliderInitV.value != 0 {
-            gravity = false
-        }
-        
-        addChild(myNode)
-        
-    }
-
 }

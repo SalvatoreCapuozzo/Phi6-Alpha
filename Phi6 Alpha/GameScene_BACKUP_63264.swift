@@ -279,6 +279,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //            phisphere.physicsBody?.affectedByGravity = true
             
             // Da utilizzare in caso di assenza di gravità e velocità iniziale diversa da zero
+<<<<<<< HEAD
             //phisphere.physicsBody?.velocity.dx = CGFloat(27.7*163)
             phisphere.physicsBody?.affectedByGravity = true
             
@@ -292,6 +293,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //phisphere.physicsBody?.velocity.dy = CGFloat(0)
             
             phisphere.physicsBody?.collisionBitMask = 1
+=======
+            phisphere.physicsBody?.velocity.dx = CGFloat( (sphereSpeedI + sphereSpeedF) / 2 * sphereVelocityConstant)
+            phisphere.physicsBody?.velocity.dy = CGFloat(0)
+            phisphere.physicsBody?.affectedByGravity = false
+            phisphere.physicsBody?.collisionBitMask = 0
+>>>>>>> 3505f4a18b1aae54c770b78f356d4d03398bc1a5
             phisphere.physicsBody?.categoryBitMask = PhysicsCategory.Phisphere
             phisphere.physicsBody?.contactTestBitMask = PhysicsCategory.Sensor
             
