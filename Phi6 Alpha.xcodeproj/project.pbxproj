@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3084EA041E487A0E0064C869 /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084EA031E487A0E0064C869 /* LevelViewController.swift */; };
 		3093494D1E449B920006F622 /* Arrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3093494C1E449B920006F622 /* Arrow.swift */; };
+		5A00DAD41E48C16B00F13164 /* Adder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00DAD31E48C16B00F13164 /* Adder.swift */; };
 		5A72AB931E44C49700227938 /* PhysicsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A72AB921E44C49700227938 /* PhysicsCategory.swift */; };
 		8715F5FC1E36510F001E2DEA /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715F5FB1E36510F001E2DEA /* Singleton.swift */; };
 		8715F6081E368279001E2DEA /* ObjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715F6071E368279001E2DEA /* ObjectTableViewCell.swift */; };
@@ -59,6 +60,7 @@
 		127D1FCEE4984D940F70ABB6 /* Pods-Phi6 Alpha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phi6 Alpha.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Phi6 Alpha/Pods-Phi6 Alpha.debug.xcconfig"; sourceTree = "<group>"; };
 		3084EA031E487A0E0064C869 /* LevelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
 		3093494C1E449B920006F622 /* Arrow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arrow.swift; sourceTree = "<group>"; };
+		5A00DAD31E48C16B00F13164 /* Adder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Adder.swift; sourceTree = "<group>"; };
 		5A72AB921E44C49700227938 /* PhysicsCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsCategory.swift; sourceTree = "<group>"; };
 		8715F5FB1E36510F001E2DEA /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		8715F6071E368279001E2DEA /* ObjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectTableViewCell.swift; sourceTree = "<group>"; };
@@ -138,6 +140,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5A00DAD21E48C15200F13164 /* CellViews */ = {
+			isa = PBXGroup;
+			children = (
+				8715F6071E368279001E2DEA /* ObjectTableViewCell.swift */,
+				8731F2FF1E4129A5002C5253 /* SensorTableViewCell.swift */,
+			);
+			name = CellViews;
+			sourceTree = "<group>";
+		};
 		8731F2AF1E40D649002C5253 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +166,7 @@
 		8731F2B01E40D64D002C5253 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5A00DAD21E48C15200F13164 /* CellViews */,
 				87DC851C1E34BA4B0068555D /* GameScene.swift */,
 				87DC85181E34BA4B0068555D /* GameScene.sks */,
 				87DC85201E34BA4B0068555D /* Main.storyboard */,
@@ -167,6 +179,7 @@
 		8731F2B11E40D654002C5253 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				87DC851A1E34BA4B0068555D /* Actions.sks */,
 				3084EA031E487A0E0064C869 /* LevelViewController.swift */,
 				8731F2D51E40DD5C002C5253 /* CarusiellViewController.swift */,
 				8731F2D71E40DD5C002C5253 /* MainViewController.swift */,
@@ -272,12 +285,10 @@
 				87DC85161E34BA4B0068555D /* AppDelegate.swift */,
 				8731F2AF1E40D649002C5253 /* Model */,
 				8731F2B01E40D64D002C5253 /* View */,
-				87DC851A1E34BA4B0068555D /* Actions.sks */,
 				8731F2B11E40D654002C5253 /* Controller */,
 				8715F5FB1E36510F001E2DEA /* Singleton.swift */,
 				87DC85281E34BA4B0068555D /* Info.plist */,
-				8715F6071E368279001E2DEA /* ObjectTableViewCell.swift */,
-				8731F2FF1E4129A5002C5253 /* SensorTableViewCell.swift */,
+				5A00DAD31E48C16B00F13164 /* Adder.swift */,
 			);
 			path = "Phi6 Alpha";
 			sourceTree = "<group>";
@@ -412,6 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A00DAD41E48C16B00F13164 /* Adder.swift in Sources */,
 				87FACC351E449400005B6F67 /* Circle.swift in Sources */,
 				8731F2CA1E40D6FE002C5253 /* NotGate.swift in Sources */,
 				8731F2D11E40D6FE002C5253 /* Triangle.swift in Sources */,

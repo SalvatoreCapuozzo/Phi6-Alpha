@@ -42,6 +42,8 @@ class GameViewController: UIViewController {
      
      */
     
+    var adder = Adder()
+    
     override func viewDidLoad() {
 
         super.viewDidLoad()
@@ -147,28 +149,24 @@ class GameViewController: UIViewController {
         massLabel.text! = String(describing: round((scene.phisphere.physicsBody?.mass)!*10)/10)
     }
     
-    @IBAction func addTriangle() {
-        scene.addTriangle()
-    }
-    
     @IBAction func addRectangle() {
-        scene.addRectangle()
+        adder.addRectangle(scene: scene)
     }
     
     @IBAction func addCircle() {
-        scene.addCircle()
+        adder.addCircle(scene: scene)
     }
     
     @IBAction func addPhotoCell() {
-        scene.addPhotoCell()
+        adder.addPhotoCell(scene: scene)
     }
     
     @IBAction func addSpeedCamera() {
-        scene.addSpeedCamera()
+        adder.addSpeedCamera(scene: scene)
     }
     
     @IBAction func addLoadCell() {
-        scene.addLoadCell()
+        adder.addLoadCell(scene: scene)
     }
     
     @IBAction func showObjects(_ sender: Any) {
@@ -235,9 +233,7 @@ class GameViewController: UIViewController {
             action = UIAlertAction(title: "Ok", style: .default, handler: nil)
             alert.addAction(action)
             DispatchQueue.main.async {
-                
                 self.present(alert, animated: true, completion: nil)
-                
             }
     }
 }

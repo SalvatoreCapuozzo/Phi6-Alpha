@@ -92,6 +92,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var timing: Double = 13.8
     var viewController: GameViewController!
     var alertMessage: Any?
+    var adder = Adder()
     
     override func didMove(to view: SKView) {
         
@@ -152,28 +153,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         Singleton.shared.createList()
         Singleton.shared.createSensorList()
         Singleton.shared.fillList()
-        
-        
-        
-        
-        
-        
-        /*for object in Singleton.shared.objects {
-            self.addChild(object as! SKNode)
-        }*/
-        
-        if Singleton.shared.selectedPath != IndexPath() {
-            switch Singleton.shared.selectedPath {
-            case [0, 0]:
-                addTriangle()
-            case [0, 1]:
-                addRectangle()
-            case [0, 2]:
-                addCircle()
-            default: print("Oops, something went wrong")
-            }
-        }
-        
     }
     
     func rotated(sender: UIRotationGestureRecognizer) {
@@ -191,7 +170,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         if let sprite = node as? SKSpriteNode {
                             if sprite == phisphere {
                                 phisphere.position = touchLocation
-                                addInitSlider()
+                                adder.addInitSlider(scene: self)
                                 myNode = sprite
                             } else {
                                 for object in Singleton.shared.objects {
@@ -212,7 +191,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                             object.position = touchLocation
                                             selectedNode = object
                                             
-                                            addSlider(node: object)
+                                            adder.addSlider(node: object, scene: self)
                                             myNode = object
                                         } else {
                                             self.removeChildren(in: [object])
@@ -244,7 +223,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                         object.position = touchLocation
                                         selectedNode = object
                                         
-                                        addSlider(node: object)
+                                        adder.addSlider(node: object, scene: self)
                                         myNode = object
                                     }
                                 }
@@ -421,273 +400,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func addTriangle() {
-        let sprite = Triangle.triangle(location: CGPoint(x: self.frame.maxX/2, y: self.frame.maxY/2))
-        sprite.physicsBody?.affectedByGravity = false
-        sprite.physicsBody?.isDynamic = false
-        sprite.physicsBody?.usesPreciseCollisionDetection = true
-        physicsWorld.contactDelegate = self
-        sprite.xScale = 0.1
-        repeat {
-            sprite.xScale += 0.001
-        } while (sprite.size.width < 50)
-        sprite.size.width = 54
-        sprite.yScale = 0.1
-        repeat {
-            sprite.yScale += 0.001
-        } while (sprite.size.height < 50)
-        sprite.size.height = 54
-        //sprite.xScale = scale
-        Singleton.shared.addNewObject(anObject: sprite)
-        self.addChild(sprite)
-        
-        if sprite.name == nil {
-            sprite.name = "object" //+ String(number)
-            number += 1
-        }
-        print(sprite.name!)
-    }
-    
-    func addPhotoCell() {
-        let sprite = PhotoCell.photoCell(location: CGPoint(x: self.frame.maxX/2, y: self.frame.maxY/2))
-        sprite.physicsBody?.affectedByGravity = false
-        sprite.physicsBody?.isDynamic = false
-        
-        sprite.physicsBody?.collisionBitMask = 0
-        sprite.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
-        sprite.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
-        
-        sprite.size.width = objectWidth
-        sprite.size.height = objectHeight
-        sprite.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -objectWidth/2, y: -objectHeight/2, width: objectWidth, height: objectHeight))
-        print(sprite.xScale)
-        Singleton.shared.addNewObject(anObject: sprite)
-        self.addChild(sprite)
-        arrayOfSensors.append(sprite)
-        
-        if sprite.name == nil {
-            sprite.name = "sensor"// + String(number)
-            number += 1
-        }
-        print(sprite.name!)
-    }
-    
-    func addSpeedCamera() {
-        let sprite = SpeedCamera.speedCamera(location: CGPoint(x: self.frame.maxX/2, y: self.frame.maxY/2))
-        sprite.physicsBody?.affectedByGravity = false
-        sprite.physicsBody?.isDynamic = false
-        
-        sprite.physicsBody?.collisionBitMask = 0
-        sprite.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
-        sprite.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
-        
-        sprite.size.width = objectWidth
-        sprite.size.height = objectHeight
-        sprite.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -objectWidth/2, y: -objectHeight/2, width: objectWidth, height: objectHeight))
-        print(sprite.xScale)
-        Singleton.shared.addNewObject(anObject: sprite)
-        self.addChild(sprite)
-        arrayOfSensors.append(sprite)
-        
-        if sprite.name == nil {
-            sprite.name = "speedCamera"// + String(number)
-            number += 1
-        }
-        print(sprite.name!)
-    }
-
-    func addLoadCell() {
-        let sprite = LoadCell.loadCell(location: CGPoint(x: self.frame.maxX/2, y: self.frame.maxY/2))
-        sprite.physicsBody?.affectedByGravity = false
-        sprite.physicsBody?.isDynamic = false
-        
-        sprite.physicsBody?.collisionBitMask = 0
-        sprite.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
-        sprite.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
-        
-        sprite.size.width = objectWidth
-        sprite.size.height = objectHeight
-        sprite.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -objectWidth/2, y: -objectHeight/2, width: objectWidth, height: objectHeight/2 + 1))
-        print(sprite.xScale)
-        Singleton.shared.addNewObject(anObject: sprite)
-        self.addChild(sprite)
-        arrayOfSensors.append(sprite)
-        
-        if sprite.name == nil {
-            sprite.name = "loadCell"// + String(number)
-            number += 1
-        }
-        print(sprite.name!)
-    }
-    
-    func addRectangle() {
-        let sprite = Rectangle.rectangle(location: CGPoint(x: self.frame.maxX/2, y: self.frame.maxY/2))
-        sprite.physicsBody?.affectedByGravity = false
-        sprite.physicsBody?.isDynamic = false
-        sprite.physicsBody?.usesPreciseCollisionDetection = true
-        
-        sprite.size.width = objectWidth
-        sprite.size.height = objectHeight
-        sprite.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -objectWidth/2, y: -objectHeight/2, width: objectWidth, height: objectHeight))
-        print(sprite.xScale)
-        Singleton.shared.addNewObject(anObject: sprite)
-        self.addChild(sprite)
-        
-        if sprite.name == nil {
-            sprite.name = "object"// + String(number)
-            number += 1
-        }
-        print(sprite.name!)
-    }
-    
-    func addCircle() {
-        let sprite = Circle.circle(location: CGPoint(x: self.frame.maxX/2, y: self.frame.maxY/2))
-        sprite.physicsBody?.affectedByGravity = false
-        sprite.physicsBody?.isDynamic = false
-        sprite.physicsBody?.usesPreciseCollisionDetection = true
-        
-        sprite.size.width = objectWidth
-        sprite.size.height = objectWidth
-        sprite.physicsBody = SKPhysicsBody(circleOfRadius: objectWidth/2)
-        sprite.physicsBody?.affectedByGravity = false
-        sprite.physicsBody?.isDynamic = false
-        Singleton.shared.addNewObject(anObject: sprite)
-        self.addChild(sprite)
-        
-        if sprite.name == nil {
-            sprite.name = "objectCircle" //+ String(number)
-            number += 1
-        }
-        print(sprite.name!)
-    }
-    
-    func addInitSlider() {
-        deleteSliders()
-        // Set Velocity Text Field
-        labelInitV = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        labelInitV.layer.position = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2) + 140, y: -phisphere.position.y + (self.frame.size.height / 2) + 25)
-        labelInitV.textColor! = UIColor.black
-        labelInitV?.text = String(describing: round((phisphere.physicsBody?.velocity.dx)!*10)/10)
-        if labelInitV.text != nil {
-            labelInitV.text! = String(describing: round((phisphere.physicsBody?.velocity.dx)!*10)/10)
-        }
-        
-        sliderInitV = UISlider(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        sliderInitV?.layer.position = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2) + 100, y: -phisphere.position.y + (self.frame.size.height / 2))
-        sliderInitV?.backgroundColor = UIColor.clear
-        sliderInitV?.tintColor = UIColor.green
-        sliderInitV?.layer.cornerRadius = 15.0
-        sliderInitV?.layer.shadowOpacity = 0.5
-        sliderInitV?.layer.masksToBounds = false
-        sliderInitV?.maximumValue = 326
-        sliderInitV?.minimumValue = -326
-        sliderInitV?.value = Float((phisphere.physicsBody?.velocity.dx)!)
-
-        sliderInitV.addTarget(self, action: #selector(setInitialV), for: UIControlEvents.valueChanged)
-        
-        arrayOfSliderInitV.append(sliderInitV)
-        self.view?.addSubview(sliderInitV)
-        arrayOfLabelInitV.append(labelInitV)
-        self.view?.addSubview(labelInitV)
-        
-    }
-    
-    func addSlider(node: SKSpriteNode) {
-        myNode = nil
-        deleteSliders()
-        
-        // Set Width Slider
-        mySlider = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
-        mySlider?.layer.position = CGPoint(x: (self.view?.frame.width)!/4 - ((mySlider?.frame.width)!/8) , y: (self.view?.frame.height)!-45)
-        mySlider?.backgroundColor = UIColor.clear
-        mySlider?.layer.cornerRadius = 15.0
-        mySlider?.layer.shadowOpacity = 0.5
-        mySlider?.layer.masksToBounds = false
-        mySlider?.maximumValue = 326
-        mySlider?.minimumValue = 0.2
-        mySlider?.value = Float(node.size.width)
-        
-        // Set Height Slider
-        sliderHeight = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
-        sliderHeight?.layer.position = CGPoint(x: (self.view?.frame.width)!/4 - ((mySlider?.frame.width)!/8) , y: (self.view?.frame.height)!-15)
-        sliderHeight?.backgroundColor = UIColor.clear
-        sliderHeight?.layer.cornerRadius = 15.0
-        sliderHeight?.layer.shadowOpacity = 0.5
-        sliderHeight?.layer.masksToBounds = false
-        sliderHeight?.maximumValue = 326
-        sliderHeight?.minimumValue = 0.2
-        sliderHeight?.value = Float(node.size.height)
-        
-        // Set Rotation Slider
-        sliderRotationLine = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
-        sliderRotationLine?.layer.position = CGPoint(x: (self.view?.frame.width)!/2 + ((mySlider?.frame.width)!/2) , y: (self.view?.frame.height)!-15)
-        sliderRotationLine?.backgroundColor = UIColor.clear
-        sliderRotationLine?.layer.cornerRadius = 15.0
-        sliderRotationLine?.layer.shadowOpacity = 0.5
-        sliderRotationLine?.layer.masksToBounds = false
-        sliderRotationLine?.maximumValue = 360
-        sliderRotationLine?.minimumValue = 0
-        sliderRotationLine?.value = Float(node.zRotation)
-        
-        // Set Width Label
-        myLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        myLabel.layer.position = CGPoint(x: (self.view?.frame.width)!/4 + ((mySlider?.frame.width)!/1.2), y: (self.view?.frame.height)!-45)
-        myLabel.textColor! = UIColor.black
-        myLabel?.text = String(describing: (round((mySlider.value/163)*100)/100)) + " m"
-        if myLabel.text != nil {
-            myLabel.text! = String(describing: (round((mySlider.value/163)*100)/100)) + " m"
-        }
-        
-        // Set Height Label
-        labelHeight = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        labelHeight.layer.position = CGPoint(x: (self.view?.frame.width)!/4 + ((mySlider?.frame.width)!/1.2), y: (self.view?.frame.height)!-15)
-        labelHeight.textColor! = UIColor.black
-        labelHeight?.text = String(describing: (round((sliderHeight.value/163)*100)/100)) + " m"
-        if labelHeight.text != nil {
-            labelHeight.text! = String(describing: (round((sliderHeight.value/163)*100)/100)) + " m"
-        }
-        
-        // Set Rotation Label
-        labelRotation = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        labelRotation.layer.position = CGPoint(x: (self.view?.frame.width)!/2 + ((mySlider?.frame.width)!*1.5), y: (self.view?.frame.height)!-15)
-        labelRotation.textColor! = UIColor.black
-        labelRotation?.text = String(describing: round(sliderRotationLine.value*10)/10) + "°"
-        if labelRotation.text != nil {
-            labelRotation.text! = String(describing: round(sliderRotationLine.value*10)/10) + "°"
-        }
-        
-        if(node.name == "phisphere"){
-            mySlider?.addTarget(self, action: #selector(setDiameter2), for: UIControlEvents.valueChanged)
-        }
-        else if(node.name == "triangle") || (node.name == "block") {
-            mySlider?.addTarget(self, action: #selector(setWidth2), for: UIControlEvents.valueChanged)
-            sliderHeight?.addTarget(self, action: #selector(setHeight2), for: UIControlEvents.valueChanged)
-            //sliderRotation?.addTarget(self, action: #selector(setRotation), for: UIControlEvents.valueChanged)
-        } else if (node.name == "object") {
-            mySlider?.addTarget(self, action: #selector(setWidth2), for: UIControlEvents.valueChanged)
-            sliderHeight?.addTarget(self, action: #selector(setHeight2), for: UIControlEvents.valueChanged)
-            //sliderRotation?.addTarget(self, action: #selector(setRotation), for: UIControlEvents.valueChanged)
-            //sliderRotation?.target(forAction: #selector(setRotation), withSender: self)
-            sliderRotationLine?.addTarget(self, action: #selector(setRotation), for: UIControlEvents.valueChanged)
-        } else if (node.name == "objectCircle") {
-            mySlider?.addTarget(self, action: #selector(setWidth2), for: UIControlEvents.valueChanged)
-        }
-        
-            arrayOfSlider.append(mySlider!)
-            self.view?.addSubview(mySlider!)
-            arrayOfSliderHeight.append(sliderHeight!)
-            self.view?.addSubview(sliderHeight!)
-            arrayOfSliderRotationLine.append(sliderRotationLine!)
-            self.view?.addSubview(sliderRotationLine!)
-            arrayOfLabel.append(myLabel!)
-            self.view?.addSubview(myLabel!)
-            arrayOfLabelHeight.append(labelHeight!)
-            self.view?.addSubview(labelHeight!)
-            arrayOfLabelRotation.append(labelRotation!)
-            self.view?.addSubview(labelRotation!)
-        }
-
-        func deleteSliders(){
+    func deleteSliders(){
         
             if arrayOfSlider.count >= 0{
                 for slider in arrayOfSlider{
