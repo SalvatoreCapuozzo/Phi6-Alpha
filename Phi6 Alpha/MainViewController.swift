@@ -81,7 +81,7 @@ class MainViewController: UIViewController {
                 selectCategory.mode = self.learning
                 print(selectCategory.mode ?? "niente")
             case "sandbox":
-                let selectCategory = segue.destination as! CarusiellViewController
+                let selectCategory = segue.destination as! GameViewController
                 selectCategory.mode = self.sandbox
                 print(selectCategory.mode ?? "niente")
             default:
