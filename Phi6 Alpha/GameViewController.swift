@@ -173,6 +173,10 @@ class GameViewController: UIViewController {
         adder.addChronometer(scene: scene)
     }
     
+    @IBAction func addLaserAccelerometer() {
+        adder.addLaserAccelerometer(scene: scene)
+    }
+    
     @IBAction func showObjects(_ sender: Any) {
         // self.showPausedMenu()
         

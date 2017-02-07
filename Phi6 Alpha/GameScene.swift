@@ -183,7 +183,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                                 object.physicsBody?.collisionBitMask = 1
                                                 object.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
                                                 object.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
-                                            } else if object.name == "speedCamera" || object.name == "chronometer" {
+                                            } else if object.name == "speedCamera" || object.name == "chronometer" || object.name == "laserAccelerometer" {
                                                 deleteSliders()
                                                 object.physicsBody?.collisionBitMask = 1
                                                 object.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
@@ -616,7 +616,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     print(Sensor.value)
                     setValueDisplayLC(Sensor)
                 }
+            } else if secondBody.node?.name! == "laserAccelerometer" {
+                if let phisphereNode = firstBody.node as? SKSpriteNode, let
+                    Sensor = secondBody.node as? LaserAccelerometer {
+                    if Sensor.orientation == "Vertical" {
+                        // Cheating time
+                        let accelerationDy = CGFloat(9.8)
+                        Sensor.setLaserAccelerometerValue(accelerationDy)
+                        print(Sensor.value)
+                        setValueDisplayLA(Sensor)
+                    } else if Sensor.orientation == "Horizontal" {
+                        let accelerationDx = phisphereAccDx/163
+                        Sensor.setLaserAccelerometerValue(accelerationDx)
+                        print(Sensor.value)
+                        setValueDisplayLA(Sensor)
+                    }
+                }
             }
+            
             if let phisphere = firstBody.node as? SKSpriteNode, let
                 Sensor = secondBody.node as? PhotoCell {
                 Sensor.setPhotoCellValue()
@@ -673,6 +690,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         arrayOfLabelTimer.append(myLabel)
         self.view?.addSubview(myLabel)
+    }
+    
+    func setValueDisplayLA(_ object: LaserAccelerometer) {
+        myLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        myLabel.layer.position = CGPoint(x: object.position.x + (self.frame.size.width / 2) + 30, y: -object.position.y + (self.frame.size.height / 2) - 15)
+        myLabel.textColor! = UIColor.green
+        myLabel?.text = String(describing: round(object.value*10)/10)
+        if myLabel.text != nil {
+            myLabel.text! = String(describing: round(object.value*10)/10)
+        }
+        myLabel.font = UIFont(name: "AmericanTypewriter-Light", size: 10)
+        
+        arrayOfLabelSensors.append(myLabel)
+        self.view?.addSubview(myLabel)
+        print("Running time: ok")
     }
     
     func setInitialV() {

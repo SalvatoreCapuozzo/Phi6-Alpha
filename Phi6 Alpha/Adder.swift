@@ -114,6 +114,30 @@ func addPhotoCell(scene: GameScene) {
          */
         print(sprite.name!)
     }
+    
+    func addLaserAccelerometer(scene: GameScene) {
+        scene.deleteSliders()
+        let sprite = LaserAccelerometer.vertical(location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
+        sprite.physicsBody?.affectedByGravity = false
+        sprite.physicsBody?.isDynamic = false
+        
+        sprite.physicsBody?.collisionBitMask = 0
+        sprite.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
+        sprite.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
+        
+        sprite.size.width = scene.objectWidth
+        sprite.size.height = scene.objectHeight
+        sprite.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -scene.objectWidth/2, y: -scene.objectHeight/2, width: scene.objectWidth, height: scene.objectHeight))
+        print(sprite.xScale)
+        Singleton.shared.addNewObject(anObject: sprite)
+        scene.addChild(sprite)
+        scene.arrayOfSensors.append(sprite)
+        
+        if sprite.name == nil {
+            sprite.name = "laserAccelerometer"// + String(number)
+        }
+        print(sprite.name!)
+    }
 
     func addRectangle(scene: GameScene) {
     let sprite = Rectangle.rectangle(location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
