@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3084EA041E487A0E0064C869 /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084EA031E487A0E0064C869 /* LevelViewController.swift */; };
 		3093494D1E449B920006F622 /* Arrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3093494C1E449B920006F622 /* Arrow.swift */; };
+		30AB47C61E49D90400671FA0 /* TheoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB47C51E49D90400671FA0 /* TheoryViewController.swift */; };
 		5A00DAD41E48C16B00F13164 /* Adder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00DAD31E48C16B00F13164 /* Adder.swift */; };
 		5A72AB931E44C49700227938 /* PhysicsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A72AB921E44C49700227938 /* PhysicsCategory.swift */; };
 		8715F5FC1E36510F001E2DEA /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715F5FB1E36510F001E2DEA /* Singleton.swift */; };
@@ -60,6 +61,7 @@
 		127D1FCEE4984D940F70ABB6 /* Pods-Phi6 Alpha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phi6 Alpha.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Phi6 Alpha/Pods-Phi6 Alpha.debug.xcconfig"; sourceTree = "<group>"; };
 		3084EA031E487A0E0064C869 /* LevelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
 		3093494C1E449B920006F622 /* Arrow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arrow.swift; sourceTree = "<group>"; };
+		30AB47C51E49D90400671FA0 /* TheoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheoryViewController.swift; sourceTree = "<group>"; };
 		5A00DAD31E48C16B00F13164 /* Adder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Adder.swift; sourceTree = "<group>"; };
 		5A72AB921E44C49700227938 /* PhysicsCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsCategory.swift; sourceTree = "<group>"; };
 		8715F5FB1E36510F001E2DEA /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			children = (
 				87DC851A1E34BA4B0068555D /* Actions.sks */,
 				3084EA031E487A0E0064C869 /* LevelViewController.swift */,
+				30AB47C51E49D90400671FA0 /* TheoryViewController.swift */,
 				8731F2D51E40DD5C002C5253 /* CarusiellViewController.swift */,
 				8731F2D71E40DD5C002C5253 /* MainViewController.swift */,
 				87DC851E1E34BA4B0068555D /* GameViewController.swift */,
@@ -455,6 +458,7 @@
 				8731F2E81E40E209002C5253 /* EasyAnimation.swift in Sources */,
 				8731F2FE1E412965002C5253 /* SensorTableViewController.swift in Sources */,
 				8731F2D81E40DD5C002C5253 /* CarusiellViewController.swift in Sources */,
+				30AB47C61E49D90400671FA0 /* TheoryViewController.swift in Sources */,
 				87DC85171E34BA4B0068555D /* AppDelegate.swift in Sources */,
 				8731F2F21E40E2D1002C5253 /* RBBLinearInterpolation.swift in Sources */,
 				8731F2CB1E40D6FE002C5253 /* OrGate.swift in Sources */,

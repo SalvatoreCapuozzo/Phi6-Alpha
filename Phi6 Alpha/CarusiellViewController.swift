@@ -16,7 +16,7 @@ class CarusiellViewController: UIViewController, iCarouselDataSource, iCarouselD
     var i = 0
     var selectedIndex : Int = 0
     @IBOutlet weak var pageControl: UIPageControl!
-    let images = ["argumentschoice", "Group 24", "Group 2"]
+    let images = ["Group 24", "argumentschoice", "Group 2"]
     
     var mode: String?
     
@@ -62,7 +62,11 @@ class CarusiellViewController: UIViewController, iCarouselDataSource, iCarouselD
     
     func carousel(_ carousel: iCarousel, didSelectItemAt index: Int) {
         self.selectedIndex = index
-        self.performSegue(withIdentifier: "levelSegue", sender: carousel)
+        if self.mode == "arcade"{
+            self.performSegue(withIdentifier: "levelSegue", sender: carousel)
+        } else if self.mode == "learning"{
+            self.performSegue(withIdentifier: "showTheory", sender: carousel)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -71,8 +75,11 @@ class CarusiellViewController: UIViewController, iCarouselDataSource, iCarouselD
             livelli.category = self.selectedIndex
             livelli.mode = self.mode
             print(self.selectedIndex)
+        } else if segue.identifier == "showTheory" {
+            let teoria = segue.destination as! TheoryViewController
+            teoria.category = self.selectedIndex
+            teoria.mode = self.mode
         }
         
     }
-
 }

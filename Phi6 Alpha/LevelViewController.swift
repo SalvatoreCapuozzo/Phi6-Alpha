@@ -23,7 +23,7 @@ class LevelViewController: UIViewController, UICollectionViewDelegate, UICollect
         super.viewDidLoad()
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -61,7 +61,7 @@ class LevelViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.levelNumberSelected = indexPath.row
-        self.performSegue(withIdentifier: "levelSelection", sender: self)
+        self.performSegue(withIdentifier: "showGame", sender: self)
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -70,12 +70,11 @@ class LevelViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "levelSelection" {
+        if segue.identifier == "showGame" {
             let levelSelected = segue.destination as! GameViewController
             levelSelected.mode = self.mode
             levelSelected.category = self.category
             levelSelected.levelNumber = self.levelNumberSelected
-            print(self.levelNumberSelected ?? "niente")
         }
     }
     

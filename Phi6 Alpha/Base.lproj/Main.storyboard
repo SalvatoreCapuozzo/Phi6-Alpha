@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wgD-cz-GGm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wgD-cz-GGm">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -472,7 +472,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.833583208395808" y="464.80000000000001"/>
+            <point key="canvasLocation" x="193" y="2014"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="5Se-Rh-HyU">
@@ -545,7 +545,75 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V82-2P-Ien" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-758.77061469265368" y="-2588"/>
+            <point key="canvasLocation" x="-806" y="-3494"/>
+        </scene>
+        <!--Theory View Controller-->
+        <scene sceneID="QGH-F9-COX">
+            <objects>
+                <viewController id="BMF-cN-Aee" customClass="TheoryViewController" customModule="Phi6_Alpha" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NXD-pX-wkz"/>
+                        <viewControllerLayoutGuide type="bottom" id="ShR-ku-DaO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dd5-4L-1bF">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background_Main_Menu" translatesAutoresizingMaskIntoConstraints="NO" id="JBW-JJ-Z6o">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="decorationphysics" translatesAutoresizingMaskIntoConstraints="NO" id="na0-Jt-bHy">
+                                <rect key="frame" x="10" y="10" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srS-Bl-bVX">
+                                <rect key="frame" x="9" y="101" width="478" height="208"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wez-Zx-SpL">
+                                <rect key="frame" x="507" y="101" width="140" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6o-9P-Bjs">
+                                <rect key="frame" x="9" y="317" width="32" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title=" Back" image="returns--icon-30696"/>
+                                <connections>
+                                    <action selector="goBack:" destination="BMF-cN-Aee" eventType="touchUpInside" id="GU1-ul-w5g"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9T0-OD-pch">
+                                <rect key="frame" x="598" y="306" width="69" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="playbutton"/>
+                                <connections>
+                                    <action selector="goToExercise:" destination="BMF-cN-Aee" eventType="touchUpInside" id="En8-a9-H5c"/>
+                                    <segue destination="BV1-FR-VrT" kind="presentation" identifier="showExercise" id="zbM-7L-b0e"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HnI-hc-pGf">
+                                <rect key="frame" x="117" y="10" width="473" height="104"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="32"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageTheory" destination="Wez-Zx-SpL" id="Cht-e8-ktH"/>
+                        <outlet property="textTheory" destination="srS-Bl-bVX" id="6vr-xe-V8H"/>
+                        <outlet property="titleTheory" destination="HnI-hc-pGf" id="fp0-fG-VrM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v8c-9U-VO8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133.5832083958021" y="-1164"/>
         </scene>
         <!--Carusiell View Controller-->
         <scene sceneID="Gin-TF-RI7">
@@ -589,11 +657,12 @@
                         <outlet property="backButton" destination="f1f-ov-ESs" id="2wn-Tn-Ga8"/>
                         <outlet property="pageControl" destination="yp7-Nd-0Wu" id="fZ3-mc-yWR"/>
                         <segue destination="hOQ-KZ-dNo" kind="presentation" identifier="levelSegue" id="AoN-Yd-4t0"/>
+                        <segue destination="BMF-cN-Aee" kind="presentation" identifier="showTheory" id="ywd-qc-aw9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="je6-cS-71k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-759.67016491754134" y="-1559.2"/>
+            <point key="canvasLocation" x="-806" y="-2073"/>
         </scene>
         <!--Level View Controller-->
         <scene sceneID="8Qw-22-x4b">
@@ -637,7 +706,7 @@
                                         </view>
                                         <size key="customSize" width="92" height="92"/>
                                         <connections>
-                                            <segue destination="BV1-FR-VrT" kind="presentation" identifier="levelSelection" id="HFc-k2-QxN"/>
+                                            <segue destination="BV1-FR-VrT" kind="presentation" identifier="showGame" id="HFc-k2-QxN"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -664,7 +733,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YsS-CN-wLN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-760.56971514242889" y="-538.39999999999998"/>
+            <point key="canvasLocation" x="-1674" y="-1164"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="nrf-Iu-co0">
@@ -731,7 +800,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P41-sI-YZx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="81" y="-1780"/>
+            <point key="canvasLocation" x="1255" y="-1164"/>
         </scene>
         <!--Object Table View Controller-->
         <scene sceneID="m4X-1G-o65">
@@ -777,7 +846,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aRq-Si-FQb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-88" y="-538"/>
+            <point key="canvasLocation" x="1044" y="-199"/>
         </scene>
         <!--Sensor Table View Controller-->
         <scene sceneID="jLf-Jf-3qs">
@@ -823,7 +892,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AsZ-zr-Gk7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="291" y="-538"/>
+            <point key="canvasLocation" x="1419" y="-199"/>
         </scene>
     </scenes>
     <resources>
@@ -842,11 +911,13 @@
         <image name="Rectangle" width="278" height="278"/>
         <image name="Sandbox-1" width="87" height="26"/>
         <image name="SpeedCamera" width="50" height="50"/>
+        <image name="decorationphysics" width="256" height="256"/>
         <image name="levelchoice" width="66" height="66"/>
+        <image name="playbutton" width="277" height="271"/>
         <image name="returns--icon-30696" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="HFc-k2-QxN"/>
-        <segue reference="QKA-WW-eJm"/>
+        <segue reference="qtE-CL-tpg"/>
     </inferredMetricsTieBreakers>
 </document>
