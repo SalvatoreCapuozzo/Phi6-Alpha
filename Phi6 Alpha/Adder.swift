@@ -296,6 +296,17 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
     scene.sliderRotationLine?.minimumValue = -180
     scene.sliderRotationLine?.value = Float(node.zRotation)
     
+    // Set Friction Slider
+    scene.sliderFriction = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
+    scene.sliderFriction?.layer.position = CGPoint(x: (scene.view?.frame.width)!/2 + ((scene.mySlider?.frame.width)!/2) , y: (scene.view?.frame.height)!-45)
+    scene.sliderFriction?.backgroundColor = UIColor.clear
+    scene.sliderFriction?.layer.cornerRadius = 15.0
+    scene.sliderFriction?.layer.shadowOpacity = 0.5
+    scene.sliderFriction?.layer.masksToBounds = false
+    scene.sliderFriction?.maximumValue = 290
+    scene.sliderFriction?.minimumValue = 0
+    scene.sliderFriction?.value = Float((node.physicsBody?.friction)!)
+    
     // Set Width Label
     scene.myLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
     scene.myLabel.layer.position = CGPoint(x: (scene.view?.frame.width)!/4 + ((scene.mySlider?.frame.width)!/1.2), y: (scene.view?.frame.height)!-45)
@@ -327,6 +338,15 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
         }
     }
     
+    // Set Friction Label
+    scene.labelFriction = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+    scene.labelFriction.layer.position = CGPoint(x: (scene.view?.frame.width)!/2 + ((scene.mySlider?.frame.width)!*1.5), y: (scene.view?.frame.height)!-45)
+    scene.labelFriction.textColor! = UIColor.black
+    scene.labelFriction?.text = String(describing: round(scene.sliderFriction.value*10)/10)
+    if scene.labelFriction.text != nil {
+        scene.labelFriction.text = String(describing: round(scene.sliderFriction.value*10)/10)
+    }
+    
     if(node.name == "phisphere"){
         scene.mySlider?.addTarget(scene, action: #selector(scene.setDiameter2), for: UIControlEvents.valueChanged)
     }
@@ -340,6 +360,7 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
         //sliderRotation?.addTarget(scene, action: #selector(setRotation), for: UIControlEvents.valueChanged)
         //sliderRotation?.target(forAction: #selector(setRotation), withSender: scene)
         scene.sliderRotationLine?.addTarget(scene, action: #selector(scene.setRotation), for: UIControlEvents.valueChanged)
+        scene.sliderFriction?.addTarget(scene, action: #selector(scene.setFriction), for: UIControlEvents.valueChanged)
     } else if (node.name == "objectCircle") {
         scene.mySlider?.addTarget(scene, action: #selector(scene.setWidth2), for: UIControlEvents.valueChanged)
     }
@@ -356,6 +377,10 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
     scene.view?.addSubview(scene.labelHeight!)
     scene.arrayOfLabelRotation.append(scene.labelRotation!)
     scene.view?.addSubview(scene.labelRotation!)
+    scene.arrayOfSliderFriction.append(scene.sliderFriction!)
+    scene.view?.addSubview(scene.sliderFriction!)
+    scene.arrayOfLabelFriction.append(scene.labelFriction!)
+    scene.view?.addSubview(scene.labelFriction!)
 }
 
 }

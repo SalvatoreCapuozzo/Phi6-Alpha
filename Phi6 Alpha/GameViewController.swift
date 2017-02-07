@@ -144,7 +144,7 @@ class GameViewController: UIViewController, SKSceneDelegate {
             scene.counter = 0
             pauseButton?.setTitle("Play", for: UIControlState(rawValue: 0))
             diameterSlider.value = Float(scene.pauseDiameter)
-            diameterLabel.text! = String(describing: round((scene.pauseDiameter/163)*100)/100)
+            diameterLabel.text! = String(describing: round((scene.pauseDiameter/145)*100)/100)
         }
     }
     
@@ -157,7 +157,7 @@ class GameViewController: UIViewController, SKSceneDelegate {
         scene.phisphere.xScale = CGFloat(diameterSlider.value)/scene.pauseDiameter
         scene.phisphere.yScale = CGFloat(diameterSlider.value)/scene.pauseDiameter
         
-        diameterLabel.text! = String(describing: round((scene.phisphere.size.width/163)*100)/100)
+        diameterLabel.text! = String(describing: round((scene.phisphere.size.width/145)*100)/100)
         
     }
     
