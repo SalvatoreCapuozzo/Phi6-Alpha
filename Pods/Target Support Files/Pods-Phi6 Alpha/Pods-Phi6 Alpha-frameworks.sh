@@ -92,13 +92,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/MTCircularSlider/MTCircularSlider.framework"
   install_framework "$BUILT_PRODUCTS_DIR/VerticalSlider/VerticalSlider.framework"
   install_framework "$BUILT_PRODUCTS_DIR/iCarousel/iCarousel.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/iOSContextualMenu/iOSContextualMenu.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/MTCircularSlider/MTCircularSlider.framework"
   install_framework "$BUILT_PRODUCTS_DIR/VerticalSlider/VerticalSlider.framework"
   install_framework "$BUILT_PRODUCTS_DIR/iCarousel/iCarousel.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/iOSContextualMenu/iOSContextualMenu.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

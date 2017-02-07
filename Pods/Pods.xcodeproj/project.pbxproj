@@ -7,110 +7,89 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08A61EC5AAA863ABA698A71A6CF86A50 /* iOSContextualMenu-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C6EA48485FE03AFFA5A312C421BECBB /* iOSContextualMenu-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0B8D8A4315A105D607218C0A35A4B192 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = D24D24B54946CEF26E0A387683DAF23F /* iCarousel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		1B9FEA52E95A160431BEAE4AEC53D3CB /* VerticalSlider-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3840287426251BB85C60E7BC69CFEDE4 /* VerticalSlider-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		04F0F8B8D2FED4E0173C31978D7CCB8B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC5D9C5B838BE747D0154460D02F926 /* Foundation.framework */; };
+		0B8D8A4315A105D607218C0A35A4B192 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F10ADEDAB1C6B401C5DFBECFEDF58E8 /* iCarousel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		208E871A651F903D900B0010E4DE829F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BACC64101FAE4862F8806DB02FC71B0E /* QuartzCore.framework */; };
-		21D73299581075FB7368DA9FDAD8DAA6 /* iCarousel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C9053EF1763B06AE867175811EDC6468 /* iCarousel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2AC1F9B8162D0236725247D4A253A77F /* MTCircularSlider-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 33CC9757E8C6C7E5AD49D713D1A57091 /* MTCircularSlider-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2EB3EEF344148CEA1BFF3E22BCAC0AE5 /* Pods-Phi6 Alpha-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C45292A2BB2C859C98D4ADBEA31A205 /* Pods-Phi6 Alpha-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F237085A85FD485060BE0C98F955A60 /* Pods-Phi6 Alpha-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD02FA2C2AD1C220BA94B2A1D973D21 /* Pods-Phi6 Alpha-dummy.m */; };
+		21D73299581075FB7368DA9FDAD8DAA6 /* iCarousel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AF01AD665DB85E273554A9E55B7F655 /* iCarousel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2AC1F9B8162D0236725247D4A253A77F /* MTCircularSlider-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7056F749CB74EF7EC5236A666CB3833F /* MTCircularSlider-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		35E67269AC810C26BDC72313BE1C03AE /* VerticalSlider-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E7CAD87C7623B534EB6C81D58D4EBCA7 /* VerticalSlider-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		447441569C514C3ACE3BC3B877A4F83C /* Pods-Phi6 Alpha-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD02FA2C2AD1C220BA94B2A1D973D21 /* Pods-Phi6 Alpha-dummy.m */; };
 		477A303EA3838B5C135943D99D3D9C10 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC5D9C5B838BE747D0154460D02F926 /* Foundation.framework */; };
-		5B34545C58FD4026F867FBD68B755979 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC5D9C5B838BE747D0154460D02F926 /* Foundation.framework */; };
-		6013A5769C2C21564039DFA7C4034B4E /* BAMContextualMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 19616183CDC022035087842AD25B1E3C /* BAMContextualMenu.m */; };
-		6C4986A33EE0D75E3B19E605E185E998 /* iCarousel.h in Headers */ = {isa = PBXBuildFile; fileRef = 833FC53E498BBD9B9EF1D6AA67405BC6 /* iCarousel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7345FBA26B58C0411E511FC4DD69090C /* BAMContextualMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = A52D45075E72F915E22ED5FC0AC86BEF /* BAMContextualMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		820ADABF3278A67DC71CBD75DFB2AE6F /* iCarousel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FF639AF601C602FBE133D32139F3986E /* iCarousel-dummy.m */; };
+		47A28B30BEFE620470EB3D7359E9BCC4 /* Pods-Phi6 Alpha-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C45292A2BB2C859C98D4ADBEA31A205 /* Pods-Phi6 Alpha-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C4986A33EE0D75E3B19E605E185E998 /* iCarousel.h in Headers */ = {isa = PBXBuildFile; fileRef = B7E261C380028732EAA9EB3B8FB77727 /* iCarousel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		820ADABF3278A67DC71CBD75DFB2AE6F /* iCarousel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F84555960DC5E800D51C244DBE616D /* iCarousel-dummy.m */; };
 		822E8BDF4DAF6F6CE1D0E832441B9468 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC5D9C5B838BE747D0154460D02F926 /* Foundation.framework */; };
-		A3D9A56A3253EA1A37CEA7B93022C8D9 /* VerticalSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6B516ABA9EDB054421BD56E51E990E /* VerticalSlider.swift */; };
-		B5BA27F9ABAFE1564998010F61A0374B /* MTCircularSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2ECC0D25C57B18521E449D420489C /* MTCircularSlider.swift */; };
-		BA13EBBF87DC0B4729D3EE8CCCC158B5 /* iOSContextualMenu-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A26F89F60CB2A17145422BB8A0FAFDE /* iOSContextualMenu-dummy.m */; };
-		C4E900E611A8F33894D452A4B91111AC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC5D9C5B838BE747D0154460D02F926 /* Foundation.framework */; };
-		C6811E3AEDB0DA75E920B290734260F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC5D9C5B838BE747D0154460D02F926 /* Foundation.framework */; };
-		D1474C54B94498A8708444C7CAA336EB /* MTCircularSlider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6EFE4F15AE58E367BFE913980A84EC /* MTCircularSlider-dummy.m */; };
-		E868A7ECE3BF69831CD6C81ED28BDC03 /* VerticalSlider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 974264D189FFBE0B433ED3556AE13E57 /* VerticalSlider-dummy.m */; };
+		86DC56C9D5C66EF1E5FBAEE7AEEA2886 /* VerticalSlider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E0FA62617EA825F6E62635D4C6E9BB59 /* VerticalSlider-dummy.m */; };
+		B5BA27F9ABAFE1564998010F61A0374B /* MTCircularSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEAC0CBBA95ECF6F547FE5DAFD2B626 /* MTCircularSlider.swift */; };
+		D1474C54B94498A8708444C7CAA336EB /* MTCircularSlider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9046650D1ADC9DF471F1807657003582 /* MTCircularSlider-dummy.m */; };
+		D49BF3B68709E6E5BA577F3ADECD1A48 /* VerticalSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E851C95065FCEDEB744929DB9B573D2 /* VerticalSlider.swift */; };
+		EC0C95448209CA81E8C2F9BC1872811F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC5D9C5B838BE747D0154460D02F926 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		92A100F68CE647088F24596D2302E514 /* PBXContainerItemProxy */ = {
+		3CE6472CD3878900972CBC0D349DA104 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 717E294BCA04C9627C0BA6D6B606203C;
-			remoteInfo = iOSContextualMenu;
-		};
-		C4C324645965E1C670C1B6AEF19BE76A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B8D8C363B343A0778AE6633D70E11749;
-			remoteInfo = iCarousel;
-		};
-		EB98EDDD489EBEB244542D3AC9800274 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5083FC96480A7B14126C9C234A7D4F40;
+			remoteGlobalIDString = E1E99B28E644173EED47E1D1B7B3A808;
 			remoteInfo = VerticalSlider;
 		};
-		EC659A62A38C535D9CA23D1F93E61F84 /* PBXContainerItemProxy */ = {
+		8114543D8F878116B0867F407A92C396 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 8C46F2046AF67FFD52C8C8777C19994B;
 			remoteInfo = MTCircularSlider;
 		};
+		FD05E19DFBD4B1D868ABB85E29AA1EF9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B8D8C363B343A0778AE6633D70E11749;
+			remoteInfo = iCarousel;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0903E336D2016922FDD1F7CCD97F676E /* Pods_Phi6_Alpha.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Phi6_Alpha.framework; path = "Pods-Phi6 Alpha.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0DEA3EB2824410CD145E45141CA11525 /* iCarousel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iCarousel-prefix.pch"; sourceTree = "<group>"; };
+		029D86BE13C2B763EEFF3A7042D46BE7 /* MTCircularSlider.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MTCircularSlider.xcconfig; sourceTree = "<group>"; };
+		08222505FC80636FE4F39BA7E92DC8FC /* MTCircularSlider.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MTCircularSlider.modulemap; sourceTree = "<group>"; };
 		1098A7E5510F657A48B8921BB9A8AC49 /* Pods-Phi6 Alpha.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Phi6 Alpha.modulemap"; sourceTree = "<group>"; };
-		19616183CDC022035087842AD25B1E3C /* BAMContextualMenu.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BAMContextualMenu.m; path = Classes/BAMContextualMenu.m; sourceTree = "<group>"; };
-		1C311C9CD30985E6FE95290FF03F2788 /* iOSContextualMenu.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = iOSContextualMenu.modulemap; sourceTree = "<group>"; };
-		1D034AFD9CE4BFCAECD6EEE90B0A988A /* iCarousel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = iCarousel.modulemap; sourceTree = "<group>"; };
-		23428774877CECE6E4B07F234C847572 /* VerticalSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = VerticalSlider.framework; path = VerticalSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		33CC9757E8C6C7E5AD49D713D1A57091 /* MTCircularSlider-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MTCircularSlider-umbrella.h"; sourceTree = "<group>"; };
-		3840287426251BB85C60E7BC69CFEDE4 /* VerticalSlider-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VerticalSlider-umbrella.h"; sourceTree = "<group>"; };
-		39F71116C6E71CC20CA8F391C4CF9F32 /* MTCircularSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MTCircularSlider-prefix.pch"; sourceTree = "<group>"; };
+		1330EC2E03E6D50581192D98D4758B6A /* Pods_Phi6_Alpha.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Phi6_Alpha.framework; path = "Pods-Phi6 Alpha.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E851C95065FCEDEB744929DB9B573D2 /* VerticalSlider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VerticalSlider.swift; path = VerticalSlider/Classes/VerticalSlider.swift; sourceTree = "<group>"; };
+		2BED5F9C0220CBF5D7EBF2FCEEF807E1 /* VerticalSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VerticalSlider-prefix.pch"; sourceTree = "<group>"; };
+		315F42FA8DC1295B70FEAED2C727833F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		369A31FC34A05A3A8BBC83238402B01A /* iCarousel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iCarousel-prefix.pch"; sourceTree = "<group>"; };
+		370B2866CB4ECF845A0C93FC3B567ECA /* iCarousel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iCarousel.xcconfig; sourceTree = "<group>"; };
 		3AC5D9C5B838BE747D0154460D02F926 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		49558BBF028E1E7326F49396AF4DFE81 /* Pods-Phi6 Alpha-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Phi6 Alpha-acknowledgements.markdown"; sourceTree = "<group>"; };
-		4C6EA48485FE03AFFA5A312C421BECBB /* iOSContextualMenu-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iOSContextualMenu-umbrella.h"; sourceTree = "<group>"; };
-		50BFB66C43D65A0CBEE7673BB8BAA752 /* VerticalSlider.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VerticalSlider.xcconfig; sourceTree = "<group>"; };
-		630535E86556F0F95BDA0FCD0037DDE1 /* MTCircularSlider.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MTCircularSlider.xcconfig; sourceTree = "<group>"; };
-		6A6B516ABA9EDB054421BD56E51E990E /* VerticalSlider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VerticalSlider.swift; path = VerticalSlider/Classes/VerticalSlider.swift; sourceTree = "<group>"; };
-		6C6AD4485F73DD4B936985530FC3E3E6 /* iCarousel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iCarousel.xcconfig; sourceTree = "<group>"; };
-		6D6EFE4F15AE58E367BFE913980A84EC /* MTCircularSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MTCircularSlider-dummy.m"; sourceTree = "<group>"; };
-		7858CDD6BDB937CA1BDBEFFBAD996F49 /* MTCircularSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MTCircularSlider.framework; path = MTCircularSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AF01AD665DB85E273554A9E55B7F655 /* iCarousel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iCarousel-umbrella.h"; sourceTree = "<group>"; };
+		6BD62D8B17751036B08DACC82D8BD73C /* VerticalSlider.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VerticalSlider.xcconfig; sourceTree = "<group>"; };
+		7056F749CB74EF7EC5236A666CB3833F /* MTCircularSlider-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MTCircularSlider-umbrella.h"; sourceTree = "<group>"; };
 		7FA9DA1D259678353AA8F176D606DB88 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		833FC53E498BBD9B9EF1D6AA67405BC6 /* iCarousel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = iCarousel.h; path = iCarousel/iCarousel.h; sourceTree = "<group>"; };
-		8C749602B959F918E11A238FD54A82B6 /* VerticalSlider.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = VerticalSlider.modulemap; sourceTree = "<group>"; };
+		81EA44300F572C2077BBA787EC871E91 /* MTCircularSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MTCircularSlider.framework; path = MTCircularSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F10ADEDAB1C6B401C5DFBECFEDF58E8 /* iCarousel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = iCarousel.m; path = iCarousel/iCarousel.m; sourceTree = "<group>"; };
+		9046650D1ADC9DF471F1807657003582 /* MTCircularSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MTCircularSlider-dummy.m"; sourceTree = "<group>"; };
 		92E092C8AD407FB696A177ED3D368531 /* Pods-Phi6 Alpha-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Phi6 Alpha-resources.sh"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		974264D189FFBE0B433ED3556AE13E57 /* VerticalSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "VerticalSlider-dummy.m"; sourceTree = "<group>"; };
-		97A50F932CE803115031711258CEFBE7 /* VerticalSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VerticalSlider-prefix.pch"; sourceTree = "<group>"; };
-		981726F279FBBED5389F68016E02FA7C /* iOSContextualMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = iOSContextualMenu.framework; path = iOSContextualMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99EE8203758291E2881C8FB9BFE02093 /* Pods-Phi6 Alpha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Phi6 Alpha.debug.xcconfig"; sourceTree = "<group>"; };
-		9A26F89F60CB2A17145422BB8A0FAFDE /* iOSContextualMenu-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "iOSContextualMenu-dummy.m"; sourceTree = "<group>"; };
 		9AB6C290015E47CB8D3FFCE38F00FB0C /* Pods-Phi6 Alpha.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Phi6 Alpha.release.xcconfig"; sourceTree = "<group>"; };
 		9C45292A2BB2C859C98D4ADBEA31A205 /* Pods-Phi6 Alpha-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Phi6 Alpha-umbrella.h"; sourceTree = "<group>"; };
-		A47281B075D3FDAC4B37467C026F06F8 /* MTCircularSlider.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MTCircularSlider.modulemap; sourceTree = "<group>"; };
-		A52D45075E72F915E22ED5FC0AC86BEF /* BAMContextualMenu.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BAMContextualMenu.h; path = Classes/BAMContextualMenu.h; sourceTree = "<group>"; };
 		B325BE11D309609ADB87FE47384A8DC6 /* Pods-Phi6 Alpha-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Phi6 Alpha-frameworks.sh"; sourceTree = "<group>"; };
+		B7E261C380028732EAA9EB3B8FB77727 /* iCarousel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = iCarousel.h; path = iCarousel/iCarousel.h; sourceTree = "<group>"; };
 		BACC64101FAE4862F8806DB02FC71B0E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		BBABD9AEE4DECBAD6002305E297326FF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDD02FA2C2AD1C220BA94B2A1D973D21 /* Pods-Phi6 Alpha-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Phi6 Alpha-dummy.m"; sourceTree = "<group>"; };
-		C9053EF1763B06AE867175811EDC6468 /* iCarousel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iCarousel-umbrella.h"; sourceTree = "<group>"; };
-		CBC71EBB94694DDB72177BE4D2AE0D38 /* iOSContextualMenu.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iOSContextualMenu.xcconfig; sourceTree = "<group>"; };
-		CED2ECC0D25C57B18521E449D420489C /* MTCircularSlider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MTCircularSlider.swift; path = MTCircularSlider/Classes/MTCircularSlider.swift; sourceTree = "<group>"; };
-		D24D24B54946CEF26E0A387683DAF23F /* iCarousel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = iCarousel.m; path = iCarousel/iCarousel.m; sourceTree = "<group>"; };
-		DB0DE495A1FC5D220BD098F207DF5092 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DB5BB8C6E9E9E270E04E477AA623CAB8 /* iOSContextualMenu-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iOSContextualMenu-prefix.pch"; sourceTree = "<group>"; };
-		DF310840C95CF2D6E77C1AB5C2051313 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ED3CC27313543610F5C8E75032AB21AF /* iCarousel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = iCarousel.framework; path = iCarousel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F62694B4332397F5C80237D109D637CF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC181C5F7BBD0027B5A96BE1E0E80F32 /* VerticalSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = VerticalSlider.framework; path = VerticalSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEEAC0CBBA95ECF6F547FE5DAFD2B626 /* MTCircularSlider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MTCircularSlider.swift; path = MTCircularSlider/Classes/MTCircularSlider.swift; sourceTree = "<group>"; };
+		D7CDFA2DC82DDE98FA13651D1AA886A0 /* iCarousel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = iCarousel.modulemap; sourceTree = "<group>"; };
+		D9BDE2468D0CCB1630E061A111CA2879 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0FA62617EA825F6E62635D4C6E9BB59 /* VerticalSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "VerticalSlider-dummy.m"; sourceTree = "<group>"; };
+		E42F17D40BE5701EF2DC4A6D806C5EBB /* VerticalSlider.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = VerticalSlider.modulemap; sourceTree = "<group>"; };
+		E54195621752DCD5FE0FA2173042C390 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7CAD87C7623B534EB6C81D58D4EBCA7 /* VerticalSlider-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VerticalSlider-umbrella.h"; sourceTree = "<group>"; };
+		E7F84555960DC5E800D51C244DBE616D /* iCarousel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "iCarousel-dummy.m"; sourceTree = "<group>"; };
+		F10474EDD4EA6DBBAA3E7A5B9F5FB92B /* iCarousel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = iCarousel.framework; path = iCarousel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9147C4AB180DB85DC98481BEAB0C0A6 /* MTCircularSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MTCircularSlider-prefix.pch"; sourceTree = "<group>"; };
 		FE5772939D4572C346861AAE1513B608 /* Pods-Phi6 Alpha-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Phi6 Alpha-acknowledgements.plist"; sourceTree = "<group>"; };
-		FF639AF601C602FBE133D32139F3986E /* iCarousel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "iCarousel-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,19 +101,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7997D4B49CD7ECE0152ACB4C64223FB8 /* Frameworks */ = {
+		C03F270B9D9F200F85C88ED549ADCA6D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4E900E611A8F33894D452A4B91111AC /* Foundation.framework in Frameworks */,
+				04F0F8B8D2FED4E0173C31978D7CCB8B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		950986D3661054C60A0413E0FC545AA5 /* Frameworks */ = {
+		D31EB730FA58AE87C3C2B68CD3AB7B72 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B34545C58FD4026F867FBD68B755979 /* Foundation.framework in Frameworks */,
+				EC0C95448209CA81E8C2F9BC1872811F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,31 +126,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F40E16E5DAE8A0D27AF80D1FBCE04CFE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C6811E3AEDB0DA75E920B290734260F2 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00D5ABFC7DDD771152E8EC8C1CAD2BA9 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				1D034AFD9CE4BFCAECD6EEE90B0A988A /* iCarousel.modulemap */,
-				6C6AD4485F73DD4B936985530FC3E3E6 /* iCarousel.xcconfig */,
-				FF639AF601C602FBE133D32139F3986E /* iCarousel-dummy.m */,
-				0DEA3EB2824410CD145E45141CA11525 /* iCarousel-prefix.pch */,
-				C9053EF1763B06AE867175811EDC6468 /* iCarousel-umbrella.h */,
-				DB0DE495A1FC5D220BD098F207DF5092 /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/iCarousel";
-			sourceTree = "<group>";
-		};
 		131D8B596739C6BF0D93E61E0B988602 /* Pods-Phi6 Alpha */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,11 +147,39 @@
 			path = "Target Support Files/Pods-Phi6 Alpha";
 			sourceTree = "<group>";
 		};
-		207F4D286C9E0B841907BB23D46C0C6D /* VerticalSlider */ = {
+		186A3F0FB831FD1EA3C9AD21DCDC56D7 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				6A6B516ABA9EDB054421BD56E51E990E /* VerticalSlider.swift */,
-				EDDAC60DF1DC5A65E58EA141D2846DCF /* Support Files */,
+				D7CDFA2DC82DDE98FA13651D1AA886A0 /* iCarousel.modulemap */,
+				370B2866CB4ECF845A0C93FC3B567ECA /* iCarousel.xcconfig */,
+				E7F84555960DC5E800D51C244DBE616D /* iCarousel-dummy.m */,
+				369A31FC34A05A3A8BBC83238402B01A /* iCarousel-prefix.pch */,
+				4AF01AD665DB85E273554A9E55B7F655 /* iCarousel-umbrella.h */,
+				E54195621752DCD5FE0FA2173042C390 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/iCarousel";
+			sourceTree = "<group>";
+		};
+		39ABF5BC788A2938876829B7642D100D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				315F42FA8DC1295B70FEAED2C727833F /* Info.plist */,
+				E42F17D40BE5701EF2DC4A6D806C5EBB /* VerticalSlider.modulemap */,
+				6BD62D8B17751036B08DACC82D8BD73C /* VerticalSlider.xcconfig */,
+				E0FA62617EA825F6E62635D4C6E9BB59 /* VerticalSlider-dummy.m */,
+				2BED5F9C0220CBF5D7EBF2FCEEF807E1 /* VerticalSlider-prefix.pch */,
+				E7CAD87C7623B534EB6C81D58D4EBCA7 /* VerticalSlider-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/VerticalSlider";
+			sourceTree = "<group>";
+		};
+		3A0721B66AE66160667E8897F1722BD1 /* VerticalSlider */ = {
+			isa = PBXGroup;
+			children = (
+				1E851C95065FCEDEB744929DB9B573D2 /* VerticalSlider.swift */,
+				39ABF5BC788A2938876829B7642D100D /* Support Files */,
 			);
 			name = VerticalSlider;
 			path = VerticalSlider;
@@ -208,38 +193,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		61775E0855A39BB30FBEEAA421ED7ED7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F10474EDD4EA6DBBAA3E7A5B9F5FB92B /* iCarousel.framework */,
+				81EA44300F572C2077BBA787EC871E91 /* MTCircularSlider.framework */,
+				1330EC2E03E6D50581192D98D4758B6A /* Pods_Phi6_Alpha.framework */,
+				CC181C5F7BBD0027B5A96BE1E0E80F32 /* VerticalSlider.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				DA1F90F70EADD26BD24B998E65917B60 /* Pods */,
-				8333E2666884BDA58088E0F426DD45A8 /* Products */,
+				FDE58AA5D1DBD06375316B8E893A7310 /* Pods */,
+				61775E0855A39BB30FBEEAA421ED7ED7 /* Products */,
 				B51079F530D695605EA9FCAE95FD8868 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		8333E2666884BDA58088E0F426DD45A8 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				ED3CC27313543610F5C8E75032AB21AF /* iCarousel.framework */,
-				981726F279FBBED5389F68016E02FA7C /* iOSContextualMenu.framework */,
-				7858CDD6BDB937CA1BDBEFFBAD996F49 /* MTCircularSlider.framework */,
-				0903E336D2016922FDD1F7CCD97F676E /* Pods_Phi6_Alpha.framework */,
-				23428774877CECE6E4B07F234C847572 /* VerticalSlider.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		8ACA26610305AE31D0380D724501835D /* iCarousel */ = {
-			isa = PBXGroup;
-			children = (
-				833FC53E498BBD9B9EF1D6AA67405BC6 /* iCarousel.h */,
-				D24D24B54946CEF26E0A387683DAF23F /* iCarousel.m */,
-				00D5ABFC7DDD771152E8EC8C1CAD2BA9 /* Support Files */,
-			);
-			name = iCarousel;
-			path = iCarousel;
 			sourceTree = "<group>";
 		};
 		B51079F530D695605EA9FCAE95FD8868 /* Targets Support Files */ = {
@@ -248,6 +221,17 @@
 				131D8B596739C6BF0D93E61E0B988602 /* Pods-Phi6 Alpha */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		C21A78C08915CCCA3BCA81542AE053D2 /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				B7E261C380028732EAA9EB3B8FB77727 /* iCarousel.h */,
+				8F10ADEDAB1C6B401C5DFBECFEDF58E8 /* iCarousel.m */,
+				186A3F0FB831FD1EA3C9AD21DCDC56D7 /* Support Files */,
+			);
+			name = iCarousel;
+			path = iCarousel;
 			sourceTree = "<group>";
 		};
 		C7AB6F27FF3606F9360547F8F1977A63 /* iOS */ = {
@@ -259,96 +243,48 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		D6C50D462DCB752A9950120EBAE8A1A9 /* MTCircularSlider */ = {
+		E2BABD40425DD125DA0416C926DAC705 /* MTCircularSlider */ = {
 			isa = PBXGroup;
 			children = (
-				CED2ECC0D25C57B18521E449D420489C /* MTCircularSlider.swift */,
-				DC38E6602D1F2DBD4263131885566E19 /* Support Files */,
+				CEEAC0CBBA95ECF6F547FE5DAFD2B626 /* MTCircularSlider.swift */,
+				EC1C5FC24594F07276B9638D24C0E5E2 /* Support Files */,
 			);
 			name = MTCircularSlider;
 			path = MTCircularSlider;
 			sourceTree = "<group>";
 		};
-		DA1F90F70EADD26BD24B998E65917B60 /* Pods */ = {
+		EC1C5FC24594F07276B9638D24C0E5E2 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				8ACA26610305AE31D0380D724501835D /* iCarousel */,
-				F738F323519EE9A7D821576BF145B3CC /* iOSContextualMenu */,
-				D6C50D462DCB752A9950120EBAE8A1A9 /* MTCircularSlider */,
-				207F4D286C9E0B841907BB23D46C0C6D /* VerticalSlider */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		DC38E6602D1F2DBD4263131885566E19 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				F62694B4332397F5C80237D109D637CF /* Info.plist */,
-				A47281B075D3FDAC4B37467C026F06F8 /* MTCircularSlider.modulemap */,
-				630535E86556F0F95BDA0FCD0037DDE1 /* MTCircularSlider.xcconfig */,
-				6D6EFE4F15AE58E367BFE913980A84EC /* MTCircularSlider-dummy.m */,
-				39F71116C6E71CC20CA8F391C4CF9F32 /* MTCircularSlider-prefix.pch */,
-				33CC9757E8C6C7E5AD49D713D1A57091 /* MTCircularSlider-umbrella.h */,
+				D9BDE2468D0CCB1630E061A111CA2879 /* Info.plist */,
+				08222505FC80636FE4F39BA7E92DC8FC /* MTCircularSlider.modulemap */,
+				029D86BE13C2B763EEFF3A7042D46BE7 /* MTCircularSlider.xcconfig */,
+				9046650D1ADC9DF471F1807657003582 /* MTCircularSlider-dummy.m */,
+				F9147C4AB180DB85DC98481BEAB0C0A6 /* MTCircularSlider-prefix.pch */,
+				7056F749CB74EF7EC5236A666CB3833F /* MTCircularSlider-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/MTCircularSlider";
 			sourceTree = "<group>";
 		};
-		EDDAC60DF1DC5A65E58EA141D2846DCF /* Support Files */ = {
+		FDE58AA5D1DBD06375316B8E893A7310 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DF310840C95CF2D6E77C1AB5C2051313 /* Info.plist */,
-				8C749602B959F918E11A238FD54A82B6 /* VerticalSlider.modulemap */,
-				50BFB66C43D65A0CBEE7673BB8BAA752 /* VerticalSlider.xcconfig */,
-				974264D189FFBE0B433ED3556AE13E57 /* VerticalSlider-dummy.m */,
-				97A50F932CE803115031711258CEFBE7 /* VerticalSlider-prefix.pch */,
-				3840287426251BB85C60E7BC69CFEDE4 /* VerticalSlider-umbrella.h */,
+				C21A78C08915CCCA3BCA81542AE053D2 /* iCarousel */,
+				E2BABD40425DD125DA0416C926DAC705 /* MTCircularSlider */,
+				3A0721B66AE66160667E8897F1722BD1 /* VerticalSlider */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/VerticalSlider";
-			sourceTree = "<group>";
-		};
-		F2A6EA31A7407CAD680E05D142FE5BAE /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				BBABD9AEE4DECBAD6002305E297326FF /* Info.plist */,
-				1C311C9CD30985E6FE95290FF03F2788 /* iOSContextualMenu.modulemap */,
-				CBC71EBB94694DDB72177BE4D2AE0D38 /* iOSContextualMenu.xcconfig */,
-				9A26F89F60CB2A17145422BB8A0FAFDE /* iOSContextualMenu-dummy.m */,
-				DB5BB8C6E9E9E270E04E477AA623CAB8 /* iOSContextualMenu-prefix.pch */,
-				4C6EA48485FE03AFFA5A312C421BECBB /* iOSContextualMenu-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/iOSContextualMenu";
-			sourceTree = "<group>";
-		};
-		F738F323519EE9A7D821576BF145B3CC /* iOSContextualMenu */ = {
-			isa = PBXGroup;
-			children = (
-				A52D45075E72F915E22ED5FC0AC86BEF /* BAMContextualMenu.h */,
-				19616183CDC022035087842AD25B1E3C /* BAMContextualMenu.m */,
-				F2A6EA31A7407CAD680E05D142FE5BAE /* Support Files */,
-			);
-			name = iOSContextualMenu;
-			path = iOSContextualMenu;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		23042F4747AD300D87F3D2B9CE5CD9E0 /* Headers */ = {
+		43A0801187C6D4C63ACDEEDB7E3D48A2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EB3EEF344148CEA1BFF3E22BCAC0AE5 /* Pods-Phi6 Alpha-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4A7923C93410BC58BB794A272D001FD2 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1B9FEA52E95A160431BEAE4AEC53D3CB /* VerticalSlider-umbrella.h in Headers */,
+				35E67269AC810C26BDC72313BE1C03AE /* VerticalSlider-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,71 +305,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AF95BFDDD8E5C8E2940642E79E299403 /* Headers */ = {
+		A553F6BA15660012BD058D8829FB8BCE /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7345FBA26B58C0411E511FC4DD69090C /* BAMContextualMenu.h in Headers */,
-				08A61EC5AAA863ABA698A71A6CF86A50 /* iOSContextualMenu-umbrella.h in Headers */,
+				47A28B30BEFE620470EB3D7359E9BCC4 /* Pods-Phi6 Alpha-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0ECC28DD9BA2C9D3E24F5B5B45915EA4 /* Pods-Phi6 Alpha */ = {
+		3091E4A5DEB967C4478E4A6497916255 /* Pods-Phi6 Alpha */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FCFC9F15D8ADB08991C85491380FADD4 /* Build configuration list for PBXNativeTarget "Pods-Phi6 Alpha" */;
+			buildConfigurationList = 42435229155C495967D9C59CC448C235 /* Build configuration list for PBXNativeTarget "Pods-Phi6 Alpha" */;
 			buildPhases = (
-				D7BC94FF874D5F940EC92F047CFF01EE /* Sources */,
-				7997D4B49CD7ECE0152ACB4C64223FB8 /* Frameworks */,
-				23042F4747AD300D87F3D2B9CE5CD9E0 /* Headers */,
+				130B6989680E1709FEFE5F9C1F040EA1 /* Sources */,
+				C03F270B9D9F200F85C88ED549ADCA6D /* Frameworks */,
+				A553F6BA15660012BD058D8829FB8BCE /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				856164517DD66D434F8C18E261249465 /* PBXTargetDependency */,
-				6EC6F75C9CA810C2116B84FAAD4E62E5 /* PBXTargetDependency */,
-				78D73AE01A2419DFD842A4ECF504A3FA /* PBXTargetDependency */,
-				C0872CD3F93B77AC463E8550EEB33F5E /* PBXTargetDependency */,
+				96E01838EF48B3ECAB2618C112CA805E /* PBXTargetDependency */,
+				A07AFB711126030FC3D476B65B52A223 /* PBXTargetDependency */,
+				0EAF75F579F8EF95D533764F4C288A4E /* PBXTargetDependency */,
 			);
 			name = "Pods-Phi6 Alpha";
 			productName = "Pods-Phi6 Alpha";
-			productReference = 0903E336D2016922FDD1F7CCD97F676E /* Pods_Phi6_Alpha.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		5083FC96480A7B14126C9C234A7D4F40 /* VerticalSlider */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 08C53571B99EE83B250B75BCF94B152E /* Build configuration list for PBXNativeTarget "VerticalSlider" */;
-			buildPhases = (
-				138ADA73785B50EEF0B14AB1D6EE0CE4 /* Sources */,
-				950986D3661054C60A0413E0FC545AA5 /* Frameworks */,
-				4A7923C93410BC58BB794A272D001FD2 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = VerticalSlider;
-			productName = VerticalSlider;
-			productReference = 23428774877CECE6E4B07F234C847572 /* VerticalSlider.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		717E294BCA04C9627C0BA6D6B606203C /* iOSContextualMenu */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A619E1064DC82E158179463F4A73BD2F /* Build configuration list for PBXNativeTarget "iOSContextualMenu" */;
-			buildPhases = (
-				9B9395CBD66802BDA097B08BE34FD0E2 /* Sources */,
-				F40E16E5DAE8A0D27AF80D1FBCE04CFE /* Frameworks */,
-				AF95BFDDD8E5C8E2940642E79E299403 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = iOSContextualMenu;
-			productName = iOSContextualMenu;
-			productReference = 981726F279FBBED5389F68016E02FA7C /* iOSContextualMenu.framework */;
+			productReference = 1330EC2E03E6D50581192D98D4758B6A /* Pods_Phi6_Alpha.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		8C46F2046AF67FFD52C8C8777C19994B /* MTCircularSlider */ = {
@@ -450,7 +350,7 @@
 			);
 			name = MTCircularSlider;
 			productName = MTCircularSlider;
-			productReference = 7858CDD6BDB937CA1BDBEFFBAD996F49 /* MTCircularSlider.framework */;
+			productReference = 81EA44300F572C2077BBA787EC871E91 /* MTCircularSlider.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		B8D8C363B343A0778AE6633D70E11749 /* iCarousel */ = {
@@ -467,7 +367,24 @@
 			);
 			name = iCarousel;
 			productName = iCarousel;
-			productReference = ED3CC27313543610F5C8E75032AB21AF /* iCarousel.framework */;
+			productReference = F10474EDD4EA6DBBAA3E7A5B9F5FB92B /* iCarousel.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E1E99B28E644173EED47E1D1B7B3A808 /* VerticalSlider */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 657BB9774EA1AD2E6C049E8E6949C005 /* Build configuration list for PBXNativeTarget "VerticalSlider" */;
+			buildPhases = (
+				E1B63F3F3CDE55A37238D518A25B249E /* Sources */,
+				D31EB730FA58AE87C3C2B68CD3AB7B72 /* Frameworks */,
+				43A0801187C6D4C63ACDEEDB7E3D48A2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VerticalSlider;
+			productName = VerticalSlider;
+			productReference = CC181C5F7BBD0027B5A96BE1E0E80F32 /* VerticalSlider.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -487,26 +404,24 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 8333E2666884BDA58088E0F426DD45A8 /* Products */;
+			productRefGroup = 61775E0855A39BB30FBEEAA421ED7ED7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				B8D8C363B343A0778AE6633D70E11749 /* iCarousel */,
-				717E294BCA04C9627C0BA6D6B606203C /* iOSContextualMenu */,
 				8C46F2046AF67FFD52C8C8777C19994B /* MTCircularSlider */,
-				0ECC28DD9BA2C9D3E24F5B5B45915EA4 /* Pods-Phi6 Alpha */,
-				5083FC96480A7B14126C9C234A7D4F40 /* VerticalSlider */,
+				3091E4A5DEB967C4478E4A6497916255 /* Pods-Phi6 Alpha */,
+				E1E99B28E644173EED47E1D1B7B3A808 /* VerticalSlider */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		138ADA73785B50EEF0B14AB1D6EE0CE4 /* Sources */ = {
+		130B6989680E1709FEFE5F9C1F040EA1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E868A7ECE3BF69831CD6C81ED28BDC03 /* VerticalSlider-dummy.m in Sources */,
-				A3D9A56A3253EA1A37CEA7B93022C8D9 /* VerticalSlider.swift in Sources */,
+				447441569C514C3ACE3BC3B877A4F83C /* Pods-Phi6 Alpha-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,56 +443,42 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9B9395CBD66802BDA097B08BE34FD0E2 /* Sources */ = {
+		E1B63F3F3CDE55A37238D518A25B249E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6013A5769C2C21564039DFA7C4034B4E /* BAMContextualMenu.m in Sources */,
-				BA13EBBF87DC0B4729D3EE8CCCC158B5 /* iOSContextualMenu-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D7BC94FF874D5F940EC92F047CFF01EE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3F237085A85FD485060BE0C98F955A60 /* Pods-Phi6 Alpha-dummy.m in Sources */,
+				86DC56C9D5C66EF1E5FBAEE7AEEA2886 /* VerticalSlider-dummy.m in Sources */,
+				D49BF3B68709E6E5BA577F3ADECD1A48 /* VerticalSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6EC6F75C9CA810C2116B84FAAD4E62E5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = VerticalSlider;
-			target = 5083FC96480A7B14126C9C234A7D4F40 /* VerticalSlider */;
-			targetProxy = EB98EDDD489EBEB244542D3AC9800274 /* PBXContainerItemProxy */;
-		};
-		78D73AE01A2419DFD842A4ECF504A3FA /* PBXTargetDependency */ = {
+		0EAF75F579F8EF95D533764F4C288A4E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = iCarousel;
 			target = B8D8C363B343A0778AE6633D70E11749 /* iCarousel */;
-			targetProxy = C4C324645965E1C670C1B6AEF19BE76A /* PBXContainerItemProxy */;
+			targetProxy = FD05E19DFBD4B1D868ABB85E29AA1EF9 /* PBXContainerItemProxy */;
 		};
-		856164517DD66D434F8C18E261249465 /* PBXTargetDependency */ = {
+		96E01838EF48B3ECAB2618C112CA805E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MTCircularSlider;
 			target = 8C46F2046AF67FFD52C8C8777C19994B /* MTCircularSlider */;
-			targetProxy = EC659A62A38C535D9CA23D1F93E61F84 /* PBXContainerItemProxy */;
+			targetProxy = 8114543D8F878116B0867F407A92C396 /* PBXContainerItemProxy */;
 		};
-		C0872CD3F93B77AC463E8550EEB33F5E /* PBXTargetDependency */ = {
+		A07AFB711126030FC3D476B65B52A223 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = iOSContextualMenu;
-			target = 717E294BCA04C9627C0BA6D6B606203C /* iOSContextualMenu */;
-			targetProxy = 92A100F68CE647088F24596D2302E514 /* PBXContainerItemProxy */;
+			name = VerticalSlider;
+			target = E1E99B28E644173EED47E1D1B7B3A808 /* VerticalSlider */;
+			targetProxy = 3CE6472CD3878900972CBC0D349DA104 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		037DFDE5F9F9781B43DBCDAB49653FD5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C6AD4485F73DD4B936985530FC3E3E6 /* iCarousel.xcconfig */;
+			baseConfigurationReference = 370B2866CB4ECF845A0C93FC3B567ECA /* iCarousel.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -606,71 +507,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		52BB036439550512F1C3A713B5FBC6F4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 50BFB66C43D65A0CBEE7673BB8BAA752 /* VerticalSlider.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/VerticalSlider/VerticalSlider-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/VerticalSlider/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/VerticalSlider/VerticalSlider.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = VerticalSlider;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		5C0205A8C26C77C211D7A16CA463E5FC /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CBC71EBB94694DDB72177BE4D2AE0D38 /* iOSContextualMenu.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/iOSContextualMenu/iOSContextualMenu-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/iOSContextualMenu/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/iOSContextualMenu/iOSContextualMenu.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = iOSContextualMenu;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 		673254EEAF0B5BF4596080C749645884 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -712,9 +548,108 @@
 			};
 			name = Release;
 		};
-		720CFE4170E3D12D665090E2D21F21AD /* Debug */ = {
+		6F818461135CB3C83357CD4524E28E55 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CBC71EBB94694DDB72177BE4D2AE0D38 /* iOSContextualMenu.xcconfig */;
+			baseConfigurationReference = 6BD62D8B17751036B08DACC82D8BD73C /* VerticalSlider.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/VerticalSlider/VerticalSlider-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/VerticalSlider/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/VerticalSlider/VerticalSlider.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = VerticalSlider;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		89D407842BDAABF4B9B3B24961E8700F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 370B2866CB4ECF845A0C93FC3B567ECA /* iCarousel.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/iCarousel/iCarousel-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/iCarousel/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/iCarousel/iCarousel.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = iCarousel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8CA27401DEE7C044835BB8314A21CDE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AB6C290015E47CB8D3FFCE38F00FB0C /* Pods-Phi6 Alpha.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Phi6 Alpha/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Phi6 Alpha/Pods-Phi6 Alpha.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Phi6_Alpha;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8E0D4354E3A1751CC9CD2FFB37295DDF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 029D86BE13C2B763EEFF3A7042D46BE7 /* MTCircularSlider.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -727,16 +662,17 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/iOSContextualMenu/iOSContextualMenu-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/iOSContextualMenu/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/MTCircularSlider/MTCircularSlider-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MTCircularSlider/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/iOSContextualMenu/iOSContextualMenu.modulemap";
+				MODULEMAP_FILE = "Target Support Files/MTCircularSlider/MTCircularSlider.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = iOSContextualMenu;
+				PRODUCT_NAME = MTCircularSlider;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -744,7 +680,39 @@
 			};
 			name = Debug;
 		};
-		764B83743A4A1CD08B20EF26E659EDAB /* Debug */ = {
+		B05D2519A8BD76A8900DD6BE9C11AF66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 029D86BE13C2B763EEFF3A7042D46BE7 /* MTCircularSlider.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MTCircularSlider/MTCircularSlider-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MTCircularSlider/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MTCircularSlider/MTCircularSlider.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = MTCircularSlider;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B9E0C93A09585654CACD9A3221CB949E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 99EE8203758291E2881C8FB9BFE02093 /* Pods-Phi6 Alpha.debug.xcconfig */;
 			buildSettings = {
@@ -779,138 +747,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		89D407842BDAABF4B9B3B24961E8700F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C6AD4485F73DD4B936985530FC3E3E6 /* iCarousel.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/iCarousel/iCarousel-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/iCarousel/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/iCarousel/iCarousel.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = iCarousel;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		8E0D4354E3A1751CC9CD2FFB37295DDF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 630535E86556F0F95BDA0FCD0037DDE1 /* MTCircularSlider.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MTCircularSlider/MTCircularSlider-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MTCircularSlider/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MTCircularSlider/MTCircularSlider.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = MTCircularSlider;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		B05D2519A8BD76A8900DD6BE9C11AF66 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 630535E86556F0F95BDA0FCD0037DDE1 /* MTCircularSlider.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MTCircularSlider/MTCircularSlider-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MTCircularSlider/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MTCircularSlider/MTCircularSlider.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = MTCircularSlider;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		D1FA7096E94B57066EC29F1AD4C94CD8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9AB6C290015E47CB8D3FFCE38F00FB0C /* Pods-Phi6 Alpha.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-Phi6 Alpha/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Phi6 Alpha/Pods-Phi6 Alpha.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Phi6_Alpha;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 		E4F26E6EB105713A6A7E7E2E283AC2DF /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -956,15 +792,15 @@
 			};
 			name = Debug;
 		};
-		FAEBFC3F3D24AB54C696C97C86B5CB06 /* Release */ = {
+		EAEC6DC9997DCDB3F7467AF4C73C8A26 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 50BFB66C43D65A0CBEE7673BB8BAA752 /* VerticalSlider.xcconfig */;
+			baseConfigurationReference = 6BD62D8B17751036B08DACC82D8BD73C /* VerticalSlider.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -977,34 +813,44 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/VerticalSlider/VerticalSlider.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = VerticalSlider;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		08C53571B99EE83B250B75BCF94B152E /* Build configuration list for PBXNativeTarget "VerticalSlider" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				52BB036439550512F1C3A713B5FBC6F4 /* Debug */,
-				FAEBFC3F3D24AB54C696C97C86B5CB06 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E4F26E6EB105713A6A7E7E2E283AC2DF /* Debug */,
 				673254EEAF0B5BF4596080C749645884 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		42435229155C495967D9C59CC448C235 /* Build configuration list for PBXNativeTarget "Pods-Phi6 Alpha" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9E0C93A09585654CACD9A3221CB949E /* Debug */,
+				8CA27401DEE7C044835BB8314A21CDE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		657BB9774EA1AD2E6C049E8E6949C005 /* Build configuration list for PBXNativeTarget "VerticalSlider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAEC6DC9997DCDB3F7467AF4C73C8A26 /* Debug */,
+				6F818461135CB3C83357CD4524E28E55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1018,29 +864,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A619E1064DC82E158179463F4A73BD2F /* Build configuration list for PBXNativeTarget "iOSContextualMenu" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				720CFE4170E3D12D665090E2D21F21AD /* Debug */,
-				5C0205A8C26C77C211D7A16CA463E5FC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		FAC0E4E27715C58E6999DD991FAE23F5 /* Build configuration list for PBXNativeTarget "iCarousel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				037DFDE5F9F9781B43DBCDAB49653FD5 /* Debug */,
 				89D407842BDAABF4B9B3B24961E8700F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FCFC9F15D8ADB08991C85491380FADD4 /* Build configuration list for PBXNativeTarget "Pods-Phi6 Alpha" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				764B83743A4A1CD08B20EF26E659EDAB /* Debug */,
-				D1FA7096E94B57066EC29F1AD4C94CD8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
