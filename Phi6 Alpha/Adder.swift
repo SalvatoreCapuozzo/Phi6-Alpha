@@ -13,6 +13,7 @@ import SpriteKit
 class Adder{
 
 func addPhotoCell(scene: GameScene) {
+    scene.deleteSliders()
     let sprite = PhotoCell.photoCell(location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
     sprite.physicsBody?.affectedByGravity = false
     sprite.physicsBody?.isDynamic = false
@@ -32,16 +33,18 @@ func addPhotoCell(scene: GameScene) {
     if sprite.name == nil {
         sprite.name = "sensor"// + String(number)
     }
+    //addChronometer(scene: scene, sensor: sprite)
     
     print(sprite.name!)
 }
 
     func addSpeedCamera(scene: GameScene) {
+        scene.deleteSliders()
     let sprite = SpeedCamera.speedCamera(location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
     sprite.physicsBody?.affectedByGravity = false
     sprite.physicsBody?.isDynamic = false
     
-    sprite.physicsBody?.collisionBitMask = 0
+    sprite.physicsBody?.collisionBitMask = 1
     sprite.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
     sprite.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
     
@@ -60,6 +63,7 @@ func addPhotoCell(scene: GameScene) {
 }
 
     func addLoadCell(scene: GameScene) {
+        scene.deleteSliders()
     let sprite = LoadCell.loadCell(location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
     sprite.physicsBody?.affectedByGravity = false
     sprite.physicsBody?.isDynamic = false
@@ -81,6 +85,59 @@ func addPhotoCell(scene: GameScene) {
     }
     print(sprite.name!)
 }
+    
+    func addChronometer(scene: GameScene) {
+        scene.deleteSliders()
+        let sprite = Chronometer.chronometer(location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
+        sprite.physicsBody?.affectedByGravity = false
+        sprite.physicsBody?.isDynamic = false
+        
+        sprite.physicsBody?.collisionBitMask = 0
+        sprite.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
+        sprite.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
+        
+        sprite.size.width = scene.objectWidth
+        sprite.size.height = scene.objectHeight
+        sprite.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -scene.objectWidth/2, y: -scene.objectHeight/2, width: scene.objectWidth, height: scene.objectHeight/2))
+        print(sprite.xScale)
+        Singleton.shared.addNewObject(anObject: sprite)
+        scene.addChild(sprite)
+        scene.arrayOfSensors.append(sprite)
+        
+        if sprite.name == nil {
+            sprite.name = "chronometer"// + String(number)
+        }
+        /*
+         let fixedPosition = (location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
+         let fixedJoint = SKPhysicsJointFixed.joint(withBodyA: sensor.physicsBody!, bodyB: sprite.physicsBody!, anchor: fixedPosition)
+         scene.physicsWorld.add(fixedJoint)
+         */
+        print(sprite.name!)
+    }
+    
+    func addLaserAccelerometer(scene: GameScene) {
+        scene.deleteSliders()
+        let sprite = LaserAccelerometer.vertical(location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
+        sprite.physicsBody?.affectedByGravity = false
+        sprite.physicsBody?.isDynamic = false
+        
+        sprite.physicsBody?.collisionBitMask = 0
+        sprite.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
+        sprite.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
+        
+        sprite.size.width = scene.objectWidth
+        sprite.size.height = scene.objectHeight
+        sprite.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -scene.objectWidth/2, y: -scene.objectHeight/2, width: scene.objectWidth, height: scene.objectHeight))
+        print(sprite.xScale)
+        Singleton.shared.addNewObject(anObject: sprite)
+        scene.addChild(sprite)
+        scene.arrayOfSensors.append(sprite)
+        
+        if sprite.name == nil {
+            sprite.name = "laserAccelerometer"// + String(number)
+        }
+        print(sprite.name!)
+    }
 
     func addRectangle(scene: GameScene) {
     let sprite = Rectangle.rectangle(location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
@@ -139,8 +196,8 @@ func addInitSlider(scene: GameScene) {
     scene.sliderInitV?.layer.cornerRadius = 15.0
     scene.sliderInitV?.layer.shadowOpacity = 0.5
     scene.sliderInitV?.layer.masksToBounds = false
-    scene.sliderInitV?.maximumValue = 326
-    scene.sliderInitV?.minimumValue = -326
+    scene.sliderInitV?.maximumValue = 725
+    scene.sliderInitV?.minimumValue = -725
     scene.sliderInitV?.value = Float((scene.phisphere.physicsBody?.velocity.dx)!)
     
     scene.sliderInitV.addTarget(scene, action: #selector(scene.setInitialV), for: UIControlEvents.valueChanged)
@@ -163,7 +220,7 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
     scene.mySlider?.layer.cornerRadius = 15.0
     scene.mySlider?.layer.shadowOpacity = 0.5
     scene.mySlider?.layer.masksToBounds = false
-    scene.mySlider?.maximumValue = 326
+    scene.mySlider?.maximumValue = 290
     scene.mySlider?.minimumValue = 0.2
     scene.mySlider?.value = Float(node.size.width)
     
@@ -174,7 +231,7 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
     scene.sliderHeight?.layer.cornerRadius = 15.0
     scene.sliderHeight?.layer.shadowOpacity = 0.5
     scene.sliderHeight?.layer.masksToBounds = false
-    scene.sliderHeight?.maximumValue = 326
+    scene.sliderHeight?.maximumValue = 290
     scene.sliderHeight?.minimumValue = 0.2
     scene.sliderHeight?.value = Float(node.size.height)
     
@@ -185,35 +242,39 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
     scene.sliderRotationLine?.layer.cornerRadius = 15.0
     scene.sliderRotationLine?.layer.shadowOpacity = 0.5
     scene.sliderRotationLine?.layer.masksToBounds = false
-    scene.sliderRotationLine?.maximumValue = 360
-    scene.sliderRotationLine?.minimumValue = 0
+    scene.sliderRotationLine?.maximumValue = 180
+    scene.sliderRotationLine?.minimumValue = -180
     scene.sliderRotationLine?.value = Float(node.zRotation)
     
     // Set Width Label
     scene.myLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
     scene.myLabel.layer.position = CGPoint(x: (scene.view?.frame.width)!/4 + ((scene.mySlider?.frame.width)!/1.2), y: (scene.view?.frame.height)!-45)
     scene.myLabel.textColor! = UIColor.black
-    scene.myLabel?.text = String(describing: (round((scene.mySlider.value/163)*100)/100)) + " m"
+    scene.myLabel?.text = String(describing: (round((scene.mySlider.value/145)*100)/100)) + " m"
     if scene.myLabel.text != nil {
-        scene.myLabel.text! = String(describing: (round((scene.mySlider.value/163)*100)/100)) + " m"
+        scene.myLabel.text! = String(describing: (round((scene.mySlider.value/145)*100)/100)) + " m"
     }
     
     // Set Height Label
     scene.labelHeight = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
     scene.labelHeight.layer.position = CGPoint(x: (scene.view?.frame.width)!/4 + ((scene.mySlider?.frame.width)!/1.2), y: (scene.view?.frame.height)!-15)
     scene.labelHeight.textColor! = UIColor.black
-    scene.labelHeight?.text = String(describing: (round((scene.sliderHeight.value/163)*100)/100)) + " m"
+    scene.labelHeight?.text = String(describing: (round((scene.sliderHeight.value/145)*100)/100)) + " m"
     if scene.labelHeight.text != nil {
-        scene.labelHeight.text! = String(describing: (round((scene.sliderHeight.value/163)*100)/100)) + " m"
+        scene.labelHeight.text! = String(describing: (round((scene.sliderHeight.value/145)*100)/100)) + " m"
     }
     
     // Set Rotation Label
     scene.labelRotation = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
     scene.labelRotation.layer.position = CGPoint(x: (scene.view?.frame.width)!/2 + ((scene.mySlider?.frame.width)!*1.5), y: (scene.view?.frame.height)!-15)
     scene.labelRotation.textColor! = UIColor.black
-    scene.labelRotation?.text = String(describing: round(scene.sliderRotationLine.value*10)/10) + "°"
+    scene.labelRotation?.text = String(describing: round(-scene.sliderRotationLine.value*10)/10) + "°"
     if scene.labelRotation.text != nil {
-        scene.labelRotation.text! = String(describing: round(scene.sliderRotationLine.value*10)/10) + "°"
+        if (scene.sliderRotationLine.value != 0) {
+            scene.labelRotation.text! = String(describing: round(-scene.sliderRotationLine.value*10)/10) + "°"
+        } else {
+            scene.labelRotation.text! = String(describing: 0) + "°"
+        }
     }
     
     if(node.name == "phisphere"){
