@@ -196,8 +196,8 @@ func addInitSlider(scene: GameScene) {
     scene.sliderInitV?.layer.cornerRadius = 15.0
     scene.sliderInitV?.layer.shadowOpacity = 0.5
     scene.sliderInitV?.layer.masksToBounds = false
-    scene.sliderInitV?.maximumValue = 815
-    scene.sliderInitV?.minimumValue = -815
+    scene.sliderInitV?.maximumValue = 725
+    scene.sliderInitV?.minimumValue = -725
     scene.sliderInitV?.value = Float((scene.phisphere.physicsBody?.velocity.dx)!)
     
     scene.sliderInitV.addTarget(scene, action: #selector(scene.setInitialV), for: UIControlEvents.valueChanged)
@@ -220,7 +220,7 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
     scene.mySlider?.layer.cornerRadius = 15.0
     scene.mySlider?.layer.shadowOpacity = 0.5
     scene.mySlider?.layer.masksToBounds = false
-    scene.mySlider?.maximumValue = 326
+    scene.mySlider?.maximumValue = 290
     scene.mySlider?.minimumValue = 0.2
     scene.mySlider?.value = Float(node.size.width)
     
@@ -231,7 +231,7 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
     scene.sliderHeight?.layer.cornerRadius = 15.0
     scene.sliderHeight?.layer.shadowOpacity = 0.5
     scene.sliderHeight?.layer.masksToBounds = false
-    scene.sliderHeight?.maximumValue = 326
+    scene.sliderHeight?.maximumValue = 290
     scene.sliderHeight?.minimumValue = 0.2
     scene.sliderHeight?.value = Float(node.size.height)
     
@@ -250,18 +250,18 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
     scene.myLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
     scene.myLabel.layer.position = CGPoint(x: (scene.view?.frame.width)!/4 + ((scene.mySlider?.frame.width)!/1.2), y: (scene.view?.frame.height)!-45)
     scene.myLabel.textColor! = UIColor.black
-    scene.myLabel?.text = String(describing: (round((scene.mySlider.value/163)*100)/100)) + " m"
+    scene.myLabel?.text = String(describing: (round((scene.mySlider.value/145)*100)/100)) + " m"
     if scene.myLabel.text != nil {
-        scene.myLabel.text! = String(describing: (round((scene.mySlider.value/163)*100)/100)) + " m"
+        scene.myLabel.text! = String(describing: (round((scene.mySlider.value/145)*100)/100)) + " m"
     }
     
     // Set Height Label
     scene.labelHeight = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
     scene.labelHeight.layer.position = CGPoint(x: (scene.view?.frame.width)!/4 + ((scene.mySlider?.frame.width)!/1.2), y: (scene.view?.frame.height)!-15)
     scene.labelHeight.textColor! = UIColor.black
-    scene.labelHeight?.text = String(describing: (round((scene.sliderHeight.value/163)*100)/100)) + " m"
+    scene.labelHeight?.text = String(describing: (round((scene.sliderHeight.value/145)*100)/100)) + " m"
     if scene.labelHeight.text != nil {
-        scene.labelHeight.text! = String(describing: (round((scene.sliderHeight.value/163)*100)/100)) + " m"
+        scene.labelHeight.text! = String(describing: (round((scene.sliderHeight.value/145)*100)/100)) + " m"
     }
     
     // Set Rotation Label

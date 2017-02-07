@@ -265,7 +265,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //phisphere.physicsBody?.affectedByGravity = true
             
             // Da utilizzare in caso di assenza di gravità e velocità iniziale diversa da zero
-            //phisphere.physicsBody?.velocity.dx = CGFloat(27.7*163)
+            //phisphere.physicsBody?.velocity.dx = CGFloat(27.7*145)
             phisphere.physicsBody?.affectedByGravity = true
             
             if !gravity {
@@ -501,7 +501,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         //myNode.position.x = myNode.position.x - (myNode.size.width - CGFloat((mySlider?.value)!))/2
         
-        myLabel.text! = String(describing: (round((myNode.size.width/163)*100)/100)) + " m"
+        myLabel.text! = String(describing: (round((myNode.size.width/145)*100)/100)) + " m"
         
         addChild(myNode)
         
@@ -522,7 +522,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         //myNode.position.y = myNode.position.y - (myNode.size.height - CGFloat((sliderHeight?.value)!))/2
         
-        labelHeight.text! = String(describing: (round((myNode.size.height/163)*100)/100)) + " m"
+        labelHeight.text! = String(describing: (round((myNode.size.height/145)*100)/100)) + " m"
         
         addChild(myNode)
         
@@ -547,7 +547,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         //myNode.position.y = myNode.position.y - (myNode.size.height - CGFloat((sliderHeight?.value)!))/2
         
-        myLabel.text! = String(describing: (round((myNode.size.height/163)*100)/100)) + " m"
+        myLabel.text! = String(describing: (round((myNode.size.height/145)*100)/100)) + " m"
         
         addChild(myNode)
         
@@ -594,13 +594,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 //timer.invalidate()
                 if let phisphereNode = firstBody.node as? SKSpriteNode, let
                     Sensor = secondBody.node as? SpeedCamera {
-                    let velocity = (sqrt(pow((phisphereNode.physicsBody?.velocity.dx)!, 2) + pow((phisphereNode.physicsBody?.velocity.dy)!, 2))/CGFloat(sphereVelocityConstant))
+                    let velocity = (sqrt(pow((phisphereNode.physicsBody?.velocity.dx)!, 2) + pow((phisphereNode.physicsBody?.velocity.dy)!, 2))/145)
                     Sensor.setSpeedCameraValue(velocity)
                     
                     // Serve quando vogliamo una determinata velocità per avviare lo script dell'alert message
                     //Sensor.setSpeedCameraValue(CGFloat(sphereSpeedF))
                     
-//                    print(Sensor.value)
+                    print(velocity)
                     setValueDisplaySC(Sensor)
                     
                     //phisphere.physicsBody?.velocity.dx = 0
@@ -611,7 +611,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
             } else if (secondBody.node?.name)! == "loadCell" && (secondBody.node?.position.y)! < (firstBody.node?.position.y)! - 10 {
                 if let phisphereNode = firstBody.node as? SKSpriteNode, let Sensor = secondBody.node as? LoadCell {
-                    let force = (phisphereNode.physicsBody?.mass)! * ((sqrt(pow(phisphereAccDx, 2)+pow(phisphereAccDy, 2)))/163)
+                    let force = (phisphereNode.physicsBody?.mass)! * ((sqrt(pow(phisphereAccDx, 2)+pow(phisphereAccDy, 2)))/145)
                     Sensor.setLoadCellValue(force)
                     print(Sensor.value)
                     setValueDisplayLC(Sensor)
@@ -621,12 +621,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     Sensor = secondBody.node as? LaserAccelerometer {
                     if Sensor.orientation == "Vertical" {
                         // Cheating time
-                        let accelerationDy = CGFloat(9.8)
-                        Sensor.setLaserAccelerometerValue(accelerationDy)
+                        let acceleration = ((sqrt(pow(phisphereAccDx, 2)+pow(phisphereAccDy, 2)))/145)
+                        Sensor.setLaserAccelerometerValue(acceleration)
                         print(Sensor.value)
                         setValueDisplayLA(Sensor)
                     } else if Sensor.orientation == "Horizontal" {
-                        let accelerationDx = phisphereAccDx/163
+                        let accelerationDx = phisphereAccDx/145
                         Sensor.setLaserAccelerometerValue(accelerationDx)
                         print(Sensor.value)
                         setValueDisplayLA(Sensor)
@@ -715,7 +715,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //myNode.physicsBody?.velocity.dx = CGFloat(Float(textFieldV.text!)!)
         
-        labelInitV.text! = String(describing: round((sliderInitV.value/163)*10)/10)
+        labelInitV.text! = String(describing: round((sliderInitV.value/145)*10)/10)
         if sliderInitV.value != 0 {
             gravity = false
         }
