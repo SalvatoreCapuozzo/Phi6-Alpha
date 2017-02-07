@@ -18,14 +18,15 @@ class TheoryViewController: UIViewController {
     
     @IBOutlet var imageTheory: UIImageView!
     @IBOutlet var titleTheory: UILabel!
-    @IBOutlet var textTheory: UILabel!
+//    @IBOutlet var textTheory: UILabel!
+    @IBOutlet var textTheory: UITextView!
 
     override func viewDidLoad() {
   
         super.viewDidLoad()
         
         self.Titoli = ["Cinematica","Meccanica","Altro"]
-        self.Testi = ["La cinematica (dal termine francese cinématique, coniato dal fisico André-Marie Ampère e derivato dal greco κίνημα -ατος, kinema -atos = «movimento», derivato a sua volta dal verbo κινέω, kineo = «muovo») è quel ramo della meccanica che si occupa di descrivere quantitativamente il moto dei corpi, indipendentemente dalle cause del moto stesso.[1] È significativa la sua definizione di geometria del movimento: in effetti la cinematica del punto si può pensare come geometria dello spazio vettoriale quadridimensionale formato dalle tre coordinate spaziali e dalla coordinata temporale.", "Altre merdate", "Altre merdate pt2"]
+        self.Testi = ["La cinematica (dal termine francese cinématique, coniato dal fisico André-Marie Ampère e derivato dal greco κίνημα -ατος, kinema -atos = «movimento», derivato a sua volta dal verbo κινέω, kineo = «muovo») è quel ramo della meccanica che si occupa di descrivere quantitativamente il moto dei corpi, indipendentemente dalle cause del moto stesso. È significativa la sua definizione di geometria del movimento: in effetti la cinematica del punto si può pensare come geometria dello spazio vettoriale quadridimensionale formato dalle tre coordinate spaziali e dalla coordinata temporale.", "Altre merdate", "Altre merdate pt2"]
         
         self.Immagini = [#imageLiteral(resourceName: "cinematica"),#imageLiteral(resourceName: "PhiSphere"),#imageLiteral(resourceName: "PhiSphere")]
         
