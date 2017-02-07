@@ -361,7 +361,6 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" backgroundImage="LaserRangefinder(H)"/>
                                         <connections>
-                                            <action selector="addLaserAccelerometer" destination="BV1-FR-VrT" eventType="touchUpInside" id="vgQ-Ds-eiC"/>
                                             <action selector="addLaserRangefinder" destination="BV1-FR-VrT" eventType="touchUpInside" id="FbX-mh-NeV"/>
                                         </connections>
                                     </button>
