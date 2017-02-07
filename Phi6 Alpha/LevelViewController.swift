@@ -15,9 +15,11 @@ class LevelViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     var category: Int?
     var mode: String?
+    var levelCounter = 1
     var levelNumberSelected: Int?
     
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var levelNumber: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +55,13 @@ class LevelViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "level", for: indexPath)
+        var numberLabel = UILabel(frame: cell.frame)
+        numberLabel.layer.position = cell.center
+        numberLabel.text = "sborrandi"
+        numberLabel.textColor = UIColor.white
+        self.view.bringSubview(toFront: numberLabel)
+        levelCounter = levelCounter + 1
+        
         
         // Configure the cell
         

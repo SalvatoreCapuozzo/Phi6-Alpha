@@ -16,7 +16,7 @@ class CarusiellViewController: UIViewController, iCarouselDataSource, iCarouselD
     var i = 0
     var selectedIndex : Int = 0
     @IBOutlet weak var pageControl: UIPageControl!
-    let images = ["Group 24", "argumentschoice", "Group 2"]
+    let images = [#imageLiteral(resourceName: "Cinematic_Card"), #imageLiteral(resourceName: "Mechanics_Card"), #imageLiteral(resourceName: "Dynamic_Card")]
     
     var mode: String?
     
@@ -49,7 +49,7 @@ class CarusiellViewController: UIViewController, iCarouselDataSource, iCarouselD
         } else {
             imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: CategoryView.frame.width - 160, height: CategoryView.frame.height))
         }
-        imageView.image = UIImage(named: images[i])
+        imageView.image = images[i]
         imageView.contentMode = .scaleAspectFit
         i = i+1
         
