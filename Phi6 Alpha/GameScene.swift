@@ -153,6 +153,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         Singleton.shared.createList()
         Singleton.shared.createSensorList()
         Singleton.shared.fillList()
+        
+        let excerciseViewPosition: CGPoint = self.convertPoint(toView: CGPoint(x: 0, y: 0))
+        viewController.createExcerciseTextView(position: excerciseViewPosition)
     }
     
     func rotated(sender: UIRotationGestureRecognizer) {
@@ -167,6 +170,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 if !touchedWhere.isEmpty {
                     for node in touchedWhere {
+                        print(touchedWhere)
                         if let sprite = node as? SKSpriteNode {
                             if sprite == phisphere {
                                 phisphere.position = touchLocation
@@ -659,5 +663,5 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(myNode)
         
     }
-
+    
 }

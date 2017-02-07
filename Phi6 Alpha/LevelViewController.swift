@@ -13,7 +13,8 @@ private let reuseIdentifier = "Cell"
 
 class LevelViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var type: Int?
+    var category: Int?
+    var mode: String?
     var levelNumberSelected: Int?
     
     @IBOutlet var collectionView: UICollectionView!
@@ -34,7 +35,7 @@ class LevelViewController: UIViewController, UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         var numberOfLevelsPerCategory: Int
         
-        switch type!{
+        switch category!{
         case 0:
             numberOfLevelsPerCategory = 2
         case 1:
@@ -60,7 +61,6 @@ class LevelViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.levelNumberSelected = indexPath.row
-        print("in didSelectItemAt: \(self.levelNumberSelected!)")
         self.performSegue(withIdentifier: "levelSelection", sender: self)
     }
     
@@ -71,8 +71,11 @@ class LevelViewController: UIViewController, UICollectionViewDelegate, UICollect
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "levelSelection" {
-            let test = segue.destination as! GameViewController
-            test.levelNumber = levelNumberSelected
+            let levelSelected = segue.destination as! GameViewController
+            levelSelected.mode = self.mode
+            levelSelected.category = self.category
+            levelSelected.levelNumber = self.levelNumberSelected
+            print(self.levelNumberSelected ?? "niente")
         }
     }
     

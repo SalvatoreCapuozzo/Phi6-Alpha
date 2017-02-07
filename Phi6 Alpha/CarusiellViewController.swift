@@ -18,6 +18,8 @@ class CarusiellViewController: UIViewController, iCarouselDataSource, iCarouselD
     @IBOutlet weak var pageControl: UIPageControl!
     let images = ["argumentschoice", "Group 24", "Group 2"]
     
+    var mode: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,8 +68,9 @@ class CarusiellViewController: UIViewController, iCarouselDataSource, iCarouselD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "levelSegue" {
             let livelli = segue.destination as! LevelViewController
-            livelli.type = self.selectedIndex
-            print("mannacc a maronn \(self.selectedIndex)")
+            livelli.category = self.selectedIndex
+            livelli.mode = self.mode
+            print(self.selectedIndex)
         }
         
     }

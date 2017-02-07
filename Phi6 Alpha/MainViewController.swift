@@ -13,6 +13,9 @@ class MainViewController: UIViewController {
     @IBOutlet weak var pendulumBase: UIImageView!
     @IBOutlet weak var pendulumGroup: UIImageView!
     
+    let arcade = "arcade"
+    //let learning = "learning"
+    
     var timer = Timer()
 
     override func viewDidLoad() {
@@ -32,7 +35,6 @@ class MainViewController: UIViewController {
         pendulumGroup.layer.position = rotationPoint;
     }
     
-    
     override func viewDidAppear(_ animated: Bool) {
         swing()
     }
@@ -45,10 +47,7 @@ class MainViewController: UIViewController {
 
         }, completion: nil)   }
     
-  
-
-    
-       override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -56,10 +55,6 @@ class MainViewController: UIViewController {
     func timerF(){
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainViewController.getRandomColor), userInfo: nil, repeats: true)
     }
-    
-    
-    
-
     
     func getRandomColor() {
         let red   = Float((arc4random() % 256)) / 255.0
@@ -72,6 +67,15 @@ class MainViewController: UIViewController {
         }, completion:nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "arcade"{
+        
+            let selectCategory = segue.destination as! CarusiellViewController
+            selectCategory.mode = self.arcade
+            print(selectCategory.mode ?? "niente")
+        }
+    }
 
     // Do any additional setup after loading the view.
 
