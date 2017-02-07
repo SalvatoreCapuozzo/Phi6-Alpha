@@ -621,7 +621,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     Sensor = secondBody.node as? LaserAccelerometer {
                     if Sensor.orientation == "Vertical" {
                         // Cheating time
-                        let acceleration = ((sqrt(pow(phisphereAccDx, 2)+pow(phisphereAccDy, 2)))/145)
+                        let acceleration: CGFloat
+                        if gravity && phisphereAccDx == 0 {
+                            acceleration = 9.8
+                        } else {
+                            acceleration = ((sqrt(pow(phisphereAccDx, 2)+pow(phisphereAccDy, 2)))/145)
+                        }
                         Sensor.setLaserAccelerometerValue(acceleration)
                         print(Sensor.value)
                         setValueDisplayLA(Sensor)
