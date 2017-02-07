@@ -18,7 +18,8 @@ class TheoryViewController: UIViewController {
     
     @IBOutlet var imageTheory: UIImageView!
     @IBOutlet var titleTheory: UILabel!
-    @IBOutlet var textTheory: UILabel!
+//    @IBOutlet var textTheory: UILabel!
+    @IBOutlet var textTheory: UITextView!
 
     override func viewDidLoad() {
   
