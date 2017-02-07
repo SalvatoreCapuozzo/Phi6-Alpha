@@ -14,6 +14,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var pendulumGroup: UIImageView!
     
     let arcade = "arcade"
+    let learning = "learning"
+    let sandbox = "sandbox"
     //let learning = "learning"
     
     var timer = Timer()
@@ -69,11 +71,21 @@ class MainViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "arcade"{
-        
-            let selectCategory = segue.destination as! CarusiellViewController
-            selectCategory.mode = self.arcade
-            print(selectCategory.mode ?? "niente")
+        switch(segue.identifier!){
+            case "arcade":
+                let selectCategory = segue.destination as! CarusiellViewController
+                selectCategory.mode = self.arcade
+                print(selectCategory.mode ?? "niente")
+            case "learning":
+                let selectCategory = segue.destination as! CarusiellViewController
+                selectCategory.mode = self.learning
+                print(selectCategory.mode ?? "niente")
+            case "sandbox":
+                let selectCategory = segue.destination as! CarusiellViewController
+                selectCategory.mode = self.sandbox
+                print(selectCategory.mode ?? "niente")
+            default:
+                print("error")
         }
     }
 
