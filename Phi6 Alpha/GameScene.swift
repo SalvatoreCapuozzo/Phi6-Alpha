@@ -155,8 +155,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         Singleton.shared.createSensorList()
         Singleton.shared.fillList()
         
-        let excerciseViewPosition: CGPoint = self.convertPoint(toView: CGPoint(x: 0, y: 0))
-        viewController.createExcerciseTextView(position: excerciseViewPosition)
+        if let mode = viewController.mode{
+            if mode == "learning"{
+                let excerciseViewPosition: CGPoint = self.convertPoint(toView: CGPoint(x: 0, y: 0))
+                viewController.createExcerciseTextView(position: excerciseViewPosition)
+            }
+        }
     }
     
     func rotated(sender: UIRotationGestureRecognizer) {
