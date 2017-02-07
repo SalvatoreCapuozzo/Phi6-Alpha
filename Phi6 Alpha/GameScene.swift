@@ -162,8 +162,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if let mode = viewController.mode{
             if mode == "learning"{
-                let excerciseViewPosition: CGPoint = self.convertPoint(toView: CGPoint(x: 0, y: 0))
-                viewController.createExcerciseTextView(position: excerciseViewPosition)
+                //                let excerciseViewPosition: CGPoint = self.convertPoint(toView: CGPoint(x: 0, y: 0))
+                //                viewController.createExcerciseTextView(position: excerciseViewPosition)
+                let string = "vjhasddfbajsdbhasdbvkjhbsjhvbskhskhvhsdbvasvbsjkhvbsfhbvhasbvhabsvfsvbkfhsbfsbvhbfshvbasvbasbhasbhvbaskhvbsjhbkjhsbkjhsbdjkhfnajfnbxsbncjsbnvansbxfgbcfsbfvhasvbdndjfcbasdkhbfxnjasbnfjkabsjncabsdvjkfcbnbdfjsdbnfjnbsfncbjkxsbnfucbnsdfbnsjkdbnfcsdbcbjhsdbn"
+                viewController.setTextInView(text: string)
+            }
+            else{
+                viewController.excerciseTextView.isHidden = true
             }
         }
     }
