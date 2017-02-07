@@ -141,7 +141,7 @@ func addPhotoCell(scene: GameScene) {
     
     func addLaserRangefinder(scene: GameScene) {
         scene.deleteSliders()
-        let sprite = LaserAccelerometer.vertical(location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
+        let sprite = LaserRangefinder.horizontal(location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
         sprite.physicsBody?.affectedByGravity = false
         sprite.physicsBody?.isDynamic = false
         

@@ -59,6 +59,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var arrayOfLabelRotation = [UILabel]()
     var arrayOfLabelSensors = [UILabel]()
     var arrayOfLabelTimer = [UILabel]()
+    var arrayOfLabelLaser = [UILabel]()
     
     var labelInitV: UILabel!
     var sliderInitV: UISlider!
@@ -191,7 +192,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                                 object.physicsBody?.collisionBitMask = 1
                                                 object.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
                                                 object.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
-                                            } else if object.name == "speedCamera" || object.name == "chronometer" || object.name == "laserAccelerometer" {
+                                            } else if object.name == "speedCamera" || object.name == "chronometer" || object.name == "laserAccelerometer" || object.name == "laserRangefinder" {
                                                 deleteSliders()
                                                 object.physicsBody?.collisionBitMask = 1
                                                 object.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
@@ -255,6 +256,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     var shapeLayerV = CAShapeLayer()
     var shapeLayerA = CAShapeLayer()
+    var shapeLayerL = CAShapeLayer()
+    var shapeLayerR = CAShapeLayer()
     
     var beforeAfterPosition: [String: CGFloat] = ["final": 0, "initial": 0]
     var beforeAfterVelocityDx: [String: CGFloat] = ["final": 0, "initial": 0]
@@ -304,6 +307,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     let chronometer = (object as? Chronometer)!
                     chronometer.startTimer()
                     setValueDisplayChr(chronometer)
+                } else if object.name == "laserRangefinder" {
+                    object.physicsBody?.collisionBitMask = 1
+                    object.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
+                    object.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
+                    let laser = (object as? LaserRangefinder)!
+                    laser.setDistance(scene: self)
+                    laser.laser(scene: self)
+                    setValueDisplayRangefinder(laser)
                 }
             }
             self.currentTime = currentTime
@@ -410,6 +421,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         shapeLayerV.removeFromSuperlayer()
         shapeLayerA.removeFromSuperlayer()
+        shapeLayerL.removeFromSuperlayer()
+        shapeLayerR.removeFromSuperlayer()
         
         gravity = true
         
@@ -431,6 +444,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 label.removeFromSuperview()
             }
             arrayOfLabelTimer.removeAll()
+        }
+        if arrayOfLabelLaser.count >= 0 {
+            for label in arrayOfLabelLaser {
+                label.removeFromSuperview()
+            }
+            arrayOfLabelLaser.removeAll()
         }
     }
     
@@ -719,6 +738,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.view?.addSubview(myLabel)
         print("Running time: ok")
     }
+    
+    func setValueDisplayRangefinder(_ object: LaserRangefinder) {
+        if arrayOfLabelLaser.count >= 0 {
+            for label in arrayOfLabelLaser {
+                label.removeFromSuperview()
+            }
+            arrayOfLabelLaser.removeAll()
+        }
+        myLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        myLabel.layer.position = CGPoint(x: object.position.x + (self.frame.size.width / 2) + 30, y: -object.position.y + (self.frame.size.height / 2) - 15)
+        myLabel.textColor! = UIColor.green
+        myLabel?.text = String(describing: round(object.value*10)/10)
+        if myLabel.text != nil {
+            myLabel.text! = String(describing: round(object.value*10)/10)
+        }
+        myLabel.font = UIFont(name: "AmericanTypewriter-Light", size: 10)
+        
+        arrayOfLabelLaser.append(myLabel)
+        self.view?.addSubview(myLabel)
+    }
+
     
     func setInitialV() {
         //print("SelectedNode is: " + selectedNode.name!)
