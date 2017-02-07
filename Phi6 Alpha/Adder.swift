@@ -231,6 +231,32 @@ func addInitSlider(scene: GameScene) {
     scene.arrayOfLabelInitV.append(scene.labelInitV)
     scene.view?.addSubview(scene.labelInitV)
     
+    // Set Acceleration Text Field
+    scene.labelInitA = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+    scene.labelInitA.layer.position = CGPoint(x: scene.phisphere.position.x + (scene.frame.size.width / 2) + 140, y: -scene.phisphere.position.y + (scene.frame.size.height / 2) + 75)
+    scene.labelInitA.textColor! = UIColor.black
+    scene.labelInitA?.text = String(describing: round((scene.phisphereAccDx)*10)/10)
+    if scene.labelInitA.text != nil {
+        scene.labelInitA.text! = String(describing: round((scene.phisphereAccDx)*10)/10)
+    }
+
+    scene.sliderInitA = UISlider(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+    scene.sliderInitA?.layer.position = CGPoint(x: scene.phisphere.position.x + (scene.frame.size.width / 2) + 100, y: -scene.phisphere.position.y + (scene.frame.size.height / 2) + 50)
+    scene.sliderInitA?.backgroundColor = UIColor.clear
+    scene.sliderInitA?.tintColor = UIColor.red
+    scene.sliderInitA?.layer.cornerRadius = 15.0
+    scene.sliderInitA?.layer.shadowOpacity = 0.5
+    scene.sliderInitA?.layer.masksToBounds = false
+    scene.sliderInitA?.maximumValue = 725
+    scene.sliderInitA?.minimumValue = -725
+    scene.sliderInitA?.value = Float((scene.phisphereAccDx))
+    
+    scene.sliderInitA.addTarget(scene, action: #selector(scene.setInitialA), for: UIControlEvents.valueChanged)
+    
+    scene.arrayOfSliderInitA.append(scene.sliderInitA)
+    scene.view?.addSubview(scene.sliderInitA)
+    scene.arrayOfLabelInitA.append(scene.labelInitA)
+    scene.view?.addSubview(scene.labelInitA)
 }
 
 func addSlider(node: SKSpriteNode, scene: GameScene) {

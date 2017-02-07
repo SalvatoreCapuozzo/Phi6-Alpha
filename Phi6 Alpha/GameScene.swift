@@ -63,9 +63,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var labelInitV: UILabel!
     var sliderInitV: UISlider!
+    var labelInitA: UILabel!
+    var sliderInitA: UISlider!
     //var textFieldA: UITextField!
     var arrayOfLabelInitV = [UILabel]()
     var arrayOfSliderInitV = [UISlider]()
+    var arrayOfLabelInitA = [UILabel]()
+    var arrayOfSliderInitA = [UISlider]()
     
     var number: Int = 0
     var firstWidth: CGFloat!
@@ -187,12 +191,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                 for object in Singleton.shared.objects {
                                     if sprite == object {
                                         if !deleteMode {
-                                            if object.name == "sensor" {
+                                            if object.name == "chronometer" {
                                                 deleteSliders()
                                                 object.physicsBody?.collisionBitMask = 1
                                                 object.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
                                                 object.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
-                                            } else if object.name == "speedCamera" || object.name == "chronometer" || object.name == "laserAccelerometer" || object.name == "laserRangefinder" {
+                                                var number = 0
+                                                for object in Singleton.shared.objects {
+                                                    print(object.name!)
+                                                    number += 1
+                                                }
+                                            } else if object.name == "speedCamera" || object.name == "laserAccelerometer" || object.name == "laserRangefinder" || object.name == "sensor" {
                                                 deleteSliders()
                                                 object.physicsBody?.collisionBitMask = 1
                                                 object.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
@@ -281,14 +290,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             if !gravity {
                 if counter < 0.2 {
-                    phisphere.physicsBody?.velocity.dx = CGFloat(Float(sliderInitV.value))
+                    if sliderInitV != nil {
+                        if sliderInitA.value == 0 {
+                            phisphere.physicsBody?.velocity.dx = CGFloat(Float(sliderInitV.value))
+                        } else if sliderInitV.value == 0 {
+                            phisphere.physicsBody?.velocity.dx = CGFloat(sliderInitA.value) * CGFloat(counter)
+                            print(counter)
+                        }
+                    }
+                } else {
+                    if sliderInitV.value == 0 {
+                        phisphere.physicsBody?.velocity.dx = CGFloat(sliderInitA.value) * CGFloat(counter)
+                    }
                 }
                 phisphere.physicsBody?.affectedByGravity = false
                 phisphere.physicsBody?.collisionBitMask = 1
                 phisphere.physicsBody?.categoryBitMask = PhysicsCategory.Phisphere
                 phisphere.physicsBody?.contactTestBitMask = PhysicsCategory.Sensor
             }
- 
             //phisphere.physicsBody?.velocity.dy = CGFloat(0)
             
             phisphere.physicsBody?.collisionBitMask = 1
@@ -424,6 +443,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         shapeLayerL.removeFromSuperlayer()
         shapeLayerR.removeFromSuperlayer()
         
+        phisphereAccDx = 0
+        phisphereAccDy = 0
+        
         gravity = true
         
         deleteSliders()
@@ -455,55 +477,67 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func deleteSliders(){
         
-            if arrayOfSlider.count >= 0{
-                for slider in arrayOfSlider{
-                    slider.removeFromSuperview()
-                }
-                arrayOfSlider.removeAll()
+        if arrayOfSlider.count >= 0{
+            for slider in arrayOfSlider{
+                slider.removeFromSuperview()
             }
-            if arrayOfLabel.count >= 0{
-                for label in arrayOfLabel{
-                    label.removeFromSuperview()
-                }
-                arrayOfLabel.removeAll()
-            }
-            if arrayOfSliderHeight.count >= 0{
-                for slider in arrayOfSliderHeight{
-                    slider.removeFromSuperview()
-                }
-                arrayOfSliderHeight.removeAll()
-            }
-            if arrayOfLabelHeight.count >= 0{
-                for label in arrayOfLabelHeight{
-                    label.removeFromSuperview()
-                }
-                arrayOfLabelHeight.removeAll()
-            }
-            if arrayOfSliderRotationLine.count >= 0{
-                for slider in arrayOfSliderRotationLine{
-                    slider.removeFromSuperview()
-                }
-                arrayOfSliderRotationLine.removeAll()
-            }
-            if arrayOfLabelRotation.count >= 0{
-                for label in arrayOfLabelRotation{
-                    label.removeFromSuperview()
-                }
-                arrayOfLabelRotation.removeAll()
-            }
-            if arrayOfSliderInitV.count >= 0 {
-                for slider in arrayOfSliderInitV {
-                    slider.removeFromSuperview()
-                }
-                arrayOfSliderInitV.removeAll()
-            }
-            if arrayOfLabelInitV.count >= 0 {
-                for label in arrayOfLabelInitV {
-                    label.removeFromSuperview()
-                }
-                arrayOfLabelInitV.removeAll()
-            }
+            arrayOfSlider.removeAll()
         }
+        if arrayOfLabel.count >= 0{
+            for label in arrayOfLabel{
+                label.removeFromSuperview()
+            }
+            arrayOfLabel.removeAll()
+        }
+        if arrayOfSliderHeight.count >= 0{
+            for slider in arrayOfSliderHeight{
+                slider.removeFromSuperview()
+            }
+            arrayOfSliderHeight.removeAll()
+        }
+        if arrayOfLabelHeight.count >= 0{
+            for label in arrayOfLabelHeight{
+                label.removeFromSuperview()
+            }
+            arrayOfLabelHeight.removeAll()
+        }
+        if arrayOfSliderRotationLine.count >= 0{
+            for slider in arrayOfSliderRotationLine{
+                slider.removeFromSuperview()
+            }
+            arrayOfSliderRotationLine.removeAll()
+        }
+        if arrayOfLabelRotation.count >= 0{
+            for label in arrayOfLabelRotation{
+                label.removeFromSuperview()
+            }
+            arrayOfLabelRotation.removeAll()
+        }
+        if arrayOfSliderInitV.count >= 0 {
+            for slider in arrayOfSliderInitV {
+                slider.removeFromSuperview()
+            }
+            arrayOfSliderInitV.removeAll()
+        }
+        if arrayOfLabelInitV.count >= 0 {
+            for label in arrayOfLabelInitV {
+                label.removeFromSuperview()
+            }
+            arrayOfLabelInitV.removeAll()
+        }
+        if arrayOfSliderInitA.count >= 0 {
+            for slider in arrayOfSliderInitA {
+                slider.removeFromSuperview()
+            }
+            arrayOfSliderInitA.removeAll()
+        }
+        if arrayOfLabelInitA.count >= 0 {
+            for label in arrayOfLabelInitA {
+                label.removeFromSuperview()
+            }
+            arrayOfLabelInitA.removeAll()
+        }
+    }
     
     func setWidth2() {
         print("SelectedNode is: " + selectedNode.name!)
@@ -616,9 +650,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //2
         if ((firstBody.categoryBitMask & PhysicsCategory.Phisphere != 0) &&
             (secondBody.categoryBitMask & PhysicsCategory.Sensor != 0)) {
-
+            
             if secondBody.node?.name! == "speedCamera" {
-                //timer.invalidate()
+                timer2.invalidate()
                 if let phisphereNode = firstBody.node as? SKSpriteNode, let
                     Sensor = secondBody.node as? SpeedCamera {
                     let velocity = (sqrt(pow((phisphereNode.physicsBody?.velocity.dx)!, 2) + pow((phisphereNode.physicsBody?.velocity.dy)!, 2))/145)
@@ -637,20 +671,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     //print( "la spazio vale: \(Int((sphereSpeedF + sphereSpeedI)/2*timing))")
                 }
             } else if (secondBody.node?.name)! == "loadCell" && (secondBody.node?.position.y)! < (firstBody.node?.position.y)! - 10 {
+                timer2.invalidate()
                 if let phisphereNode = firstBody.node as? SKSpriteNode, let Sensor = secondBody.node as? LoadCell {
-                    let force = (phisphereNode.physicsBody?.mass)! * ((sqrt(pow(phisphereAccDx, 2)+pow(phisphereAccDy, 2)))/145)
+                    // Cheating time
+                    let force: CGFloat
+                    if gravity && phisphere.physicsBody?.velocity.dx == 0 {
+                        force = (phisphereNode.physicsBody?.mass)! * 9.81
+                    } else {
+                        force = (phisphereNode.physicsBody?.mass)! * ((sqrt(pow(phisphereAccDx, 2)+pow(phisphereAccDy, 2)))/145)
+                    }
                     Sensor.setLoadCellValue(force)
                     print(Sensor.value)
                     setValueDisplayLC(Sensor)
                 }
             } else if secondBody.node?.name! == "laserAccelerometer" {
+                timer2.invalidate()
                 if let phisphereNode = firstBody.node as? SKSpriteNode, let
                     Sensor = secondBody.node as? LaserAccelerometer {
                     if Sensor.orientation == "Vertical" {
                         // Cheating time
                         let acceleration: CGFloat
                         if gravity && phisphereAccDx == 0 {
-                            acceleration = 9.8
+                            acceleration = 9.81
                         } else {
                             acceleration = ((sqrt(pow(phisphereAccDx, 2)+pow(phisphereAccDy, 2)))/145)
                         }
@@ -664,11 +706,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         setValueDisplayLA(Sensor)
                     }
                 }
-            }
-            
-            if let phisphere = firstBody.node as? SKSpriteNode, let
-                Sensor = secondBody.node as? PhotoCell {
-                Sensor.setPhotoCellValue()
+            } else if secondBody.node?.name! == "sensor" {
+                timer2.invalidate()
+                if let phisphere = firstBody.node as? SKSpriteNode, let
+                    Sensor = secondBody.node as? PhotoCell {
+                    Sensor.setPhotoCellValue()
+                }
             }
             //pause = true
             //viewController.showAlert()
@@ -770,6 +813,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         labelInitV.text! = String(describing: round((sliderInitV.value/145)*10)/10)
         if sliderInitV.value != 0 {
+            gravity = false
+        }
+        
+        addChild(myNode)
+        
+    }
+    
+    func setInitialA() {
+        removeChildren(in: [myNode])
+        
+        labelInitA.text! = String(describing: round((sliderInitA.value/145)*10)/10)
+        if sliderInitA.value != 0 {
             gravity = false
         }
         
