@@ -1,18 +1,21 @@
 PODS:
   - iCarousel (1.8.3)
+  - iOSContextualMenu (1.1.8)
   - MTCircularSlider (0.2.14)
   - VerticalSlider (1.0.0)
 
 DEPENDENCIES:
   - iCarousel
+  - iOSContextualMenu
   - MTCircularSlider
   - VerticalSlider
 
 SPEC CHECKSUMS:
   iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
+  iOSContextualMenu: d5e7e08d232b8c2e04183060759d794df7b415ef
   MTCircularSlider: 9df5649916d97de7c768e0f611812572c4554c00
   VerticalSlider: d0e269208ce7aa98e0273c0d244e9625d603b75e
 
-PODFILE CHECKSUM: c095439139aa742306dee59ff9c463a48d63e545
+PODFILE CHECKSUM: c34316b20efe37d3e518a67133f35f3ff230044b
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0
