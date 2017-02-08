@@ -10,8 +10,11 @@ import UIKit
 import SpriteKit
 import GameplayKit
 import VerticalSlider
+import iOSContextualMenu
 
-class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizerDelegate {
+class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizerDelegate, BAMContextualMenuDelegate, BAMContextualMenuDataSource {
+    
+    @IBOutlet var topView: SKView?
     
     @IBOutlet weak var pauseButton: UIButton!
     var scene: GameScene!
@@ -100,8 +103,30 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         //        gestureLeft.delegate = self
         gestureLeft.direction = .left
         excerciseTextView.addGestureRecognizer(gestureLeft)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
+        BAMContextualMenu.add(to: topView, delegate: self, dataSource: self, activateOption: kBAMContextualMenuActivateOptionLongPress)
+    }
+    
+    func numberOfContextualMenuItems() -> UInt {
+        return 4
+    }
+    
+    func contextualMenu(_ contextualMenu: BAMContextualMenu!, viewForMenuItemAt index: UInt) -> UIView! {
         
+        let image = UIImage(named: "Phi_Sphere")
+        let imageView = UIImageView(image: image)
+        
+        imageView.layer.cornerRadius = (image?.size.height)!/2
+        
+        return imageView
+    }
+    
+    func contextualMenuActivated(_ contextualMenu: BAMContextualMenu!) {
+        
+        print("menu attivo")
     }
     
     func moveViewGesture(){

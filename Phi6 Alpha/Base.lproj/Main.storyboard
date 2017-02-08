@@ -484,6 +484,7 @@
                         <outlet property="massLabel" destination="b3g-LM-iqm" id="8dc-jp-Jd0"/>
                         <outlet property="massSlider" destination="r9y-25-dcC" id="6zH-GD-pKa"/>
                         <outlet property="pauseButton" destination="Um6-qM-LTS" id="XWQ-46-pxE"/>
+                        <outlet property="topView" destination="3se-qz-xqx" id="cLP-eU-zHv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
@@ -921,7 +922,7 @@
         <image name="returns--icon-30696" width="76" height="88"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="cWG-ga-9hn"/>
         <segue reference="eal-7s-mY9"/>
-        <segue reference="zbM-7L-b0e"/>
     </inferredMetricsTieBreakers>
 </document>
