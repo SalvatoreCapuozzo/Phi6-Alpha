@@ -53,7 +53,16 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     var adder = Adder()
     var centerOriginView: CGPoint?
     
-    let arrayOfSensors = ["PhotoCellDefault", "SpeedCamera","Circle","Rectangle","LoadCell","Chronometer","LaserRangefinder(H)","LaserAccelerometer(V)"]
+    let arrayOfSensors = [
+        "PhotoCellDefault",
+        "SpeedCamera",
+        "Circle",
+        "Rectangle",
+        "LoadCell",
+        "Chronometer",
+        "LaserRangefinder(H)",
+        "LaserAccelerometer(V)"
+    ]
     
     override func viewDidLoad() {
 

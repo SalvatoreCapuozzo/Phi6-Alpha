@@ -87,8 +87,10 @@ class LessonsViewController: UIViewController, iCarouselDataSource, iCarouselDel
         
         print(index)
         
-        self.lessonSelected = index
-        self.performSegue(withIdentifier: "loadLesson", sender: carousel)
+        if index != 0{
+            self.lessonSelected = index
+            self.performSegue(withIdentifier: "loadLesson", sender: carousel)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
