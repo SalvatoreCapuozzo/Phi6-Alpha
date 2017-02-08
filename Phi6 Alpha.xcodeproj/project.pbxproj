@@ -14,6 +14,8 @@
 		3093494D1E449B920006F622 /* Arrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3093494C1E449B920006F622 /* Arrow.swift */; };
 		30AB47C61E49D90400671FA0 /* TheoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB47C51E49D90400671FA0 /* TheoryViewController.swift */; };
 		5A00DAD41E48C16B00F13164 /* Adder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00DAD31E48C16B00F13164 /* Adder.swift */; };
+		5A4A66721E4B60F600C137B8 /* CategoryLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A66711E4B60F600C137B8 /* CategoryLesson.swift */; };
+		5A4A66741E4B615700C137B8 /* LessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A66731E4B615700C137B8 /* LessonViewController.swift */; };
 		5A72AB931E44C49700227938 /* PhysicsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A72AB921E44C49700227938 /* PhysicsCategory.swift */; };
 		8715F5FC1E36510F001E2DEA /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715F5FB1E36510F001E2DEA /* Singleton.swift */; };
 		8715F6081E368279001E2DEA /* ObjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715F6071E368279001E2DEA /* ObjectTableViewCell.swift */; };
@@ -69,6 +71,8 @@
 		3093494C1E449B920006F622 /* Arrow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arrow.swift; sourceTree = "<group>"; };
 		30AB47C51E49D90400671FA0 /* TheoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheoryViewController.swift; sourceTree = "<group>"; };
 		5A00DAD31E48C16B00F13164 /* Adder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Adder.swift; sourceTree = "<group>"; };
+		5A4A66711E4B60F600C137B8 /* CategoryLesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryLesson.swift; sourceTree = "<group>"; };
+		5A4A66731E4B615700C137B8 /* LessonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonViewController.swift; sourceTree = "<group>"; };
 		5A72AB921E44C49700227938 /* PhysicsCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsCategory.swift; sourceTree = "<group>"; };
 		8715F5FB1E36510F001E2DEA /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		8715F6071E368279001E2DEA /* ObjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectTableViewCell.swift; sourceTree = "<group>"; };
@@ -195,6 +199,7 @@
 				87DC851E1E34BA4B0068555D /* GameViewController.swift */,
 				8715F6091E36828A001E2DEA /* ObjectTableViewController.swift */,
 				8731F2FD1E412965002C5253 /* SensorTableViewController.swift */,
+				5A4A66731E4B615700C137B8 /* LessonViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -301,6 +306,7 @@
 				8715F5FB1E36510F001E2DEA /* Singleton.swift */,
 				87DC85281E34BA4B0068555D /* Info.plist */,
 				5A00DAD31E48C16B00F13164 /* Adder.swift */,
+				5A4A66711E4B60F600C137B8 /* CategoryLesson.swift */,
 			);
 			path = "Phi6 Alpha";
 			sourceTree = "<group>";
@@ -443,8 +449,10 @@
 				8731F2CA1E40D6FE002C5253 /* NotGate.swift in Sources */,
 				8731F2D11E40D6FE002C5253 /* Triangle.swift in Sources */,
 				8731F2C21E40D6FE002C5253 /* AndGate.swift in Sources */,
+				5A4A66721E4B60F600C137B8 /* CategoryLesson.swift in Sources */,
 				8731F2C81E40D6FE002C5253 /* LoadCell.swift in Sources */,
 				8731F2CC1E40D6FE002C5253 /* PhotoCell.swift in Sources */,
+				5A4A66741E4B615700C137B8 /* LessonViewController.swift in Sources */,
 				8715F5FC1E36510F001E2DEA /* Singleton.swift in Sources */,
 				87283ABD1E43325100FDEE95 /* Obstacle.swift in Sources */,
 				87DC851D1E34BA4B0068555D /* GameScene.swift in Sources */,

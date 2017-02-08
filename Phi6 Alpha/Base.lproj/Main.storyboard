@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wgD-cz-GGm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wgD-cz-GGm">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -50,15 +50,6 @@
                                     <constraint firstAttribute="height" constant="60" id="Z8b-ZV-Sbz"/>
                                 </constraints>
                             </view>
-                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="250" minValue="0.10000000149011612" maxValue="500" translatesAutoresizingMaskIntoConstraints="NO" id="rE3-EB-Xmh">
-                                <rect key="frame" x="339" y="314" width="154" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="EW1-di-cgY"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="setWidth" destination="BV1-FR-VrT" eventType="valueChanged" id="9DW-EM-zni"/>
-                                </connections>
-                            </slider>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zoj-oX-ia3">
                                 <rect key="frame" x="226" y="315" width="100" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -69,21 +60,9 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ake-ey-lbl">
                                 <rect key="frame" x="499" y="315" width="100" height="30"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cD8-3R-iAF">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="3PN-Mt-M2V"/>
-                                    <constraint firstAttribute="trailing" secondItem="cD8-3R-iAF" secondAttribute="trailing" id="7jo-lQ-CJf"/>
-                                    <constraint firstAttribute="bottom" secondItem="cD8-3R-iAF" secondAttribute="bottom" id="avl-iF-vZJ"/>
-                                    <constraint firstItem="cD8-3R-iAF" firstAttribute="top" secondItem="ake-ey-lbl" secondAttribute="top" id="mzL-8M-fXQ"/>
-                                    <constraint firstItem="cD8-3R-iAF" firstAttribute="leading" secondItem="ake-ey-lbl" secondAttribute="leading" id="qYG-by-oEg"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Q6-ZX-xqc">
@@ -430,7 +409,6 @@
                             <constraint firstAttribute="trailing" secondItem="7Mu-O9-7c0" secondAttribute="trailing" id="PI3-Ag-i1J"/>
                             <constraint firstItem="KHX-GV-UWW" firstAttribute="leading" secondItem="lLB-xw-gzO" secondAttribute="trailing" constant="8" id="PLQ-1E-FOx"/>
                             <constraint firstItem="lLB-xw-gzO" firstAttribute="width" secondItem="lLB-xw-gzO" secondAttribute="height" multiplier="1:1" id="Pht-et-bFD"/>
-                            <constraint firstItem="ake-ey-lbl" firstAttribute="leading" secondItem="rE3-EB-Xmh" secondAttribute="trailing" constant="8" id="QAj-Ev-tXQ"/>
                             <constraint firstItem="Zoj-oX-ia3" firstAttribute="leading" secondItem="82e-5Y-40s" secondAttribute="trailing" constant="166" id="QKd-ZK-L8N"/>
                             <constraint firstItem="h53-PJ-8wL" firstAttribute="width" secondItem="h53-PJ-8wL" secondAttribute="height" multiplier="1:1" id="QbU-aB-czi"/>
                             <constraint firstItem="5Lc-4L-BMh" firstAttribute="leading" secondItem="r9y-25-dcC" secondAttribute="trailing" id="S4X-GD-zS5"/>
@@ -440,10 +418,8 @@
                             <constraint firstItem="i3L-Sf-zOB" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="aQK-82-TvH"/>
                             <constraint firstItem="hiw-CJ-c2U" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" constant="6" id="aSa-py-TKp"/>
                             <constraint firstItem="r9y-25-dcC" firstAttribute="top" secondItem="i3L-Sf-zOB" secondAttribute="bottom" constant="8" id="cLt-NR-iGf"/>
-                            <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="rE3-EB-Xmh" secondAttribute="bottom" constant="31" id="dYZ-b9-wjk"/>
                             <constraint firstItem="7Mu-O9-7c0" firstAttribute="leading" secondItem="ake-ey-lbl" secondAttribute="trailing" constant="8" id="dfJ-TX-WMd"/>
                             <constraint firstItem="82e-5Y-40s" firstAttribute="top" secondItem="hiw-CJ-c2U" secondAttribute="bottom" constant="15" id="fmT-U9-4uJ"/>
-                            <constraint firstItem="ake-ey-lbl" firstAttribute="leading" secondItem="rE3-EB-Xmh" secondAttribute="trailing" constant="8" id="gNc-fC-rHP"/>
                             <constraint firstItem="3ss-hX-Wre" firstAttribute="width" secondItem="3ss-hX-Wre" secondAttribute="height" multiplier="1:1" id="goZ-ZG-9yZ"/>
                             <constraint firstItem="h79-9o-ND5" firstAttribute="width" secondItem="h79-9o-ND5" secondAttribute="height" multiplier="1:1" id="h5t-bO-RAj"/>
                             <constraint firstItem="0Q6-ZX-xqc" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="hyE-hM-Vj0"/>
@@ -507,7 +483,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Oval 5" translatesAutoresizingMaskIntoConstraints="NO" id="9hd-LF-ExY">
-                                <rect key="frame" x="316" y="20" width="38" height="23"/>
+                                <rect key="frame" x="317" y="8" width="38" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDx-0V-crU">
@@ -521,7 +497,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cq1-nc-fuk">
                                 <rect key="frame" x="290" y="319" width="92" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Sandbox"/>
+                                <state key="normal" image="SANDBOX"/>
                                 <connections>
                                     <segue destination="BV1-FR-VrT" kind="presentation" identifier="sandbox" id="cWG-ga-9hn"/>
                                 </connections>
@@ -529,7 +505,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBr-TM-58n">
                                 <rect key="frame" x="561" y="319" width="86" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="Learning"/>
+                                <state key="normal" title="Button" image="LEARNING"/>
                                 <connections>
                                     <segue destination="K7w-WI-y4X" kind="presentation" identifier="learning" id="eal-7s-mY9"/>
                                 </connections>
@@ -539,7 +515,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Group" translatesAutoresizingMaskIntoConstraints="NO" id="H8Q-fa-2ce">
-                                <rect key="frame" x="310" y="28" width="50" height="204"/>
+                                <rect key="frame" x="308" y="70" width="50" height="204"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -575,7 +551,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6o-9P-Bjs">
-                                <rect key="frame" x="9" y="317" width="32" height="38"/>
+                                <rect key="frame" x="10" y="320" width="32" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title=" Back" image="returns--icon-30696"/>
                                 <connections>
@@ -588,7 +564,7 @@
                                 <state key="normal" image="playbutton"/>
                                 <connections>
                                     <action selector="goToExercise:" destination="BMF-cN-Aee" eventType="touchUpInside" id="En8-a9-H5c"/>
-                                    <segue destination="BV1-FR-VrT" kind="presentation" identifier="showExercise" id="zbM-7L-b0e"/>
+                                    <segue destination="n44-iE-kmZ" kind="presentation" identifier="showLesson" id="t84-3l-JAl"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Text here" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="zXT-1J-lZ6">
@@ -618,6 +594,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v8c-9U-VO8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="106.59670164917542" y="-1263.2"/>
+        </scene>
+        <!--Lessons View Controller-->
+        <scene sceneID="kTg-Li-BQl">
+            <objects>
+                <viewController id="n44-iE-kmZ" customClass="LessonsViewController" customModule="Phi6_Alpha" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L0H-4O-fmj"/>
+                        <viewControllerLayoutGuide type="bottom" id="SJf-2l-na6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="reE-gL-Tsu">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background_Main_Menu" translatesAutoresizingMaskIntoConstraints="NO" id="OHJ-Ss-RGC">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="1tJ-yU-fUK">
+                                <rect key="frame" x="314" y="318" width="39" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="pageIndicatorTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="currentPageIndicatorTintColor" red="0.92554813619999998" green="0.16716841690000001" blue="0.052806276890000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pTt-u4-5qk">
+                                <rect key="frame" x="20" y="28" width="627" height="282"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d97-Yj-0CZ">
+                                <rect key="frame" x="10" y="320" width="32" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="returns--icon-30696"/>
+                                <connections>
+                                    <action selector="backPressed:" destination="n44-iE-kmZ" eventType="touchUpInside" id="My7-Yn-bnz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="CategoryView" destination="pTt-u4-5qk" id="gKh-US-TiG"/>
+                        <outlet property="backButton" destination="d97-Yj-0CZ" id="d8J-dy-z5h"/>
+                        <outlet property="pageControl" destination="1tJ-yU-fUK" id="IPT-OW-GM7"/>
+                        <segue destination="BV1-FR-VrT" kind="presentation" identifier="loadLesson" id="ugL-1C-1WA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M7B-hD-X0D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="107" y="-38"/>
         </scene>
         <!--Carusiell View Controller-->
         <scene sceneID="Gin-TF-RI7">
@@ -905,15 +929,15 @@
         <image name="Chronometer" width="50" height="50"/>
         <image name="Circle" width="428" height="428"/>
         <image name="Group" width="54" height="238"/>
+        <image name="LEARNING" width="86" height="25"/>
         <image name="LaserAccelerometer(V)" width="50" height="50"/>
         <image name="LaserRangefinder(H)" width="50" height="50"/>
-        <image name="Learning" width="86" height="25"/>
         <image name="Line" width="521" height="15"/>
         <image name="LoadCell" width="50" height="50"/>
         <image name="Oval 5" width="25" height="25"/>
         <image name="PhotoCellDefault" width="50" height="50"/>
         <image name="Rectangle" width="278" height="278"/>
-        <image name="Sandbox" width="87" height="26"/>
+        <image name="SANDBOX" width="87" height="26"/>
         <image name="SpeedCamera" width="50" height="50"/>
         <image name="gravity" width="256" height="256"/>
         <image name="levelchoice" width="66" height="66"/>
@@ -922,7 +946,7 @@
         <image name="returns--icon-30696" width="76" height="88"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cWG-ga-9hn"/>
+        <segue reference="ugL-1C-1WA"/>
         <segue reference="eal-7s-mY9"/>
     </inferredMetricsTieBreakers>
 </document>

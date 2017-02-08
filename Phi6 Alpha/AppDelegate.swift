@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         
         if (shortcutItem.type == "com.ITNH.openarcade") {
@@ -35,7 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             vc.mode = "learning"
             let root = UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
         }
-
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

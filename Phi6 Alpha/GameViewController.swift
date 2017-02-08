@@ -53,6 +53,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     var adder = Adder()
     var centerOriginView: CGPoint?
     
+    let arrayOfSensors = ["PhotoCellDefault", "SpeedCamera","Circle","Rectangle","LoadCell","Chronometer","LaserRangefinder(H)","LaserAccelerometer(V)"]
+    
     override func viewDidLoad() {
 
         super.viewDidLoad()
@@ -113,17 +115,43 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     }
     
     func numberOfContextualMenuItems() -> UInt {
-        return 4
+        return UInt(arrayOfSensors.count)
     }
     
     func contextualMenu(_ contextualMenu: BAMContextualMenu!, viewForMenuItemAt index: UInt) -> UIView! {
         
-        let image = UIImage(named: "Phi_Sphere")
+        let image = UIImage(named: arrayOfSensors[Int(index)])
         let imageView = UIImageView(image: image)
-        
-        imageView.layer.cornerRadius = (image?.size.height)!/2
+        imageView.layer.cornerRadius = (imageView.image?.size.height)! / 2
+        imageView.frame = CGRect(x: 0, y: 0, width: 45, height: 45)
         
         return imageView
+    }
+    
+    func contextualMenu(_ contextualMenu: BAMContextualMenu!, didSelectItemAt index: UInt) {
+        
+        let selected = arrayOfSensors[Int(index)]
+        
+        switch selected {
+        case "SpeedCamera":
+            addSpeedCamera()
+        case "LoadCell":
+            addLoadCell()
+        case "PhotoCellDefault":
+            addPhotoCell()
+        case "Circle":
+            addCircle()
+        case "Rectangle":
+            addRectangle()
+        case "Chronometer":
+            addChronometer()
+        case "LaserRangefinder(H)":
+            addLaserRangefinder()
+        case "LaserAccelerometer(V)":
+            addLaserAccelerometer()
+        default:
+            print("dio cane")
+        }
     }
     
     func contextualMenuActivated(_ contextualMenu: BAMContextualMenu!) {
