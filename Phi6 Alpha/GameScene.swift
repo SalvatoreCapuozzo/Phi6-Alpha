@@ -144,7 +144,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         phisphere = childNode(withName: "phisphere") as! SKSpriteNode
         
-        phisphere.physicsBody?.collisionBitMask = 1
+        phisphere.physicsBody?.collisionBitMask = PhysicsCategory.Sensor
         phisphere.physicsBody?.categoryBitMask = PhysicsCategory.Phisphere
         phisphere.physicsBody?.contactTestBitMask = PhysicsCategory.Sensor
         
@@ -210,6 +210,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                             } else if object.name == "loadCell" {
                                                 deleteSliders()
                                                 object.physicsBody?.collisionBitMask = 2
+                                            } else if object.name == "lever" {
+                                                deleteSliders()
                                             }
 //                                            print("Col: \(object.physicsBody?.collisionBitMask)")
                                             object.position = touchLocation
@@ -670,10 +672,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             firstBody = contact.bodyB
             secondBody = contact.bodyA
         }
-        
+        if let b = secondBody as? SKPhysicsBody
+        {
+            print("b")
+        }
+        if let sec = secondBody.node
+        {
+            print("daje")
+        }
+        print(contact.bodyB.categoryBitMask)
+        if let sBody = secondBody.node {
+            print("ciao")
+        }
         //2
-        if ((firstBody.categoryBitMask & PhysicsCategory.Phisphere != 0) &&
+        /*if ((firstBody.categoryBitMask & PhysicsCategory.Phisphere != 0) &&
             (secondBody.categoryBitMask & PhysicsCategory.Sensor != 0)) {
+            
+           
             
             if secondBody.node?.name! == "speedCamera" {
                 timer2.invalidate()
@@ -739,7 +754,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             //pause = true
             //viewController.showAlert()
-        }
+        }*/
+    }
+    
+    func didEnd(_ contact: SKPhysicsContact) {
+        print("ASD")
     }
     
     func setValueDisplaySC(_ object: SpeedCamera) {

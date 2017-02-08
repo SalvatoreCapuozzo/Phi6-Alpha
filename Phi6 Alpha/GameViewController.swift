@@ -198,6 +198,10 @@ class GameViewController: UIViewController, SKSceneDelegate {
         adder.addLaserRangefinder(scene: scene)
     }
     
+    @IBAction func addLever() {
+        adder.addLever(scene: scene)
+    }
+    
     @IBAction func showObjects(_ sender: Any) {
         // self.showPausedMenu()
         

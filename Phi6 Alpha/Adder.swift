@@ -92,7 +92,7 @@ func addPhotoCell(scene: GameScene) {
         sprite.physicsBody?.affectedByGravity = false
         sprite.physicsBody?.isDynamic = false
         
-        sprite.physicsBody?.collisionBitMask = 0
+        sprite.physicsBody?.collisionBitMask = PhysicsCategory.None
         sprite.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
         sprite.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
         
@@ -161,6 +161,26 @@ func addPhotoCell(scene: GameScene) {
             sprite.name = "laserRangefinder"// + String(number)
         }
         print(sprite.name!)
+    }
+    
+    func addLever(scene: GameScene) {
+        scene.deleteSliders()
+        
+        let lever = LeverClass(scene: scene, location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
+        let beam = LeverBeam(location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
+        let fulcrum = LeverFulcrum(location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
+        
+        //let beam = LeverFulcrum(location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
+        
+        
+        
+
+        
+        Singleton.shared.addNewObject(anObject: lever)
+        scene.addChild(lever)
+        scene.addChild(beam)
+        scene.addChild(fulcrum)
+
     }
 
     func addRectangle(scene: GameScene) {
@@ -305,7 +325,7 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
     scene.sliderFriction?.layer.masksToBounds = false
     scene.sliderFriction?.maximumValue = 290
     scene.sliderFriction?.minimumValue = 0
-    scene.sliderFriction?.value = Float((node.physicsBody?.friction)!)
+    //scene.sliderFriction?.value = Float((node.physicsBody?.friction)!) // Da controllare!!
     
     // Set Width Label
     scene.myLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
