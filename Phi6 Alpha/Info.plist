@@ -40,5 +40,38 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.ITNH.openarcade</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Arcade</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>Go to arcade</string>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>arcade3d</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.ITNH.opensandbox</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Sandbox</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>Do what you want</string>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>sandbox3d</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.ITNH.openlearning</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Learning</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>Learn something new</string>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeBookmark</string>
+		</dict>
+	</array>
 </dict>
 </plist>

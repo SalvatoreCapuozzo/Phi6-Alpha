@@ -11,7 +11,7 @@ import SpriteKit
 import GameplayKit
 import VerticalSlider
 
-class GameViewController: UIViewController, SKSceneDelegate {
+class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var pauseButton: UIButton!
     var scene: GameScene!
@@ -25,9 +25,6 @@ class GameViewController: UIViewController, SKSceneDelegate {
     @IBOutlet weak var deleteSwitch: UISwitch!
     
     @IBOutlet weak var objectListView: ObjectTableViewController!
-    
-    @IBOutlet weak var gravityButton: UIButton!
-    
     
     var selectedNode: SKSpriteNode!
     var myNode: SKSpriteNode!
@@ -47,7 +44,9 @@ class GameViewController: UIViewController, SKSceneDelegate {
      
      */
     
+    @IBOutlet var excerciseTextView: UITextView!
     var adder = Adder()
+    var centerOriginView: CGPoint?
     
     override func viewDidLoad() {
 
@@ -90,17 +89,43 @@ class GameViewController: UIViewController, SKSceneDelegate {
         massSlider.slider.addTarget(self, action: #selector(setMass), for: .valueChanged)
         
         
-
-
+        centerOriginView = excerciseTextView.frame.origin
+        
+        let gestureRight = UISwipeGestureRecognizer(target: self, action: #selector(moveViewGesture))
+        //        gestureRight.delegate = self
+        gestureRight.direction = .right
+        excerciseTextView.addGestureRecognizer(gestureRight)
+        
+        let gestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(returnViewGesture))
+        //        gestureLeft.delegate = self
+        gestureLeft.direction = .left
+        excerciseTextView.addGestureRecognizer(gestureLeft)
         
         
-//        let myLabel = SKLabelNode(fontNamed: "Chalkduster")
-//        myLabel.text = "Ciao fratellone"
-//        myLabel.position = CGPoint(x: 0, y: 0)
-//        myLabel.fontColor = SKColor.red
-//        myLabel.color = UIColor.black
-//        
-//        scene.addChild(myLabel)
+    }
+    
+    func moveViewGesture(){
+        
+        UIView.animate(withDuration: 1, delay: 0, options: .curveEaseIn, animations: {
+            
+            let offsetX = (UIScreen.main.bounds.width - 30)
+            
+            self.excerciseTextView.frame = CGRect(x: offsetX, y: self.excerciseTextView.frame.origin.y, width: self.excerciseTextView.frame.width, height: self.excerciseTextView.frame.height)
+            
+        }, completion: nil)
+    }
+    
+    func returnViewGesture(){
+        
+        UIView.animate(withDuration: 1, delay: 0, options: .curveEaseIn, animations: {
+            
+            self.excerciseTextView.frame = CGRect(x: (self.centerOriginView?.x)!, y: self.excerciseTextView.frame.origin.y, width: self.excerciseTextView.frame.width, height: self.excerciseTextView.frame.height)
+            
+        }, completion: nil)
+    }
+    
+    func setTextInView(text: String){
+        excerciseTextView.text = text
     }
 
     override var shouldAutorotate: Bool {
@@ -144,7 +169,7 @@ class GameViewController: UIViewController, SKSceneDelegate {
             scene.counter = 0
             pauseButton?.setTitle("Play", for: UIControlState(rawValue: 0))
             diameterSlider.value = Float(scene.pauseDiameter)
-            diameterLabel.text! = String(describing: round((scene.pauseDiameter/145)*100)/100)
+            diameterLabel.text! = String(describing: round((scene.pauseDiameter/163)*100)/100)
         }
     }
     
@@ -157,7 +182,7 @@ class GameViewController: UIViewController, SKSceneDelegate {
         scene.phisphere.xScale = CGFloat(diameterSlider.value)/scene.pauseDiameter
         scene.phisphere.yScale = CGFloat(diameterSlider.value)/scene.pauseDiameter
         
-        diameterLabel.text! = String(describing: round((scene.phisphere.size.width/145)*100)/100)
+        diameterLabel.text! = String(describing: round((scene.phisphere.size.width/163)*100)/100)
         
     }
     
@@ -198,10 +223,6 @@ class GameViewController: UIViewController, SKSceneDelegate {
         adder.addLaserRangefinder(scene: scene)
     }
     
-    @IBAction func addLever() {
-        adder.addLever(scene: scene)
-    }
-    
     @IBAction func showObjects(_ sender: Any) {
         // self.showPausedMenu()
         
@@ -209,16 +230,6 @@ class GameViewController: UIViewController, SKSceneDelegate {
     
     @IBAction func deleteSwitch(_ sender: Any) {
         scene.deleteSwitch()
-    }
-    
-    @IBAction func setGravity() {
-        if scene.gravity {
-            scene.gravity = false
-            gravityButton.setBackgroundImage(UIImage(named: "nogravity"), for: UIControlState(rawValue: 0))
-        } else {
-            scene.gravity = true
-            gravityButton.setBackgroundImage(UIImage(named: "gravity"), for: UIControlState(rawValue: 0))
-        }
     }
     
     func timerAction() {
@@ -280,33 +291,33 @@ class GameViewController: UIViewController, SKSceneDelegate {
             }
     }
     
-    func createExcerciseTextView(position: CGPoint){
-        
-        let myView = UIView(frame: CGRect(x: position.x, y: position.y, width: 200, height: 130))
-        myView.backgroundColor = UIColor.darkGray
-        myView.center = position
-        self.scene.view?.addSubview(myView)
-//        myView.bringSubview(toFront: self.scene.view!)
-        
-        setViewTextField(view: myView)
-    }
-    
-    func setViewTextField(view: UIView){
-        
-        let width = view.frame.width - 1
-        let height = view.frame.height - 1
-        
-        let frame = CGRect(x: 0, y: 0, width: width, height: height)
-        
-        let textField = UITextField(frame: frame)
-        textField.textColor = UIColor.red
-        textField.text = "VAFAMMOCC A MAAAAAAAAAAAMMT"
-        textField.center = view.center
-        
-        textField.sizeThatFits(textField.frame.size)
-        
-        self.scene.view?.addSubview(textField)
-        
-    }
+//    func createExcerciseTextView(position: CGPoint){
+//        
+//        let myView = UIView(frame: CGRect(x: position.x, y: position.y, width: 200, height: 130))
+//        myView.backgroundColor = UIColor.darkGray
+//        myView.center = position
+//        self.scene.view?.addSubview(myView)
+////        myView.bringSubview(toFront: self.scene.view!)
+//        
+//        setViewTextField(view: myView)
+//    }
+//    
+//    func setViewTextField(view: UIView){
+//        
+//        let width = view.frame.width - 1
+//        let height = view.frame.height - 1
+//        
+//        let frame = CGRect(x: 0, y: 0, width: width, height: height)
+//        
+//        let textField = UITextField(frame: frame)
+//        textField.textColor = UIColor.red
+//        textField.text = "VAFAMMOCC A MAAAAAAAAAAAMMT"
+//        textField.center = view.center
+//        
+//        textField.sizeThatFits(textField.frame.size)
+//        
+//        self.scene.view?.addSubview(textField)
+//        
+//    }
     
 }

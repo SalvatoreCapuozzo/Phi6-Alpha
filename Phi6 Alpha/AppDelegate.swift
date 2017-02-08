@@ -3,7 +3,7 @@
 //  Phi6 Alpha
 //
 //  Created by Salvatore Capuozzo on 22/01/2017.
-//  Copyright © 2017 Salvatore Capuozzo. All rights reserved.
+//  Copyright © 2017 ITNH. All rights reserved.
 //
 
 import UIKit
@@ -13,7 +13,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        
+        if (shortcutItem.type == "com.ITNH.openarcade") {
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "carusiello") as! CarusiellViewController
+            vc.mode = "arcade"
+            let root = UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
+        }
+            
+        else if (shortcutItem.type == "com.ITNH.opensandbox") {
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "O iuoc") as! GameViewController
+            vc.mode = "sandbox"
+            let root = UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
+        }
+        
+        else if (shortcutItem.type == "com.ITNH.openlearning") {
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "carusiello") as! CarusiellViewController
+            vc.mode = "learning"
+            let root = UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
+        }
 
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true

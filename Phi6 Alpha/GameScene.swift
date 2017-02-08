@@ -42,24 +42,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var myNode: SKSpriteNode!
     var mySlider: UISlider!
     var sliderHeight: UISlider!
+    //var sliderRotation: CircularSlider!
     var sliderRotation2: MTCircularSlider!
     var sliderRotationLine: UISlider!
-    var sliderFriction: UISlider!
     var myLabel: UILabel!
     var labelHeight: UILabel!
     var labelRotation: UILabel!
-    var labelFriction: UILabel!
     var arrayOfSlider = [UISlider]()
     var arrayOfSliderHeight = [UISlider]()
+    //var arrayOfSliderRotation = [CircularSlider]()
     var arrayOfSliderRotation2 = [MTCircularSlider]()
     var arrayOfSliderRotationLine = [UISlider]()
     var arrayOfSensors = [Sensor]()
-    var arrayOfSliderFriction = [UISlider]()
     var arrayOfLabel = [UILabel]()
     var arrayOfLabelHeight = [UILabel]()
     var arrayOfLabelRotation = [UILabel]()
     var arrayOfLabelSensors = [UILabel]()
-    var arrayOfLabelFriction = [UILabel]()
     var arrayOfLabelTimer = [UILabel]()
     var arrayOfLabelLaser = [UILabel]()
     
@@ -67,6 +65,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var sliderInitV: UISlider!
     var labelInitA: UILabel!
     var sliderInitA: UISlider!
+    //var textFieldA: UITextField!
     var arrayOfLabelInitV = [UILabel]()
     var arrayOfSliderInitV = [UISlider]()
     var arrayOfLabelInitA = [UILabel]()
@@ -144,7 +143,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         phisphere = childNode(withName: "phisphere") as! SKSpriteNode
         
-        phisphere.physicsBody?.collisionBitMask = PhysicsCategory.Sensor
+        phisphere.physicsBody?.collisionBitMask = 1
         phisphere.physicsBody?.categoryBitMask = PhysicsCategory.Phisphere
         phisphere.physicsBody?.contactTestBitMask = PhysicsCategory.Sensor
         
@@ -163,8 +162,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if let mode = viewController.mode{
             if mode == "learning"{
-                let excerciseViewPosition: CGPoint = self.convertPoint(toView: CGPoint(x: 0, y: 0))
-                viewController.createExcerciseTextView(position: excerciseViewPosition)
+                //                let excerciseViewPosition: CGPoint = self.convertPoint(toView: CGPoint(x: 0, y: 0))
+                //                viewController.createExcerciseTextView(position: excerciseViewPosition)
+                let string = "vjhasddfbajsdbhasdbvkjhbsjhvbskhskhvhsdbvasvbsjkhvbsfhbvhasbvhabsvfsvbkfhsbfsbvhbfshvbasvbasbhasbhvbaskhvbsjhbkjhsbkjhsbdjkhfnajfnbxsbncjsbnvansbxfgbcfsbfvhasvbdndjfcbasdkhbfxnjasbnfjkabsjncabsdvjkfcbnbdfjsdbnfjnbsfncbjkxsbnfucbnsdfbnsjkdbnfcsdbcbjhsdbn"
+                viewController.setTextInView(text: string)
+            }
+            else{
+                viewController.excerciseTextView.isHidden = true
             }
         }
     }
@@ -210,8 +214,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                             } else if object.name == "loadCell" {
                                                 deleteSliders()
                                                 object.physicsBody?.collisionBitMask = 2
-                                            } else if object.name == "lever" {
-                                                deleteSliders()
                                             }
 //                                            print("Col: \(object.physicsBody?.collisionBitMask)")
                                             object.position = touchLocation
@@ -289,27 +291,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             // Da utilizzare in caso di assenza di gravità e velocità iniziale diversa da zero
             //phisphere.physicsBody?.velocity.dx = CGFloat(27.7*145)
+            phisphere.physicsBody?.affectedByGravity = true
             
-
-            if sliderInitV != nil {
-                if sliderInitA.value == 0 {
-                    if counter < 0.2 {
-                        phisphere.physicsBody?.velocity.dx = CGFloat(Float(sliderInitV.value))
-                        print("Initial velocity: \((phisphere.physicsBody?.velocity.dx)!/145)")
+            if !gravity {
+                if counter < 0.2 {
+                    if sliderInitV != nil {
+                        if sliderInitA.value == 0 {
+                            phisphere.physicsBody?.velocity.dx = CGFloat(Float(sliderInitV.value))
+                        } else if sliderInitV.value == 0 {
+                            phisphere.physicsBody?.velocity.dx = CGFloat(sliderInitA.value) * CGFloat(counter)
+                            print(counter)
+                        }
                     }
-                } else if sliderInitV.value == 0 {
-                    phisphere.physicsBody?.velocity.dx = CGFloat(sliderInitA.value) * CGFloat(counter)
-                    print(counter)
                 } else {
-                    sliderInitA.value = 0
+                    if sliderInitV.value == 0 {
+                        phisphere.physicsBody?.velocity.dx = CGFloat(sliderInitA.value) * CGFloat(counter)
+                    }
                 }
-            }
-            
-            if gravity {
-                phisphere.physicsBody?.affectedByGravity = true
-            } else {
                 phisphere.physicsBody?.affectedByGravity = false
+                phisphere.physicsBody?.collisionBitMask = 1
+                phisphere.physicsBody?.categoryBitMask = PhysicsCategory.Phisphere
+                phisphere.physicsBody?.contactTestBitMask = PhysicsCategory.Sensor
             }
+            //phisphere.physicsBody?.velocity.dy = CGFloat(0)
+            
             phisphere.physicsBody?.collisionBitMask = 1
             phisphere.physicsBody?.categoryBitMask = PhysicsCategory.Phisphere
             phisphere.physicsBody?.contactTestBitMask = PhysicsCategory.Sensor
@@ -334,10 +339,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     laser.setDistance(scene: self)
                     laser.laser(scene: self)
                     setValueDisplayRangefinder(laser)
-                } else if object.name == "speedCamera" {
-                    object.physicsBody?.collisionBitMask = 1
-                    object.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
-                    object.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
                 }
             }
             self.currentTime = currentTime
@@ -450,8 +451,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         phisphereAccDx = 0
         phisphereAccDy = 0
         
-        sliderInitA?.value = 0
-        sliderInitV?.value = 0
+        gravity = true
         
         deleteSliders()
         
@@ -542,18 +542,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             arrayOfLabelInitA.removeAll()
         }
-        if arrayOfSliderFriction.count >= 0{
-            for slider in arrayOfSliderFriction{
-                slider.removeFromSuperview()
-            }
-            arrayOfSliderFriction.removeAll()
-        }
-        if arrayOfLabelFriction.count >= 0{
-            for label in arrayOfLabelFriction{
-                label.removeFromSuperview()
-            }
-            arrayOfLabelFriction.removeAll()
-        }
     }
     
     func setWidth2() {
@@ -642,15 +630,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func setFriction() {
-        if (myNode.name! == "object") {
-            myNode.physicsBody?.friction = CGFloat(sliderFriction.value)
-        }
-        labelFriction.text! = String(describing: round(((myNode.physicsBody?.friction)!/145)*100)/100)
-        
-        //addChild(myNode)
-    }
-    
     func deleteSwitch() {
         if deleteMode {
             deleteMode = false
@@ -672,35 +651,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             firstBody = contact.bodyB
             secondBody = contact.bodyA
         }
-        if let b = secondBody as? SKPhysicsBody
-        {
-            print("b")
-        }
-        if let sec = secondBody.node
-        {
-            print("daje")
-        }
-        print(contact.bodyB.categoryBitMask)
-        if let sBody = secondBody.node {
-            print("ciao")
-        }
+        
         //2
-        /*if ((firstBody.categoryBitMask & PhysicsCategory.Phisphere != 0) &&
+        if ((firstBody.categoryBitMask & PhysicsCategory.Phisphere != 0) &&
             (secondBody.categoryBitMask & PhysicsCategory.Sensor != 0)) {
-            
-           
             
             if secondBody.node?.name! == "speedCamera" {
                 timer2.invalidate()
                 if let phisphereNode = firstBody.node as? SKSpriteNode, let
                     Sensor = secondBody.node as? SpeedCamera {
-                    let velocity = (sqrt(pow((phisphereNode.physicsBody?.velocity.dx)!/145, 2) + pow((phisphereNode.physicsBody?.velocity.dy)!/145, 2))) + 0.08 // Margine di errore dovuto alla collisione
+                    let velocity = (sqrt(pow((phisphereNode.physicsBody?.velocity.dx)!, 2) + pow((phisphereNode.physicsBody?.velocity.dy)!, 2))/145)
                     Sensor.setSpeedCameraValue(velocity)
                     
                     // Serve quando vogliamo una determinata velocità per avviare lo script dell'alert message
                     //Sensor.setSpeedCameraValue(CGFloat(sphereSpeedF))
-                    print("x velocity: \((phisphereNode.physicsBody?.velocity.dx)!/145)")
-                    print("phi velocity: \(velocity)")
+                    
+                    print(velocity)
                     setValueDisplaySC(Sensor)
                     
                     //phisphere.physicsBody?.velocity.dx = 0
@@ -754,11 +720,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             //pause = true
             //viewController.showAlert()
-        }*/
-    }
-    
-    func didEnd(_ contact: SKPhysicsContact) {
-        print("ASD")
+        }
     }
     
     func setValueDisplaySC(_ object: SpeedCamera) {
@@ -773,7 +735,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         arrayOfLabelSensors.append(myLabel)
         self.view?.addSubview(myLabel)
-        print("Velocity: \(object.value)")
+        print("Running time: ok")
     }
     
     func setValueDisplayLC(_ object: LoadCell) {
@@ -856,7 +818,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         labelInitV.text! = String(describing: round((sliderInitV.value/145)*10)/10)
         if sliderInitV.value != 0 {
-            //gravity = false
+            gravity = false
         }
         
         addChild(myNode)
@@ -868,7 +830,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         labelInitA.text! = String(describing: round((sliderInitA.value/145)*10)/10)
         if sliderInitA.value != 0 {
-            //gravity = false
+            gravity = false
         }
         
         addChild(myNode)
