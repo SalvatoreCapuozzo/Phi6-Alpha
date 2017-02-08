@@ -176,8 +176,29 @@ func addPhotoCell(scene: GameScene) {
         Singleton.shared.addNewObject(anObject: rectangle)
         scene.addChild(rectangle)
         
-        var jointPend = SKPhysicsJointPin.joint(withBodyA: rectangle.physicsBody!, bodyB: circle.physicsBody!, anchor: rectangle.position)
-        scene.physicsWorld.add(jointPend)
+        let jointLever = SKPhysicsJointPin.joint(withBodyA: rectangle.physicsBody!, bodyB: circle.physicsBody!, anchor: rectangle.position)
+        scene.physicsWorld.add(jointLever)
+    }
+    
+    func addPendulum(scene: GameScene) {
+        scene.deleteSliders()
+        
+        let circle = Pendulum.circle(location: CGPoint(x: 0, y: 0))
+        circle.physicsBody?.isDynamic = true
+        circle.physicsBody?.affectedByGravity = true
+        
+        Singleton.shared.addNewObject(anObject: circle)
+        scene.addChild(circle)
+        /*
+        let fulcrum = Fulcrum.circle(location: CGPoint(x: 0, y: circle.length))
+        fulcrum.physicsBody?.isDynamic = false
+        fulcrum.name! = "pendulumFulcrum"
+        
+        Singleton.shared.addNewObject(anObject: fulcrum)
+        scene.addChild(fulcrum)
+*/
+        let jointPendulum = SKPhysicsJointLimit.joint(withBodyA: circle.physicsBody!, bodyB: scene.physicsBody!, anchorA: circle.position, anchorB: CGPoint(x: circle.position.x, y: circle.position.y + circle.length))
+        scene.physicsWorld.add(jointPendulum)
     }
 
     func addRectangle(scene: GameScene) {
@@ -289,7 +310,12 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
     scene.mySlider?.layer.masksToBounds = false
     scene.mySlider?.maximumValue = 290
     scene.mySlider?.minimumValue = 0.2
-    scene.mySlider?.value = Float(node.size.width)
+    if node.name! == "pendulum" {
+        let pendulum = node as? Pendulum
+        scene.mySlider?.value = Float((pendulum?.length)!)
+    } else {
+        scene.mySlider?.value = Float(node.size.width)
+    }
     
     // Set Height Slider
     scene.sliderHeight = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
@@ -329,9 +355,13 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
     scene.myLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
     scene.myLabel.layer.position = CGPoint(x: (scene.view?.frame.width)!/4 + ((scene.mySlider?.frame.width)!/1.2), y: (scene.view?.frame.height)!-45)
     scene.myLabel.textColor! = UIColor.black
-    scene.myLabel?.text = String(describing: (round((scene.mySlider.value/145)*100)/100)) + " m"
-    if scene.myLabel.text != nil {
-        scene.myLabel.text! = String(describing: (round((scene.mySlider.value/145)*100)/100)) + " m"
+    if node.name! == "beam" {
+        scene.myLabel?.text = String(describing: (round((scene.mySlider.value/(145*2))*100)/100)) + " x 2 m"
+    } else {
+        scene.myLabel?.text = String(describing: (round((scene.mySlider.value/145)*100)/100)) + " m"
+        if scene.myLabel.text != nil {
+            scene.myLabel.text! = String(describing: (round((scene.mySlider.value/145)*100)/100)) + " m"
+        }
     }
     
     // Set Height Label
@@ -380,7 +410,7 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
         //sliderRotation?.target(forAction: #selector(setRotation), withSender: scene)
         scene.sliderRotationLine?.addTarget(scene, action: #selector(scene.setRotation), for: UIControlEvents.valueChanged)
         scene.sliderFriction?.addTarget(scene, action: #selector(scene.setFriction), for: UIControlEvents.valueChanged)
-    } else if (node.name == "objectCircle") {
+    } else if (node.name == "objectCircle") /*|| (node.name == "pendulum") */{
         scene.mySlider?.addTarget(scene, action: #selector(scene.setWidth2), for: UIControlEvents.valueChanged)
     } else if (node.name == "beam") {
         scene.mySlider?.addTarget(scene, action: #selector(scene.setWidth2), for: UIControlEvents.valueChanged)

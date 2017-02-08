@@ -62,7 +62,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         "Chronometer",
         "LaserRangefinder(H)",
         "LaserAccelerometer(V)",
-        "Lever"
+        "Lever",
+        "Pendulum"
     ]
     
     override func viewDidLoad() {
@@ -161,6 +162,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
             addLaserAccelerometer()
         case "Lever":
             addLever()
+        case "Pendulum":
+            addPendulum()
         default:
             print("dio cane")
         }
@@ -292,6 +295,10 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     
     @IBAction func addLever() {
         adder.addLever(scene: scene)
+    }
+    
+    @IBAction func addPendulum() {
+        adder.addPendulum(scene: scene)
     }
     
     @IBAction func showObjects(_ sender: Any) {

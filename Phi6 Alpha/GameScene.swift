@@ -213,8 +213,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                             } else if object.name == "loadCell" {
                                                 deleteSliders()
                                                 object.physicsBody?.collisionBitMask = 2
+                                            } else if object.name == "pendulum" {
+                                                deleteSliders()
+                                                deleteFulcrum()
+                                                scene?.physicsWorld.removeAllJoints()
+                                                object.position = touchLocation
+                                                selectedNode = object
+                                                
+                                                let pendulum = object as? Pendulum
+                                                adder.addSlider(node: object, scene: self)
+                                                myNode = object
+                                                /*
+                                                let fulcrum = Fulcrum.circle(location: CGPoint(x: 0, y: (pendulum?.length)!))
+                                                fulcrum.physicsBody?.isDynamic = false
+                                                fulcrum.name! = "pendulumFulcrum"
+                                                fulcrum.xScale = 0.5
+                                                fulcrum.yScale = 0.5
+                                                
+                                                Singleton.shared.addNewObject(anObject: fulcrum)
+                                                scene?.addChild(fulcrum)
+ */
+                                                let jointPendulum = SKPhysicsJointLimit.joint(withBodyA: object.physicsBody!, bodyB: (scene?.physicsBody!)!, anchorA: object.position, anchorB: CGPoint(x: object.position.x, y: object.position.y + (pendulum?.length)!))
+                                                scene?.physicsWorld.add(jointPendulum)
                                             }
-//                                            print("Col: \(object.physicsBody?.collisionBitMask)")
                                             object.position = touchLocation
                                             selectedNode = object
                                             
@@ -249,6 +270,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                             } else {
                                 for object in Singleton.shared.objects {
                                     if sprite == object {
+                                        if object.name == "pendulum" {
+                                            deleteSliders()
+                                            deleteFulcrum()
+                                            scene?.physicsWorld.removeAllJoints()
+                                            object.position = touchLocation
+                                            selectedNode = object
+                                            let pendulum = object as? Pendulum
+                                            adder.addSlider(node: object, scene: self)
+                                            myNode = object
+                                            /*
+                                            let fulcrum = Fulcrum.circle(location: CGPoint(x: 0, y: (pendulum?.length)!))
+                                            fulcrum.physicsBody?.isDynamic = false
+                                            fulcrum.name! = "pendulumFulcrum"
+                                            fulcrum.xScale = 0.5
+                                            fulcrum.yScale = 0.5
+                                            Singleton.shared.addNewObject(anObject: fulcrum)
+                                            scene?.addChild(fulcrum)
+ */
+                                            let jointPendulum = SKPhysicsJointLimit.joint(withBodyA: object.physicsBody!, bodyB: (scene?.physicsBody!)!, anchorA: object.position, anchorB: CGPoint(x: object.position.x, y: object.position.y + (pendulum?.length)!))
+                                            scene?.physicsWorld.add(jointPendulum)
+                                        }
                                         object.position = touchLocation
                                         selectedNode = object
                                         
@@ -274,22 +316,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var beforeAfterPosition: [String: CGFloat] = ["final": 0, "initial": 0]
     var beforeAfterVelocityDx: [String: CGFloat] = ["final": 0, "initial": 0]
-    var beforeAfterVelocityDy: [String: CGFloat] = ["final": 0, "initial": 0] // Aggiungere dy al nome
+    var beforeAfterVelocityDy: [String: CGFloat] = ["final": 0, "initial": 0]
     var beforeAfterTime: [String: TimeInterval] = ["final": 0, "initial": 0]
     var currentTime: TimeInterval! = 0.04
     var deltaTime: CGFloat! = 0.04
     var phisphereVel: CGFloat = 0
     var phisphereAccDx: CGFloat = 0
-    var phisphereAccDy: CGFloat = 0 // Aggiungere dy al nome
+    var phisphereAccDy: CGFloat = 0
     var gravity: Bool = true
     
     // Update function
     override func update(_ currentTime: TimeInterval) {
         if !pause {
-            //phisphere.physicsBody?.affectedByGravity = true
-            
-            // Da utilizzare in caso di assenza di gravità e velocità iniziale diversa da zero
-            //phisphere.physicsBody?.velocity.dx = CGFloat(27.7*145)
             if sliderInitV != nil {
                 if sliderInitA.value == 0 {
                     if counter < 0.2 {
@@ -315,33 +353,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             
             for object in Singleton.shared.objects {
-                object.physicsBody?.affectedByGravity = false
-                if object.name == "sensor" {
-                    object.physicsBody?.collisionBitMask = 1
-                } else if object.name == "chronometer" {
-                    object.physicsBody?.collisionBitMask = 1
-                    object.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
-                    object.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
-                    let chronometer = (object as? Chronometer)!
-                    chronometer.startTimer()
-                    setValueDisplayChr(chronometer)
-                } else if object.name == "laserRangefinder" {
-                    object.physicsBody?.collisionBitMask = 1
-                    object.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
-                    object.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
-                    let laser = (object as? LaserRangefinder)!
-                    laser.setDistance(scene: self)
-                    laser.laser(scene: self)
-                    setValueDisplayRangefinder(laser)
-                } else if object.name == "speedCamera" {
-                    object.physicsBody?.collisionBitMask = 1
-                    object.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
-                    object.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
+                if object.name == "pendulum" || object.name == "beam" {
+                    object.physicsBody?.affectedByGravity = true
+                } else {
+                    object.physicsBody?.affectedByGravity = false
+                    if object.name == "sensor" {
+                        object.physicsBody?.collisionBitMask = 1
+                    } else if object.name == "chronometer" {
+                        object.physicsBody?.collisionBitMask = 1
+                        object.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
+                        object.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
+                        let chronometer = (object as? Chronometer)!
+                        chronometer.startTimer()
+                        setValueDisplayChr(chronometer)
+                    } else if object.name == "laserRangefinder" {
+                        object.physicsBody?.collisionBitMask = 1
+                        object.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
+                        object.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
+                        let laser = (object as? LaserRangefinder)!
+                        laser.setDistance(scene: self)
+                        laser.laser(scene: self)
+                        setValueDisplayRangefinder(laser)
+                    } else if object.name == "speedCamera" {
+                        object.physicsBody?.collisionBitMask = 1
+                        object.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
+                        object.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
+                    }
                 }
-
             }
             self.currentTime = currentTime
-            // print(phisphere.physicsBody?.velocity.dy)
             
             // Vettore velocità
             let startV = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2))
@@ -377,8 +417,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
              __________$$$$$$$$$$$$$$$$$$$$
             */
             let startA = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2))
-            
-            //var endG = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2), y: -phisphere.position.y + (self.frame.size.height / 2) + 9.81*5)
             
             let endA = CGPoint(x: phisphere.position.x + (self.frame.size.width / 2) + phisphereAccDx/15, y: -phisphere.position.y + (self.frame.size.height / 2) - phisphereAccDy/15)
             
@@ -480,6 +518,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    func deleteFulcrum() {
+        for object in Singleton.shared.objects {
+            if object.name! == "pendulumFulcrum" {
+                self.removeChildren(in: [object])
+            }
+        }
+    }
+    
     func deleteSliders(){
         
         if arrayOfSlider.count >= 0{
@@ -565,7 +611,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if (myNode.name! == "object") {
             
-            //myNode.xScale = 0.2 * CGFloat(mySlider.value) / 50
             myNode.size.width = CGFloat(mySlider.value)
             myNode.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -CGFloat(mySlider.value)/2, y: -CGFloat(sliderHeight.value)/2, width: CGFloat(mySlider.value), height: CGFloat(sliderHeight.value)))
             print("New width: " + String(describing: myNode.size.width))
@@ -577,15 +622,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             myNode.physicsBody?.isDynamic = false
 
             print("New height: " + String(describing: myNode.size.height))
-        } /*else if (myNode.name! == "beam") {
+        } else if (myNode.name! == "beam") {
             myNode.size.width = CGFloat(mySlider.value)
             myNode.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -CGFloat(mySlider.value)/2, y: -CGFloat(sliderHeight.value)/2, width: CGFloat(mySlider.value), height: CGFloat(sliderHeight.value)))
             myNode.physicsBody?.affectedByGravity = true
             myNode.physicsBody?.isDynamic = true
-        }*/
-        //myNode.position.x = myNode.position.x - (myNode.size.width - CGFloat((mySlider?.value)!))/2
-        
-        myLabel.text! = String(describing: (round((myNode.size.width/145)*100)/100)) + " m"
+        } else if (myNode.name! == "pendulum") {
+            let pendulum = myNode as? Pendulum
+            pendulum?.length = CGFloat(mySlider.value)
+            myNode.physicsBody?.affectedByGravity = true
+            myNode.physicsBody?.isDynamic = true
+            //let jointPendulum = SKPhysicsJointLimit.joint(withBodyA: myNode.physicsBody!, bodyB: (self.physicsBody!)!, anchorA: myNode.position, anchorB: CGPoint(x: myNode.position.x, y: myNode.position.y + (pendulum?.length)!))
+            //self.physicsWorld.add(jointPendulum)
+        }
+        if myNode.name! == "beam" {
+            myLabel.text! = String(describing: (round((myNode.size.width/(145*2))*100)/100)) + " x 2 m"
+        } else {
+            myLabel.text! = String(describing: (round((myNode.size.width/145)*100)/100)) + " m"
+        }
         
         addChild(myNode)
         
@@ -599,13 +653,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if (myNode.name! == "object") {
             
-            //myNode.yScale = 0.2 * CGFloat(sliderHeight.value) / 50
             myNode.size.height = CGFloat(sliderHeight.value)
             myNode.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -CGFloat(mySlider.value)/2, y: -CGFloat(sliderHeight.value)/2, width: CGFloat(mySlider.value), height: CGFloat(sliderHeight.value)))
             print("New height: " + String(describing: myNode.size.height))
         }
-        //myNode.position.y = myNode.position.y - (myNode.size.height - CGFloat((sliderHeight?.value)!))/2
-        
         labelHeight.text! = String(describing: (round((myNode.size.height/145)*100)/100)) + " m"
         
         addChild(myNode)
@@ -615,21 +666,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func setDiameter2() {
         if (myNode.name! == "phisphere") {
             phisphere.position.x = phisphere.position.x - (phisphere.size.width - CGFloat(mySlider.value))/2
-            //scene.phisphere.size.width = CGFloat(diameterSlider.value)
             phisphere.position.y = phisphere.position.y - (phisphere.size.height - CGFloat(mySlider.value))/2
-            //scene.phisphere.size.height = CGFloat(diameterSlider.value)
             
             phisphere.xScale = CGFloat(mySlider.value)/pauseDiameter
             phisphere.yScale = CGFloat(mySlider.value)/pauseDiameter
             
-            //diameterLabel.text! = String(describing: round(scene.phisphere.size.width*10)/10)
         } else if (myNode.name! == "objectCircle") {
             myNode.size.width = CGFloat(mySlider.value)
             myNode.size.height = CGFloat(mySlider.value)
             myNode.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -CGFloat(mySlider.value)/2, y: -CGFloat(mySlider.value)/2, width: CGFloat(mySlider.value), height: CGFloat(mySlider.value)))
             print("New height: " + String(describing: myNode.size.height))
         }
-        //myNode.position.y = myNode.position.y - (myNode.size.height - CGFloat((sliderHeight?.value)!))/2
         
         myLabel.text! = String(describing: (round((myNode.size.height/145)*100)/100)) + " m"
         
@@ -720,7 +767,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
             } else if secondBody.node?.name! == "laserAccelerometer" {
                 timer2.invalidate()
-                if let phisphereNode = firstBody.node as? SKSpriteNode, let
+                if let _ = firstBody.node as? SKSpriteNode, let
                     Sensor = secondBody.node as? LaserAccelerometer {
                     if Sensor.orientation == "Vertical" {
                         // Cheating time
@@ -742,11 +789,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
             } else if secondBody.node?.name! == "sensor" {
                 timer2.invalidate()
-                if let phisphere = firstBody.node as? SKSpriteNode, let
+                if let _ = firstBody.node as? SKSpriteNode, let
                     Sensor = secondBody.node as? PhotoCell {
                     Sensor.setPhotoCellValue()
                 }
-            }
+            } /*else if secondBody.node?.name! == "pendulum" {
+                if let phisphereNode = firstBody.node as? SKSpriteNode, let
+                    Pendulum = secondBody.node as? Pendulum {
+                    Pendulum.physicsBody?.affectedByGravity = true
+                }
+            }*/
             //pause = true
             //viewController.showAlert()
         }
@@ -838,17 +890,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     
     func setInitialV() {
-        //print("SelectedNode is: " + selectedNode.name!)
-        
-        //print("Set width to " + myNode.name!)
+
         removeChildren(in: [myNode])
-        
-        //myNode.physicsBody?.velocity.dx = CGFloat(Float(textFieldV.text!)!)
-        
+
         labelInitV.text! = String(describing: round((sliderInitV.value/145)*10)/10)
-        if sliderInitV.value != 0 {
-            //gravity = false
-        }
         
         addChild(myNode)
         
@@ -858,9 +903,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         removeChildren(in: [myNode])
         
         labelInitA.text! = String(describing: round((sliderInitA.value/145)*10)/10)
-        if sliderInitA.value != 0 {
-            //gravity = false
-        }
         
         addChild(myNode)
         
