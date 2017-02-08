@@ -162,6 +162,23 @@ func addPhotoCell(scene: GameScene) {
         }
         print(sprite.name!)
     }
+    
+    func addLever(scene: GameScene) {
+        scene.deleteSliders()
+        
+        let circle = Fulcrum.circle(location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
+        circle.physicsBody?.isDynamic = false
+        
+        let rectangle = Beam.rectangle(location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
+        Singleton.shared.addNewObject(anObject: circle)
+        scene.addChild(circle)
+        
+        Singleton.shared.addNewObject(anObject: rectangle)
+        scene.addChild(rectangle)
+        
+        var jointPend = SKPhysicsJointPin.joint(withBodyA: rectangle.physicsBody!, bodyB: circle.physicsBody!, anchor: rectangle.position)
+        scene.physicsWorld.add(jointPend)
+    }
 
     func addRectangle(scene: GameScene) {
     let sprite = Rectangle.rectangle(location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
@@ -365,6 +382,9 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
         scene.sliderFriction?.addTarget(scene, action: #selector(scene.setFriction), for: UIControlEvents.valueChanged)
     } else if (node.name == "objectCircle") {
         scene.mySlider?.addTarget(scene, action: #selector(scene.setWidth2), for: UIControlEvents.valueChanged)
+    } else if (node.name == "beam") {
+        scene.mySlider?.addTarget(scene, action: #selector(scene.setWidth2), for: UIControlEvents.valueChanged)
+        scene.sliderRotationLine?.addTarget(scene, action: #selector(scene.setRotation), for: UIControlEvents.valueChanged)
     }
     
     scene.arrayOfSlider.append(scene.mySlider!)

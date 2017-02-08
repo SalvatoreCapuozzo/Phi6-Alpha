@@ -577,7 +577,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             myNode.physicsBody?.isDynamic = false
 
             print("New height: " + String(describing: myNode.size.height))
-        }
+        } /*else if (myNode.name! == "beam") {
+            myNode.size.width = CGFloat(mySlider.value)
+            myNode.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -CGFloat(mySlider.value)/2, y: -CGFloat(sliderHeight.value)/2, width: CGFloat(mySlider.value), height: CGFloat(sliderHeight.value)))
+            myNode.physicsBody?.affectedByGravity = true
+            myNode.physicsBody?.isDynamic = true
+        }*/
         //myNode.position.x = myNode.position.x - (myNode.size.width - CGFloat((mySlider?.value)!))/2
         
         myLabel.text! = String(describing: (round((myNode.size.width/145)*100)/100)) + " m"
@@ -633,7 +638,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func setRotation() {
-        if (myNode.name! == "object") {
+        if (myNode.name! == "object" || myNode.name! == "beam") {
             myNode.zRotation = CGFloat(-sliderRotationLine.value/360*2*Float(M_PI))
         }
         if (sliderRotationLine.value != 0) {
@@ -673,7 +678,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             firstBody = contact.bodyB
             secondBody = contact.bodyA
         }
-        
+
         //2
         if ((firstBody.categoryBitMask & PhysicsCategory.Phisphere != 0) &&
             (secondBody.categoryBitMask & PhysicsCategory.Sensor != 0)) {

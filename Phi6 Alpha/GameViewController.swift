@@ -61,7 +61,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         "LoadCell",
         "Chronometer",
         "LaserRangefinder(H)",
-        "LaserAccelerometer(V)"
+        "LaserAccelerometer(V)",
+        "Lever"
     ]
     
     override func viewDidLoad() {
@@ -158,6 +159,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
             addLaserRangefinder()
         case "LaserAccelerometer(V)":
             addLaserAccelerometer()
+        case "Lever":
+            addLever()
         default:
             print("dio cane")
         }
@@ -285,6 +288,10 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     
     @IBAction func addLaserRangefinder() {
         adder.addLaserRangefinder(scene: scene)
+    }
+    
+    @IBAction func addLever() {
+        adder.addLever(scene: scene)
     }
     
     @IBAction func showObjects(_ sender: Any) {
