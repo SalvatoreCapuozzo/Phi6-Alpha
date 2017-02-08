@@ -291,30 +291,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             // Da utilizzare in caso di assenza di gravità e velocità iniziale diversa da zero
             //phisphere.physicsBody?.velocity.dx = CGFloat(27.7*145)
-            phisphere.physicsBody?.affectedByGravity = true
-            
-            if !gravity {
-                if counter < 0.2 {
-                    if sliderInitV != nil {
-                        if sliderInitA.value == 0 {
-                            phisphere.physicsBody?.velocity.dx = CGFloat(Float(sliderInitV.value))
-                        } else if sliderInitV.value == 0 {
-                            phisphere.physicsBody?.velocity.dx = CGFloat(sliderInitA.value) * CGFloat(counter)
-                            print(counter)
-                        }
+            if sliderInitV != nil {
+                if sliderInitA.value == 0 {
+                    if counter < 0.2 {
+                        phisphere.physicsBody?.velocity.dx = CGFloat(Float(sliderInitV.value))
+                        print("Initial velocity: \((phisphere.physicsBody?.velocity.dx)!/145)")
                     }
+                } else if sliderInitV.value == 0 {
+                    phisphere.physicsBody?.velocity.dx = CGFloat(sliderInitA.value) * CGFloat(counter)
+                    print(counter)
                 } else {
-                    if sliderInitV.value == 0 {
-                        phisphere.physicsBody?.velocity.dx = CGFloat(sliderInitA.value) * CGFloat(counter)
-                    }
+                    sliderInitA.value = 0
                 }
-                phisphere.physicsBody?.affectedByGravity = false
-                phisphere.physicsBody?.collisionBitMask = 1
-                phisphere.physicsBody?.categoryBitMask = PhysicsCategory.Phisphere
-                phisphere.physicsBody?.contactTestBitMask = PhysicsCategory.Sensor
             }
-            //phisphere.physicsBody?.velocity.dy = CGFloat(0)
             
+            if gravity {
+                phisphere.physicsBody?.affectedByGravity = true
+            } else {
+                phisphere.physicsBody?.affectedByGravity = false
+            }
             phisphere.physicsBody?.collisionBitMask = 1
             phisphere.physicsBody?.categoryBitMask = PhysicsCategory.Phisphere
             phisphere.physicsBody?.contactTestBitMask = PhysicsCategory.Sensor
@@ -451,7 +446,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         phisphereAccDx = 0
         phisphereAccDy = 0
         
-        gravity = true
+        sliderInitA?.value = 0
+        sliderInitV?.value = 0
         
         deleteSliders()
         
@@ -818,7 +814,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         labelInitV.text! = String(describing: round((sliderInitV.value/145)*10)/10)
         if sliderInitV.value != 0 {
-            gravity = false
+            //gravity = false
         }
         
         addChild(myNode)
@@ -830,7 +826,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         labelInitA.text! = String(describing: round((sliderInitA.value/145)*10)/10)
         if sliderInitA.value != 0 {
-            gravity = false
+            //gravity = false
         }
         
         addChild(myNode)

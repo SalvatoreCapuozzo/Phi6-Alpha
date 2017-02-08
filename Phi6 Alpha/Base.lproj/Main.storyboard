@@ -226,14 +226,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mN-Ry-oqx">
-                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <rect key="frame" x="8" y="8" width="44" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
-                                        <state key="normal" title="Obj"/>
+                                        <state key="normal" backgroundImage="gravity"/>
                                         <connections>
-                                            <action selector="pressPlay:" destination="BV1-FR-VrT" eventType="touchUpInside" id="lGR-XV-5xt"/>
-                                            <action selector="showObjects:" destination="BV1-FR-VrT" eventType="touchUpInside" id="8s8-d5-cC7"/>
-                                            <segue destination="qmz-RE-VHz" kind="presentation" id="Xhj-K7-tQG"/>
+                                            <action selector="setGravity" destination="BV1-FR-VrT" eventType="touchUpInside" id="sFd-e3-a8T"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -481,6 +479,7 @@
                         <outlet property="diameterLabel" destination="BGv-Fk-UL6" id="Jr8-Im-Udo"/>
                         <outlet property="diameterSlider" destination="5Lc-4L-BMh" id="bNW-od-3RJ"/>
                         <outlet property="excerciseTextView" destination="Zui-TD-0FH" id="TIi-7S-ooM"/>
+                        <outlet property="gravityButton" destination="1mN-Ry-oqx" id="58V-OX-8td"/>
                         <outlet property="massLabel" destination="b3g-LM-iqm" id="8dc-jp-Jd0"/>
                         <outlet property="massSlider" destination="r9y-25-dcC" id="6zH-GD-pKa"/>
                         <outlet property="pauseButton" destination="Um6-qM-LTS" id="XWQ-46-pxE"/>
@@ -489,7 +488,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-806" y="1985"/>
+            <point key="canvasLocation" x="-806.44677661169419" y="1984.8"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="5Se-Rh-HyU">
@@ -916,6 +915,7 @@
         <image name="Rectangle" width="278" height="278"/>
         <image name="Sandbox" width="87" height="26"/>
         <image name="SpeedCamera" width="50" height="50"/>
+        <image name="gravity" width="256" height="256"/>
         <image name="levelchoice" width="66" height="66"/>
         <image name="mainBackground" width="667" height="375"/>
         <image name="playbutton" width="277" height="271"/>

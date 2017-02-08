@@ -29,6 +29,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     
     @IBOutlet weak var objectListView: ObjectTableViewController!
     
+    @IBOutlet weak var gravityButton: UIButton!
+    
     var selectedNode: SKSpriteNode!
     var myNode: SKSpriteNode!
     
@@ -256,6 +258,17 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     @IBAction func deleteSwitch(_ sender: Any) {
         scene.deleteSwitch()
     }
+    
+    @IBAction func setGravity() {
+        if scene.gravity {
+            scene.gravity = false
+            gravityButton.setBackgroundImage(UIImage(named: "nogravity"), for: UIControlState(rawValue: 0))
+        } else {
+            scene.gravity = true
+            gravityButton.setBackgroundImage(UIImage(named: "gravity"), for: UIControlState(rawValue: 0))
+        }
+    }
+
     
     func timerAction() {
         //scene.counter += Double(scene.deltaTime)
