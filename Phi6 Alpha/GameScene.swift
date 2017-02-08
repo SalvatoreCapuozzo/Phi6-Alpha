@@ -140,8 +140,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        rotateRec = UIRotationGestureRecognizer(target: self, action: #selector(rotated))
 //        self.view?.addGestureRecognizer(rotateRec)
         
-        
-        
         phisphere = childNode(withName: "phisphere") as! SKSpriteNode
         
         phisphere.physicsBody?.collisionBitMask = 1

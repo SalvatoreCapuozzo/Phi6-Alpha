@@ -346,7 +346,7 @@
 				TargetAttributes = {
 					87DC85121E34BA4B0068555D = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 84543EX3ME;
+						DevelopmentTeam = 2AT3SG7857;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -609,10 +609,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 84543EX3ME;
+				DEVELOPMENT_TEAM = 2AT3SG7857;
 				INFOPLIST_FILE = "Phi6 Alpha/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "it.SalvatoreCapuozzo.Phi6-Alpha";
+				PRODUCT_BUNDLE_IDENTIFIER = "it.Phi6-Alpha";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Phi6 Alpha-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -626,10 +626,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 84543EX3ME;
+				DEVELOPMENT_TEAM = 2AT3SG7857;
 				INFOPLIST_FILE = "Phi6 Alpha/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "it.SalvatoreCapuozzo.Phi6-Alpha";
+				PRODUCT_BUNDLE_IDENTIFIER = "it.Phi6-Alpha";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Phi6 Alpha-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
