@@ -71,6 +71,21 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         "Pendulum"
     ]
     
+    let arrayDark = [
+    "Photocell Default (H&V) Dark",
+    "Speed Camera (H&V) Dark",
+    "Circle Dark",
+    "Rectangle Dark",
+    "Load Cell (V) Dark",
+    "Chronometer Dark",
+    "Laser Rangefinder (H) Dark",
+    "Laser Accelerometer (H) Dark",
+    "Lever Dark",
+    "Pendulum Dark"
+    ]
+    
+    
+    
     override func viewDidLoad() {
 
         super.viewDidLoad()
@@ -79,6 +94,13 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         
         self.blockNotes.textColor = UIColor.lightGray
         self.blockNotes.delegate = self
+        self.blockNotes.layer.cornerRadius = 10
+        self.excerciseTextView.layer.cornerRadius = 10
+        self.blockNotes.layer.borderWidth = 1.5
+        self.blockNotes.layer.borderColor = UIColor.black.cgColor
+        self.excerciseTextView.layer.borderWidth = 1.5
+        self.excerciseTextView.layer.borderColor = UIColor.black.cgColor
+
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
@@ -165,7 +187,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     func contextualMenu(_ contextualMenu: BAMContextualMenu!, viewForMenuItemAt index: UInt) -> UIView! {
         
         let image = UIImage(named: arrayOfSensors[Int(index)])
-        let imageView = UIImageView(image: image)
+        let highImage = UIImage(named: arrayDark[Int(index)])
+        let imageView = UIImageView(image: image, highlightedImage: highImage)
         imageView.layer.cornerRadius = (imageView.image?.size.height)! / 2
         imageView.frame = CGRect(x: 0, y: 0, width: 45, height: 45)
         
