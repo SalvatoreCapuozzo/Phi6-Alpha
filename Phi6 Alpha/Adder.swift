@@ -333,139 +333,149 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
     scene.myNode = nil
     scene.deleteSliders()
     
-    // Set Width Slider
-    scene.mySlider = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
-    scene.mySlider?.layer.position = CGPoint(x: (scene.view?.frame.width)!/4 - ((scene.mySlider?.frame.width)!/8) , y: (scene.view?.frame.height)!-45)
-    scene.mySlider?.backgroundColor = UIColor.clear
-    scene.mySlider?.layer.cornerRadius = 15.0
-    scene.mySlider?.layer.shadowOpacity = 0.5
-    scene.mySlider?.layer.masksToBounds = false
-    scene.mySlider?.maximumValue = 290
-    scene.mySlider?.minimumValue = 0.2
-    if node.name! == "pendulum" {
-        let pendulum = node as? Pendulum
-        scene.mySlider?.value = Float((pendulum?.length)!)
-    } else {
-        scene.mySlider?.value = Float(node.size.width)
-    }
+    let selectedObjID = Singleton.shared.lastSelectedObject
     
-    // Set Height Slider
-    scene.sliderHeight = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
-    scene.sliderHeight?.layer.position = CGPoint(x: (scene.view?.frame.width)!/4 - ((scene.mySlider?.frame.width)!/8) , y: (scene.view?.frame.height)!-15)
-    scene.sliderHeight?.backgroundColor = UIColor.clear
-    scene.sliderHeight?.layer.cornerRadius = 15.0
-    scene.sliderHeight?.layer.shadowOpacity = 0.5
-    scene.sliderHeight?.layer.masksToBounds = false
-    scene.sliderHeight?.maximumValue = 290
-    scene.sliderHeight?.minimumValue = 0.2
-    scene.sliderHeight?.value = Float(node.size.height)
-    
-    // Set Rotation Slider
-    scene.sliderRotationLine = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
-    scene.sliderRotationLine?.layer.position = CGPoint(x: (scene.view?.frame.width)!/2 + ((scene.mySlider?.frame.width)!/2) , y: (scene.view?.frame.height)!-15)
-    scene.sliderRotationLine?.backgroundColor = UIColor.clear
-    scene.sliderRotationLine?.layer.cornerRadius = 15.0
-    scene.sliderRotationLine?.layer.shadowOpacity = 0.5
-    scene.sliderRotationLine?.layer.masksToBounds = false
-    scene.sliderRotationLine?.maximumValue = 180
-    scene.sliderRotationLine?.minimumValue = -180
-    scene.sliderRotationLine?.value = Float(node.zRotation)
-    
-    // Set Friction Slider
-    scene.sliderFriction = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
-    scene.sliderFriction?.layer.position = CGPoint(x: (scene.view?.frame.width)!/2 + ((scene.mySlider?.frame.width)!/2) , y: (scene.view?.frame.height)!-45)
-    scene.sliderFriction?.backgroundColor = UIColor.clear
-    scene.sliderFriction?.layer.cornerRadius = 15.0
-    scene.sliderFriction?.layer.shadowOpacity = 0.5
-    scene.sliderFriction?.layer.masksToBounds = false
-    scene.sliderFriction?.maximumValue = 290
-    scene.sliderFriction?.minimumValue = 0
-    scene.sliderFriction?.value = Float((node.physicsBody?.friction)!)
-
-    
-    // Set Width Label
-    scene.myLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-    scene.myLabel.layer.position = CGPoint(x: (scene.view?.frame.width)!/4 + ((scene.mySlider?.frame.width)!/1.2), y: (scene.view?.frame.height)!-45)
-    scene.myLabel.textColor! = UIColor.black
-    if node.name! == "beam" {
-        scene.myLabel?.text = String(describing: (round((scene.mySlider.value/(145*2))*100)/100)) + " x 2 m"
-    } else {
-        scene.myLabel?.text = String(describing: (round((scene.mySlider.value/145)*100)/100)) + " m"
-        if scene.myLabel.text != nil {
-            scene.myLabel.text! = String(describing: (round((scene.mySlider.value/145)*100)/100)) + " m"
-        }
-    }
-    
-    // Set Height Label
-    scene.labelHeight = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-    scene.labelHeight.layer.position = CGPoint(x: (scene.view?.frame.width)!/4 + ((scene.mySlider?.frame.width)!/1.2), y: (scene.view?.frame.height)!-15)
-    scene.labelHeight.textColor! = UIColor.black
-    scene.labelHeight?.text = String(describing: (round((scene.sliderHeight.value/145)*100)/100)) + " m"
-    if scene.labelHeight.text != nil {
-        scene.labelHeight.text! = String(describing: (round((scene.sliderHeight.value/145)*100)/100)) + " m"
-    }
-    
-    // Set Rotation Label
-    scene.labelRotation = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-    scene.labelRotation.layer.position = CGPoint(x: (scene.view?.frame.width)!/2 + ((scene.mySlider?.frame.width)!*1.5), y: (scene.view?.frame.height)!-15)
-    scene.labelRotation.textColor! = UIColor.black
-    scene.labelRotation?.text = String(describing: round(-scene.sliderRotationLine.value*10)/10) + "°"
-    if scene.labelRotation.text != nil {
-        if (scene.sliderRotationLine.value != 0) {
-            scene.labelRotation.text! = String(describing: round(-scene.sliderRotationLine.value*10)/10) + "°"
+    if let object = Singleton.shared.GetObjectAt(index: selectedObjID)
+    {
+        if object.name != "speedCamera" && object.name != "laserAccelerometer" && object.name != "laserRangefinder" && object.name != "sensor" && object.name != "chronometer" && object.name != "pendulum" && object.name != "loadCell" {
+        // Set Width Slider
+        scene.mySlider = UISlider(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        scene.mySlider.setThumbImage(UIImage(named: "SliderThumb.png"), for: .normal)
+        scene.mySlider?.layer.position = CGPoint(x: object.position.x + (scene.frame.size.width / 2) + 75, y: -object.position.y + (scene.frame.size.height / 2) - 35)
+        scene.mySlider?.backgroundColor = UIColor.clear
+        scene.mySlider?.layer.cornerRadius = 15.0
+        scene.mySlider?.layer.shadowOpacity = 0.5
+        scene.mySlider?.layer.masksToBounds = false
+        scene.mySlider?.maximumValue = 290
+        scene.mySlider?.minimumValue = 0.2
+        if node.name! == "pendulum" {
+            let pendulum = node as? Pendulum
+            scene.mySlider?.value = Float((pendulum?.length)!)
         } else {
-            scene.labelRotation.text! = String(describing: 0) + "°"
+            scene.mySlider?.value = Float(node.size.width)
+        }
+        
+        // Set Height Slider
+        scene.sliderHeight = UISlider(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        scene.sliderHeight.setThumbImage(UIImage(named: "SliderThumb.png"), for: .normal)
+        scene.sliderHeight?.layer.position = CGPoint(x: object.position.x + (scene.frame.size.width / 2) + 75, y: -object.position.y + (scene.frame.size.height / 2) - 10)
+        scene.sliderHeight?.backgroundColor = UIColor.clear
+        scene.sliderHeight?.layer.cornerRadius = 15.0
+        scene.sliderHeight?.layer.shadowOpacity = 0.5
+        scene.sliderHeight?.layer.masksToBounds = false
+        scene.sliderHeight?.maximumValue = 290
+        scene.sliderHeight?.minimumValue = 0.2
+        scene.sliderHeight?.value = Float(node.size.height)
+        
+        // Set Rotation Slider
+        scene.sliderRotationLine = UISlider(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        scene.sliderRotationLine.setThumbImage(UIImage(named: "SliderThumb.png"), for: .normal)
+        scene.sliderRotationLine?.layer.position = CGPoint(x: object.position.x + (scene.frame.size.width / 2) + 75, y: -object.position.y + (scene.frame.size.height / 2) + 15)
+        scene.sliderRotationLine?.backgroundColor = UIColor.clear
+        scene.sliderRotationLine?.layer.cornerRadius = 15.0
+        scene.sliderRotationLine?.layer.shadowOpacity = 0.5
+        scene.sliderRotationLine?.layer.masksToBounds = false
+        scene.sliderRotationLine?.maximumValue = 180
+        scene.sliderRotationLine?.minimumValue = -180
+        scene.sliderRotationLine?.value = Float(node.zRotation)
+        
+        // Set Friction Slider
+        scene.sliderFriction = UISlider(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        scene.sliderFriction.setThumbImage(UIImage(named: "SliderThumb.png"), for: .normal)
+        scene.sliderFriction?.layer.position = CGPoint(x: object.position.x + (scene.frame.size.width / 2) + 75, y: -object.position.y + (scene.frame.size.height / 2) + 40)
+        scene.sliderFriction?.backgroundColor = UIColor.clear
+        scene.sliderFriction?.layer.cornerRadius = 15.0
+        scene.sliderFriction?.layer.shadowOpacity = 0.5
+        scene.sliderFriction?.layer.masksToBounds = false
+        scene.sliderFriction?.maximumValue = 290
+        scene.sliderFriction?.minimumValue = 0
+        scene.sliderFriction?.value = Float((node.physicsBody?.friction)!)
+
+        
+        // Set Width Label
+        scene.myLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        scene.myLabel.layer.position = CGPoint(x: object.position.x + (scene.frame.size.width / 2) + 75, y: -object.position.y + (scene.frame.size.height / 2) + 65)
+        scene.myLabel.textColor! = UIColor.black
+        if node.name! == "beam" {
+            scene.myLabel?.text = String(describing: (round((scene.mySlider.value/(145*2))*100)/100)) + " x 2 m"
+        } else {
+            scene.myLabel?.text = String(describing: (round((scene.mySlider.value/145)*100)/100)) + " m"
+            if scene.myLabel.text != nil {
+                scene.myLabel.text! = String(describing: (round((scene.mySlider.value/145)*100)/100)) + " m"
+            }
+        }
+        
+        // Set Height Label
+        scene.labelHeight = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        scene.labelHeight.layer.position = CGPoint(x: (scene.view?.frame.width)!/4 + ((scene.mySlider?.frame.width)!/1.2), y: (scene.view?.frame.height)!-15)
+        scene.labelHeight.textColor! = UIColor.black
+        scene.labelHeight?.text = String(describing: (round((scene.sliderHeight.value/145)*100)/100)) + " m"
+        if scene.labelHeight.text != nil {
+            scene.labelHeight.text! = String(describing: (round((scene.sliderHeight.value/145)*100)/100)) + " m"
+        }
+        
+        // Set Rotation Label
+        scene.labelRotation = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        scene.labelRotation.layer.position = CGPoint(x: (scene.view?.frame.width)!/2 + ((scene.mySlider?.frame.width)!*1.5), y: (scene.view?.frame.height)!-15)
+        scene.labelRotation.textColor! = UIColor.black
+        scene.labelRotation?.text = String(describing: round(-scene.sliderRotationLine.value*10)/10) + "°"
+        if scene.labelRotation.text != nil {
+            if (scene.sliderRotationLine.value != 0) {
+                scene.labelRotation.text! = String(describing: round(-scene.sliderRotationLine.value*10)/10) + "°"
+            } else {
+                scene.labelRotation.text! = String(describing: 0) + "°"
+            }
+        }
+        
+        // Set Friction Label
+        scene.labelFriction = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        scene.labelFriction.layer.position = CGPoint(x: (scene.view?.frame.width)!/2 + ((scene.mySlider?.frame.width)!*1.5), y: (scene.view?.frame.height)!-45)
+        scene.labelFriction.textColor! = UIColor.black
+        scene.labelFriction?.text = String(describing: round(scene.sliderFriction.value*10)/10)
+        if scene.labelFriction.text != nil {
+            scene.labelFriction.text = String(describing: round(scene.sliderFriction.value*10)/10)
+        }
+        
+        
+        if(node.name == "phisphere"){
+            scene.mySlider?.addTarget(scene, action: #selector(scene.setDiameter2), for: UIControlEvents.valueChanged)
+        }
+        else if(node.name == "triangle") || (node.name == "block") {
+            scene.mySlider?.addTarget(scene, action: #selector(scene.setWidth2), for: UIControlEvents.valueChanged)
+            scene.sliderHeight?.addTarget(scene, action: #selector(scene.setHeight2), for: UIControlEvents.valueChanged)
+            //sliderRotation?.addTarget(scene, action: #selector(setRotation), for: UIControlEvents.valueChanged)
+        } else if (node.name == "object") {
+            scene.mySlider?.addTarget(scene, action: #selector(scene.setWidth2), for: UIControlEvents.valueChanged)
+            scene.sliderHeight?.addTarget(scene, action: #selector(scene.setHeight2), for: UIControlEvents.valueChanged)
+            //sliderRotation?.addTarget(scene, action: #selector(setRotation), for: UIControlEvents.valueChanged)
+            //sliderRotation?.target(forAction: #selector(setRotation), withSender: scene)
+            scene.sliderRotationLine?.addTarget(scene, action: #selector(scene.setRotation), for: UIControlEvents.valueChanged)
+            scene.sliderFriction?.addTarget(scene, action: #selector(scene.setFriction), for: UIControlEvents.valueChanged)
+        } else if (node.name == "objectCircle") /*|| (node.name == "pendulum") */{
+            scene.mySlider?.addTarget(scene, action: #selector(scene.setWidth2), for: UIControlEvents.valueChanged)
+        } else if (node.name == "beam") {
+            scene.mySlider?.addTarget(scene, action: #selector(scene.setWidth2), for: UIControlEvents.valueChanged)
+            scene.sliderRotationLine?.addTarget(scene, action: #selector(scene.setRotation), for: UIControlEvents.valueChanged)
+        }
+        
+        scene.arrayOfSlider.append(scene.mySlider!)
+        scene.view?.addSubview(scene.mySlider!)
+        scene.arrayOfSliderHeight.append(scene.sliderHeight!)
+        scene.view?.addSubview(scene.sliderHeight!)
+        scene.arrayOfSliderRotationLine.append(scene.sliderRotationLine!)
+        scene.view?.addSubview(scene.sliderRotationLine!)
+        scene.arrayOfLabel.append(scene.myLabel!)
+        scene.view?.addSubview(scene.myLabel!)
+        scene.arrayOfLabelHeight.append(scene.labelHeight!)
+        scene.view?.addSubview(scene.labelHeight!)
+        scene.arrayOfLabelRotation.append(scene.labelRotation!)
+        scene.view?.addSubview(scene.labelRotation!)
+        scene.arrayOfSliderFriction.append(scene.sliderFriction!)
+        scene.view?.addSubview(scene.sliderFriction!)
+        scene.arrayOfLabelFriction.append(scene.labelFriction!)
+        scene.view?.addSubview(scene.labelFriction!)
         }
     }
-    
-    // Set Friction Label
-    scene.labelFriction = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-    scene.labelFriction.layer.position = CGPoint(x: (scene.view?.frame.width)!/2 + ((scene.mySlider?.frame.width)!*1.5), y: (scene.view?.frame.height)!-45)
-    scene.labelFriction.textColor! = UIColor.black
-    scene.labelFriction?.text = String(describing: round(scene.sliderFriction.value*10)/10)
-    if scene.labelFriction.text != nil {
-        scene.labelFriction.text = String(describing: round(scene.sliderFriction.value*10)/10)
-    }
-    
-    
-    if(node.name == "phisphere"){
-        scene.mySlider?.addTarget(scene, action: #selector(scene.setDiameter2), for: UIControlEvents.valueChanged)
-    }
-    else if(node.name == "triangle") || (node.name == "block") {
-        scene.mySlider?.addTarget(scene, action: #selector(scene.setWidth2), for: UIControlEvents.valueChanged)
-        scene.sliderHeight?.addTarget(scene, action: #selector(scene.setHeight2), for: UIControlEvents.valueChanged)
-        //sliderRotation?.addTarget(scene, action: #selector(setRotation), for: UIControlEvents.valueChanged)
-    } else if (node.name == "object") {
-        scene.mySlider?.addTarget(scene, action: #selector(scene.setWidth2), for: UIControlEvents.valueChanged)
-        scene.sliderHeight?.addTarget(scene, action: #selector(scene.setHeight2), for: UIControlEvents.valueChanged)
-        //sliderRotation?.addTarget(scene, action: #selector(setRotation), for: UIControlEvents.valueChanged)
-        //sliderRotation?.target(forAction: #selector(setRotation), withSender: scene)
-        scene.sliderRotationLine?.addTarget(scene, action: #selector(scene.setRotation), for: UIControlEvents.valueChanged)
-        scene.sliderFriction?.addTarget(scene, action: #selector(scene.setFriction), for: UIControlEvents.valueChanged)
-    } else if (node.name == "objectCircle") /*|| (node.name == "pendulum") */{
-        scene.mySlider?.addTarget(scene, action: #selector(scene.setWidth2), for: UIControlEvents.valueChanged)
-    } else if (node.name == "beam") {
-        scene.mySlider?.addTarget(scene, action: #selector(scene.setWidth2), for: UIControlEvents.valueChanged)
-        scene.sliderRotationLine?.addTarget(scene, action: #selector(scene.setRotation), for: UIControlEvents.valueChanged)
-    }
-    
-    scene.arrayOfSlider.append(scene.mySlider!)
-    scene.view?.addSubview(scene.mySlider!)
-    scene.arrayOfSliderHeight.append(scene.sliderHeight!)
-    scene.view?.addSubview(scene.sliderHeight!)
-    scene.arrayOfSliderRotationLine.append(scene.sliderRotationLine!)
-    scene.view?.addSubview(scene.sliderRotationLine!)
-    scene.arrayOfLabel.append(scene.myLabel!)
-    scene.view?.addSubview(scene.myLabel!)
-    scene.arrayOfLabelHeight.append(scene.labelHeight!)
-    scene.view?.addSubview(scene.labelHeight!)
-    scene.arrayOfLabelRotation.append(scene.labelRotation!)
-    scene.view?.addSubview(scene.labelRotation!)
-    scene.arrayOfSliderFriction.append(scene.sliderFriction!)
-    scene.view?.addSubview(scene.sliderFriction!)
-    scene.arrayOfLabelFriction.append(scene.labelFriction!)
-    scene.view?.addSubview(scene.labelFriction!)
-    
     scene.viewController.EnableDeletionButtonAt(position: CGPoint(x: 50, y: 50))
 }
 

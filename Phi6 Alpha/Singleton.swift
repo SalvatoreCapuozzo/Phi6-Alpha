@@ -82,6 +82,16 @@ class Singleton: NSObject {
         objects.remove(at: index)
     }
     
+    func GetObjectAt(index: Int) -> SKSpriteNode?
+    {
+        if index < objects.count
+        {
+            return objects[index]
+        }
+        
+        return nil
+    }
+    
     var selectedPath = IndexPath()
     
     //--------------------//--------------------//

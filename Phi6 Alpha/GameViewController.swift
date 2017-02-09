@@ -172,11 +172,11 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
             
             view.ignoresSiblingOrder = true
             
-            view.showsFPS = true
-            view.showsNodeCount = true
+            //view.showsFPS = true
+            //view.showsNodeCount = true
             
-            view.showsPhysics = true
-            view.showsFields = true
+            //view.showsPhysics = true
+            //view.showsFields = true
         }
         if (selectedNode) != nil {
             selectedNode = scene.selectedNode

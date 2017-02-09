@@ -261,17 +261,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                                 let jointPendulum = SKPhysicsJointLimit.joint(withBodyA: object.physicsBody!, bodyB: (scene?.physicsBody!)!, anchorA: object.position, anchorB: CGPoint(x: object.position.x, y: object.position.y + (pendulum?.length)!))
                                                 scene?.physicsWorld.add(jointPendulum)
                                             }
-                                            else if object.name == "background"{
-                                                deleteSliders() // Controlla qui
-                                            }
                                             object.position = touchLocation
                                             selectedNode = object
                                             
                                             adder.addSlider(node: object, scene: self)
                                             myNode = object
-                                        } else {
-                                            self.removeChildren(in: [object])
-                                            shapeLayerRope.removeFromSuperlayer()
                                         }
                                     }
                                 }
