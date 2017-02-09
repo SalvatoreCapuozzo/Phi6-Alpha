@@ -170,6 +170,7 @@ class Adder{
     }
     
     func addLever(scene: GameScene) {
+        
         scene.deleteSliders()
         let position = Singleton.shared.getPosition()
         let circle = Fulcrum.circle(location: position)
@@ -184,7 +185,18 @@ class Adder{
         
         let jointLever = SKPhysicsJointPin.joint(withBodyA: rectangle.physicsBody!, bodyB: circle.physicsBody!, anchor: rectangle.position)
         scene.physicsWorld.add(jointLever)
-        
+ 
+        /*
+        let position = Singleton.shared.getPosition()
+        let lever = LeverClass(scene: scene, location: position)
+        scene.addChild(lever.leverBeam)
+        scene.addChild(lever.leverFulcrum)
+        lever.leverFulcrum.physicsBody?.isDynamic = false
+        scene.physicsWorld.add(lever.jointLever)
+        Singleton.shared.addNewObject(anObject: lever)
+        scene.addChild(lever)
+        print("List: \(Singleton.shared.objects)")
+        */
         /*let lever = Lever(location: position)
         lever.JoinLeverParts(scene: scene)
         Singleton.shared.addNewObject(anObject: lever)
