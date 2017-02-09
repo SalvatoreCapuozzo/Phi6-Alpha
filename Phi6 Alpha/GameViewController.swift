@@ -41,6 +41,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     var mode: String?
     var category: Int?
     var levelNumber: Int?
+    var solutionShowed: Bool = false
+    
     // Da inserire programmaticamente come menù degli oggetti
     /* 
      Gli oggetti del menù sono:
@@ -50,7 +52,6 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
      - Vectors
      - Sensors
      - Special Objects
-     
      */
     
     @IBOutlet var excerciseTextView: UITextView!
@@ -307,6 +308,7 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         ac.addAction(action)
         self.present(ac, animated: true, completion: nil)
     }
+    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
             return .landscape
@@ -328,7 +330,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     @IBAction func pressPlay(_ sender: UIButton) {
         if scene.isStopped() {
             scene.play()
-            pauseButton?.setTitle("Reset", for: UIControlState(rawValue: 0))
+            pauseButton?.setTitle("reset", for: UIControlState(rawValue: 0))
+            pauseButton.setImage(#imageLiteral(resourceName: "reset"), for: .normal)
             scene.timer.invalidate()
             if scene.deltaTime == 0 {
                 scene.timer = Timer.scheduledTimer(timeInterval: 0.04, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
@@ -342,7 +345,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
             scene.timer.invalidate()
             scene.timer2.invalidate()
             scene.counter = 0
-            pauseButton?.setTitle("Play", for: UIControlState(rawValue: 0))
+            pauseButton?.setTitle("play", for: UIControlState(rawValue: 0))
+            pauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
             diameterSlider.value = Float(scene.pauseDiameter)
             diameterLabel.text! = String(describing: round((scene.pauseDiameter/145)*100)/100)
         }
@@ -445,17 +449,20 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     @IBAction func setGravity() {
         if scene.gravity {
             scene.gravity = false
-            gravityButton.setBackgroundImage(UIImage(named: "nogravity"), for: UIControlState(rawValue: 0))
+            gravityButton.setBackgroundImage(UIImage(named: "levitate"), for: UIControlState(rawValue: 0))
         } else {
             scene.gravity = true
-            gravityButton.setBackgroundImage(UIImage(named: "gravity"), for: UIControlState(rawValue: 0))
+            gravityButton.setBackgroundImage(UIImage(named: "falling"), for: UIControlState(rawValue: 0))
         }
     }
     
     
     @IBAction func showSolution(_ sender: Any) {
         
-        excerciseTextView.text = excerciseTextView.text + "\n\n" + Solutions[category!][levelNumber!]
+        if !solutionShowed{
+            excerciseTextView.text = excerciseTextView.text + "\n\n" + Solutions[category!][levelNumber!]
+            solutionShowed = true
+        }
     }
 
     
