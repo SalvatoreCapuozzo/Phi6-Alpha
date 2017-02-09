@@ -394,7 +394,7 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
         
         // Set Width Label
         scene.myLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        scene.myLabel.layer.position = CGPoint(x: object.position.x + (scene.frame.size.width / 2) + 75, y: -object.position.y + (scene.frame.size.height / 2) + 65)
+        scene.myLabel.layer.position = CGPoint(x: scene.mySlider.frame.width * 2 + (scene.mySlider?.layer.position.x)! - 95, y: (scene.mySlider?.layer.position.y)!)
         scene.myLabel.textColor! = UIColor.black
         if node.name! == "beam" {
             scene.myLabel?.text = String(describing: (round((scene.mySlider.value/(145*2))*100)/100)) + " x 2 m"
@@ -407,7 +407,7 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
         
         // Set Height Label
         scene.labelHeight = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        scene.labelHeight.layer.position = CGPoint(x: (scene.view?.frame.width)!/4 + ((scene.mySlider?.frame.width)!/1.2), y: (scene.view?.frame.height)!-15)
+        scene.labelHeight.layer.position = CGPoint(x: scene.sliderHeight.frame.width * 2 + scene.sliderHeight.layer.position.x - 95, y: scene.sliderHeight.layer.position.y)
         scene.labelHeight.textColor! = UIColor.black
         scene.labelHeight?.text = String(describing: (round((scene.sliderHeight.value/145)*100)/100)) + " m"
         if scene.labelHeight.text != nil {
@@ -416,7 +416,7 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
         
         // Set Rotation Label
         scene.labelRotation = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        scene.labelRotation.layer.position = CGPoint(x: (scene.view?.frame.width)!/2 + ((scene.mySlider?.frame.width)!*1.5), y: (scene.view?.frame.height)!-15)
+        scene.labelRotation.layer.position = CGPoint(x: scene.sliderRotationLine.frame.width * 2 + scene.sliderRotationLine.layer.position.x - 95, y: scene.sliderRotationLine.layer.position.y)
         scene.labelRotation.textColor! = UIColor.black
         scene.labelRotation?.text = String(describing: round(-scene.sliderRotationLine.value*10)/10) + "°"
         if scene.labelRotation.text != nil {
@@ -429,7 +429,7 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
         
         // Set Friction Label
         scene.labelFriction = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        scene.labelFriction.layer.position = CGPoint(x: (scene.view?.frame.width)!/2 + ((scene.mySlider?.frame.width)!*1.5), y: (scene.view?.frame.height)!-45)
+        scene.labelFriction.layer.position = CGPoint(x: scene.sliderFriction.frame.width * 2 + scene.sliderFriction.layer.position.x - 95, y: scene.sliderFriction.layer.position.y)
         scene.labelFriction.textColor! = UIColor.black
         scene.labelFriction?.text = String(describing: round(scene.sliderFriction.value*10)/10)
         if scene.labelFriction.text != nil {
@@ -475,8 +475,9 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
         scene.arrayOfLabelFriction.append(scene.labelFriction!)
         scene.view?.addSubview(scene.labelFriction!)
         }
+        
+        scene.viewController.EnableDeletionButtonAt(position: CGPoint(x: object.position.x + (scene.frame.size.width / 2) - 20, y: -object.position.y + (scene.frame.size.height / 2) + 35))
     }
-    scene.viewController.EnableDeletionButtonAt(position: CGPoint(x: 50, y: 50))
 }
 
 }

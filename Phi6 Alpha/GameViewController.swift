@@ -111,6 +111,7 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
             Singleton.shared.DeleteObjectAt(index: objID, scene: self.scene)
             Singleton.shared.lastSelectedObject = -1
             DisableDeletionButton()
+            scene.deleteSliders()
         }
     }
     
