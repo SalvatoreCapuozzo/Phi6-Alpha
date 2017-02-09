@@ -160,14 +160,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         Singleton.shared.fillList()
         
         if let mode = viewController.mode{
-            if mode == "learning"{
-                //                let excerciseViewPosition: CGPoint = self.convertPoint(toView: CGPoint(x: 0, y: 0))
-                //                viewController.createExcerciseTextView(position: excerciseViewPosition)
-                let string = "vjhasddfbajsdbhasdbvkjhbsjhvbskhskhvhsdbvasvbsjkhvbsfhbvhasbvhabsvfsvbkfhsbfsbvhbfshvbasvbasbhasbhvbaskhvbsjhbkjhsbkjhsbdjkhfnajfnbxsbncjsbnvansbxfgbcfsbfvhasvbdndjfcbasdkhbfxnjasbnfjkabsjncabsdvjkfcbnbdfjsdbnfjnbsfncbjkxsbnfucbnsdfbnsjkdbnfcsdbcbjhsdbn"
-                viewController.setTextInView(text: string)
-            }
-            else{
-                viewController.excerciseTextView.isHidden = true
+            if let lesson = viewController.levelNumber,let cagegory = viewController.category{
+                if mode == "learning"{
+                    //                let excerciseViewPosition: CGPoint = self.convertPoint(toView: CGPoint(x: 0, y: 0))
+                    //                viewController.createExcerciseTextView(position: excerciseViewPosition)
+                    let string = Excercise[cagegory][lesson]
+                    viewController.setTextInView(text: string)
+                
+                    let offsetX = UIScreen.main.bounds.minX - viewController.blockNotes.frame.width + 30
+                    viewController.blockNotes.frame = CGRect(x: offsetX, y: viewController.blockNotes.frame.origin.y, width: viewController.blockNotes.frame.width, height: viewController.blockNotes.frame.height)
+                }
+                else if mode == "sandbox"{
+                }
+                else{
+                    viewController.excerciseTextView.isHidden = true
+                    viewController.blockNotes.isHidden = true
+                }
             }
         }
     }

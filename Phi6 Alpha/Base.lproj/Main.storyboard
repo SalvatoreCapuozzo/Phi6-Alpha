@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wgD-cz-GGm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wgD-cz-GGm">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -361,6 +361,13 @@
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Block Notes" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="jRI-ma-Xwp">
+                                <rect key="frame" x="147" y="68" width="447" height="239"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -447,6 +454,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="blockNotes" destination="jRI-ma-Xwp" id="1E4-Qf-pgv"/>
                         <outlet property="deleteSwitch" destination="hiw-CJ-c2U" id="4vs-CK-rXM"/>
                         <outlet property="diameterLabel" destination="BGv-Fk-UL6" id="Jr8-Im-Udo"/>
                         <outlet property="diameterSlider" destination="5Lc-4L-BMh" id="bNW-od-3RJ"/>

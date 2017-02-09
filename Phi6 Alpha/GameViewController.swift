@@ -12,7 +12,7 @@ import GameplayKit
 import VerticalSlider
 import iOSContextualMenu
 
-class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizerDelegate, BAMContextualMenuDelegate, BAMContextualMenuDataSource {
+class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizerDelegate, UITextViewDelegate, BAMContextualMenuDelegate, BAMContextualMenuDataSource {
     
     @IBOutlet var topView: SKView?
     
@@ -50,6 +50,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
      */
     
     @IBOutlet var excerciseTextView: UITextView!
+    @IBOutlet var blockNotes: UITextView!
+    
     var adder = Adder()
     var centerOriginView: CGPoint?
     
@@ -69,7 +71,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
 
         super.viewDidLoad()
         
-//        print("level number: \(levelNumber!)")
+        self.blockNotes.textColor = UIColor.lightGray
+        self.blockNotes.delegate = self
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
@@ -109,14 +112,21 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         centerOriginView = excerciseTextView.frame.origin
         
         let gestureRight = UISwipeGestureRecognizer(target: self, action: #selector(moveViewGesture))
-        //        gestureRight.delegate = self
         gestureRight.direction = .right
         excerciseTextView.addGestureRecognizer(gestureRight)
-        
         let gestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(returnViewGesture))
-        //        gestureLeft.delegate = self
         gestureLeft.direction = .left
         excerciseTextView.addGestureRecognizer(gestureLeft)
+        
+        let blockNotesAppear = UISwipeGestureRecognizer(target: self, action: #selector(blockNotesComeIn))
+        blockNotesAppear.direction = .right
+        blockNotes.addGestureRecognizer(blockNotesAppear)
+        let blockReturnOut = UISwipeGestureRecognizer(target: self, action: #selector(blockNotesReturnOutside))
+        blockReturnOut.direction = .left
+        blockNotes.addGestureRecognizer(blockReturnOut)
+        
+        
+        excerciseTextView.isEditable = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -189,6 +199,28 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
             self.excerciseTextView.frame = CGRect(x: (self.centerOriginView?.x)!, y: self.excerciseTextView.frame.origin.y, width: self.excerciseTextView.frame.width, height: self.excerciseTextView.frame.height)
             
         }, completion: nil)
+    }
+    
+    func blockNotesReturnOutside(){
+        
+        UIView.animate(withDuration: 1, delay: 0, options: .curveEaseIn, animations: { 
+            
+            let offsetX = UIScreen.main.bounds.minX - self.blockNotes.frame.width + 30
+            
+            self.blockNotes.frame = CGRect(x: offsetX, y: self.blockNotes.frame.origin.y, width: self.blockNotes.frame.width, height: self.blockNotes.frame.height)
+            
+        }, completion: nil)
+        
+    }
+    
+    func blockNotesComeIn(){
+        
+        UIView.animate(withDuration: 1, delay: 0, options: .curveEaseIn, animations: { 
+            
+            self.blockNotes.frame = CGRect(x: (self.centerOriginView?.x)!, y: self.blockNotes.frame.origin.y, width: self.blockNotes.frame.width, height: self.blockNotes.frame.height)
+            
+        }, completion: nil)
+        
     }
     
     func setTextInView(text: String){
@@ -372,6 +404,23 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
                 self.present(alert, animated: true, completion: nil)
             }
     }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        
+        if self.blockNotes.textColor == UIColor.lightGray{
+            
+            self.blockNotes.text = nil
+            self.blockNotes.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Block Notes"
+            textView.textColor = UIColor.lightGray
+        }
+    }
+    
     
 //    func createExcerciseTextView(position: CGPoint){
 //        
