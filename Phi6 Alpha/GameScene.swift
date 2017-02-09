@@ -170,8 +170,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     let offsetX = UIScreen.main.bounds.minX - viewController.blockNotes.frame.width + 30
                     viewController.blockNotes.frame = CGRect(x: offsetX, y: viewController.blockNotes.frame.origin.y, width: viewController.blockNotes.frame.width, height: viewController.blockNotes.frame.height)
                 }
-                else if mode == "sandbox"{
-                }
+//                else if mode == "sandbox"{
+//                    viewController.excerciseTextView.isHidden = true
+//                    
+//                    let offsetX = UIScreen.main.bounds.minX - viewController.blockNotes.frame.width + 30
+//                    viewController.blockNotes.frame = CGRect(x: offsetX, y: viewController.blockNotes.frame.origin.y, width: viewController.blockNotes.frame.width, height: viewController.blockNotes.frame.height)
+//                }
                 else{
                     viewController.excerciseTextView.isHidden = true
                     viewController.blockNotes.isHidden = true
