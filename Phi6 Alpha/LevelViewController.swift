@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 private let reuseIdentifier = "Cell"
 
@@ -17,6 +18,9 @@ class LevelViewController: UIViewController, UICollectionViewDelegate, UICollect
     var mode: String?
     var levelCounter = 1
     var levelNumberSelected: Int?
+    var backPlayer = AVAudioPlayer()
+    var buttonPlayer = AVAudioPlayer()
+
     
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var levelNumber: UILabel!
@@ -24,6 +28,21 @@ class LevelViewController: UIViewController, UICollectionViewDelegate, UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
+        var path2 = Bundle.main.path(forResource: "button-37", ofType: "mp3")
+        var path3 = Bundle.main.path(forResource:
+            "button-27", ofType: "mp3")
+        var audioFileUrl3 = NSURL(fileURLWithPath: path3!)
+        var audioFileUrl2 = NSURL(fileURLWithPath: path2!)
+
+        
+        do  {
+            try backPlayer = AVAudioPlayer(contentsOf: audioFileUrl3 as URL)
+            try buttonPlayer = AVAudioPlayer(contentsOf: audioFileUrl2 as URL)
+
+        } catch {
+            print("dio cane")
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -71,6 +90,7 @@ class LevelViewController: UIViewController, UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.levelNumberSelected = indexPath.row
         self.performSegue(withIdentifier: "showGame", sender: self)
+        buttonPlayer.play()
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -89,5 +109,6 @@ class LevelViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     @IBAction func goBack(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+        backPlayer.play()
     }
 }

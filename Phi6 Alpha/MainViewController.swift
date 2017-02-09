@@ -14,6 +14,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var pendulumBase: UIImageView!
     @IBOutlet weak var pendulumGroup: UIImageView!
     
+    var buttonPlayer = AVAudioPlayer()
     let arcade = "arcade"
     let learning = "learning"
     let sandbox = "sandbox"
@@ -33,10 +34,13 @@ class MainViewController: UIViewController {
         let height = view.frame.height;
         
         var path = Bundle.main.path(forResource: "Crypt of the Necrodancer OST - Portabellohead (2-3)", ofType: "mp3")
+        var path2 = Bundle.main.path(forResource: "button-37", ofType: "mp3")
         var audioFileUrl = NSURL(fileURLWithPath: path!)
+        var audioFileUrl2 = NSURL(fileURLWithPath: path2!)
         
         do  {
             try audioPlayer = AVAudioPlayer(contentsOf: audioFileUrl as URL)
+            try buttonPlayer = AVAudioPlayer(contentsOf: audioFileUrl2 as URL)
         } catch {
             print("dio cane")
         }
@@ -110,7 +114,19 @@ class MainViewController: UIViewController {
                 print("error")
         }
     }
+    
+    @IBAction func arcadePressed(_ sender: Any) {
+        buttonPlayer.play()
+        
+    }
+    @IBAction func sandboxPressed(_ sender: Any) {
+        buttonPlayer.play()
 
+    }
+
+    @IBAction func learningPressed(_ sender: Any) {
+        buttonPlayer.play()
+    }
     // Do any additional setup after loading the view.
 
     

@@ -278,6 +278,7 @@
                                 </constraints>
                                 <state key="normal" image="Arcade"/>
                                 <connections>
+                                    <action selector="arcadePressed:" destination="wgD-cz-GGm" eventType="touchUpInside" id="lDc-jy-neL"/>
                                     <segue destination="K7w-WI-y4X" kind="presentation" identifier="arcade" id="QKA-WW-eJm"/>
                                 </connections>
                             </button>
@@ -288,6 +289,7 @@
                                 </constraints>
                                 <state key="normal" image="SANDBOX"/>
                                 <connections>
+                                    <action selector="sandboxPressed:" destination="wgD-cz-GGm" eventType="touchUpInside" id="DZy-xa-MOy"/>
                                     <segue destination="BV1-FR-VrT" kind="presentation" identifier="sandbox" id="cWG-ga-9hn"/>
                                 </connections>
                             </button>
@@ -299,6 +301,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="LEARNING"/>
                                 <connections>
+                                    <action selector="learningPressed:" destination="wgD-cz-GGm" eventType="touchUpInside" id="2Ea-rV-SF2"/>
                                     <segue destination="K7w-WI-y4X" kind="presentation" identifier="learning" id="eal-7s-mY9"/>
                                 </connections>
                             </button>

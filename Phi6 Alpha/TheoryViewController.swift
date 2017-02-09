@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class TheoryViewController: UIViewController {
     
@@ -15,6 +16,10 @@ class TheoryViewController: UIViewController {
     var Titoli = [String]()
     var Testi = [String]()
     var Immagini = [UIImage]()
+    var backPlayer = AVAudioPlayer()
+    var buttonPlayer = AVAudioPlayer()
+
+
     
     @IBOutlet var imageTheory: UIImageView!
     @IBOutlet var titleTheory: UILabel!
@@ -24,6 +29,17 @@ class TheoryViewController: UIViewController {
     override func viewDidLoad() {
   
         super.viewDidLoad()
+        
+        var path3 = Bundle.main.path(forResource:
+            "button-27", ofType: "mp3")
+        var audioFileUrl3 = NSURL(fileURLWithPath: path3!)
+        
+        do  {
+            try backPlayer = AVAudioPlayer(contentsOf: audioFileUrl3 as URL)
+        } catch {
+            print("dio cane")
+        }
+
         
         self.Titoli = ["Cinematics","Dynamics","Statics"]
         self.Testi = [
@@ -47,6 +63,7 @@ class TheoryViewController: UIViewController {
     
     @IBAction func goBack(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+        backPlayer.play()
     }
     
     @IBAction func goToExercise(_ sender: UIButton) {

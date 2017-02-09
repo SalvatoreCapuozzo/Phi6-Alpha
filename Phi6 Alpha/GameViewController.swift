@@ -35,6 +35,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     
     @IBOutlet weak var showSolutionButton: UIButton!
     
+    
+    var backPlayer = AVAudioPlayer()
     var selectedNode: SKSpriteNode!
     var myNode: SKSpriteNode!
     var audioPlayer: AVAudioPlayer!
@@ -110,9 +112,17 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         
         var path = Bundle.main.path(forResource: "cutted", ofType: "mp3")
         var audioFileUrl = NSURL(fileURLWithPath: path!)
+
+        var path3 = Bundle.main.path(forResource:
+            "button-27", ofType: "mp3")
+        var audioFileUrl3 = NSURL(fileURLWithPath: path3!)
+        
+
         
         do  {
            try audioPlayer = AVAudioPlayer(contentsOf: audioFileUrl as URL)
+            try backPlayer = AVAudioPlayer(contentsOf: audioFileUrl3 as URL)
+
         } catch {
             print("dio cane")
         }
@@ -513,6 +523,7 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     
     @IBAction func goBack(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+        backPlayer.play()
         
     }
     
