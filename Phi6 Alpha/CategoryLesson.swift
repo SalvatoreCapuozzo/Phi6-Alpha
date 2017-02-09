@@ -22,5 +22,8 @@ var Lesson =
             "• La prima legge di Newton descrive cosa succede in assenza di interazioni\n\n• Per un oggetto non interagente con altri oggetti, `e sempre possibile identificare un sistema di riferimento, detto inerziale, nel quale l’oggetto ha accelerazione nulla.\n• In assenza di interazioni con l’esterno, un oggetto permane nel suo stato di quiete o di moto a velocit`a costante, se osservato da un sistema di riferimento inerziale\n\nNota anche come Principio di Inerzia."
         ],
         //Statica
-        ["secondo","elemento"],
+        [
+        "Si chiama punto materiale un oggetto ideale con dimensioni nulle (o meglio trascurabili rispetto alle dimensioni dei fenomeni considerati e quindi paragonabile ad un punto materiale) ma dotato di massa.\n\nIl primo principio della dinamica afferma che:\nUn punto materiale persevera nel suo stato di quiete o di moto rettilineo uniforme se la risultante delle forze su di lui applicate è un vettore nullo(cioè se le forze si oppongono annullandosi)\n\n∑i(Fi)=0\n\nBisogna tenere presente che per l'equilibrio di un corpo rigido non basta che il risultante delle forze sia nullo ma che anche il risultante dei momenti delle forze applicate sia nullo. In effetti due forze uguali ed opposte ma applicate in due punti del corpo non assiali creano un momento non nullo. Dunque accanto alla formula sopra scritta va aggiunta:\n\n∑i(Mi)=0\n\nNel caso di sistemi generali, composti da diversi punti materiali e diversi corpi rigidi, il criterio di equilibrio necessita che ogni singolo punto materiale ed ogni singolo corpo rigido deve essere in equilibrio. Questo significa che per un sistema materiale non è sufficiente per avere l'equilibrio che il risultante delle forze esterne ed il momento totale delle forze esterne siano nulli. Questa è solo una condizione necessaria.",
+            "elemento"
+        ]
 ]

@@ -16,21 +16,21 @@ var Excercise = [
         "Una biglia viene lanciata oltre il bordo del tavolo con una velocità v=0.6 m/s.\nIl tavolo è alto 1.25m.\nQuando atterra la biglia? A che distanza?"
     ],
     [
-        //Mechanics (?)
+        //Dynamics
         "Lesson 0"
     ],
     [
-        //Dynamics
+        //Statics
         "Lesson 0"
-    ]
+    ],
 ]
 
 var Solutions = [
     [
         //Cinematics
         "Solution 0",
-        "",
-        "0.5s\n0.2m"
+        "Velocità Alberto = 9.09 m/s\nAlberto taglia il traguardo in 23.1s.\nAlberto Vince la gara.",
+        "Atterra in 0.5s\nAtterra ad una distanza di 0.2m"
     ],
     [
         //Dynamics
