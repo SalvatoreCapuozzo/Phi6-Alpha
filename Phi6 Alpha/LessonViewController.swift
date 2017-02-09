@@ -55,16 +55,18 @@ class LessonsViewController: UIViewController, iCarouselDataSource, iCarouselDel
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
         
-        let myView = UIView(frame: CGRect(x: 0, y: 0, width: CategoryView.frame.width - 160, height: CategoryView.frame.height))
+        let myView = UIView(frame: CGRect(x: 0, y: 0, width: CategoryView.frame.width, height: CategoryView.frame.height))
         
-        let newLabel = UILabel(frame: CGRect(x: -50, y: 10, width: 300, height: 100))
+        let newLabel = UILabel(frame: CGRect(x: 20 , y: 0, width: 647, height: 104))
         newLabel.text = "Lesson \(i)"
         newLabel.textColor = UIColor.white
-        newLabel.font = UIFont(name: "Zapfino", size: 30)
+        newLabel.font = UIFont(name: "SourceSansPro-Regular", size: 32)
+        newLabel.textAlignment = .left      
+
         myView.addSubview(newLabel)
         
-        let newTextView = UITextView(frame: CGRect(x: -90, y: newLabel.frame.height, width: CategoryView.frame.width/1.3, height: CategoryView.frame.height/1.5))
-        newTextView.font = UIFont(name: "System Italic", size: 30)
+        let newTextView = UITextView(frame: CGRect(x: 20, y: 101, width: 479, height: 208))
+        newTextView.font = UIFont(name: "SourceSansPro-Light", size: 17)
         newTextView.textColor = UIColor.white
         newTextView.backgroundColor = UIColor.clear
         newTextView.isEditable = false

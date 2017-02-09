@@ -12,59 +12,62 @@ import SpriteKit
 
 class Adder{
 
-func addPhotoCell(scene: GameScene) {
-    scene.deleteSliders()
-    let sprite = PhotoCell.photoCell(location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
-    sprite.physicsBody?.affectedByGravity = false
-    sprite.physicsBody?.isDynamic = false
+    func addPhotoCell(scene: GameScene) {
+        scene.deleteSliders()
+        let position = Singleton.shared.getPosition()
+        let sprite = PhotoCell.photoCell(location: position)
+        sprite.physicsBody?.affectedByGravity = false
+        sprite.physicsBody?.isDynamic = false
     
-    sprite.physicsBody?.collisionBitMask = 0
-    sprite.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
-    sprite.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
+        sprite.physicsBody?.collisionBitMask = 0
+        sprite.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
+        sprite.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
     
-    sprite.size.width = scene.objectWidth
-    sprite.size.height = scene.objectHeight
-    sprite.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -scene.objectWidth/2, y: -scene.objectHeight/2, width: scene.objectWidth, height: scene.objectHeight))
-    print(sprite.xScale)
-    Singleton.shared.addNewObject(anObject: sprite)
-    scene.addChild(sprite)
-    scene.arrayOfSensors.append(sprite)
+        sprite.size.width = scene.objectWidth
+        sprite.size.height = scene.objectHeight
+        sprite.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -scene.objectWidth/2, y: -scene.objectHeight/2, width: scene.objectWidth, height: scene.objectHeight))
+        print(sprite.xScale)
+        Singleton.shared.addNewObject(anObject: sprite)
+        scene.addChild(sprite)
+        scene.arrayOfSensors.append(sprite)
     
-    if sprite.name == nil {
-        sprite.name = "sensor"// + String(number)
+        if sprite.name == nil {
+            sprite.name = "sensor"// + String(number)
+        }
+        //addChronometer(scene: scene, sensor: sprite)
+    
+        print(sprite.name!)
     }
-    //addChronometer(scene: scene, sensor: sprite)
-    
-    print(sprite.name!)
-}
 
     func addSpeedCamera(scene: GameScene) {
         scene.deleteSliders()
-    let sprite = SpeedCamera.speedCamera(location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
-    sprite.physicsBody?.affectedByGravity = false
-    sprite.physicsBody?.isDynamic = false
+        let position = Singleton.shared.getPosition()
+        let sprite = SpeedCamera.speedCamera(location: position)
+        sprite.physicsBody?.affectedByGravity = false
+        sprite.physicsBody?.isDynamic = false
     
-    sprite.physicsBody?.collisionBitMask = 1
-    sprite.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
-    sprite.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
+        sprite.physicsBody?.collisionBitMask = 1
+        sprite.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
+        sprite.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
     
-    sprite.size.width = scene.objectWidth
-    sprite.size.height = scene.objectHeight
-    sprite.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -scene.objectWidth/2, y: -scene.objectHeight/2, width: scene.objectWidth, height: scene.objectHeight))
-    print(sprite.xScale)
-    Singleton.shared.addNewObject(anObject: sprite)
-    scene.addChild(sprite)
-    scene.arrayOfSensors.append(sprite)
+        sprite.size.width = scene.objectWidth
+        sprite.size.height = scene.objectHeight
+        sprite.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -scene.objectWidth/2, y: -scene.objectHeight/2, width: scene.objectWidth, height: scene.objectHeight))
+        print(sprite.xScale)
+        Singleton.shared.addNewObject(anObject: sprite)
+        scene.addChild(sprite)
+        scene.arrayOfSensors.append(sprite)
     
-    if sprite.name == nil {
-        sprite.name = "speedCamera"// + String(number)
+        if sprite.name == nil {
+            sprite.name = "speedCamera"// + String(number)
+        }
+        print(sprite.name!)
     }
-    print(sprite.name!)
-}
 
     func addLoadCell(scene: GameScene) {
         scene.deleteSliders()
-    let sprite = LoadCell.loadCell(location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
+        let position = Singleton.shared.getPosition()
+    let sprite = LoadCell.loadCell(location: position)
     sprite.physicsBody?.affectedByGravity = false
     sprite.physicsBody?.isDynamic = false
     
@@ -88,7 +91,8 @@ func addPhotoCell(scene: GameScene) {
     
     func addChronometer(scene: GameScene) {
         scene.deleteSliders()
-        let sprite = Chronometer.chronometer(location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
+        let position = Singleton.shared.getPosition()
+        let sprite = Chronometer.chronometer(location: position)
         sprite.physicsBody?.affectedByGravity = false
         sprite.physicsBody?.isDynamic = false
         
@@ -117,7 +121,8 @@ func addPhotoCell(scene: GameScene) {
     
     func addLaserAccelerometer(scene: GameScene) {
         scene.deleteSliders()
-        let sprite = LaserAccelerometer.vertical(location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
+        let position = Singleton.shared.getPosition()
+        let sprite = LaserAccelerometer.vertical(location: position)
         sprite.physicsBody?.affectedByGravity = false
         sprite.physicsBody?.isDynamic = false
         
@@ -141,7 +146,8 @@ func addPhotoCell(scene: GameScene) {
     
     func addLaserRangefinder(scene: GameScene) {
         scene.deleteSliders()
-        let sprite = LaserRangefinder.horizontal(location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
+        let position = Singleton.shared.getPosition()
+        let sprite = LaserRangefinder.horizontal(location: position)
         sprite.physicsBody?.affectedByGravity = false
         sprite.physicsBody?.isDynamic = false
         
@@ -165,23 +171,45 @@ func addPhotoCell(scene: GameScene) {
     
     func addLever(scene: GameScene) {
         scene.deleteSliders()
-        
-        let circle = Fulcrum.circle(location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
+        let position = Singleton.shared.getPosition()
+        let circle = Fulcrum.circle(location: position)
         circle.physicsBody?.isDynamic = false
         
-        let rectangle = Beam.rectangle(location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
+        let rectangle = Beam.rectangle(location: position)
         Singleton.shared.addNewObject(anObject: circle)
         scene.addChild(circle)
         
         Singleton.shared.addNewObject(anObject: rectangle)
         scene.addChild(rectangle)
         
-        var jointPend = SKPhysicsJointPin.joint(withBodyA: rectangle.physicsBody!, bodyB: circle.physicsBody!, anchor: rectangle.position)
-        scene.physicsWorld.add(jointPend)
+        let jointLever = SKPhysicsJointPin.joint(withBodyA: rectangle.physicsBody!, bodyB: circle.physicsBody!, anchor: rectangle.position)
+        scene.physicsWorld.add(jointLever)
+    }
+    
+    func addPendulum(scene: GameScene) {
+        scene.deleteSliders()
+        let position = Singleton.shared.getPosition()
+        let circle = Pendulum.circle(location: position)
+        circle.physicsBody?.isDynamic = true
+        circle.physicsBody?.affectedByGravity = true
+        
+        Singleton.shared.addNewObject(anObject: circle)
+        scene.addChild(circle)
+        /*
+        let fulcrum = Fulcrum.circle(location: CGPoint(x: 0, y: circle.length))
+        fulcrum.physicsBody?.isDynamic = false
+        fulcrum.name! = "pendulumFulcrum"
+        
+        Singleton.shared.addNewObject(anObject: fulcrum)
+        scene.addChild(fulcrum)
+*/
+        let jointPendulum = SKPhysicsJointLimit.joint(withBodyA: circle.physicsBody!, bodyB: scene.physicsBody!, anchorA: circle.position, anchorB: CGPoint(x: circle.position.x, y: circle.position.y + circle.length))
+        scene.physicsWorld.add(jointPendulum)
     }
 
     func addRectangle(scene: GameScene) {
-    let sprite = Rectangle.rectangle(location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
+        let position = Singleton.shared.getPosition()
+    let sprite = Rectangle.rectangle(location: position)
     sprite.physicsBody?.affectedByGravity = false
     sprite.physicsBody?.isDynamic = false
     sprite.physicsBody?.usesPreciseCollisionDetection = true
@@ -200,7 +228,8 @@ func addPhotoCell(scene: GameScene) {
 }
 
 func addCircle(scene: GameScene) {
-    let sprite = Circle.circle(location: CGPoint(x: scene.frame.maxX/2, y: scene.frame.maxY/2))
+    let position = Singleton.shared.getPosition()
+    let sprite = Circle.circle(location: position)
     sprite.physicsBody?.affectedByGravity = false
     sprite.physicsBody?.isDynamic = false
     sprite.physicsBody?.usesPreciseCollisionDetection = true
@@ -289,7 +318,12 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
     scene.mySlider?.layer.masksToBounds = false
     scene.mySlider?.maximumValue = 290
     scene.mySlider?.minimumValue = 0.2
-    scene.mySlider?.value = Float(node.size.width)
+    if node.name! == "pendulum" {
+        let pendulum = node as? Pendulum
+        scene.mySlider?.value = Float((pendulum?.length)!)
+    } else {
+        scene.mySlider?.value = Float(node.size.width)
+    }
     
     // Set Height Slider
     scene.sliderHeight = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
@@ -329,9 +363,13 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
     scene.myLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
     scene.myLabel.layer.position = CGPoint(x: (scene.view?.frame.width)!/4 + ((scene.mySlider?.frame.width)!/1.2), y: (scene.view?.frame.height)!-45)
     scene.myLabel.textColor! = UIColor.black
-    scene.myLabel?.text = String(describing: (round((scene.mySlider.value/145)*100)/100)) + " m"
-    if scene.myLabel.text != nil {
-        scene.myLabel.text! = String(describing: (round((scene.mySlider.value/145)*100)/100)) + " m"
+    if node.name! == "beam" {
+        scene.myLabel?.text = String(describing: (round((scene.mySlider.value/(145*2))*100)/100)) + " x 2 m"
+    } else {
+        scene.myLabel?.text = String(describing: (round((scene.mySlider.value/145)*100)/100)) + " m"
+        if scene.myLabel.text != nil {
+            scene.myLabel.text! = String(describing: (round((scene.mySlider.value/145)*100)/100)) + " m"
+        }
     }
     
     // Set Height Label
@@ -380,7 +418,7 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
         //sliderRotation?.target(forAction: #selector(setRotation), withSender: scene)
         scene.sliderRotationLine?.addTarget(scene, action: #selector(scene.setRotation), for: UIControlEvents.valueChanged)
         scene.sliderFriction?.addTarget(scene, action: #selector(scene.setFriction), for: UIControlEvents.valueChanged)
-    } else if (node.name == "objectCircle") {
+    } else if (node.name == "objectCircle") /*|| (node.name == "pendulum") */{
         scene.mySlider?.addTarget(scene, action: #selector(scene.setWidth2), for: UIControlEvents.valueChanged)
     } else if (node.name == "beam") {
         scene.mySlider?.addTarget(scene, action: #selector(scene.setWidth2), for: UIControlEvents.valueChanged)
