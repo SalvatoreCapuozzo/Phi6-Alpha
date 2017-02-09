@@ -18,6 +18,8 @@
 		5A4A66721E4B60F600C137B8 /* CategoryLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A66711E4B60F600C137B8 /* CategoryLesson.swift */; };
 		5A4A66741E4B615700C137B8 /* LessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A66731E4B615700C137B8 /* LessonViewController.swift */; };
 		5A72AB931E44C49700227938 /* PhysicsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A72AB921E44C49700227938 /* PhysicsCategory.swift */; };
+		8167535D1E4C9E37002219DE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8167535C1E4C9E37002219DE /* AVFoundation.framework */; };
+		8167535F1E4C9EC8002219DE /* Bag Raiders - Shooting Stars.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8167535E1E4C9EC8002219DE /* Bag Raiders - Shooting Stars.mp3 */; };
 		8715F5FC1E36510F001E2DEA /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715F5FB1E36510F001E2DEA /* Singleton.swift */; };
 		8715F6081E368279001E2DEA /* ObjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715F6071E368279001E2DEA /* ObjectTableViewCell.swift */; };
 		8715F60A1E36828A001E2DEA /* ObjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715F6091E36828A001E2DEA /* ObjectTableViewController.swift */; };
@@ -79,6 +81,8 @@
 		5A4A66711E4B60F600C137B8 /* CategoryLesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryLesson.swift; sourceTree = "<group>"; };
 		5A4A66731E4B615700C137B8 /* LessonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonViewController.swift; sourceTree = "<group>"; };
 		5A72AB921E44C49700227938 /* PhysicsCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsCategory.swift; sourceTree = "<group>"; };
+		8167535C1E4C9E37002219DE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		8167535E1E4C9EC8002219DE /* Bag Raiders - Shooting Stars.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Bag Raiders - Shooting Stars.mp3"; sourceTree = "<group>"; };
 		8715F5FB1E36510F001E2DEA /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		8715F6071E368279001E2DEA /* ObjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectTableViewCell.swift; sourceTree = "<group>"; };
 		8715F6091E36828A001E2DEA /* ObjectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectTableViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8167535D1E4C9E37002219DE /* AVFoundation.framework in Frameworks */,
 				F2B4F48959F70FA4D552ED6D /* Pods_Phi6_Alpha.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,6 +160,7 @@
 		1907C0E5F0F8AFAEB31C134A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8167535C1E4C9E37002219DE /* AVFoundation.framework */,
 				94F65B8EB1411AF96B6EE6A9 /* Pods_Phi6_Alpha.framework */,
 			);
 			name = Frameworks;
@@ -195,6 +201,7 @@
 				87DC85201E34BA4B0068555D /* Main.storyboard */,
 				87DC85251E34BA4B0068555D /* LaunchScreen.storyboard */,
 				87DC85231E34BA4B0068555D /* Assets.xcassets */,
+				8167535E1E4C9EC8002219DE /* Bag Raiders - Shooting Stars.mp3 */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -393,6 +400,7 @@
 				301045851E4B355500D27A48 /* SourceSansPro-Light.ttf in Resources */,
 				301045841E4B355500D27A48 /* SourceSansPro-ExtraLight.ttf in Resources */,
 				87DC85191E34BA4B0068555D /* GameScene.sks in Resources */,
+				8167535F1E4C9EC8002219DE /* Bag Raiders - Shooting Stars.mp3 in Resources */,
 				301045861E4B355500D27A48 /* SourceSansPro-Regular.ttf in Resources */,
 				87DC85241E34BA4B0068555D /* Assets.xcassets in Resources */,
 				87DC85271E34BA4B0068555D /* LaunchScreen.storyboard in Resources */,

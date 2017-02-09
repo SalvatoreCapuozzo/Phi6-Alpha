@@ -11,6 +11,7 @@ import SpriteKit
 import GameplayKit
 import VerticalSlider
 import iOSContextualMenu
+import AVFoundation
 
 class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizerDelegate, UITextViewDelegate, BAMContextualMenuDelegate, BAMContextualMenuDataSource {
     
@@ -36,7 +37,7 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     
     var selectedNode: SKSpriteNode!
     var myNode: SKSpriteNode!
-    
+    var audioPlayer: AVAudioPlayer!
     var mode: String?
     var category: Int?
     var levelNumber: Int?
@@ -92,6 +93,12 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         
         self.showSolutionButton.isHidden = true
         
+        if mode == "sandbox" {
+            
+        }
+        
+        
+        
         self.blockNotes.textColor = UIColor.lightGray
         self.blockNotes.delegate = self
         self.blockNotes.layer.cornerRadius = 10
@@ -100,6 +107,20 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         self.blockNotes.layer.borderColor = UIColor.black.cgColor
         self.excerciseTextView.layer.borderWidth = 1.5
         self.excerciseTextView.layer.borderColor = UIColor.black.cgColor
+        
+        var path = Bundle.main.path(forResource: "Bag Raiders - Shooting Stars", ofType: "mp3")
+        var audioFileUrl = NSURL(fileURLWithPath: path!)
+        
+        do  {
+           try audioPlayer = AVAudioPlayer(contentsOf: audioFileUrl as URL)
+        } catch {
+            print("dio cane")
+        }
+        
+        
+        if self.mode == "sandbox" {
+            audioPlayer.play()
+        }
 
         
         if let view = self.view as! SKView? {
