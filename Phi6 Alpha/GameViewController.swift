@@ -388,6 +388,10 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         return title
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        audioPlayer.stop()
+    }
+    
     @IBAction func setMass() {
         scene.phisphere.physicsBody?.mass = CGFloat(massSlider.value)
         massLabel.text! = String(describing: round((scene.phisphere.physicsBody?.mass)!*10)/10)
