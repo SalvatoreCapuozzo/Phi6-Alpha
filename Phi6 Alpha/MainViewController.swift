@@ -23,7 +23,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         var rotationPoint = pendulumBase.center // The point we are rotating around
-        rotationPoint.x = rotationPoint.x - 2
+        pendulumBase.layer.zPosition = 2
+        rotationPoint.x = rotationPoint.x - 0
             
         let minX   = view.frame.minX;
         let minY   = view.frame.minY;
