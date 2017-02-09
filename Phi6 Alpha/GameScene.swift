@@ -260,6 +260,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                                 self.pendulumFulcrum = CGPoint(x: pendulum!.position.x + self.frame.maxX, y: -pendulum!.position.y + self.frame.maxY - 145)
                                                 let jointPendulum = SKPhysicsJointLimit.joint(withBodyA: object.physicsBody!, bodyB: (scene?.physicsBody!)!, anchorA: object.position, anchorB: CGPoint(x: object.position.x, y: object.position.y + (pendulum?.length)!))
                                                 scene?.physicsWorld.add(jointPendulum)
+                                            } else if object.name == "fulcrum" {
+                                                object.position = touchLocation
+                                                let index = (Singleton.shared.GetObjectIndex(object: object))!
+                                                let beam = Singleton.shared.GetObjectAt(index: index + 1)
+                                                beam?.position = touchLocation
+                                            } else if object.name == "beam" {
+                                                object.position = touchLocation
+                                                let index = (Singleton.shared.GetObjectIndex(object: object))!
+                                                let fulcrum = Singleton.shared.GetObjectAt(index: index - 1)
+                                                fulcrum?.position = touchLocation
                                             }
                                             object.position = touchLocation
                                             selectedNode = object
@@ -326,6 +336,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                             self.pendulumFulcrum = endRope
                                             let jointPendulum = SKPhysicsJointLimit.joint(withBodyA: object.physicsBody!, bodyB: (scene?.physicsBody!)!, anchorA: object.position, anchorB: CGPoint(x: object.position.x, y: object.position.y + (pendulum?.length)!))
                                             scene?.physicsWorld.add(jointPendulum)
+                                        } else if object.name == "fulcrum" {
+                                            object.position = touchLocation
+                                            let index = (Singleton.shared.GetObjectIndex(object: object))!
+                                            let beam = Singleton.shared.GetObjectAt(index: index + 1)
+                                            /*
+                                            let jointLever = SKPhysicsJointPin.joint(withBodyA: object.physicsBody!, bodyB: (beam?.physicsBody!)!, anchor: object.position)
+                                            self.physicsWorld.add(jointLever)
+ */
+                                            beam?.position = touchLocation
+                                        } else if object.name == "beam" {
+                                            object.position = touchLocation
+                                            let index = (Singleton.shared.GetObjectIndex(object: object))!
+                                            let fulcrum = Singleton.shared.GetObjectAt(index: index - 1)
+                                            fulcrum?.position = touchLocation
                                         }
                                         object.position = touchLocation
                                         selectedNode = object
