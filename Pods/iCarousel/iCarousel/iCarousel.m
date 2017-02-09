@@ -517,7 +517,7 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
         }
         case iCarouselTypeLinear:
         {
-            CGFloat spacing = [self valueForOption:iCarouselOptionSpacing withDefault:2.0];
+            CGFloat spacing = [self valueForOption:iCarouselOptionSpacing withDefault:1.5];
             if (_vertical)
             {
                 return CATransform3DTranslate(transform, 0.0, offset * _itemWidth * spacing, 0.0);
@@ -958,7 +958,7 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
         case iCarouselTypeLinear:
         {
             //exact number required to fill screen
-            CGFloat spacing = [self valueForOption:iCarouselOptionSpacing withDefault:3.0];
+            CGFloat spacing = [self valueForOption:iCarouselOptionSpacing withDefault:1.5];
             CGFloat width = _vertical ? self.bounds.size.height: self.bounds.size.width;
             CGFloat itemWidth = _itemWidth * spacing;
             _numberOfVisibleItems = ceil(width / itemWidth) + 2;

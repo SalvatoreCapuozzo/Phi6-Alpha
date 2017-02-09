@@ -498,7 +498,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Cq1-nc-fuk" secondAttribute="height" multiplier="92:25" id="LFf-6Q-uzC"/>
                                 </constraints>
-                                <state key="normal" image="Sandbox"/>
+                                <state key="normal" image="SANDBOX"/>
                                 <connections>
                                     <segue destination="BV1-FR-VrT" kind="presentation" identifier="sandbox" id="cWG-ga-9hn"/>
                                 </connections>
@@ -509,7 +509,7 @@
                                     <constraint firstAttribute="height" constant="26" id="5UC-U8-QzL"/>
                                     <constraint firstAttribute="width" constant="86" id="ITN-QK-WrM"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="Learning"/>
+                                <state key="normal" title="Button" image="LEARNING"/>
                                 <connections>
                                     <segue destination="K7w-WI-y4X" kind="presentation" identifier="learning" id="eal-7s-mY9"/>
                                 </connections>
@@ -582,7 +582,7 @@
                                     <segue destination="n44-iE-kmZ" kind="presentation" identifier="showLesson" id="t84-3l-JAl"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Text here" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="zXT-1J-lZ6">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Text here" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="zXT-1J-lZ6">
                                 <rect key="frame" x="20" y="101" width="479" height="208"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -633,7 +633,7 @@
                                 <color key="currentPageIndicatorTintColor" red="0.92554813619999998" green="0.16716841690000001" blue="0.052806276890000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pTt-u4-5qk">
-                                <rect key="frame" x="20" y="28" width="627" height="282"/>
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="324"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d97-Yj-0CZ">
@@ -656,7 +656,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M7B-hD-X0D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="107" y="-38"/>
+            <point key="canvasLocation" x="106.59670164917542" y="-39.200000000000003"/>
         </scene>
         <!--Carusiell View Controller-->
         <scene sceneID="Gin-TF-RI7">
@@ -944,15 +944,15 @@
         <image name="Chronometer" width="50" height="50"/>
         <image name="Circle" width="428" height="428"/>
         <image name="Group" width="54" height="238"/>
+        <image name="LEARNING" width="86" height="25"/>
         <image name="LaserAccelerometer(V)" width="50" height="50"/>
         <image name="LaserRangefinder(H)" width="50" height="50"/>
-        <image name="Learning" width="86" height="25"/>
         <image name="Line" width="521" height="15"/>
         <image name="LoadCell" width="50" height="50"/>
         <image name="Oval 5" width="25" height="25"/>
         <image name="PhotoCellDefault" width="50" height="50"/>
         <image name="Rectangle" width="278" height="278"/>
-        <image name="Sandbox" width="87" height="26"/>
+        <image name="SANDBOX" width="87" height="26"/>
         <image name="SpeedCamera" width="50" height="50"/>
         <image name="gravity" width="256" height="256"/>
         <image name="levelchoice" width="66" height="66"/>
@@ -962,6 +962,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eal-7s-mY9"/>
-        <segue reference="cWG-ga-9hn"/>
+        <segue reference="ugL-1C-1WA"/>
     </inferredMetricsTieBreakers>
 </document>
