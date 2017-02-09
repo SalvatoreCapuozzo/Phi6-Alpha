@@ -275,7 +275,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                             selectedNode = object
                                             
                                             adder.addSlider(node: object, scene: self)
-                                            myNode = object
+                                            if object.name == "beam" {
+                                                let index = (Singleton.shared.GetObjectIndex(object: object))!
+                                                let fulcrum = Singleton.shared.GetObjectAt(index: index - 1)
+                                                myNode = fulcrum!
+                                            } else {
+                                                myNode = object
+                                            }
                                         }
                                     }
                                 }
@@ -355,7 +361,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                         selectedNode = object
                                         
                                         adder.addSlider(node: object, scene: self)
-                                        myNode = object
+                                        if object.name == "beam" {
+                                            let index = (Singleton.shared.GetObjectIndex(object: object))!
+                                            let fulcrum = Singleton.shared.GetObjectAt(index: index - 1)
+                                            myNode = fulcrum!
+                                        } else {
+                                            myNode = object
+                                        }
                                     }
                                 }
                             }
@@ -530,9 +542,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 shapeLayerV.removeFromSuperlayer()
             }
             
-            // Cancello il vettore quando l'accelerazione è zero
+            // Cancello il vettore quando l'accelerazione è zero o ha un valore troppo alto (collisione con oggetto statico)
             
             if abs(Double(phisphereAccDx)) < 0.1 &&  abs(Double(phisphereAccDy)) < 0.1{
+                shapeLayerA.removeFromSuperlayer()
+            } else if abs(Double(phisphereAccDx)) > 3000 || abs(Double(phisphereAccDy)) > 3000 {
                 shapeLayerA.removeFromSuperlayer()
             }
             
@@ -734,6 +748,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             myNode.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -CGFloat(mySlider.value)/2, y: -CGFloat(sliderHeight.value)/2, width: CGFloat(mySlider.value), height: CGFloat(sliderHeight.value)))
             myNode.physicsBody?.affectedByGravity = true
             myNode.physicsBody?.isDynamic = true
+        } else if (myNode.name! == "fulcrum") {
+            let index = (Singleton.shared.GetObjectIndex(object: myNode))!
+            let beam = Singleton.shared.GetObjectAt(index: index + 1)
+            beam!.size.width = CGFloat(mySlider.value)
+            beam?.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -CGFloat(mySlider.value)/2, y: -beam!.size.height/2, width: CGFloat(mySlider.value), height: beam!.size.height))
+            beam!.physicsBody?.affectedByGravity = true
+            beam!.physicsBody?.isDynamic = true
         } else if (myNode.name! == "pendulum") {
             let pendulum = myNode as? Pendulum
             pendulum?.length = CGFloat(mySlider.value)
@@ -744,6 +765,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         if myNode.name! == "beam" {
             myLabel.text! = String(describing: (round((myNode.size.width/(145*2))*100)/100)) + " x 2 m"
+        } else if myNode.name! == "fulcrum" {
+            let index = (Singleton.shared.GetObjectIndex(object: myNode))!
+            let beam = Singleton.shared.GetObjectAt(index: index + 1)
+            myLabel.text! = String(describing: (round((beam!.size.width/(145*2))*100)/100)) + " x 2 m"
         } else {
             myLabel.text! = String(describing: (round((myNode.size.width/145)*100)/100)) + " m"
         }
@@ -794,6 +819,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func setRotation() {
         if (myNode.name! == "object" || myNode.name! == "beam") {
             myNode.zRotation = CGFloat(-sliderRotationLine.value/360*2*Float(M_PI))
+        } else if (myNode.name! == "fulcrum") {
+            let index = (Singleton.shared.GetObjectIndex(object: myNode))!
+            let beam = Singleton.shared.GetObjectAt(index: index + 1)
+            beam!.zRotation = CGFloat(-sliderRotationLine.value/360*2*Float(M_PI))
         }
         if (sliderRotationLine.value != 0) {
             labelRotation.text! = String(describing: round(-sliderRotationLine.value*10)/10) + "°"
