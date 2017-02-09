@@ -189,7 +189,10 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ob3-9J-OYU">
                                 <rect key="frame" x="69" y="16" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="Solution"/>
+                                <size key="titleShadowOffset" width="5" height="2"/>
+                                <state key="normal" backgroundImage="Solution">
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="showSolution:" destination="BV1-FR-VrT" eventType="touchUpInside" id="RHh-69-c1n"/>
                                 </connections>
@@ -198,6 +201,10 @@
                                 <rect key="frame" x="19" y="20" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="titleShadowOffset" width="5" height="3"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="showInfo:" destination="BV1-FR-VrT" eventType="touchUpInside" id="mQb-o3-bit"/>
                                 </connections>

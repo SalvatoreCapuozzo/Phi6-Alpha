@@ -203,6 +203,16 @@ class Adder{
         Singleton.shared.addNewObject(anObject: fulcrum)
         scene.addChild(fulcrum)
 */
+        let startRope = CGPoint(x: circle.position.x + scene.frame.maxX, y: -circle.position.y + scene.frame.maxY /*- circle.size.height/2*/)
+        let endRope = CGPoint(x: circle.position.x + scene.frame.maxX, y: -circle.position.y + scene.frame.maxY - 145)
+        let pathRope = UIBezierPath.arrow(from: startRope, to: endRope,
+                                          tailWidth: 0.5, headWidth: 0.5, headLength: 5.0)
+        scene.pendulumFulcrum = endRope
+        scene.shapeLayerRope.path = pathRope.cgPath
+        scene.shapeLayerRope.strokeColor = UIColor.black.cgColor
+        scene.shapeLayerRope.lineWidth = 0.5
+        scene.view?.layer.addSublayer(scene.shapeLayerRope)
+        
         let jointPendulum = SKPhysicsJointLimit.joint(withBodyA: circle.physicsBody!, bodyB: scene.physicsBody!, anchorA: circle.position, anchorB: CGPoint(x: circle.position.x, y: circle.position.y + circle.length))
         scene.physicsWorld.add(jointPendulum)
     }

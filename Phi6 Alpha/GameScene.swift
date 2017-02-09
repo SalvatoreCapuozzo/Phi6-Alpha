@@ -100,6 +100,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var viewController: GameViewController!
     var alertMessage: Any?
     var adder = Adder()
+    
+    var shapeLayerRope = CAShapeLayer()
+    var pendulumFulcrum: CGPoint!
 
     override func didMove(to view: SKView) {
         
@@ -247,6 +250,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                                 Singleton.shared.addNewObject(anObject: fulcrum)
                                                 scene?.addChild(fulcrum)
  */
+                                                self.pendulumFulcrum = CGPoint(x: pendulum!.position.x + self.frame.maxX, y: -pendulum!.position.y + self.frame.maxY - 145)
                                                 let jointPendulum = SKPhysicsJointLimit.joint(withBodyA: object.physicsBody!, bodyB: (scene?.physicsBody!)!, anchorA: object.position, anchorB: CGPoint(x: object.position.x, y: object.position.y + (pendulum?.length)!))
                                                 scene?.physicsWorld.add(jointPendulum)
                                             }
@@ -257,6 +261,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                             myNode = object
                                         } else {
                                             self.removeChildren(in: [object])
+                                            shapeLayerRope.removeFromSuperlayer()
                                         }
                                     }
                                 }
@@ -301,7 +306,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                             fulcrum.yScale = 0.5
                                             Singleton.shared.addNewObject(anObject: fulcrum)
                                             scene?.addChild(fulcrum)
+                                             
  */
+                                            
+                                            let startRope = CGPoint(x: pendulum!.position.x + self.frame.maxX, y: -pendulum!.position.y + self.frame.maxY /*- pendulum!.size.height/2*/)
+                                            let endRope = CGPoint(x: pendulum!.position.x + self.frame.maxX, y: -pendulum!.position.y + self.frame.maxY - 145)
+                                            let pathRope = UIBezierPath.arrow(from: startRope, to: endRope,
+                                                                              tailWidth: 0.5, headWidth: 0.5, headLength: 5.0)
+                                            shapeLayerRope.removeFromSuperlayer()
+                                            shapeLayerRope.path = pathRope.cgPath
+                                            shapeLayerRope.strokeColor = UIColor.black.cgColor
+                                            shapeLayerRope.lineWidth = 0.5
+                                            self.view?.layer.addSublayer(shapeLayerRope)
+                                            self.pendulumFulcrum = endRope
                                             let jointPendulum = SKPhysicsJointLimit.joint(withBodyA: object.physicsBody!, bodyB: (scene?.physicsBody!)!, anchorA: object.position, anchorB: CGPoint(x: object.position.x, y: object.position.y + (pendulum?.length)!))
                                             scene?.physicsWorld.add(jointPendulum)
                                         }
@@ -367,7 +384,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             
             for object in Singleton.shared.objects {
-                if object.name == "pendulum" || object.name == "beam" {
+                if object.name == "pendulum" {
+                    object.physicsBody?.affectedByGravity = true
+                    let pendulum = object as? Pendulum
+                    let startRope = CGPoint(x: pendulum!.position.x + self.frame.maxX, y: -pendulum!.position.y + self.frame.maxY /*- pendulum!.size.height/2*/)
+                    let endRope = pendulumFulcrum!
+                    let pathRope = UIBezierPath.arrow(from: startRope, to: endRope,
+                                                      tailWidth: 0.5, headWidth: 0.5, headLength: 5.0)
+                    shapeLayerRope.removeFromSuperlayer()
+                    shapeLayerRope.path = pathRope.cgPath
+                    shapeLayerRope.strokeColor = UIColor.black.cgColor
+                    shapeLayerRope.lineWidth = 0.5
+                    self.view?.layer.addSublayer(shapeLayerRope)
+                } else if object.name! == "beam" {
                     object.physicsBody?.affectedByGravity = true
                 } else {
                     object.physicsBody?.affectedByGravity = false
@@ -388,7 +417,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         laser.setDistance(scene: self)
                         laser.laser(scene: self)
                         setValueDisplayRangefinder(laser)
-                    } else if object.name == "speedCamera" {
+                    } else if object.name == "speedCamera" || object.name == "laserAccelerometer" {
                         object.physicsBody?.collisionBitMask = 1
                         object.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
                         object.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
@@ -462,6 +491,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 shapeLayerA.removeFromSuperlayer()
             }
             
+        } else {
+            for object in Singleton.shared.objects {
+                if object.name == "pendulum" {
+                    object.physicsBody?.affectedByGravity = true
+                    let pendulum = object as? Pendulum
+                    let startRope = CGPoint(x: pendulum!.position.x + self.frame.maxX, y: -pendulum!.position.y + self.frame.maxY /*- pendulum!.size.height/2*/)
+                    let endRope = pendulumFulcrum!
+                    let pathRope = UIBezierPath.arrow(from: startRope, to: endRope,
+                                                      tailWidth: 0.5, headWidth: 0.5, headLength: 5.0)
+                    shapeLayerRope.removeFromSuperlayer()
+                    shapeLayerRope.path = pathRope.cgPath
+                    shapeLayerRope.strokeColor = UIColor.black.cgColor
+                    shapeLayerRope.lineWidth = 0.5
+                    self.view?.layer.addSublayer(shapeLayerRope)
+                }
+            }
         }
     }
     
