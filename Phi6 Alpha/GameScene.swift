@@ -209,9 +209,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                 phisphere.position = touchLocation
                                 adder.addInitSlider(scene: self)
                                 myNode = sprite
-                            } else {
+                            }
+                            else if sprite.name == "background"
+                            {
+                                deleteSliders()
+                            }
+                            else {
                                 for object in Singleton.shared.objects {
                                     if sprite == object {
+                                        Singleton.shared.lastSelectedObject = Singleton.shared.GetObjectIndex(object: sprite)!
                                         if !deleteMode {
                                             if object.name == "chronometer" {
                                                 deleteSliders()
@@ -593,6 +599,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func deleteSliders(){
+        self.viewController.DisableDeletionButton()
         
         if arrayOfSlider.count >= 0{
             for slider in arrayOfSlider{

@@ -35,6 +35,7 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     
     @IBOutlet weak var showSolutionButton: UIButton!
     
+    @IBOutlet weak var deletionButton: UIButton!
     
     var backPlayer = AVAudioPlayer()
     var selectedNode: SKSpriteNode!
@@ -88,7 +89,30 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     "Pendulum Dark"
     ]
     
+    func EnableDeletionButtonAt(position: CGPoint)
+    {
+        deletionButton.frame.origin = position
+        deletionButton.isEnabled = true
+        deletionButton.isHidden = false
+    }
     
+    func DisableDeletionButton()
+    {
+        deletionButton.isEnabled = false
+        deletionButton.isHidden = true
+    }
+    
+    @IBAction func DeleteObjectFromGameScene(sender: UIButton)
+    {
+        let objID = Singleton.shared.lastSelectedObject
+        
+        if objID != -1
+        {
+            Singleton.shared.DeleteObjectAt(index: objID, scene: self.scene)
+            Singleton.shared.lastSelectedObject = -1
+            DisableDeletionButton()
+        }
+    }
     
     override func viewDidLoad() {
 

@@ -12,6 +12,7 @@ import SpriteKit
 class Singleton: NSObject {
     static let shared = Singleton()
     var objects: [SKSpriteNode] = []
+    var lastSelectedObject: Int = -1
     
     func addNewObject(anObject: SKSpriteNode) {
         objects.append(anObject)
@@ -28,15 +29,15 @@ class Singleton: NSObject {
     
     func setWidth(myNode: SKSpriteNode, scene: SKScene) {
         /*
-        print("Set width to " + myNode.name!)
-        scene.removeChildren(in: [myNode])
-        myNode.position.x = myNode.position.x - (myNode.size.width - CGFloat(widthSlider.value))/2
-        //scene.triangle.size.width = CGFloat(widthSlider.value)
-        myNode.xScale = CGFloat(widthSlider.value)/scene.pauseTriangleWidth
-        widthLabel.text! = String(describing: round(myNode.size.width*10)/10) + " m"
-        
-        scene.addChild(myNode)
- */
+         print("Set width to " + myNode.name!)
+         scene.removeChildren(in: [myNode])
+         myNode.position.x = myNode.position.x - (myNode.size.width - CGFloat(widthSlider.value))/2
+         //scene.triangle.size.width = CGFloat(widthSlider.value)
+         myNode.xScale = CGFloat(widthSlider.value)/scene.pauseTriangleWidth
+         widthLabel.text! = String(describing: round(myNode.size.width*10)/10) + " m"
+         
+         scene.addChild(myNode)
+         */
     }
     
     //--------------------//--------------------//
@@ -65,6 +66,20 @@ class Singleton: NSObject {
     
     func objectListAt(indexPath: IndexPath) -> SimpleObject {
         return objectList[indexPath.row]
+    }
+    
+    func GetObjectIndex(object: SKSpriteNode) -> Int?
+    {
+        return objects.index(of: object)
+    }
+    
+    func DeleteObjectAt(index: Int, scene: SKScene)
+    {
+        let obj = objects[index]
+        
+        scene.removeChildren(in: [obj])
+        
+        objects.remove(at: index)
     }
     
     var selectedPath = IndexPath()
@@ -137,7 +152,7 @@ class Singleton: NSObject {
             completeList.append(LoadCell.loadCell(location: CGPoint(x: 0, y: 0)))
             completeList.append(PhotoCell.photoCell(location: CGPoint(x: 0, y: 0)))
             completeList.append(SpeedCamera.speedCamera(location: CGPoint(x: 0, y: 0)))
-
+            
             //completeList.append(objectList as! GameObject)
             //completeList.append(sensorList as! GameObject)
         }

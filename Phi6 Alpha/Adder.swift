@@ -261,16 +261,9 @@ func addCircle(scene: GameScene) {
 func addInitSlider(scene: GameScene) {
     scene.deleteSliders()
     // Set Velocity Text Field
-    scene.labelInitV = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-    scene.labelInitV.layer.position = CGPoint(x: scene.phisphere.position.x + (scene.frame.size.width / 2) + 140, y: -scene.phisphere.position.y + (scene.frame.size.height / 2) + 25)
-    scene.labelInitV.textColor! = UIColor.black
-    scene.labelInitV?.text = String(describing: round((scene.phisphere.physicsBody?.velocity.dx)!*10)/10)
-    if scene.labelInitV.text != nil {
-        scene.labelInitV.text! = String(describing: round((scene.phisphere.physicsBody?.velocity.dx)!*10)/10)
-    }
-    
     scene.sliderInitV = UISlider(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-    scene.sliderInitV?.layer.position = CGPoint(x: scene.phisphere.position.x + (scene.frame.size.width / 2) + 100, y: -scene.phisphere.position.y + (scene.frame.size.height / 2))
+    scene.sliderInitV.setThumbImage(UIImage(named: "SliderThumb.png"), for: .normal)
+    scene.sliderInitV?.layer.position = CGPoint(x: scene.phisphere.position.x + (scene.frame.size.width / 2) + 75, y: -scene.phisphere.position.y + (scene.frame.size.height / 2) - 10)
     scene.sliderInitV?.backgroundColor = UIColor.clear
     scene.sliderInitV?.tintColor = UIColor.green
     scene.sliderInitV?.layer.cornerRadius = 15.0
@@ -282,38 +275,59 @@ func addInitSlider(scene: GameScene) {
     
     scene.sliderInitV.addTarget(scene, action: #selector(scene.setInitialV), for: UIControlEvents.valueChanged)
     
+    scene.labelInitV = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+    scene.labelInitV.layer.position = CGPoint(x: scene.phisphere.position.x + scene.phisphere.size.width + scene.frame.maxX + (scene.sliderInitV?.frame.width)! * 2 - 50, y: -scene.phisphere.position.y + (scene.frame.size.height / 2) - 10)
+    
+    scene.labelInitV.textColor! = UIColor.black
+    scene.labelInitV?.text = String(describing: round((scene.phisphere.physicsBody?.velocity.dx)!*10)/10)
+    if scene.labelInitV.text != nil {
+        scene.labelInitV.text! = String(describing: round((scene.phisphere.physicsBody?.velocity.dx)!*10)/10)
+    }
+    
     scene.arrayOfSliderInitV.append(scene.sliderInitV)
     scene.view?.addSubview(scene.sliderInitV)
     scene.arrayOfLabelInitV.append(scene.labelInitV)
     scene.view?.addSubview(scene.labelInitV)
     
     // Set Acceleration Text Field
-    scene.labelInitA = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-    scene.labelInitA.layer.position = CGPoint(x: scene.phisphere.position.x + (scene.frame.size.width / 2) + 140, y: -scene.phisphere.position.y + (scene.frame.size.height / 2) + 75)
-    scene.labelInitA.textColor! = UIColor.black
-    scene.labelInitA?.text = String(describing: round((scene.phisphereAccDx)*10)/10)
-    if scene.labelInitA.text != nil {
-        scene.labelInitA.text! = String(describing: round((scene.phisphereAccDx)*10)/10)
+    if scene.gravity
+    {
+        scene.sliderInitA = UISlider(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        scene.sliderInitA.setThumbImage(UIImage(named: "SliderThumb.png"), for: .normal)
+        scene.sliderInitA?.layer.position = CGPoint(x: scene.phisphere.position.x + (scene.frame.size.width / 2) + 75, y: -scene.phisphere.position.y + (scene.frame.size.height / 2) + 15)
+        scene.sliderInitA?.backgroundColor = UIColor.clear
+        scene.sliderInitA?.tintColor = UIColor.red
+        scene.sliderInitA?.layer.cornerRadius = 15.0
+        scene.sliderInitA?.layer.shadowOpacity = 0.5
+        scene.sliderInitA?.layer.masksToBounds = false
+        scene.sliderInitA?.maximumValue = 725
+        scene.sliderInitA?.minimumValue = -725
+        scene.sliderInitA?.value = Float((scene.phisphereAccDx))
+        
+        scene.sliderInitA.addTarget(scene, action: #selector(scene.setInitialA), for: UIControlEvents.valueChanged)
+        
+        
+        scene.labelInitA = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        scene.labelInitA.layer.position = CGPoint(x: scene.phisphere.position.x + scene.phisphere.size.width + scene.frame.maxX + (scene.sliderInitA?.frame.width)! * 2 - 50, y: -scene.phisphere.position.y + (scene.frame.size.height / 2) + 15)
+        
+        scene.labelInitA.textColor! = UIColor.black
+        scene.labelInitA?.text = String(describing: round((scene.phisphereAccDx)*10)/10)
+        if scene.labelInitA.text != nil {
+            scene.labelInitA.text! = String(describing: round((scene.phisphereAccDx)*10)/10)
+        }
+        
+        
+        scene.arrayOfSliderInitA.append(scene.sliderInitA)
+        scene.view?.addSubview(scene.sliderInitA)
+        scene.arrayOfLabelInitA.append(scene.labelInitA)
+        scene.view?.addSubview(scene.labelInitA)
     }
-
-    scene.sliderInitA = UISlider(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-    scene.sliderInitA?.layer.position = CGPoint(x: scene.phisphere.position.x + (scene.frame.size.width / 2) + 100, y: -scene.phisphere.position.y + (scene.frame.size.height / 2) + 50)
-    scene.sliderInitA?.backgroundColor = UIColor.clear
-    scene.sliderInitA?.tintColor = UIColor.red
-    scene.sliderInitA?.layer.cornerRadius = 15.0
-    scene.sliderInitA?.layer.shadowOpacity = 0.5
-    scene.sliderInitA?.layer.masksToBounds = false
-    scene.sliderInitA?.maximumValue = 725
-    scene.sliderInitA?.minimumValue = -725
-    scene.sliderInitA?.value = Float((scene.phisphereAccDx))
     
-    scene.sliderInitA.addTarget(scene, action: #selector(scene.setInitialA), for: UIControlEvents.valueChanged)
+    //scene.viewController.EnableDeletionButtonAt(position: CGPoint(x: scene.frame.maxX + scene.phisphere.position.x - 10, y: scene.frame.maxY + scene.phisphere.position.y - 10))
     
-    scene.arrayOfSliderInitA.append(scene.sliderInitA)
-    scene.view?.addSubview(scene.sliderInitA)
-    scene.arrayOfLabelInitA.append(scene.labelInitA)
-    scene.view?.addSubview(scene.labelInitA)
+    //print(scene.phisphere.position)
 }
+
 
 func addSlider(node: SKSpriteNode, scene: GameScene) {
     scene.myNode = nil
@@ -451,7 +465,8 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
     scene.view?.addSubview(scene.sliderFriction!)
     scene.arrayOfLabelFriction.append(scene.labelFriction!)
     scene.view?.addSubview(scene.labelFriction!)
-
+    
+    scene.viewController.EnableDeletionButtonAt(position: CGPoint(x: 50, y: 50))
 }
 
 }
