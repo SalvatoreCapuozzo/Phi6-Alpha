@@ -494,6 +494,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
             scene.gravity = true
             gravityButton.setBackgroundImage(UIImage(named: "falling"), for: UIControlState(rawValue: 0))
         }
+        
+        scene.deleteSliders()
     }
     
     
