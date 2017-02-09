@@ -184,6 +184,11 @@ class Adder{
         
         let jointLever = SKPhysicsJointPin.joint(withBodyA: rectangle.physicsBody!, bodyB: circle.physicsBody!, anchor: rectangle.position)
         scene.physicsWorld.add(jointLever)
+        
+        /*let lever = Lever(location: position)
+        lever.JoinLeverParts(scene: scene)
+        Singleton.shared.addNewObject(anObject: lever)
+        scene.addChild(lever)*/
     }
     
     func addPendulum(scene: GameScene) {

@@ -41,6 +41,8 @@ class MainViewController: UIViewController {
         do  {
             try audioPlayer = AVAudioPlayer(contentsOf: audioFileUrl as URL)
             try buttonPlayer = AVAudioPlayer(contentsOf: audioFileUrl2 as URL)
+            
+            audioPlayer.numberOfLoops = -1
         } catch {
             print("dio cane")
         }

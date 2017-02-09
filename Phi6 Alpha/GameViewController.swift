@@ -147,6 +147,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         do  {
            try audioPlayer = AVAudioPlayer(contentsOf: audioFileUrl as URL)
             try backPlayer = AVAudioPlayer(contentsOf: audioFileUrl3 as URL)
+            
+            audioPlayer.numberOfLoops = -1
 
         } catch {
             print("dio cane")
