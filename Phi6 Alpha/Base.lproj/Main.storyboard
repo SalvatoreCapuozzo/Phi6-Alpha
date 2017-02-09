@@ -149,7 +149,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hiw-CJ-c2U">
+                            <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hiw-CJ-c2U">
                                 <rect key="frame" x="6" y="269" width="51" height="31"/>
                                 <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -209,6 +209,14 @@
                                     <action selector="showInfo:" destination="BV1-FR-VrT" eventType="touchUpInside" id="mQb-o3-bit"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncK-Rk-Y1R">
+                                <rect key="frame" x="192" y="188" width="33" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="DeletionIcon"/>
+                                <connections>
+                                    <action selector="DeleteObjectFromGameSceneWithSender:" destination="BV1-FR-VrT" eventType="touchUpInside" id="iKx-xs-UMW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -236,6 +244,7 @@
                     <connections>
                         <outlet property="blockNotes" destination="jRI-ma-Xwp" id="1E4-Qf-pgv"/>
                         <outlet property="deleteSwitch" destination="hiw-CJ-c2U" id="4vs-CK-rXM"/>
+                        <outlet property="deletionButton" destination="ncK-Rk-Y1R" id="M1z-CT-0Bm"/>
                         <outlet property="diameterLabel" destination="BGv-Fk-UL6" id="Jr8-Im-Udo"/>
                         <outlet property="diameterSlider" destination="5Lc-4L-BMh" id="bNW-od-3RJ"/>
                         <outlet property="excerciseTextView" destination="Zui-TD-0FH" id="TIi-7S-ooM"/>
@@ -249,7 +258,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-833" y="1974"/>
+            <point key="canvasLocation" x="-833.43328335832086" y="1973.5999999999999"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="5Se-Rh-HyU">
@@ -276,7 +285,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="SDx-0V-crU" secondAttribute="height" multiplier="43:12" id="eKM-OR-qPh"/>
                                 </constraints>
-                                <state key="normal" image="Arcade"/>
+                                <state key="normal" image="ARCADE"/>
                                 <connections>
                                     <action selector="arcadePressed:" destination="wgD-cz-GGm" eventType="touchUpInside" id="lDc-jy-neL"/>
                                     <segue destination="K7w-WI-y4X" kind="presentation" identifier="arcade" id="QKA-WW-eJm"/>
@@ -287,7 +296,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Cq1-nc-fuk" secondAttribute="height" multiplier="92:25" id="LFf-6Q-uzC"/>
                                 </constraints>
-                                <state key="normal" image="Sandbox"/>
+                                <state key="normal" image="SANDBOX"/>
                                 <connections>
                                     <action selector="sandboxPressed:" destination="wgD-cz-GGm" eventType="touchUpInside" id="DZy-xa-MOy"/>
                                     <segue destination="BV1-FR-VrT" kind="presentation" identifier="sandbox" id="cWG-ga-9hn"/>
@@ -299,7 +308,7 @@
                                     <constraint firstAttribute="height" constant="26" id="5UC-U8-QzL"/>
                                     <constraint firstAttribute="width" constant="86" id="ITN-QK-WrM"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="Learning"/>
+                                <state key="normal" title="Button" image="LEARNING"/>
                                 <connections>
                                     <action selector="learningPressed:" destination="wgD-cz-GGm" eventType="touchUpInside" id="2Ea-rV-SF2"/>
                                     <segue destination="K7w-WI-y4X" kind="presentation" identifier="learning" id="eal-7s-mY9"/>
@@ -752,14 +761,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Arcade" width="71" height="26"/>
+        <image name="ARCADE" width="71" height="26"/>
         <image name="Background_Main_Menu" width="667" height="375"/>
+        <image name="DeletionIcon" width="512" height="512"/>
         <image name="Group" width="54" height="238"/>
         <image name="ITNH Logo" width="504" height="504"/>
-        <image name="Learning" width="86" height="25"/>
+        <image name="LEARNING" width="86" height="25"/>
         <image name="Line" width="521" height="15"/>
         <image name="Oval 5" width="25" height="25"/>
-        <image name="Sandbox" width="87" height="26"/>
+        <image name="SANDBOX" width="87" height="26"/>
         <image name="arcade3d" width="200" height="200"/>
         <image name="falling" width="422" height="578"/>
         <image name="information" width="621" height="591"/>

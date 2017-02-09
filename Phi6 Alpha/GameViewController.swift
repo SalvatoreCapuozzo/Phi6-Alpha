@@ -35,6 +35,7 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     
     @IBOutlet weak var showSolutionButton: UIButton!
     
+    @IBOutlet weak var deletionButton: UIButton!
     
     var backPlayer = AVAudioPlayer()
     var selectedNode: SKSpriteNode!
@@ -88,7 +89,31 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     "Pendulum Dark"
     ]
     
+    func EnableDeletionButtonAt(position: CGPoint)
+    {
+        deletionButton.frame.origin = position
+        deletionButton.isEnabled = true
+        deletionButton.isHidden = false
+    }
     
+    func DisableDeletionButton()
+    {
+        deletionButton.isEnabled = false
+        deletionButton.isHidden = true
+    }
+    
+    @IBAction func DeleteObjectFromGameScene(sender: UIButton)
+    {
+        let objID = Singleton.shared.lastSelectedObject
+        
+        if objID != -1
+        {
+            Singleton.shared.DeleteObjectAt(index: objID, scene: self.scene)
+            Singleton.shared.lastSelectedObject = -1
+            DisableDeletionButton()
+            scene.deleteSliders()
+        }
+    }
     
     override func viewDidLoad() {
 
@@ -122,6 +147,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         do  {
            try audioPlayer = AVAudioPlayer(contentsOf: audioFileUrl as URL)
             try backPlayer = AVAudioPlayer(contentsOf: audioFileUrl3 as URL)
+            
+            audioPlayer.numberOfLoops = -1
 
         } catch {
             print("dio cane")
@@ -148,11 +175,11 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
             
             view.ignoresSiblingOrder = true
             
-            view.showsFPS = true
-            view.showsNodeCount = true
+            //view.showsFPS = true
+            //view.showsNodeCount = true
             
-            view.showsPhysics = true
-            view.showsFields = true
+            //view.showsPhysics = true
+            //view.showsFields = true
         }
         if (selectedNode) != nil {
             selectedNode = scene.selectedNode
@@ -467,6 +494,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
             scene.gravity = true
             gravityButton.setBackgroundImage(UIImage(named: "falling"), for: UIControlState(rawValue: 0))
         }
+        
+        scene.deleteSliders()
     }
     
     

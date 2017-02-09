@@ -209,9 +209,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                 phisphere.position = touchLocation
                                 adder.addInitSlider(scene: self)
                                 myNode = sprite
-                            } else {
+                            }
+                            else if sprite.name == "background"
+                            {
+                                deleteSliders()
+                            }
+                            else {
                                 for object in Singleton.shared.objects {
                                     if sprite == object {
+                                        Singleton.shared.lastSelectedObject = Singleton.shared.GetObjectIndex(object: sprite)!
                                         if !deleteMode {
                                             if object.name == "chronometer" {
                                                 deleteSliders()
@@ -255,17 +261,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                                 let jointPendulum = SKPhysicsJointLimit.joint(withBodyA: object.physicsBody!, bodyB: (scene?.physicsBody!)!, anchorA: object.position, anchorB: CGPoint(x: object.position.x, y: object.position.y + (pendulum?.length)!))
                                                 scene?.physicsWorld.add(jointPendulum)
                                             }
-                                            else if object.name == "background"{
-                                                deleteSliders() // Controlla qui
-                                            }
                                             object.position = touchLocation
                                             selectedNode = object
                                             
                                             adder.addSlider(node: object, scene: self)
                                             myNode = object
-                                        } else {
-                                            self.removeChildren(in: [object])
-                                            shapeLayerRope.removeFromSuperlayer()
                                         }
                                     }
                                 }
@@ -593,6 +593,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func deleteSliders(){
+        self.viewController.DisableDeletionButton()
         
         if arrayOfSlider.count >= 0{
             for slider in arrayOfSlider{

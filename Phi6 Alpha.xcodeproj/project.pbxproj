@@ -13,6 +13,7 @@
 		3084EA041E487A0E0064C869 /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084EA031E487A0E0064C869 /* LevelViewController.swift */; };
 		3093494D1E449B920006F622 /* Arrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3093494C1E449B920006F622 /* Arrow.swift */; };
 		30AB47C61E49D90400671FA0 /* TheoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB47C51E49D90400671FA0 /* TheoryViewController.swift */; };
+		3F5DAC2C1E4CD2EA00AE47D1 /* Lever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5DAC2B1E4CD2EA00AE47D1 /* Lever.swift */; };
 		5A00DAD41E48C16B00F13164 /* Adder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00DAD31E48C16B00F13164 /* Adder.swift */; };
 		5A2F7E041E4BD06900FEDC4A /* Excercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2F7E031E4BD06900FEDC4A /* Excercise.swift */; };
 		5A4A66721E4B60F600C137B8 /* CategoryLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A66711E4B60F600C137B8 /* CategoryLesson.swift */; };
@@ -80,6 +81,7 @@
 		3084EA031E487A0E0064C869 /* LevelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
 		3093494C1E449B920006F622 /* Arrow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arrow.swift; sourceTree = "<group>"; };
 		30AB47C51E49D90400671FA0 /* TheoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheoryViewController.swift; sourceTree = "<group>"; };
+		3F5DAC2B1E4CD2EA00AE47D1 /* Lever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lever.swift; sourceTree = "<group>"; };
 		5A00DAD31E48C16B00F13164 /* Adder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Adder.swift; sourceTree = "<group>"; };
 		5A2F7E031E4BD06900FEDC4A /* Excercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Excercise.swift; sourceTree = "<group>"; };
 		5A4A66711E4B60F600C137B8 /* CategoryLesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryLesson.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 		8731F2AF1E40D649002C5253 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3F5DAC2B1E4CD2EA00AE47D1 /* Lever.swift */,
 				8731F2B51E40D6FE002C5253 /* GameObject.swift */,
 				87283AB81E4331DE00FDEE95 /* GameObjectNode.swift */,
 				3093494C1E449B920006F622 /* Arrow.swift */,
@@ -491,6 +494,7 @@
 				8731F2C81E40D6FE002C5253 /* LoadCell.swift in Sources */,
 				8731F2CC1E40D6FE002C5253 /* PhotoCell.swift in Sources */,
 				5A4A66741E4B615700C137B8 /* LessonViewController.swift in Sources */,
+				3F5DAC2C1E4CD2EA00AE47D1 /* Lever.swift in Sources */,
 				8715F5FC1E36510F001E2DEA /* Singleton.swift in Sources */,
 				87283ABD1E43325100FDEE95 /* Obstacle.swift in Sources */,
 				87DC851D1E34BA4B0068555D /* GameScene.swift in Sources */,
