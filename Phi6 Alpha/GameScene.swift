@@ -501,15 +501,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if object.name == "pendulum" {
                     object.physicsBody?.affectedByGravity = true
                     let pendulum = object as? Pendulum
-                    let startRope = CGPoint(x: pendulum!.position.x + self.frame.maxX, y: -pendulum!.position.y + self.frame.maxY /*- pendulum!.size.height/2*/)
-                    let endRope = pendulumFulcrum! // Controlla qui
-                    let pathRope = UIBezierPath.arrow(from: startRope, to: endRope,
-                                                      tailWidth: 0.5, headWidth: 0.5, headLength: 5.0)
                     shapeLayerRope.removeFromSuperlayer()
-                    shapeLayerRope.path = pathRope.cgPath
-                    shapeLayerRope.strokeColor = UIColor(colorLiteralRed: 103/255, green: 165/255, blue: 242/255, alpha: 1).cgColor
-                    shapeLayerRope.lineWidth = 0.5
-                    self.view?.layer.addSublayer(shapeLayerRope)
+                    if let fulcrum = pendulumFulcrum {
+                        let startRope = CGPoint(x: pendulum!.position.x + self.frame.maxX, y: -pendulum!.position.y + self.frame.maxY /*- pendulum!.size.height/2*/)
+                        let endRope = fulcrum // Controlla qui
+                        let pathRope = UIBezierPath.arrow(from: startRope, to: endRope,
+                                                          tailWidth: 0.5, headWidth: 0.5, headLength: 5.0)
+                        shapeLayerRope.path = pathRope.cgPath
+                        shapeLayerRope.strokeColor = UIColor(colorLiteralRed: 103/255, green: 165/255, blue: 242/255, alpha: 1).cgColor
+                        shapeLayerRope.lineWidth = 0.5
+                        self.view?.layer.addSublayer(shapeLayerRope)
+                    }
                 }
             }
         }

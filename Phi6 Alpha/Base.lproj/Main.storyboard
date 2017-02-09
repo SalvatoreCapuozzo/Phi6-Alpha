@@ -286,7 +286,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Cq1-nc-fuk" secondAttribute="height" multiplier="92:25" id="LFf-6Q-uzC"/>
                                 </constraints>
-                                <state key="normal" image="SANDBOX"/>
+                                <state key="normal" image="Sandbox"/>
                                 <connections>
                                     <segue destination="BV1-FR-VrT" kind="presentation" identifier="sandbox" id="cWG-ga-9hn"/>
                                 </connections>
@@ -297,7 +297,7 @@
                                     <constraint firstAttribute="height" constant="26" id="5UC-U8-QzL"/>
                                     <constraint firstAttribute="width" constant="86" id="ITN-QK-WrM"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="LEARNING"/>
+                                <state key="normal" title="Button" image="Learning"/>
                                 <connections>
                                     <segue destination="K7w-WI-y4X" kind="presentation" identifier="learning" id="eal-7s-mY9"/>
                                 </connections>
@@ -753,10 +753,10 @@
         <image name="Background_Main_Menu" width="667" height="375"/>
         <image name="Group" width="54" height="238"/>
         <image name="ITNH Logo" width="504" height="504"/>
-        <image name="LEARNING" width="86" height="25"/>
+        <image name="Learning" width="86" height="25"/>
         <image name="Line" width="521" height="15"/>
         <image name="Oval 5" width="25" height="25"/>
-        <image name="SANDBOX" width="87" height="26"/>
+        <image name="Sandbox" width="87" height="26"/>
         <image name="arcade3d" width="200" height="200"/>
         <image name="falling" width="422" height="578"/>
         <image name="information" width="621" height="591"/>
