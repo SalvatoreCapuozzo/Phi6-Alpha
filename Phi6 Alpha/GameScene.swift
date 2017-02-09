@@ -880,9 +880,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         myLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
         myLabel.layer.position = CGPoint(x: object.position.x + (self.frame.size.width / 2) + 30, y: -object.position.y + (self.frame.size.height / 2) - 15)
         myLabel.textColor! = UIColor.green
-        myLabel?.text = String(describing: round(object.value*10)/10)
+        myLabel?.text = String(describing: round((object.value/145)*10)/10)
         if myLabel.text != nil {
-            myLabel.text! = String(describing: round(object.value*10)/10)
+            myLabel.text! = String(describing: round((object.value/145)*10)/10)
         }
         myLabel.font = UIFont(name: "AmericanTypewriter-Light", size: 10)
         
