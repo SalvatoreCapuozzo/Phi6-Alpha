@@ -521,6 +521,18 @@
                                 <rect key="frame" x="308" y="70" width="50" height="204"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sandbox3d" translatesAutoresizingMaskIntoConstraints="NO" id="qNJ-Xi-a5O">
+                                <rect key="frame" x="309" y="276" width="46" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="learning-1" translatesAutoresizingMaskIntoConstraints="NO" id="x6i-UK-6ij">
+                                <rect key="frame" x="571" y="276" width="46" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arcade3d" translatesAutoresizingMaskIntoConstraints="NO" id="YEB-dS-WRc">
+                                <rect key="frame" x="43" y="276" width="46" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -954,14 +966,17 @@
         <image name="Rectangle" width="278" height="278"/>
         <image name="SANDBOX" width="87" height="26"/>
         <image name="SpeedCamera" width="50" height="50"/>
+        <image name="arcade3d" width="200" height="200"/>
         <image name="gravity" width="256" height="256"/>
+        <image name="learning-1" width="600" height="494"/>
         <image name="levelchoice" width="66" height="66"/>
         <image name="mainBackground" width="667" height="375"/>
         <image name="playbutton" width="277" height="271"/>
         <image name="returns--icon-30696" width="76" height="88"/>
+        <image name="sandbox3d" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eal-7s-mY9"/>
-        <segue reference="ugL-1C-1WA"/>
+        <segue reference="cWG-ga-9hn"/>
     </inferredMetricsTieBreakers>
 </document>
