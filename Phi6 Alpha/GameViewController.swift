@@ -84,7 +84,7 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     "Load Cell (V) Dark",
     "Chronometer Dark",
     "Laser Rangefinder (H) Dark",
-    "Laser Accelerometer (H) Dark",
+    "Laser Accelerometer (V) Dark",
     "Lever Dark",
     "Pendulum Dark"
     ]
@@ -108,10 +108,27 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         
         if objID != -1
         {
-            Singleton.shared.DeleteObjectAt(index: objID, scene: self.scene)
-            Singleton.shared.lastSelectedObject = -1
-            DisableDeletionButton()
-            scene.deleteSliders()
+            if Singleton.shared.GetObjectAt(index: objID)?.name! == "fulcrum" {
+                Singleton.shared.DeleteObjectAt(index: objID + 1, scene: self.scene)
+                Singleton.shared.DeleteObjectAt(index: objID, scene: self.scene)
+                Singleton.shared.lastSelectedObject = -1
+                DisableDeletionButton()
+                scene.deleteSliders()
+            } else if Singleton.shared.GetObjectAt(index: objID)?.name! == "beam" {
+                print(Singleton.shared.lastSelectedObject)
+                print(Singleton.shared.objects)
+                Singleton.shared.DeleteObjectAt(index: objID - 1, scene: self.scene)
+                Singleton.shared.DeleteObjectAt(index: objID - 1, scene: self.scene)
+                Singleton.shared.lastSelectedObject = -1
+                DisableDeletionButton()
+                scene.deleteSliders()
+            } else {
+                Singleton.shared.DeleteObjectAt(index: objID, scene: self.scene)
+                Singleton.shared.lastSelectedObject = -1
+                DisableDeletionButton()
+                scene.deleteSliders()
+            }
+            
         }
     }
     
@@ -404,25 +421,25 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         var title = ""
         
         if arrayOfSensors[Int(index)] == "PhotoCellDefault" {
-            return "Movement Sensor"
+            return "Photo Cell\nDetects the passage of the Phisphere"
         } else if arrayOfSensors[Int(index)] == "Rectangle" {
-            title = "Editable rectangular block"
+            title = "Rectangular Block"
         } else if arrayOfSensors[Int(index)] == "Circle" {
-            title = "Circular block"
+            title = "Circular Block"
         } else if arrayOfSensors[Int(index)] == "SpeedCamera" {
-            title = "Measure instant velocity of the PhiSphere"
+            title = "Speed Camera\nMeasures instant velocity of the PhiSphere"
         } else if arrayOfSensors[Int(index)] == "Chronometer" {
-            title = "Measure time"
+            title = "Chronometer\nMeasures time until another sensor is activated"
         } else if arrayOfSensors[Int(index)] == "LaserRangefinder(H)" {
-            title = "Measures distance between the PhiSphere and this sensor"
+            title = "Rangefinder\nMeasures x-axis distance from the PhiSphere"
         } else if arrayOfSensors[Int(index)] == "LaserAccelerometer(V)" {
-            title = "Measures acceleration of the PhiSphere"
+            title = "Laser Accelerometer\nMeasures acceleration of the PhiSphere"
         } else if arrayOfSensors[Int(index)] == "Pendulum" {
             title = "Pendulum"
         } else if arrayOfSensors[Int(index)] == "Lever" {
             title = "Simple Lever"
         } else if arrayOfSensors[Int(index)] == "LoadCell" {
-            title = "Measure force delivered by the PhiSphere"
+            title = "Load Cell\nMeasures force delivered by the PhiSphere"
         }
         
         return title

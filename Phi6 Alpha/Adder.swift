@@ -170,6 +170,7 @@ class Adder{
     }
     
     func addLever(scene: GameScene) {
+        
         scene.deleteSliders()
         let position = Singleton.shared.getPosition()
         let circle = Fulcrum.circle(location: position)
@@ -184,7 +185,18 @@ class Adder{
         
         let jointLever = SKPhysicsJointPin.joint(withBodyA: rectangle.physicsBody!, bodyB: circle.physicsBody!, anchor: rectangle.position)
         scene.physicsWorld.add(jointLever)
-        
+ 
+        /*
+        let position = Singleton.shared.getPosition()
+        let lever = LeverClass(scene: scene, location: position)
+        scene.addChild(lever.leverBeam)
+        scene.addChild(lever.leverFulcrum)
+        lever.leverFulcrum.physicsBody?.isDynamic = false
+        scene.physicsWorld.add(lever.jointLever)
+        Singleton.shared.addNewObject(anObject: lever)
+        scene.addChild(lever)
+        print("List: \(Singleton.shared.objects)")
+        */
         /*let lever = Lever(location: position)
         lever.JoinLeverParts(scene: scene)
         Singleton.shared.addNewObject(anObject: lever)
@@ -295,7 +307,7 @@ func addInitSlider(scene: GameScene) {
     scene.view?.addSubview(scene.labelInitV)
     
     // Set Acceleration Text Field
-    if scene.gravity
+    if !scene.gravity
     {
         scene.sliderInitA = UISlider(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
         scene.sliderInitA.setThumbImage(UIImage(named: "SliderThumb.png"), for: .normal)
@@ -382,7 +394,8 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
         scene.sliderRotationLine?.layer.masksToBounds = false
         scene.sliderRotationLine?.maximumValue = 180
         scene.sliderRotationLine?.minimumValue = -180
-        scene.sliderRotationLine?.value = Float(node.zRotation)
+        scene.sliderRotationLine?.value = -Float(node.zRotation*360)/(2*Float(M_PI))
+            print(Float(node.zRotation))
         
         // Set Friction Slider
         scene.sliderFriction = UISlider(frame: CGRect(x: 0, y: 0, width: 100, height: 50))

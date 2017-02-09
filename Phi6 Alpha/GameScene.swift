@@ -260,6 +260,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                                 self.pendulumFulcrum = CGPoint(x: pendulum!.position.x + self.frame.maxX, y: -pendulum!.position.y + self.frame.maxY - 145)
                                                 let jointPendulum = SKPhysicsJointLimit.joint(withBodyA: object.physicsBody!, bodyB: (scene?.physicsBody!)!, anchorA: object.position, anchorB: CGPoint(x: object.position.x, y: object.position.y + (pendulum?.length)!))
                                                 scene?.physicsWorld.add(jointPendulum)
+                                            } else if object.name == "fulcrum" {
+                                                object.position = touchLocation
+                                                let index = (Singleton.shared.GetObjectIndex(object: object))!
+                                                let beam = Singleton.shared.GetObjectAt(index: index + 1)
+                                                beam?.position = touchLocation
+                                            } else if object.name == "beam" {
+                                                object.position = touchLocation
+                                                let index = (Singleton.shared.GetObjectIndex(object: object))!
+                                                let fulcrum = Singleton.shared.GetObjectAt(index: index - 1)
+                                                fulcrum?.position = touchLocation
                                             }
                                             object.position = touchLocation
                                             selectedNode = object
@@ -326,6 +336,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                             self.pendulumFulcrum = endRope
                                             let jointPendulum = SKPhysicsJointLimit.joint(withBodyA: object.physicsBody!, bodyB: (scene?.physicsBody!)!, anchorA: object.position, anchorB: CGPoint(x: object.position.x, y: object.position.y + (pendulum?.length)!))
                                             scene?.physicsWorld.add(jointPendulum)
+                                        } else if object.name == "fulcrum" {
+                                            object.position = touchLocation
+                                            let index = (Singleton.shared.GetObjectIndex(object: object))!
+                                            let beam = Singleton.shared.GetObjectAt(index: index + 1)
+                                            /*
+                                            let jointLever = SKPhysicsJointPin.joint(withBodyA: object.physicsBody!, bodyB: (beam?.physicsBody!)!, anchor: object.position)
+                                            self.physicsWorld.add(jointLever)
+ */
+                                            beam?.position = touchLocation
+                                        } else if object.name == "beam" {
+                                            object.position = touchLocation
+                                            let index = (Singleton.shared.GetObjectIndex(object: object))!
+                                            let fulcrum = Singleton.shared.GetObjectAt(index: index - 1)
+                                            fulcrum?.position = touchLocation
                                         }
                                         object.position = touchLocation
                                         selectedNode = object
@@ -365,16 +389,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(_ currentTime: TimeInterval) {
         if !pause {
             if sliderInitV != nil {
-                if sliderInitA.value == 0 {
+                if !gravity {
+                    if sliderInitA.value == 0 {
+                        if counter < 0.2 {
+                            phisphere.physicsBody?.velocity.dx = CGFloat(Float(sliderInitV.value))
+                            print("Initial velocity: \((phisphere.physicsBody?.velocity.dx)!/145)")
+                        }
+                    } else if sliderInitV.value == 0 {
+                        phisphere.physicsBody?.velocity.dx = CGFloat(sliderInitA.value) * CGFloat(counter)
+                        print(counter)
+                    } else {
+                        sliderInitA.value = 0
+                        labelInitA.text! = String(describing: 0)
+                    }
+                } else {
                     if counter < 0.2 {
                         phisphere.physicsBody?.velocity.dx = CGFloat(Float(sliderInitV.value))
                         print("Initial velocity: \((phisphere.physicsBody?.velocity.dx)!/145)")
                     }
-                } else if sliderInitV.value == 0 {
-                    phisphere.physicsBody?.velocity.dx = CGFloat(sliderInitA.value) * CGFloat(counter)
-                    print(counter)
-                } else {
-                    sliderInitA.value = 0
                 }
             }
             
@@ -390,7 +422,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             for object in Singleton.shared.objects {
                 if object.name == "pendulum" {
-                    object.physicsBody?.affectedByGravity = true
+                    if gravity {
+                        object.physicsBody?.affectedByGravity = true
+                    } else {
+                        object.physicsBody?.affectedByGravity = false
+                    }
                     let pendulum = object as? Pendulum
                     let startRope = CGPoint(x: pendulum!.position.x + self.frame.maxX, y: -pendulum!.position.y + self.frame.maxY /*- pendulum!.size.height/2*/)
                     let endRope = pendulumFulcrum!
@@ -402,7 +438,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     shapeLayerRope.lineWidth = 0.5
                     self.view?.layer.addSublayer(shapeLayerRope)
                 } else if object.name! == "beam" {
-                    object.physicsBody?.affectedByGravity = true
+                    if gravity {
+                        object.physicsBody?.affectedByGravity = true
+                    } else {
+                        object.physicsBody?.affectedByGravity = false
+                    }
                 } else {
                     object.physicsBody?.affectedByGravity = false
                     if object.name == "sensor" {
