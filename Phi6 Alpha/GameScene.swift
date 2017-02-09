@@ -196,9 +196,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if let touch = touches.first {
                 let touchLocation = touch.location(in: self)
                 let touchedWhere = nodes(at: touchLocation)
+                let firstNode = touchedWhere.first!
                 
                 if !touchedWhere.isEmpty {
-                    for node in touchedWhere {
+                    for node in [firstNode] {
                         print(touchedWhere)
                         Singleton.shared.setPosition(position: touchLocation)
                         print(node.name!)
@@ -254,6 +255,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                                 let jointPendulum = SKPhysicsJointLimit.joint(withBodyA: object.physicsBody!, bodyB: (scene?.physicsBody!)!, anchorA: object.position, anchorB: CGPoint(x: object.position.x, y: object.position.y + (pendulum?.length)!))
                                                 scene?.physicsWorld.add(jointPendulum)
                                             }
+                                            else if object.name == "background"{
+                                                deleteSliders() // Controlla qui
+                                            }
                                             object.position = touchLocation
                                             selectedNode = object
                                             
@@ -278,9 +282,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if let touch = touches.first {
                 let touchLocation = touch.location(in: self)
                 let touchedWhere = nodes(at: touchLocation)
+                let firstNode = touchedWhere.first!
                 
                 if !touchedWhere.isEmpty {
-                    for node in touchedWhere {
+                    for node in [firstNode] {
                         if let sprite = node as? SKSpriteNode {
                             if sprite == phisphere {
                                 phisphere.position = touchLocation
@@ -315,7 +320,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                                                               tailWidth: 0.5, headWidth: 0.5, headLength: 5.0)
                                             shapeLayerRope.removeFromSuperlayer()
                                             shapeLayerRope.path = pathRope.cgPath
-                                            shapeLayerRope.strokeColor = UIColor.black.cgColor
+                                            shapeLayerRope.strokeColor = UIColor(colorLiteralRed: 103/255, green: 165/255, blue: 242/255, alpha: 1).cgColor
                                             shapeLayerRope.lineWidth = 0.5
                                             self.view?.layer.addSublayer(shapeLayerRope)
                                             self.pendulumFulcrum = endRope
@@ -393,7 +398,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                                       tailWidth: 0.5, headWidth: 0.5, headLength: 5.0)
                     shapeLayerRope.removeFromSuperlayer()
                     shapeLayerRope.path = pathRope.cgPath
-                    shapeLayerRope.strokeColor = UIColor.black.cgColor
+                    shapeLayerRope.strokeColor = UIColor(colorLiteralRed: 103/255, green: 165/255, blue: 242/255, alpha: 1).cgColor
                     shapeLayerRope.lineWidth = 0.5
                     self.view?.layer.addSublayer(shapeLayerRope)
                 } else if object.name! == "beam" {
@@ -497,12 +502,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     object.physicsBody?.affectedByGravity = true
                     let pendulum = object as? Pendulum
                     let startRope = CGPoint(x: pendulum!.position.x + self.frame.maxX, y: -pendulum!.position.y + self.frame.maxY /*- pendulum!.size.height/2*/)
-                    let endRope = pendulumFulcrum!
+                    let endRope = pendulumFulcrum! // Controlla qui
                     let pathRope = UIBezierPath.arrow(from: startRope, to: endRope,
                                                       tailWidth: 0.5, headWidth: 0.5, headLength: 5.0)
                     shapeLayerRope.removeFromSuperlayer()
                     shapeLayerRope.path = pathRope.cgPath
-                    shapeLayerRope.strokeColor = UIColor.black.cgColor
+                    shapeLayerRope.strokeColor = UIColor(colorLiteralRed: 103/255, green: 165/255, blue: 242/255, alpha: 1).cgColor
                     shapeLayerRope.lineWidth = 0.5
                     self.view?.layer.addSublayer(shapeLayerRope)
                 }

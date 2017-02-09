@@ -209,7 +209,7 @@ class Adder{
                                           tailWidth: 0.5, headWidth: 0.5, headLength: 5.0)
         scene.pendulumFulcrum = endRope
         scene.shapeLayerRope.path = pathRope.cgPath
-        scene.shapeLayerRope.strokeColor = UIColor.black.cgColor
+        scene.shapeLayerRope.strokeColor = UIColor(colorLiteralRed: 103/255, green: 165/255, blue: 242/255, alpha: 1).cgColor
         scene.shapeLayerRope.lineWidth = 0.5
         scene.view?.layer.addSublayer(scene.shapeLayerRope)
         
