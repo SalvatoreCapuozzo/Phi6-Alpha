@@ -320,17 +320,19 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         } else if arrayOfSensors[Int(index)] == "Circle" {
             title = "Circular block"
         } else if arrayOfSensors[Int(index)] == "SpeedCamera" {
-            title = "Measure speed with this camera"
+            title = "Measure instant velocity of the PhiSphere"
         } else if arrayOfSensors[Int(index)] == "Chronometer" {
-            title = "Measure time with this chronometer"
+            title = "Measure time"
         } else if arrayOfSensors[Int(index)] == "LaserRangefinder(H)" {
-            title = "Measures instant velocity of the PhiSphere"
-        } else if arrayOfSensors[Int(index)] == "LaserAccelerometer(H)" {
+            title = "Measures distance between the PhiSphere and this sensor"
+        } else if arrayOfSensors[Int(index)] == "LaserAccelerometer(V)" {
             title = "Measures acceleration of the PhiSphere"
         } else if arrayOfSensors[Int(index)] == "Pendulum" {
             title = "Pendulum"
         } else if arrayOfSensors[Int(index)] == "Lever" {
             title = "Simple Lever"
+        } else if arrayOfSensors[Int(index)] == "LoadCell" {
+            title = "Measure force delivered by the PhiSphere"
         }
         
         return title
