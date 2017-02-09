@@ -108,7 +108,7 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         self.excerciseTextView.layer.borderWidth = 1.5
         self.excerciseTextView.layer.borderColor = UIColor.black.cgColor
         
-        var path = Bundle.main.path(forResource: "Bag Raiders - Shooting Stars", ofType: "mp3")
+        var path = Bundle.main.path(forResource: "cutted", ofType: "mp3")
         var audioFileUrl = NSURL(fileURLWithPath: path!)
         
         do  {

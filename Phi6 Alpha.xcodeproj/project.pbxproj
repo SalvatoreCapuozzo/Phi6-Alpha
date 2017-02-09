@@ -21,6 +21,7 @@
 		8167535D1E4C9E37002219DE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8167535C1E4C9E37002219DE /* AVFoundation.framework */; };
 		8167535F1E4C9EC8002219DE /* Bag Raiders - Shooting Stars.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8167535E1E4C9EC8002219DE /* Bag Raiders - Shooting Stars.mp3 */; };
 		81982EFB1E4CA86F00E592F5 /* Crypt of the Necrodancer OST - Portabellohead (2-3).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81982EFA1E4CA86F00E592F5 /* Crypt of the Necrodancer OST - Portabellohead (2-3).mp3 */; };
+		81982EFD1E4CB0CA00E592F5 /* cutted.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81982EFC1E4CB0CA00E592F5 /* cutted.mp3 */; };
 		8715F5FC1E36510F001E2DEA /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715F5FB1E36510F001E2DEA /* Singleton.swift */; };
 		8715F6081E368279001E2DEA /* ObjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715F6071E368279001E2DEA /* ObjectTableViewCell.swift */; };
 		8715F60A1E36828A001E2DEA /* ObjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715F6091E36828A001E2DEA /* ObjectTableViewController.swift */; };
@@ -85,6 +86,7 @@
 		8167535C1E4C9E37002219DE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8167535E1E4C9EC8002219DE /* Bag Raiders - Shooting Stars.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Bag Raiders - Shooting Stars.mp3"; sourceTree = "<group>"; };
 		81982EFA1E4CA86F00E592F5 /* Crypt of the Necrodancer OST - Portabellohead (2-3).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Crypt of the Necrodancer OST - Portabellohead (2-3).mp3"; sourceTree = "<group>"; };
+		81982EFC1E4CB0CA00E592F5 /* cutted.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cutted.mp3; sourceTree = "<group>"; };
 		8715F5FB1E36510F001E2DEA /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		8715F6071E368279001E2DEA /* ObjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectTableViewCell.swift; sourceTree = "<group>"; };
 		8715F6091E36828A001E2DEA /* ObjectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectTableViewController.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				87DC85231E34BA4B0068555D /* Assets.xcassets */,
 				8167535E1E4C9EC8002219DE /* Bag Raiders - Shooting Stars.mp3 */,
 				81982EFA1E4CA86F00E592F5 /* Crypt of the Necrodancer OST - Portabellohead (2-3).mp3 */,
+				81982EFC1E4CB0CA00E592F5 /* cutted.mp3 */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				8731F2E91E40E209002C5253 /* Info-tvOS.plist in Resources */,
 				87DC85221E34BA4B0068555D /* Main.storyboard in Resources */,
 				8731F2F01E40E2D1002C5253 /* LICENSE in Resources */,
+				81982EFD1E4CB0CA00E592F5 /* cutted.mp3 in Resources */,
 				301045851E4B355500D27A48 /* SourceSansPro-Light.ttf in Resources */,
 				301045841E4B355500D27A48 /* SourceSansPro-ExtraLight.ttf in Resources */,
 				87DC85191E34BA4B0068555D /* GameScene.sks in Resources */,
