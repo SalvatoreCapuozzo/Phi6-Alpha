@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MainViewController: UIViewController {
     
@@ -17,9 +18,9 @@ class MainViewController: UIViewController {
     let learning = "learning"
     let sandbox = "sandbox"
     //let learning = "learning"
-    
+    var audioPlayer = AVAudioPlayer()
     var timer = Timer()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         var rotationPoint = pendulumBase.center // The point we are rotating around
@@ -31,6 +32,18 @@ class MainViewController: UIViewController {
         let width  = view.frame.width;
         let height = view.frame.height;
         
+        var path = Bundle.main.path(forResource: "Crypt of the Necrodancer OST - Portabellohead (2-3)", ofType: "mp3")
+        var audioFileUrl = NSURL(fileURLWithPath: path!)
+        
+        do  {
+            try audioPlayer = AVAudioPlayer(contentsOf: audioFileUrl as URL)
+        } catch {
+            print("dio cane")
+        }
+        
+        audioPlayer.play()
+
+        
         let anchorPoint =  CGPoint(x: (rotationPoint.x-minX)/width,
                                    y: (rotationPoint.y-minY)/height);
         
@@ -40,8 +53,15 @@ class MainViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         swing()
+        
+        if !audioPlayer.isPlaying {
+            audioPlayer.play()
+        }
     }
     
+
+    
+
     func swing() {
         UIView.animateAndChain(withDuration: 2, delay: 0, options: [.curveEaseInOut], animations: {
             self.pendulumGroup.transform = CGAffineTransform(rotationAngle: CGFloat.pi * (45/180))
@@ -85,6 +105,7 @@ class MainViewController: UIViewController {
                 let selectCategory = segue.destination as! GameViewController
                 selectCategory.mode = self.sandbox
                 print(selectCategory.mode ?? "niente")
+                audioPlayer.stop()
             default:
                 print("error")
         }

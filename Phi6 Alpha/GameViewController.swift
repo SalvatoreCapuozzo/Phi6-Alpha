@@ -98,7 +98,6 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         }
         
         
-        
         self.blockNotes.textColor = UIColor.lightGray
         self.blockNotes.delegate = self
         self.blockNotes.layer.cornerRadius = 10
@@ -507,6 +506,7 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     
     @IBAction func goBack(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+        
     }
     
     func showAlert(){
