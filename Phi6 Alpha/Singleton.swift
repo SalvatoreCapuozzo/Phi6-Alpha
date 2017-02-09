@@ -151,4 +151,14 @@ class Singleton: NSObject {
         return completeList[indexPath.row]
     }
     //var selectedPath = IndexPath()
+    
+    var position: CGPoint!
+    
+    func getPosition() -> CGPoint {
+        return self.position
+    }
+    
+    func setPosition(position: CGPoint) {
+        self.position = position
+    }
 }

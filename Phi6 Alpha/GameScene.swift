@@ -100,7 +100,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var viewController: GameViewController!
     var alertMessage: Any?
     var adder = Adder()
-    
+
     override func didMove(to view: SKView) {
         
         physicsWorld.contactDelegate = self
@@ -185,6 +185,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if !touchedWhere.isEmpty {
                     for node in touchedWhere {
                         print(touchedWhere)
+                        Singleton.shared.setPosition(position: touchLocation)
+                        print(node.name!)
                         if let sprite = node as? SKSpriteNode {
                             if sprite == phisphere {
                                 deleteSliders()
