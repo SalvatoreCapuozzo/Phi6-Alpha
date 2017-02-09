@@ -16,6 +16,7 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     
     @IBOutlet var topView: SKView?
     
+    @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
     var scene: GameScene!
     
@@ -248,6 +249,12 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         return true
     }
 
+    @IBAction func showInfo(_ sender: Any) {
+        let ac = UIAlertController(title: "Help", message: "Long press on the screen to insert objects!", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        ac.addAction(action)
+        self.present(ac, animated: true, completion: nil)
+    }
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
             return .landscape
@@ -300,6 +307,31 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         
         diameterLabel.text! = String(describing: round((scene.phisphere.size.width/145)*100)/100)
         
+    }
+    func contextualMenu(_ contextualMenu: BAMContextualMenu!, titleForMenuItemAt index: UInt) -> String! {
+        var title = ""
+        
+        if arrayOfSensors[Int(index)] == "PhotoCellDefault" {
+            return "Movement Sensor"
+        } else if arrayOfSensors[Int(index)] == "Rectangle" {
+            title = "Editable rectangular block"
+        } else if arrayOfSensors[Int(index)] == "Circle" {
+            title = "Circular block"
+        } else if arrayOfSensors[Int(index)] == "SpeedCamera" {
+            title = "Measure speed with this camera"
+        } else if arrayOfSensors[Int(index)] == "Chronometer" {
+            title = "Measure time with this chronometer"
+        } else if arrayOfSensors[Int(index)] == "LaserRangefinder(H)" {
+            title = "Measures instant velocity of the PhiSphere"
+        } else if arrayOfSensors[Int(index)] == "LaserAccelerometer(H)" {
+            title = "Measures acceleration of the PhiSphere"
+        } else if arrayOfSensors[Int(index)] == "Pendulum" {
+            title = "Pendulum"
+        } else if arrayOfSensors[Int(index)] == "Lever" {
+            title = "Simple Lever"
+        }
+        
+        return title
     }
     
     @IBAction func setMass() {
