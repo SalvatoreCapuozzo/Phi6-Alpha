@@ -8,11 +8,14 @@
 
 import UIKit
 import iCarousel
+import AVFoundation
 
 class CarusiellViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
 
     @IBOutlet weak var CategoryView: UIView!
     @IBOutlet weak var backButton: UIButton!
+    var buttonPlayer = AVAudioPlayer()
+    var backPlayer = AVAudioPlayer()
     var i = 0
     var selectedIndex : Int = 0
     @IBOutlet weak var pageControl: UIPageControl!
@@ -23,6 +26,12 @@ class CarusiellViewController: UIViewController, iCarouselDataSource, iCarouselD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var path2 = Bundle.main.path(forResource: "button-37", ofType: "mp3")
+        var audioFileUrl2 = NSURL(fileURLWithPath: path2!)
+        var path3 = Bundle.main.path(forResource:
+            "button-27", ofType: "mp3")
+        var audioFileUrl3 = NSURL(fileURLWithPath: path3!)
+
         let carousel = iCarousel(frame: CategoryView.frame)
         carousel.delegate = self
         carousel.dataSource = self
@@ -31,10 +40,18 @@ class CarusiellViewController: UIViewController, iCarouselDataSource, iCarouselD
         pageControl.numberOfPages = numberOfItems(in: carousel)
         carousel.bounceDistance = 0.3
         
+        do  {
+            try buttonPlayer = AVAudioPlayer(contentsOf: audioFileUrl2 as URL)
+            try backPlayer = AVAudioPlayer(contentsOf: audioFileUrl3 as URL)
+        } catch {
+            print("dio cane")
+        }
+
     }
     
     @IBAction func backPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+        backPlayer.play()
     }
     
     func numberOfItems(in carousel: iCarousel) -> Int {
@@ -67,6 +84,7 @@ class CarusiellViewController: UIViewController, iCarouselDataSource, iCarouselD
         } else if self.mode == "learning"{
             self.performSegue(withIdentifier: "showTheory", sender: carousel)
         }
+        buttonPlayer.play()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

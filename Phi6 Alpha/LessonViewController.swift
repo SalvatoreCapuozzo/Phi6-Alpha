@@ -8,13 +8,18 @@
 
 import UIKit
 import iCarousel
+import AVFoundation
 
 class LessonsViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
     
     @IBOutlet var CategoryView: UIView!
     @IBOutlet var backButton: UIButton!
     @IBOutlet var pageControl: UIPageControl!
+    var buttonPlayer = AVAudioPlayer()
+
     
+    var backPlayer = AVAudioPlayer()
+
     var mode: String?
     var category: Int?
     var lessonSelected: Int = 0
@@ -35,6 +40,20 @@ class LessonsViewController: UIViewController, iCarouselDataSource, iCarouselDel
         pageControl.numberOfPages = numberOfItems(in: carousel)
         carousel.bounceDistance = 0.3
         
+        var path3 = Bundle.main.path(forResource:
+            "button-27", ofType: "mp3")
+        var path2 = Bundle.main.path(forResource: "button-37", ofType: "mp3")
+        var audioFileUrl2 = NSURL(fileURLWithPath: path2!)
+
+        var audioFileUrl3 = NSURL(fileURLWithPath: path3!)
+        
+        do  {
+            try backPlayer = AVAudioPlayer(contentsOf: audioFileUrl3 as URL)
+            try buttonPlayer = AVAudioPlayer(contentsOf: audioFileUrl2 as URL)
+        } catch {
+            print("dio cane")
+        }
+        
         self.maxLessonNumbers = Lesson[self.category!].count
     }
     
@@ -46,7 +65,7 @@ class LessonsViewController: UIViewController, iCarouselDataSource, iCarouselDel
     @IBAction func backPressed(_ sender: Any) {
 
         self.dismiss(animated: true, completion: nil)
-
+        backPlayer.play()
     }
     
     func numberOfItems(in carousel: iCarousel) -> Int {
@@ -93,6 +112,8 @@ class LessonsViewController: UIViewController, iCarouselDataSource, iCarouselDel
             self.lessonSelected = index
             self.performSegue(withIdentifier: "loadLesson", sender: carousel)
         }
+        
+        buttonPlayer.play()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
