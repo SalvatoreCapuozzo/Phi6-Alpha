@@ -16,7 +16,7 @@ class CarusiellViewController: UIViewController, iCarouselDataSource, iCarouselD
     var i = 0
     var selectedIndex : Int = 0
     @IBOutlet weak var pageControl: UIPageControl!
-    let images = [#imageLiteral(resourceName: "Cinematic_Card"), #imageLiteral(resourceName: "Mechanics_Card"), #imageLiteral(resourceName: "Dynamic_Card")]
+    let images = [#imageLiteral(resourceName: "Cinematic_Card"), #imageLiteral(resourceName: "Dynamic_Card")]
     
     var mode: String?
     
@@ -38,7 +38,7 @@ class CarusiellViewController: UIViewController, iCarouselDataSource, iCarouselD
     }
     
     func numberOfItems(in carousel: iCarousel) -> Int {
-        return 3
+        return images.count
     }
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {

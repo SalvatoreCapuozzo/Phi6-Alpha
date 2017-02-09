@@ -112,12 +112,14 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         
         centerOriginView = excerciseTextView.frame.origin
         
-        let gestureRight = UISwipeGestureRecognizer(target: self, action: #selector(moveViewGesture))
-        gestureRight.direction = .right
-        excerciseTextView.addGestureRecognizer(gestureRight)
-        let gestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(returnViewGesture))
-        gestureLeft.direction = .left
-        excerciseTextView.addGestureRecognizer(gestureLeft)
+        if self.mode == "learning"{
+            let gestureRight = UISwipeGestureRecognizer(target: self, action: #selector(moveViewGesture))
+            gestureRight.direction = .right
+            excerciseTextView.addGestureRecognizer(gestureRight)
+            let gestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(returnViewGesture))
+            gestureLeft.direction = .left
+            excerciseTextView.addGestureRecognizer(gestureLeft)
+        }
         
         let blockNotesAppear = UISwipeGestureRecognizer(target: self, action: #selector(blockNotesComeIn))
         blockNotesAppear.direction = .right
@@ -126,6 +128,18 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         blockReturnOut.direction = .left
         blockNotes.addGestureRecognizer(blockReturnOut)
         
+        let offsetX = UIScreen.main.bounds.minX - self.blockNotes.frame.width + 30
+        self.blockNotes.frame = CGRect(x: offsetX, y: self.blockNotes.frame.origin.y, width: self.blockNotes.frame.width, height: self.blockNotes.frame.height)
+        
+        if self.mode == "arcade"{
+        
+            self.excerciseTextView.isHidden = true
+            self.blockNotes.isHidden = true
+        }
+        else if self.mode == "sandbox"{
+        
+            self.excerciseTextView.isHidden = true
+        }
         
         excerciseTextView.isEditable = false
     }
