@@ -84,7 +84,7 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     "Load Cell (V) Dark",
     "Chronometer Dark",
     "Laser Rangefinder (H) Dark",
-    "Laser Accelerometer (H) Dark",
+    "Laser Accelerometer (V) Dark",
     "Lever Dark",
     "Pendulum Dark"
     ]

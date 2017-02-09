@@ -365,16 +365,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(_ currentTime: TimeInterval) {
         if !pause {
             if sliderInitV != nil {
-                if sliderInitA.value == 0 {
+                if !gravity {
+                    if sliderInitA.value == 0 {
+                        if counter < 0.2 {
+                            phisphere.physicsBody?.velocity.dx = CGFloat(Float(sliderInitV.value))
+                            print("Initial velocity: \((phisphere.physicsBody?.velocity.dx)!/145)")
+                        }
+                    } else if sliderInitV.value == 0 {
+                        phisphere.physicsBody?.velocity.dx = CGFloat(sliderInitA.value) * CGFloat(counter)
+                        print(counter)
+                    } else {
+                        sliderInitA.value = 0
+                        labelInitA.text! = String(describing: 0)
+                    }
+                } else {
                     if counter < 0.2 {
                         phisphere.physicsBody?.velocity.dx = CGFloat(Float(sliderInitV.value))
                         print("Initial velocity: \((phisphere.physicsBody?.velocity.dx)!/145)")
                     }
-                } else if sliderInitV.value == 0 {
-                    phisphere.physicsBody?.velocity.dx = CGFloat(sliderInitA.value) * CGFloat(counter)
-                    print(counter)
-                } else {
-                    sliderInitA.value = 0
                 }
             }
             
@@ -390,7 +398,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             for object in Singleton.shared.objects {
                 if object.name == "pendulum" {
-                    object.physicsBody?.affectedByGravity = true
+                    if gravity {
+                        object.physicsBody?.affectedByGravity = true
+                    } else {
+                        object.physicsBody?.affectedByGravity = false
+                    }
                     let pendulum = object as? Pendulum
                     let startRope = CGPoint(x: pendulum!.position.x + self.frame.maxX, y: -pendulum!.position.y + self.frame.maxY /*- pendulum!.size.height/2*/)
                     let endRope = pendulumFulcrum!
@@ -402,7 +414,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     shapeLayerRope.lineWidth = 0.5
                     self.view?.layer.addSublayer(shapeLayerRope)
                 } else if object.name! == "beam" {
-                    object.physicsBody?.affectedByGravity = true
+                    if gravity {
+                        object.physicsBody?.affectedByGravity = true
+                    } else {
+                        object.physicsBody?.affectedByGravity = false
+                    }
                 } else {
                     object.physicsBody?.affectedByGravity = false
                     if object.name == "sensor" {

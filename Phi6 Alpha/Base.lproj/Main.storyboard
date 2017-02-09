@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wgD-cz-GGm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wgD-cz-GGm">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -280,35 +279,49 @@
                                 <rect key="frame" x="317" y="8" width="38" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDx-0V-crU">
-                                <rect key="frame" x="20" y="316" width="93" height="26"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="SDx-0V-crU" secondAttribute="height" multiplier="43:12" id="eKM-OR-qPh"/>
-                                </constraints>
-                                <state key="normal" image="ARCADE"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arcade3d" translatesAutoresizingMaskIntoConstraints="NO" id="YEB-dS-WRc">
+                                <rect key="frame" x="35" y="275" width="46" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Arcade" translatesAutoresizingMaskIntoConstraints="NO" id="5XQ-CM-mK0">
+                                <rect key="frame" x="12" y="314" width="93" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDx-0V-crU">
+                                <rect key="frame" x="12" y="248" width="93" height="93"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="arcadePressed:" destination="wgD-cz-GGm" eventType="touchUpInside" id="lDc-jy-neL"/>
                                     <segue destination="K7w-WI-y4X" kind="presentation" identifier="arcade" id="QKA-WW-eJm"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cq1-nc-fuk">
-                                <rect key="frame" x="285" y="316" width="96" height="26"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Cq1-nc-fuk" secondAttribute="height" multiplier="92:25" id="LFf-6Q-uzC"/>
-                                </constraints>
-                                <state key="normal" image="SANDBOX"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Sandbox" translatesAutoresizingMaskIntoConstraints="NO" id="Oyz-CB-br3">
+                                <rect key="frame" x="287" y="315" width="93" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sandbox3d" translatesAutoresizingMaskIntoConstraints="NO" id="qNJ-Xi-a5O">
+                                <rect key="frame" x="310" y="275" width="46" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cq1-nc-fuk">
+                                <rect key="frame" x="287" y="248" width="93" height="93"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="sandboxPressed:" destination="wgD-cz-GGm" eventType="touchUpInside" id="DZy-xa-MOy"/>
                                     <segue destination="BV1-FR-VrT" kind="presentation" identifier="sandbox" id="cWG-ga-9hn"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBr-TM-58n">
-                                <rect key="frame" x="551" y="315" width="86" height="26"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="26" id="5UC-U8-QzL"/>
-                                    <constraint firstAttribute="width" constant="86" id="ITN-QK-WrM"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="LEARNING"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="learning-1" translatesAutoresizingMaskIntoConstraints="NO" id="x6i-UK-6ij">
+                                <rect key="frame" x="577" y="273" width="46" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Learning" translatesAutoresizingMaskIntoConstraints="NO" id="qTu-c8-yim">
+                                <rect key="frame" x="554" y="314" width="93" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBr-TM-58n">
+                                <rect key="frame" x="554" y="249" width="93" height="93"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="learningPressed:" destination="wgD-cz-GGm" eventType="touchUpInside" id="2Ea-rV-SF2"/>
                                     <segue destination="K7w-WI-y4X" kind="presentation" identifier="learning" id="eal-7s-mY9"/>
@@ -321,20 +334,8 @@
                                 <rect key="frame" x="308" y="70" width="50" height="204"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sandbox3d" translatesAutoresizingMaskIntoConstraints="NO" id="qNJ-Xi-a5O">
-                                <rect key="frame" x="309" y="276" width="46" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="learning-1" translatesAutoresizingMaskIntoConstraints="NO" id="x6i-UK-6ij">
-                                <rect key="frame" x="571" y="276" width="46" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arcade3d" translatesAutoresizingMaskIntoConstraints="NO" id="YEB-dS-WRc">
-                                <rect key="frame" x="43" y="276" width="46" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ITNH Logo" translatesAutoresizingMaskIntoConstraints="NO" id="CYZ-Ed-FVb">
-                                <rect key="frame" x="628" y="20" width="30" height="30"/>
+                                <rect key="frame" x="628" y="28" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="4VT-i9-pYI"/>
                                     <constraint firstAttribute="width" secondItem="CYZ-Ed-FVb" secondAttribute="height" multiplier="1:1" id="BuH-Xi-peh"/>
@@ -344,18 +345,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="eBr-TM-58n" secondAttribute="trailing" constant="10" id="2Y9-PO-inw"/>
-                            <constraint firstItem="eBr-TM-58n" firstAttribute="leading" secondItem="Cq1-nc-fuk" secondAttribute="trailing" constant="170" id="D7j-8Z-Oiu"/>
                             <constraint firstAttribute="trailing" secondItem="CYZ-Ed-FVb" secondAttribute="trailing" constant="9" id="DTp-O5-j9y"/>
                             <constraint firstAttribute="trailing" secondItem="BPP-iy-tFC" secondAttribute="trailing" constant="9" id="Ej5-xN-xel"/>
                             <constraint firstItem="BPP-iy-tFC" firstAttribute="leading" secondItem="dzr-1a-W4D" secondAttribute="leading" constant="12" id="FKM-3Q-Bsn"/>
-                            <constraint firstItem="Cq1-nc-fuk" firstAttribute="leading" secondItem="SDx-0V-crU" secondAttribute="trailing" constant="172" id="HT2-7m-QnD"/>
-                            <constraint firstItem="VpQ-t9-IkQ" firstAttribute="top" secondItem="SDx-0V-crU" secondAttribute="bottom" constant="33" id="NOl-ho-mXP"/>
                             <constraint firstItem="VpQ-t9-IkQ" firstAttribute="top" secondItem="BPP-iy-tFC" secondAttribute="bottom" constant="20" id="XUR-bp-0UD"/>
-                            <constraint firstItem="VpQ-t9-IkQ" firstAttribute="top" secondItem="eBr-TM-58n" secondAttribute="bottom" constant="34" id="Xz6-Nw-9ho"/>
-                            <constraint firstItem="VpQ-t9-IkQ" firstAttribute="top" secondItem="Cq1-nc-fuk" secondAttribute="bottom" constant="33" id="YOh-Ux-XIM"/>
-                            <constraint firstItem="SDx-0V-crU" firstAttribute="leading" secondItem="dzr-1a-W4D" secondAttribute="leadingMargin" id="dEY-TO-fif"/>
-                            <constraint firstItem="CYZ-Ed-FVb" firstAttribute="top" secondItem="VIp-fH-p7D" secondAttribute="bottom" id="rIc-gN-Kh8"/>
+                            <constraint firstItem="CYZ-Ed-FVb" firstAttribute="top" secondItem="VIp-fH-p7D" secondAttribute="bottom" constant="8" id="rIc-gN-Kh8"/>
                         </constraints>
                     </view>
                     <connections>
@@ -761,15 +755,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ARCADE" width="71" height="26"/>
+        <image name="Arcade" width="71" height="26"/>
         <image name="Background_Main_Menu" width="667" height="375"/>
         <image name="DeletionIcon" width="512" height="512"/>
         <image name="Group" width="54" height="238"/>
         <image name="ITNH Logo" width="504" height="504"/>
-        <image name="LEARNING" width="86" height="25"/>
+        <image name="Learning" width="86" height="25"/>
         <image name="Line" width="521" height="15"/>
         <image name="Oval 5" width="25" height="25"/>
-        <image name="SANDBOX" width="87" height="26"/>
+        <image name="Sandbox" width="87" height="26"/>
         <image name="arcade3d" width="200" height="200"/>
         <image name="falling" width="422" height="578"/>
         <image name="information" width="621" height="591"/>

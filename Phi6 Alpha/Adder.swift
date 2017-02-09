@@ -295,7 +295,7 @@ func addInitSlider(scene: GameScene) {
     scene.view?.addSubview(scene.labelInitV)
     
     // Set Acceleration Text Field
-    if scene.gravity
+    if !scene.gravity
     {
         scene.sliderInitA = UISlider(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
         scene.sliderInitA.setThumbImage(UIImage(named: "SliderThumb.png"), for: .normal)
@@ -382,7 +382,8 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
         scene.sliderRotationLine?.layer.masksToBounds = false
         scene.sliderRotationLine?.maximumValue = 180
         scene.sliderRotationLine?.minimumValue = -180
-        scene.sliderRotationLine?.value = Float(node.zRotation)
+        scene.sliderRotationLine?.value = -Float(node.zRotation*360)/(2*Float(M_PI))
+            print(Float(node.zRotation))
         
         // Set Friction Slider
         scene.sliderFriction = UISlider(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
