@@ -11,6 +11,7 @@ import SpriteKit
 import GameplayKit
 import VerticalSlider
 import iOSContextualMenu
+import AVFoundation
 
 class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizerDelegate, UITextViewDelegate, BAMContextualMenuDelegate, BAMContextualMenuDataSource {
     
@@ -36,7 +37,7 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     
     var selectedNode: SKSpriteNode!
     var myNode: SKSpriteNode!
-    
+    var audioPlayer: AVAudioPlayer!
     var mode: String?
     var category: Int?
     var levelNumber: Int?
@@ -71,12 +72,56 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         "Pendulum"
     ]
     
+    let arrayDark = [
+    "Photocell Default (H&V) Dark",
+    "Speed Camera (H&V) Dark",
+    "Circle Dark",
+    "Rectangle Dark",
+    "Load Cell (V) Dark",
+    "Chronometer Dark",
+    "Laser Rangefinder (H) Dark",
+    "Laser Accelerometer (H) Dark",
+    "Lever Dark",
+    "Pendulum Dark"
+    ]
+    
+    
+    
     override func viewDidLoad() {
 
         super.viewDidLoad()
         
+        self.showSolutionButton.isHidden = true
+        
+        if mode == "sandbox" {
+            
+        }
+        
+        
+        
         self.blockNotes.textColor = UIColor.lightGray
         self.blockNotes.delegate = self
+        self.blockNotes.layer.cornerRadius = 10
+        self.excerciseTextView.layer.cornerRadius = 10
+        self.blockNotes.layer.borderWidth = 1.5
+        self.blockNotes.layer.borderColor = UIColor.black.cgColor
+        self.excerciseTextView.layer.borderWidth = 1.5
+        self.excerciseTextView.layer.borderColor = UIColor.black.cgColor
+        
+        var path = Bundle.main.path(forResource: "Bag Raiders - Shooting Stars", ofType: "mp3")
+        var audioFileUrl = NSURL(fileURLWithPath: path!)
+        
+        do  {
+           try audioPlayer = AVAudioPlayer(contentsOf: audioFileUrl as URL)
+        } catch {
+            print("dio cane")
+        }
+        
+        
+        if self.mode == "sandbox" {
+            audioPlayer.play()
+        }
+
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
@@ -122,6 +167,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
             let gestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(returnViewGesture))
             gestureLeft.direction = .left
             excerciseTextView.addGestureRecognizer(gestureLeft)
+            
+            self.showSolutionButton.isHidden = false
         }
         
         let blockNotesAppear = UISwipeGestureRecognizer(target: self, action: #selector(blockNotesComeIn))
@@ -145,6 +192,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         }
         
         excerciseTextView.isEditable = false
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -159,7 +208,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     func contextualMenu(_ contextualMenu: BAMContextualMenu!, viewForMenuItemAt index: UInt) -> UIView! {
         
         let image = UIImage(named: arrayOfSensors[Int(index)])
-        let imageView = UIImageView(image: image)
+        let highImage = UIImage(named: arrayDark[Int(index)])
+        let imageView = UIImageView(image: image, highlightedImage: highImage)
         imageView.layer.cornerRadius = (imageView.image?.size.height)! / 2
         imageView.frame = CGRect(x: 0, y: 0, width: 45, height: 45)
         
@@ -405,6 +455,7 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     
     @IBAction func showSolution(_ sender: Any) {
         
+        excerciseTextView.text = excerciseTextView.text + "\n\n" + Solutions[category!][levelNumber!]
     }
 
     

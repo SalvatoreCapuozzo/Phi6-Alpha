@@ -17,11 +17,13 @@ var Excercise = [
     ],
     [
         //Dynamics
-        "Lesson 0"
+        "Lesson 0",
+        "Un corpo di massa m = 6.3 kg si muove con velocità uniforme v0 = 3.7 m/s quando comincia ad agire su di esso una forza F di modulo F = 54 N nella direzione del moto ma in verso contrario.\ndeterminare il quanto tempo il corpo si ferma e quanto spazio percorre da quando é iniziata l’azione della forza."
     ],
     [
         //Statics
-        "Lesson 0"
+        "Lesson 0",
+        "Si vuole spingere un corpo di 150kg fermo, appoggiato sul pavimento, con una forza di 350N.\nTra il corpo ed il pavimento esiste un attrito con coefficiente di attrito statico pari a 0.3.\nIn base alla forza esercitata, è possibile spostare il corpo?"
     ],
 ]
 
@@ -34,11 +36,13 @@ var Solutions = [
     ],
     [
         //Dynamics
-        "Solution 0"
+        "Solution 0",
+        "E\' possibile determinare l’accelerazione del corpo, che risulta costante e il cui modulo e\' a=F/m.\nLa forza ha il verso opposto al moto e così anche l’accelerazione; quindi si tratta di una decelerazione. Il moto è dunque uniformemente accelerato con accelerazione negativa. Scegliendo come istante zero quello in cui comincia ad agire la forza, la legge del moto e la legge della velocità diventano:\nx(t) = v0t − 1/2 at2 , v(t) = v0 − at\nDalla seconda si ottiene l’istante t1 in cui il corpo si ferma, cioè in cui la sua velocità è zero:\nt1=v0 =mv0 =0.43s.\nSostituendo questo risultato nella prima si trova la posizione all’istante dell’arresto e quindi lo spazio percorso:\nv02 mv02 x(t1)=2a= 2F =0.80m."
     ],
     [
         //Statics
-        "Solution 0"
+        "Solution 0",
+        "Per muovere il corpo è necessario imporre una forza superiore alla forza di attrito statico.\nLa forza di attrito statico è pari a:\nFs = us*m*a = 0.3*150kg*9.8m/s^2 = 441.45N.\nLa forza impressa sul corpo è pari a 350N, inferiore alla forza di attrito, per cui il corpo non si muove."
     ]
 
 
