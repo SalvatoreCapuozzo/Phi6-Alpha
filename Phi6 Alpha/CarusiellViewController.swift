@@ -16,7 +16,7 @@ class CarusiellViewController: UIViewController, iCarouselDataSource, iCarouselD
     var i = 0
     var selectedIndex : Int = 0
     @IBOutlet weak var pageControl: UIPageControl!
-    let images = [#imageLiteral(resourceName: "Cinematic_Card"), #imageLiteral(resourceName: "Group 2@1x"), #imageLiteral(resourceName: "Dynamic_Card")]
+    let images = [#imageLiteral(resourceName: "Cinematics@1x"), #imageLiteral(resourceName: "StaticsCard@1x"), #imageLiteral(resourceName: "Dynamics@1x")]
     
     var mode: String?
     
