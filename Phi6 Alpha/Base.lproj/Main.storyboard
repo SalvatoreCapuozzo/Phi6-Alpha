@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wgD-cz-GGm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wgD-cz-GGm">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -279,7 +279,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Cq1-nc-fuk" secondAttribute="height" multiplier="92:25" id="LFf-6Q-uzC"/>
                                 </constraints>
-                                <state key="normal" image="Sandbox"/>
+                                <state key="normal" image="SANDBOX"/>
                                 <connections>
                                     <segue destination="BV1-FR-VrT" kind="presentation" identifier="sandbox" id="cWG-ga-9hn"/>
                                 </connections>
@@ -290,7 +290,7 @@
                                     <constraint firstAttribute="height" constant="26" id="5UC-U8-QzL"/>
                                     <constraint firstAttribute="width" constant="86" id="ITN-QK-WrM"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="Learning"/>
+                                <state key="normal" title="Button" image="LEARNING"/>
                                 <connections>
                                     <segue destination="K7w-WI-y4X" kind="presentation" identifier="learning" id="eal-7s-mY9"/>
                                 </connections>
@@ -746,10 +746,10 @@
         <image name="Background_Main_Menu" width="667" height="375"/>
         <image name="Group" width="54" height="238"/>
         <image name="ITNH Logo" width="504" height="504"/>
-        <image name="Learning" width="86" height="25"/>
+        <image name="LEARNING" width="86" height="25"/>
         <image name="Line" width="521" height="15"/>
         <image name="Oval 5" width="25" height="25"/>
-        <image name="Sandbox" width="87" height="26"/>
+        <image name="SANDBOX" width="87" height="26"/>
         <image name="Solution" width="540" height="534"/>
         <image name="arcade3d" width="200" height="200"/>
         <image name="gravity" width="256" height="256"/>

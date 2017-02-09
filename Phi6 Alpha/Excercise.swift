@@ -17,11 +17,13 @@ var Excercise = [
     ],
     [
         //Dynamics
-        "Lesson 0"
+        "Lesson 0",
+        "Un corpo di massa m = 6.3 kg si muove con velocità uniforme v0 = 3.7 m/s quando comincia ad agire su di esso una forza F di modulo F = 54 N nella direzione del moto ma in verso contrario.\ndeterminare il quanto tempo il corpo si ferma e quanto spazio percorre da quando é iniziata l’azione della forza."
     ],
     [
         //Statics
-        "Lesson 0"
+        "Lesson 0",
+        ""
     ],
 ]
 
@@ -34,11 +36,13 @@ var Solutions = [
     ],
     [
         //Dynamics
-        "Solution 0"
+        "Solution 0",
+        "E\' possibile determinare l’accelerazione del corpo, che risulta costante e il cui modulo e\' a=F/m.\nLa forza ha il verso opposto al moto e così anche l’accelerazione; quindi si tratta di una decelerazione. Il moto è dunque uniformemente accelerato con accelerazione negativa. Scegliendo come istante zero quello in cui comincia ad agire la forza, la legge del moto e la legge della velocità diventano:\nx(t) = v0t − 1/2 at2 , v(t) = v0 − at\nDalla seconda si ottiene l’istante t1 in cui il corpo si ferma, cioè in cui la sua velocità è zero: t1=v0 =mv0 =0.43s.\nSostituendo questo risultato nella prima si trova la posizione all’istante dell’arresto e quindi lo spazio percorso:\nv02 mv02 x(t1)=2a= 2F =0.80m."
     ],
     [
         //Statics
-        "Solution 0"
+        "Solution 0",
+        ""
     ]
 
 

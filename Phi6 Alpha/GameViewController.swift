@@ -75,6 +75,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
 
         super.viewDidLoad()
         
+        self.showSolutionButton.isHidden = true
+        
         self.blockNotes.textColor = UIColor.lightGray
         self.blockNotes.delegate = self
         
@@ -122,6 +124,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
             let gestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(returnViewGesture))
             gestureLeft.direction = .left
             excerciseTextView.addGestureRecognizer(gestureLeft)
+            
+            self.showSolutionButton.isHidden = false
         }
         
         let blockNotesAppear = UISwipeGestureRecognizer(target: self, action: #selector(blockNotesComeIn))
@@ -145,6 +149,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         }
         
         excerciseTextView.isEditable = false
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -405,6 +411,7 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     
     @IBAction func showSolution(_ sender: Any) {
         
+        excerciseTextView.text = excerciseTextView.text + "\n\n" + Solutions[category!][levelNumber!]
     }
 
     
