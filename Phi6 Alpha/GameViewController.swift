@@ -32,6 +32,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     
     @IBOutlet weak var gravityButton: UIButton!
     
+    @IBOutlet weak var showSolutionButton: UIButton!
+    
     var selectedNode: SKSpriteNode!
     var myNode: SKSpriteNode!
     
@@ -396,6 +398,11 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
             scene.gravity = true
             gravityButton.setBackgroundImage(UIImage(named: "gravity"), for: UIControlState(rawValue: 0))
         }
+    }
+    
+    
+    @IBAction func showSolution(_ sender: Any) {
+        
     }
 
     
