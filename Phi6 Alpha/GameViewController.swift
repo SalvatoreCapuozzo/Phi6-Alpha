@@ -421,7 +421,7 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         var title = ""
         
         if arrayOfSensors[Int(index)] == "PhotoCellDefault" {
-            return "Photo Cell\nDetects the passage of the Phisphere"
+            return "Photo Cell\nDetects the passage of the PhiSphere"
         } else if arrayOfSensors[Int(index)] == "Rectangle" {
             title = "Rectangular Block"
         } else if arrayOfSensors[Int(index)] == "Circle" {
