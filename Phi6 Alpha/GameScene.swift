@@ -45,20 +45,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var sliderRotation2: MTCircularSlider!
     var sliderRotationLine: UISlider!
     var sliderFriction: UISlider!
+    var sliderMass: UISlider!
     var myLabel: UILabel!
     var labelHeight: UILabel!
     var labelRotation: UILabel!
     var labelFriction: UILabel!
+    var labelMass: UILabel!
     var arrayOfSlider = [UISlider]()
     var arrayOfSliderHeight = [UISlider]()
     var arrayOfSliderRotation2 = [MTCircularSlider]()
     var arrayOfSliderRotationLine = [UISlider]()
     var arrayOfSliderFriction = [UISlider]()
+    var arrayOfSliderMass = [UISlider]()
     var arrayOfSensors = [Sensor]()
     var arrayOfLabel = [UILabel]()
     var arrayOfLabelHeight = [UILabel]()
     var arrayOfLabelRotation = [UILabel]()
     var arrayOfLabelFriction = [UILabel]()
+    var arrayOfLabelMass = [UILabel]()
     var arrayOfLabelSensors = [UILabel]()
     var arrayOfLabelTimer = [UILabel]()
     var arrayOfLabelLaser = [UILabel]()
@@ -416,7 +420,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         phisphere.physicsBody?.velocity.dx = CGFloat(sliderInitA.value) * CGFloat(counter)
                         print(counter)
                     } else {
-                        sliderInitA.value = 0
+                        sliderInitA?.value = 0
                         labelInitA.text! = String(describing: 0)
                     }
                 } else {
@@ -729,6 +733,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             arrayOfLabelFriction.removeAll()
         }
+        if arrayOfSliderMass.count >= 0 {
+            for slider in arrayOfSliderMass {
+                slider.removeFromSuperview()
+            }
+            arrayOfSliderMass.removeAll()
+        }
+        if arrayOfLabelMass.count >= 0 {
+            for label in arrayOfLabelMass {
+                label.removeFromSuperview()
+            }
+            arrayOfLabelMass.removeAll()
+        }
 
     }
     
@@ -821,6 +837,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         myLabel.text! = String(describing: (round((myNode.size.height/145)*100)/100)) + " m"
         
         addChild(myNode)
+        
+    }
+    
+    func setMass() {
+        if (myNode.name! == "phisphere") {
+            phisphere.physicsBody?.mass = CGFloat(sliderMass.value)
+            
+        }
+        
+        labelMass.text! = String(describing: (round((myNode.physicsBody?.mass)!*100)/100)) + " kg"
         
     }
     

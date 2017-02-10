@@ -69,29 +69,29 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     var centerOriginView: CGPoint?
     
     let arrayOfSensors = [
+        "Rectangle",
+        "Circle",
         "PhotoCellDefault",
         "SpeedCamera",
-        "Circle",
-        "Rectangle",
+        "LaserAccelerometer(V)",
         "LoadCell",
         "Chronometer",
         "LaserRangefinder(H)",
-        "LaserAccelerometer(V)",
         "Lever",
         "Pendulum"
     ]
     
     let arrayDark = [
-    "Photocell Default (H&V) Dark",
-    "Speed Camera (H&V) Dark",
-    "Circle Dark",
-    "Rectangle Dark",
-    "Load Cell (V) Dark",
-    "Chronometer Dark",
-    "Laser Rangefinder (H) Dark",
-    "Laser Accelerometer (V) Dark",
-    "Lever Dark",
-    "Pendulum Dark"
+        "Rectangle Dark",
+        "Circle Dark",
+        "Photocell Default (H&V) Dark",
+        "Speed Camera (H&V) Dark",
+        "Laser Accelerometer (V) Dark",
+        "Load Cell (V) Dark",
+        "Chronometer Dark",
+        "Laser Rangefinder (H) Dark",
+        "Lever Dark",
+        "Pendulum Dark"
     ]
     
     func EnableDeletionButtonAt(position: CGPoint)
@@ -599,8 +599,13 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     }
     
     func timerAction2() {
-        scene.counter += 0.1
-        print("Running time: \(scene.counter)")
+        if scene.physicsWorld.speed == 1 {
+            scene.counter += 0.1
+            print("Running time: \(scene.counter)")
+        } else {
+            scene.counter += 0.02
+            print("Running time: \(scene.counter)")
+        }
     }
     
     @IBAction func goBack(_ sender: UIButton) {
