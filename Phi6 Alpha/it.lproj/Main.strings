@@ -1,0 +1,57 @@
+
+/* Class = "UILabel"; text = "Diameter"; ObjectID = "BGv-Fk-UL6"; */
+"BGv-Fk-UL6.text" = "Diameter";
+
+/* Class = "UILabel"; text = "Sensors"; ObjectID = "BUm-Qy-c76"; */
+"BUm-Qy-c76.text" = "Sensors";
+
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "GBw-m5-fuN"; */
+"GBw-m5-fuN.normalTitle" = "Back";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "HnI-hc-pGf"; */
+"HnI-hc-pGf.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = " Back"; ObjectID = "T6o-9P-Bjs"; */
+"T6o-9P-Bjs.normalTitle" = " Back";
+
+/* Class = "UIButton"; normalTitle = "PLAY"; ObjectID = "Um6-qM-LTS"; */
+"Um6-qM-LTS.normalTitle" = "PLAY";
+
+/* Class = "UIButton"; normalTitle = " Back"; ObjectID = "VaV-S3-YNp"; */
+"VaV-S3-YNp.normalTitle" = " Back";
+
+/* Class = "UILabel"; text = "Object Name"; ObjectID = "VjY-6N-pCf"; */
+"VjY-6N-pCf.text" = "Object Name";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "Zui-TD-0FH"; */
+"Zui-TD-0FH.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "Mass"; ObjectID = "b3g-LM-iqm"; */
+"b3g-LM-iqm.text" = "Mass";
+
+/* Class = "UIButton"; normalTitle = " Back"; ObjectID = "f1f-ov-ESs"; */
+"f1f-ov-ESs.normalTitle" = " Back";
+
+/* Class = "UILabel"; text = "Simple Objects"; ObjectID = "go2-qO-lmc"; */
+"go2-qO-lmc.text" = "Simple Objects";
+
+/* Class = "UILabel"; text = "kg"; ObjectID = "iUh-PQ-jGt"; */
+"iUh-PQ-jGt.text" = "kg";
+
+/* Class = "UITextView"; text = "Block Notes"; ObjectID = "jRI-ma-Xwp"; */
+"jRI-ma-Xwp.text" = "Block Notes";
+
+/* Class = "UILabel"; text = "m"; ObjectID = "oDb-A1-eaj"; */
+"oDb-A1-eaj.text" = "m";
+
+/* Class = "UILabel"; text = "Simple Machines"; ObjectID = "ok8-gV-5Di"; */
+"ok8-gV-5Di.text" = "Simple Machines";
+
+/* Class = "UILabel"; text = "Sensor Name"; ObjectID = "sru-Wu-pOR"; */
+"sru-Wu-pOR.text" = "Sensor Name";
+
+/* Class = "UIButton"; normalTitle = "Go back"; ObjectID = "zI0-bc-RwJ"; */
+"zI0-bc-RwJ.normalTitle" = "Go back";
+
+/* Class = "UITextView"; text = "Text here"; ObjectID = "zXT-1J-lZ6"; */
+"zXT-1J-lZ6.text" = "Text here";

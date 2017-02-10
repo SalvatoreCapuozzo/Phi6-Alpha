@@ -1,0 +1,55 @@
+/* 
+  Localizable.strings
+  Phi6 Alpha
+
+  Created by Giuseppe Sannino on 10/02/2017.
+  Copyright © 2017 Salvatore Capuozzo. All rights reserved.
+*/
+
+"kinematicLesson" = "La cinematica (dal termine francese cinématique, coniato dal fisico André-Marie Ampère e derivato dal greco κίνημα -ατος, kinema -atos = «movimento», derivato a sua volta dal verbo κινέω, kineo = «muovo») è quel ramo della meccanica che si occupa di descrivere quantitativamente il moto dei corpi, indipendentemente dalle cause del moto stesso. È significativa la sua definizione di geometria del movimento: in effetti la cinematica del punto si può pensare come geometria dello spazio vettoriale quadridimensionale formato dalle tre coordinate spaziali e dalla coordinata temporale.";
+
+"kinematicTitle" = "Cinematica";
+
+"dynamicLesson" = "La dinamica è il ramo della meccanica che si occupa dello studio del moto dei corpi e delle sue cause o, in termini più concreti, delle circostanze che lo determinano e lo modificano. Lo studio completo della meccanica comprende anche la statica e la cinematica: la dinamica si differenzia dalla prima che studia le configurazioni di equilibrio meccanico, dalla seconda che studia, in astratto, tutti i moti concepibili ma non si occupa di determinare quali moti possono avvenire in un determinato contesto sperimentale.";
+
+"dynamicTitle" = "Dinamica";
+
+"staticsLesson" = "In fisica la statica è la parte della meccanica che studia le condizioni di equilibrio di un corpo materiale, ovvero le condizioni necessarie affinché un corpo, inizialmente in quiete, resti in equilibrio anche dopo l'intervento di azioni esterne dette forze. Queste derivano dalla legge di conservazione della quantità di moto e dalla legge di conservazione del momento angolare.";
+
+"staticsTitle" = "Statica";
+
+"lesson00" = "• La traiettoria luogo dei punti occupati successivamente dal punto in movimento costituisce una curva continua nello spazio ed e’ rappresentata matematicamente dalla funzione \n• Spazio percorso e la misura del cammino percorso a partire dalla posizione iniziale P0. \n• Velocità, variazione di posizione lungo la traiettoria in funzione del tempo. \n• Accelerazione. Lo studio delle variazioni della velocità con il tempo introduce la grandezza • Tempo percorso dall istante iniziale spesso usato come variabile indipendente, in funzione di cui si esprimono le altre grandezze \n• La quiete è un caso particolare di moto in cui le coordinate restano costanti e quindi velocità e accelerazione sono nulle. Il concetto di quiete e di moto e tuttavia un concetto relativo al sistema di riferimento adottato. Di norma la traiettoria di una particella in moto ha una forma diversa ed è rappresentata matematicamente da unequazione diversa in diversi sistemi di riferimento.";
+
+"lesson01" = "Moto rettilineo\n\n• Si svolge lungo una retta sulla quale vengono fissati arbitrariamente un'origine e un verso \n• Il moto del punto è descrivibile in funzione del tempo tramite una sola coordinata x(t), come rappresentato in figura 1.1. Lo spazio varia a partire da un posizione iniziale x0 e cresce in funzione del tempo, Matematicamente, si dice che lo spazio e’ una funzione del tempo e si indica con x = x(t) \n• Sperimentalmente x(t) può essere determinata ponendo lungo la retta dei traguardi con dispositivi a cellula fotoelettrica collegati ad un cronometro \n• Si ottengono coppie di valori x e t che costituiscono il diagramma orario del moto. Diagramma orario x(t) = -2m x(t) = -2+0.5(t -3)2 per 0<t<3s per 3s<t<3s x(t) = +7 x(t) = 6-2(t –10) per 7s<t<10s per 10s<t<13s";
+
+"lesson02" = "Moto parabolico (moto di un proiettile)\n\n• Si ha quando il vettore velocità v0 è obliquo rispetto al vettore accelerazione g.\n• E\' dato dalla sovrapposizione di due moti:\n\t• un moto rettilineo uniforme orizzontale;\n\t• e un modo rettilineo uniformemente accelerato verticale.\n\nVelocità iniziale orizzontale\ny = -(1/2)(g/v0^2)x^2\n• v0 è la velocità iniziale orizzontale;\n• g è l'accelerazione di gravità.\n• La traiettoria di un oggetto lanciato in orizzontale è una parabola con il vertice nel punto di lancio.";
+
+"lesson10" = "• La Dinamica studia il moto dei corpi in relazione il moto con le sue cause: perche e come gli oggetti si muovono. \n• La causa del moto `e individuata nella presenza di interazioni fra corpi che si manifestano come Forze \n• Il moto dei corpi `e determinato dalle Leggi di Newton,Elemento";
+
+"lesson11" = "• La prima legge di Newton descrive cosa succede in assenza di interazioni\n\n• Per un oggetto non interagente con altri oggetti, `e sempre possibile identificare un sistema di riferimento, detto inerziale, nel quale l’oggetto ha accelerazione nulla.\n• In assenza di interazioni con l’esterno, un oggetto permane nel suo stato di quiete o di moto a velocit`a costante, se osservato da un sistema di riferimento inerziale\n\nNota anche come Principio di Inerzia.\nSe m indica la massa di un corpo e F la risultante delle forze agenti su di esso, la legge di Newton, nota anche come legge fondamentale della dinamica, si scrive nel modo seguente\n\nF = ma\n\nove a e\' il vettore accelerazione.\n• La precedente equazione va considerata come definizione di forza agente su di un punto materiale. Dalla sua definizione risulta che l’unit`a di misura della forza `e kg m/s2, che viene convenzionalmente detto newton, simbolo N.";
+
+"lesson20" = "Si chiama punto materiale un oggetto ideale con dimensioni nulle (o meglio trascurabili rispetto alle dimensioni dei fenomeni considerati e quindi paragonabile ad un punto materiale) ma dotato di massa.\n\nIl primo principio della dinamica afferma che:\nUn punto materiale persevera nel suo stato di quiete o di moto rettilineo uniforme se la risultante delle forze su di lui applicate è un vettore nullo(cioè se le forze si oppongono annullandosi)\n\n∑i(Fi)=0\n\nBisogna tenere presente che per l'equilibrio di un corpo rigido non basta che il risultante delle forze sia nullo ma che anche il risultante dei momenti delle forze applicate sia nullo. In effetti due forze uguali ed opposte ma applicate in due punti del corpo non assiali creano un momento non nullo. Dunque accanto alla formula sopra scritta va aggiunta:\n\n∑i(Mi)=0\n\nNel caso di sistemi generali, composti da diversi punti materiali e diversi corpi rigidi, il criterio di equilibrio necessita che ogni singolo punto materiale ed ogni singolo corpo rigido deve essere in equilibrio. Questo significa che per un sistema materiale non è sufficiente per avere l'equilibrio che il risultante delle forze esterne ed il momento totale delle forze esterne siano nulli. Questa è solo una condizione necessaria.";
+
+"lesson21" = "Reazione del supporto e attrito statico\n\nIn numerosi problemi semplici, la reazione del supporto è perpendicolare alla sua superficie. Questo è vero solo per un oggetto immobile su una superficie senza attrito. Così, per esempio, supponiamo un oggetto appoggiato su un piano inclinato perfettamente scivoloso (oppure una biglia che possa rotolare senza resistenze) e tenuto per un cavo, allora la reazione del supporto è perfettamente perpendicolare ad esso.\n\nMa la situazione è diversa nel caso di un oggetto immobile su un piano inclinato, senza cavo, trattenuto unicamente dall'attrito; la reazione R del supporto compensa allora solo il peso. In questo caso, si può scomporre la reazione in una componente Rn perpendicolare al supporto e una Rf ad esso parallela. Rf è detta forza di attrito statico.\n\nUn altro caso in cui la forza non è perpendicolare al supporto:\nl'intensità della forza di attrito statico è determinata solitamente mediante la teoria di Coulomb, secondo la quale la massima componente parallela alle superfici di contatto è direttamente proporzionale all'intensità della forza scambiata tra le stesse superfici, mediante il coefficiente di attrito statico.\n\nLa Forza d'attrito statico(Fs) è dato dalla seguente formula: \n\nFs = us mg\n\ndove us è il coefficiente di attrito statico, ed m e g sono rispettivamente la massa dell'oggetto e l'accelerazione di gravità";
+
+"excercise00" = "Lezione 0";
+
+"excercise01" = "Alberto e Biagio fanno una gara sui 200 metri piani.\nSi sa che Alberto corre in 22′′, mentre Biagio corre in 23′′,5.\nAlberto parte pero` 10 metri dietro a Biagio.\nChi tagliera` per primo il traguardo?";
+
+"excercise02" = "Una biglia viene lanciata oltre il bordo del tavolo con una velocità v=0.6 m/s.\nIl tavolo è alto 1.25m.\nQuando atterra la biglia? A che distanza?";
+
+"solution00" = "Soluzione 0";
+"solution01" = "Velocità Alberto = 9.09 m/s\nAlberto taglia il traguardo in 23.1s.\nAlberto Vince la gara.";
+"solution02" = "Atterra in 0.5s\nAtterra ad una distanza di 0.2m";
+
+"excercise10" = "Lesson 1 ";
+"excercise11" = "Un corpo di massa m = 6.3 kg si muove con velocità uniforme v0 = 3.7 m/s quando comincia ad agire su di esso una forza F di modulo F = 54 N nella direzione del moto ma in verso contrario.\ndeterminare il quanto tempo il corpo si ferma e quanto spazio percorre da quando é iniziata l’azione della forza.";
+
+"solution10" = "Soluzione 1";
+"solution11" = "E\' possibile determinare l’accelerazione del corpo, che risulta costante e il cui modulo e\' a=F/m.\nLa forza ha il verso opposto al moto e così anche l’accelerazione; quindi si tratta di una decelerazione. Il moto è dunque uniformemente accelerato con accelerazione negativa. Scegliendo come istante zero quello in cui comincia ad agire la forza, la legge del moto e la legge della velocità diventano:\nx(t) = v0t − 1/2 at2 , v(t) = v0 − at\nDalla seconda si ottiene l’istante t1 in cui il corpo si ferma, cioè in cui la sua velocità è zero:\nt1=v0 =mv0 =0.43s.\nSostituendo questo risultato nella prima si trova la posizione all’istante dell’arresto e quindi lo spazio percorso:\nv02 mv02 x(t1)=2a= 2F =0.80m.";
+
+"excercise20" = "Lezione 2";
+"excercise21" = "Si vuole spingere un corpo di 150kg fermo, appoggiato sul pavimento, con una forza di 350N.\nTra il corpo ed il pavimento esiste un attrito con coefficiente di attrito statico pari a 0.3.\nIn base alla forza esercitata, è possibile spostare il corpo?";
+
+"solution20" = "Soluzione 2";
+"solution21" = "Per muovere il corpo è necessario imporre una forza superiore alla forza di attrito statico.\nLa forza di attrito statico è pari a:\nFs = us*m*a = 0.3*150kg*9.8m/s^2 = 441.45N.\nLa forza impressa sul corpo è pari a 350N, inferiore alla forza di attrito, per cui il corpo non si muove.";

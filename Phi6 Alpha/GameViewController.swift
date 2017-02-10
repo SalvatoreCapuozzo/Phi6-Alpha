@@ -554,7 +554,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     @IBAction func showSolution(_ sender: Any) {
         
         if !solutionShowed{
-            excerciseTextView.text = excerciseTextView.text + "\n\n" + Solutions[category!][levelNumber!]
+//            excerciseTextView.text = excerciseTextView.text + "\n\n" + Solutions[category!][levelNumber!]
+            excerciseTextView.text = excerciseTextView.text + "\n\n" + NSLocalizedString("solution" + "\(self.category!)" + "\(self.levelNumber!)", comment: "")
             solutionShowed = true
         }
     }
