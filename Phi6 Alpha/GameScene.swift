@@ -103,6 +103,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var shapeLayerRope = CAShapeLayer()
     var pendulumFulcrum: CGPoint!
+    
+    var seeVelocity: Bool = false
+    var seeAcceleration: Bool = false
 
     override func didMove(to view: SKView) {
         
@@ -150,6 +153,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         phisphere.physicsBody?.contactTestBitMask = PhysicsCategory.Sensor
         
         phisphere.physicsBody?.mass = 10
+        phisphere.physicsBody?.linearDamping = 0
         
         physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         pausePosition = phisphere.position
@@ -402,8 +406,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if !pause {
             if sliderInitV != nil {
                 if !gravity {
-                    if sliderInitA.value == 0 {
-                        if counter < 0.2 {
+                    if sliderInitA?.value == 0 {
+                        if counter < 0.1 {
                             phisphere.physicsBody?.velocity.dx = CGFloat(Float(sliderInitV.value))
                             print("Initial velocity: \((phisphere.physicsBody?.velocity.dx)!/145)")
                         }
@@ -525,16 +529,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             // Inserimento nel layer
             
-            shapeLayerV.path = pathV.cgPath
-            shapeLayerV.strokeColor = UIColor.green.cgColor
-            shapeLayerV.lineWidth = 2.0
+            if seeVelocity {
+                shapeLayerV.path = pathV.cgPath
+                shapeLayerV.strokeColor = UIColor.green.cgColor
+                shapeLayerV.lineWidth = 2.0
+                self.view?.layer.addSublayer(shapeLayerV)
+            }
             
-            shapeLayerA.path = pathA.cgPath
-            shapeLayerA.strokeColor = UIColor.red.cgColor
-            shapeLayerA.lineWidth = 2.0
-            
-            self.view?.layer.addSublayer(shapeLayerV)
-            self.view?.layer.addSublayer(shapeLayerA)
+            if seeAcceleration {
+                shapeLayerA.path = pathA.cgPath
+                shapeLayerA.strokeColor = UIColor.red.cgColor
+                shapeLayerA.lineWidth = 2.0
+                self.view?.layer.addSublayer(shapeLayerA)
+            }
             
             // Cancello il vettore quando la velocita è zero
             
@@ -870,7 +877,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 timer2.invalidate()
                 if let phisphereNode = firstBody.node as? SKSpriteNode, let
                     Sensor = secondBody.node as? SpeedCamera {
-                    let velocity = (sqrt(pow((phisphereNode.physicsBody?.velocity.dx)!/145, 2) + pow((phisphereNode.physicsBody?.velocity.dy)!/145, 2))) + 0.08 // Margine di errore dovuto alla collisione
+                    let velocity = (sqrt(pow((phisphereNode.physicsBody?.velocity.dx)!/145, 2) + pow((phisphereNode.physicsBody?.velocity.dy)!/145, 2)))
                     Sensor.setSpeedCameraValue(velocity)
                     
                     // Serve quando vogliamo una determinata velocità per avviare lo script dell'alert message

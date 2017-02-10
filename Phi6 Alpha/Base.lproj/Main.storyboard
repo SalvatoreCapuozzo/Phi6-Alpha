@@ -156,7 +156,7 @@
                                 </connections>
                             </switch>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HKw-Nz-bQQ">
-                                <rect key="frame" x="602" y="10" width="60" height="60"/>
+                                <rect key="frame" x="607" y="10" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mN-Ry-oqx">
@@ -216,6 +216,30 @@
                                     <action selector="DeleteObjectFromGameSceneWithSender:" destination="BV1-FR-VrT" eventType="touchUpInside" id="iKx-xs-UMW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xR-wp-5UM">
+                                <rect key="frame" x="632" y="78" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="Acceleration Dark"/>
+                                <connections>
+                                    <action selector="seeAcceleration" destination="BV1-FR-VrT" eventType="touchUpInside" id="aqC-w7-HvP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HkO-8C-lfr">
+                                <rect key="frame" x="602" y="78" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="Velocity Dark"/>
+                                <connections>
+                                    <action selector="seeVelocity" destination="BV1-FR-VrT" eventType="touchUpInside" id="Ez7-FB-jJC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzt-o8-55P">
+                                <rect key="frame" x="544" y="14" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="No SlowMotion"/>
+                                <connections>
+                                    <action selector="setSlowMotion" destination="BV1-FR-VrT" eventType="touchUpInside" id="PGJ-Cq-eLx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -241,6 +265,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="accButton" destination="8xR-wp-5UM" id="4uK-A3-Itq"/>
                         <outlet property="blockNotes" destination="jRI-ma-Xwp" id="1E4-Qf-pgv"/>
                         <outlet property="deleteSwitch" destination="hiw-CJ-c2U" id="4vs-CK-rXM"/>
                         <outlet property="deletionButton" destination="ncK-Rk-Y1R" id="M1z-CT-0Bm"/>
@@ -252,7 +277,9 @@
                         <outlet property="massSlider" destination="r9y-25-dcC" id="6zH-GD-pKa"/>
                         <outlet property="pauseButton" destination="Um6-qM-LTS" id="XWQ-46-pxE"/>
                         <outlet property="showSolutionButton" destination="Ob3-9J-OYU" id="ZGd-B8-MUL"/>
+                        <outlet property="slowMotionButton" destination="mzt-o8-55P" id="hgH-Dr-bsQ"/>
                         <outlet property="topView" destination="3se-qz-xqx" id="cLP-eU-zHv"/>
+                        <outlet property="velButton" destination="HkO-8C-lfr" id="bn6-k1-kao"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
@@ -295,8 +322,8 @@
                                     <segue destination="K7w-WI-y4X" kind="presentation" identifier="arcade" id="QKA-WW-eJm"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SANDBOX" translatesAutoresizingMaskIntoConstraints="NO" id="Oyz-CB-br3">
-                                <rect key="frame" x="287" y="315" width="93" height="26"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Sandbox" translatesAutoresizingMaskIntoConstraints="NO" id="Oyz-CB-br3">
+                                <rect key="frame" x="287" y="314" width="93" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sandbox3d" translatesAutoresizingMaskIntoConstraints="NO" id="qNJ-Xi-a5O">
@@ -315,7 +342,7 @@
                                 <rect key="frame" x="577" y="273" width="46" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LEARNING" translatesAutoresizingMaskIntoConstraints="NO" id="qTu-c8-yim">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Learning" translatesAutoresizingMaskIntoConstraints="NO" id="qTu-c8-yim">
                                 <rect key="frame" x="554" y="314" width="93" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -745,14 +772,17 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Acceleration Dark" width="538" height="533"/>
         <image name="Arcade" width="71" height="26"/>
         <image name="Background_Main_Menu" width="667" height="375"/>
         <image name="DeletionIcon" width="512" height="512"/>
         <image name="Group" width="54" height="238"/>
-        <image name="LEARNING" width="86" height="25"/>
+        <image name="Learning" width="86" height="25"/>
         <image name="Line" width="521" height="15"/>
+        <image name="No SlowMotion" width="700" height="700"/>
         <image name="Oval 5" width="25" height="25"/>
-        <image name="SANDBOX" width="87" height="26"/>
+        <image name="Sandbox" width="87" height="26"/>
+        <image name="Velocity Dark" width="538" height="533"/>
         <image name="arcade3d" width="200" height="200"/>
         <image name="falling" width="422" height="578"/>
         <image name="information" width="621" height="591"/>

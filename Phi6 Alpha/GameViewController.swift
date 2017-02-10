@@ -37,6 +37,11 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     
     @IBOutlet weak var deletionButton: UIButton!
     
+    @IBOutlet weak var velButton: UIButton!
+    @IBOutlet weak var accButton: UIButton!
+    
+    @IBOutlet weak var slowMotionButton: UIButton!
+    
     var backPlayer = AVAudioPlayer()
     var selectedNode: SKSpriteNode!
     var myNode: SKSpriteNode!
@@ -492,6 +497,36 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     
     @IBAction func addPendulum() {
         adder.addPendulum(scene: scene)
+    }
+    
+    @IBAction func seeVelocity() {
+        if scene.seeVelocity {
+            scene.seeVelocity = false
+            velButton.setBackgroundImage(UIImage(named: "Velocity Dark"), for: UIControlState(rawValue: 0))
+        } else {
+            scene.seeVelocity = true
+            velButton.setBackgroundImage(UIImage(named: "Velocity"), for: UIControlState(rawValue: 0))
+        }
+    }
+    
+    @IBAction func seeAcceleration() {
+        if scene.seeAcceleration {
+            scene.seeAcceleration = false
+            accButton.setBackgroundImage(UIImage(named: "Acceleration Dark"), for: UIControlState(rawValue: 0))
+        } else {
+            scene.seeAcceleration = true
+            accButton.setBackgroundImage(UIImage(named: "Acceleration"), for: UIControlState(rawValue: 0))
+        }
+    }
+    
+    @IBAction func setSlowMotion() {
+        if scene.physicsWorld.speed == 1 {
+            scene.physicsWorld.speed = 0.2
+            slowMotionButton.setBackgroundImage(UIImage(named: "SlowMotion"), for: UIControlState(rawValue: 0))
+        } else {
+            scene.physicsWorld.speed = 1
+            slowMotionButton.setBackgroundImage(UIImage(named: "No SlowMotion"), for: UIControlState(rawValue: 0))
+        }
     }
     
     @IBAction func showObjects(_ sender: Any) {
