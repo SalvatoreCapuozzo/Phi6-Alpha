@@ -74,6 +74,7 @@ class LevelViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "level", for: indexPath)
+        cell.isUserInteractionEnabled = false
         var numberLabel = UILabel(frame: cell.frame)
         numberLabel.layer.position = cell.center
         numberLabel.text = "sborrandi"
