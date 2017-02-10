@@ -281,9 +281,9 @@ func addCircle(scene: GameScene) {
 func addInitSlider(scene: GameScene) {
     scene.deleteSliders()
     // Set Velocity Text Field
-    scene.sliderInitV = UISlider(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+    scene.sliderInitV = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
     scene.sliderInitV.setThumbImage(UIImage(named: "SliderThumb.png"), for: .normal)
-    scene.sliderInitV?.layer.position = CGPoint(x: scene.phisphere.position.x + (scene.frame.size.width / 2) + 75, y: -scene.phisphere.position.y + (scene.frame.size.height / 2) + 15)
+    scene.sliderInitV?.layer.position = CGPoint(x: scene.phisphere.position.x + (scene.frame.size.width / 2) + 100, y: -scene.phisphere.position.y + (scene.frame.size.height / 2) + 15)
     scene.sliderInitV?.backgroundColor = UIColor.clear
     scene.sliderInitV?.tintColor = UIColor.green
     scene.sliderInitV?.layer.cornerRadius = 15.0
@@ -296,7 +296,7 @@ func addInitSlider(scene: GameScene) {
     scene.sliderInitV.addTarget(scene, action: #selector(scene.setInitialV), for: UIControlEvents.valueChanged)
     
     scene.labelInitV = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-    scene.labelInitV.layer.position = CGPoint(x: scene.phisphere.position.x + scene.phisphere.size.width + scene.frame.maxX + (scene.sliderInitV?.frame.width)! * 2 - 50, y: -scene.phisphere.position.y + (scene.frame.size.height / 2) + 15)
+    scene.labelInitV.layer.position = CGPoint(x: scene.phisphere.position.x + scene.phisphere.size.width + scene.frame.maxX + (scene.sliderInitV?.frame.width)! * 2 - 100, y: -scene.phisphere.position.y + (scene.frame.size.height / 2) + 15)
     
     scene.labelInitV.textColor! = UIColor.black
     scene.labelInitV?.text = String(describing: round((scene.phisphere.physicsBody?.velocity.dx)!*10)/10)
@@ -312,9 +312,9 @@ func addInitSlider(scene: GameScene) {
     // Set Acceleration Text Field
     if !scene.gravity
     {
-        scene.sliderInitA = UISlider(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        scene.sliderInitA = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
         scene.sliderInitA.setThumbImage(UIImage(named: "SliderThumb.png"), for: .normal)
-        scene.sliderInitA?.layer.position = CGPoint(x: scene.phisphere.position.x + (scene.frame.size.width / 2) + 75, y: -scene.phisphere.position.y + (scene.frame.size.height / 2) + 40)
+        scene.sliderInitA?.layer.position = CGPoint(x: scene.phisphere.position.x + (scene.frame.size.width / 2) + 100, y: -scene.phisphere.position.y + (scene.frame.size.height / 2) + 50)
         scene.sliderInitA?.backgroundColor = UIColor.clear
         scene.sliderInitA?.tintColor = UIColor.red
         scene.sliderInitA?.layer.cornerRadius = 15.0
@@ -328,7 +328,7 @@ func addInitSlider(scene: GameScene) {
         
         
         scene.labelInitA = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        scene.labelInitA.layer.position = CGPoint(x: scene.phisphere.position.x + scene.phisphere.size.width + scene.frame.maxX + (scene.sliderInitA?.frame.width)! * 2 - 50, y: -scene.phisphere.position.y + (scene.frame.size.height / 2) + 40)
+        scene.labelInitA.layer.position = CGPoint(x: scene.phisphere.position.x + scene.phisphere.size.width + scene.frame.maxX + (scene.sliderInitA?.frame.width)! * 2 - 100, y: -scene.phisphere.position.y + (scene.frame.size.height / 2) + 40)
         
         scene.labelInitA.textColor! = UIColor.black
         scene.labelInitA?.text = String(describing: round((scene.phisphereAccDx)*10)/10)
@@ -344,7 +344,7 @@ func addInitSlider(scene: GameScene) {
     }
     func setWidth(node: SKSpriteNode) {
         // Set Width Slider
-        scene.mySlider = UISlider(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        scene.mySlider = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
         scene.mySlider.setThumbImage(UIImage(named: "SliderThumb.png"), for: .normal)
         scene.mySlider?.layer.position = CGPoint(x: node.position.x + (scene.frame.size.width / 2) + 75, y: -node.position.y + (scene.frame.size.height / 2) - 35)
         scene.mySlider?.backgroundColor = UIColor.clear
@@ -380,9 +380,9 @@ func addInitSlider(scene: GameScene) {
     
     func setMass(node: SKSpriteNode) {
         // Set Mass Slider
-        scene.sliderMass = UISlider(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        scene.sliderMass = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
         scene.sliderMass.setThumbImage(UIImage(named: "SliderThumb.png"), for: .normal)
-        scene.sliderMass?.layer.position = CGPoint(x: node.position.x + (scene.frame.size.width / 2) + 75, y: -node.position.y + (scene.frame.size.height / 2) - 10)
+        scene.sliderMass?.layer.position = CGPoint(x: node.position.x + (scene.frame.size.width / 2) + 100, y: -node.position.y + (scene.frame.size.height / 2) - 20)
         scene.sliderMass?.backgroundColor = UIColor.clear
         scene.sliderMass?.layer.cornerRadius = 15.0
         scene.sliderMass?.layer.shadowOpacity = 0.5
@@ -392,7 +392,7 @@ func addInitSlider(scene: GameScene) {
         scene.sliderMass?.value = Float((node.physicsBody?.mass)!)
         // Set Mass Label
         scene.labelMass = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        scene.labelMass.layer.position = CGPoint(x: scene.sliderMass.frame.width * 2 + scene.sliderMass.layer.position.x - 95, y: scene.sliderMass.layer.position.y)
+        scene.labelMass.layer.position = CGPoint(x: scene.sliderMass.frame.width * 2 + scene.sliderMass.layer.position.x - 170, y: scene.sliderMass.layer.position.y)
         scene.labelMass.textColor! = UIColor.black
         scene.labelMass?.text = String(describing: (round((scene.sliderMass.value)*100)/100)) + " kg"
         if scene.labelMass.text != nil {

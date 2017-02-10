@@ -197,6 +197,7 @@
             longPressActivationGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressActivated:)];
             longPressActivationGestureRecognizer.delegate = self;
             [self.containerView addGestureRecognizer:longPressActivationGestureRecognizer];
+            longPressActivationGestureRecognizer.minimumPressDuration = 1.5;
             
             startCircleView.hidden = NO;
             break;
@@ -207,7 +208,7 @@
             [self.containerView addGestureRecognizer:tapGestureRecognizer];
             
             shadowGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(shadowViewGestureActivated:)];
-            shadowGestureRecognizer.minimumPressDuration = 0.0001;
+            shadowGestureRecognizer.minimumPressDuration = 1;
             shadowGestureRecognizer.delegate = self;
             [shadowView addGestureRecognizer:shadowGestureRecognizer];
             
