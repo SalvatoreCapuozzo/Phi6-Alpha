@@ -163,11 +163,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         Singleton.shared.fillList()
         
         if let mode = viewController.mode{
-            if let lesson = viewController.levelNumber,let cagegory = viewController.category{
+            if let lesson = viewController.levelNumber,let category = viewController.category{
                 if mode == "learning"{
                     //                let excerciseViewPosition: CGPoint = self.convertPoint(toView: CGPoint(x: 0, y: 0))
                     //                viewController.createExcerciseTextView(position: excerciseViewPosition)
-                    let string = Excercise[cagegory][lesson]
+//                    let string = Excercise[cagegory][lesson]
+                    let string = NSLocalizedString("excercise" + "\(category)" + "\(lesson)", comment: "")
                     viewController.setTextInView(text: string)
                 
                     let offsetX = UIScreen.main.bounds.minX - viewController.blockNotes.frame.width + 30

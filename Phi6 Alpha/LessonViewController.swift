@@ -94,6 +94,7 @@ class LessonsViewController: UIViewController, iCarouselDataSource, iCarouselDel
         
         if i <= self.maxLessonNumbers!{
             newTextView.text = Lesson[self.category!][i]
+            newTextView.text = NSLocalizedString("lesson" + "\(self.category!)" + "\(i)", comment: "")
             i = i + 1
         }
         

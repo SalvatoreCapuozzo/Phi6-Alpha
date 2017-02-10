@@ -1,0 +1,57 @@
+/* 
+  Localizable.strings
+  Phi6 Alpha
+
+  Created by Giuseppe Sannino on 10/02/2017.
+  Copyright © 2017 Salvatore Capuozzo. All rights reserved.
+*/
+
+"kinematicLesson" = "Kinematics is the branch of classical mechanics which describes the motion of points (alternatively <<particles>>), bodies (objects), and systems of bodies without consideration of the masses of those objects nor the forces that may have caused the motion. Kinematics as a field of study is often referred to as the <<<geometry of motion>> and as such may be seen as a branch of mathematics. Kinematics begins with a description of the geometry of the system and the initial conditions of known values of the position, velocity and or acceleration of various points that are a part of the system, then from geometrical arguments it can determine the position, the velocity and the acceleration of any part of the system.";
+
+"kinematicTitle" = "Kinematics";
+
+"dynamicLesson" = "Dynamics is a branch of applied mathematics (specifically classical mechanics) concerned with the study of forces and torques and their effect on motion, as opposed to kinematics, which studies the motion of objects without reference to its causes. Isaac Newton defined the fundamental physical laws which govern dynamics in physics, especially his second law of motion. Generally speaking, researchers involved in dynamics study how a physical system might develop or alter over time and study the causes of those changes.";
+
+"dynamicTitle" = "Dynamic";
+
+"staticsLesson" = "Statics is the branch of mechanics that is concerned with the analysis of loads (force and torque, or <<moment>>) acting on physical systems that do not experience an acceleration (a=0), but rather, are in static equilibrium with their environment. When in static equilibrium, the acceleration of the system is zero and the system is either at rest, or its center of mass moves at constant velocity.";
+
+"staticsTitle" = "Statics";
+
+"lesson00" = "• The location of the trajectory points successively occupied by the moving point is a continuous curve in space and is mathematically represented by the function \n • Space path and the extent of the progress made since the initial position P0. \n • Speed, variation in position along the trajectory as a function of time. \n • Acceleration. The study of how speed changes • Travel time from initial time often used as an independent variable, a function for which you express the other quantities \n • Rest is a special case of motion in which the coordinates remain constant and then speed and acceleration are zero. The concept of stillness and motion, yet a concept relevant to the intended reference system. Normally the trajectory of a particle in motion has a different shape and is mathematically represented by different unequazione in different reference systems.";
+
+"lesson01" = "Rectilinear motion \n\n • It takes place along a straight line on which an origin and a direction are arbitrarily chosen \n • The motion of the point is describable as a function of time through a single coordinate x (t), as represented in Figure 1.1 . The space varies from an initial position x0 and grows as a function of time, Mathematically, it is said that the space is a function of time and is denoted by x = x (t) \n • Experimentally x (t) can be determined by placing along the line of targets with a photodetector devices connected to a timer \n • get pairs of x and t values that make up the diagram in clockwise motion. x Time (t) diagram = -2m x (t) = -2 + 0.5 (t -3) 2 for 0 <t <3s for 3s <t <3s x (t) = +7 x (t) = 6- 2 (t -10) to 7s <t <10s to 10s <t <13s";
+
+"lesson02" = "Parabolic motion (motion of a projectile) \n\n • It has v0 when the velocity vector is oblique with respect to the acceleration vector g. \n • It\'s given by the superposition of two motions: \n\t • a rectilinear  horizontal uniform motion; \n\t • and a rectilinear uniformly accelerated vertical motion.\n\n horizontal initial \n Speed \n y = - (1/2) (g / v0 ^ 2) x ^ 2 \n • v0 is the initial horizontal speed ; \n • g is the acceleration of gravity. \n • the trajectory of an object launched horizontally is a parabola with the vertex in the launching point. ";
+
+"lesson10" = "Dynamics studies the motion of bodies in relation to the motion and its causes: why and how objects move. \n • The cause of motion is identified in the presence of interactions between bodies that manifest themselves as forces \n • The motion of bodies is determined by the Laws of Newton";
+
+"lesson11" = "• Newton's First Law describes what happens in the absence of interactions \n\n • For an object who doesn't' interact with other objects, it\'s always possible to identify a reference system, called inertial, in which the object has zero acceleration. \n • in the absence of interaction with the outside world, an object persists in its state of rest or in constant motion, if viewed from an inertial reference system \n\n This is called the Principle of Inertia. \n If m indicates the mass of a body and the resultant F of the forces acting on it, Newton's law, also known as the fundamental law of dynamics, you write the following \n\n F = ma \n\n where a is the acceleration vector. \n • The previous equation must be considered as a definition of force acting on a material point. From its definition that the unit`a measurement of strength and kg m / s2, which is conventionally said newton, has symbol N.";
+
+"lesson20" = "An ideal point is an object with zero size (or rather insignificant compared to the size of the problem and therefore comparable to a material point) but with mass. \n\n The first law of motion states that: \n A material point perseveres in its state of rest or uniform rectilinear motion if the resultant of the forces applied on him is a zero vector (ie if the forces are opposed canceling) \n \n Σi (Fi) = 0 \n\n You must keep in mind that for the balance of a rigid body is not sufficient that the resultant of the forces is zero but also that the resultant of the moments of the applied forces is zero. In fact two equal and opposite forces, but applied at two non axial points create a non null moment. So next to the formula written above should be added: \n\n Σi (I) = 0 \n\n In case of general systems, which consist of several material points and several rigid bodies, the equilibrium criterion requires that each and every material point and each rigid body must be in balance. This means that, for a material system it is not sufficient to have the balance that the resultant of the external forces and the total moment of the external forces are zero. This is only a necessary condition. ";
+
+"lesson21" = "Reaction of the support and static friction \n\n In numerous simple problems, the reaction of the substrate is perpendicular to its surface. This is only true for a motionless object on a frictionless surface. Thus, for example, suppose that an object is resting on a inclined perfectly slippery floor (or a ball that can roll without resistors) and is held for a cable, then the reaction of the substrate is perfectly perpendicular to it. \n\n BUT the situation is different in the case of a motionless object on an inclined plane, without cable, retained solely by friction; the reaction R of the support compensates then only the weight. in this case, the reaction can be decomposed into a component perpendicular to the support Rn and a Rf parallel thereto. Rf is said force of static friction . \n\n  !nother case in which the force is not perpendicular to the support: \n The intensity of the force of static friction is usually determined by means of the Coulomb theory, according to which the maximum component parallel to the contact surfaces is directly proportional to the intensity of the force exchanged between the same surfaces, using the coefficient of static friction. \n\n The static friction force (Fs) is given by the following formula: \n\n FS = us mg \n\n where us is the coefficient of static friction, and m and g are respectively the mass and the acceleration of gravity";
+
+"excercise00" = "Lesson 0";
+
+"excercise01" = "Alberto and Biagio race on the 200-meter track. \n Alberto runs the race in 22 seconds, while Biagio runs it in 23.5 seconds \n Alberto starts  10 meters behind Biagio. \n Who will win the race?";
+
+"excercise02" = "A ball is thrown beyond the edge of the table with a velocity v = 0.6 m / s. \n The table is 1.25m tall. \n When does the ball land? At what distance?";
+
+"solution00" = "Solution 0";
+
+"solution01" = "Alberto's' speed = 9.09 m / s \n Alberto crosses the finish line in 23.1s. \n Alberto wins the race.";
+
+"solution02" = "It lands in 0.5s \n It lands at a distance of 0.2m";
+
+"excercise10" = "Lesson 1 ";
+"excercise11" = "A body of mass m = 6.3 kg moves with uniform velocity v0 = 3.7 m / s when a force F = 54N starts acting on it in the same direction of motion but in opposite sense.\n Determine in how much time the body stops and how distance it has covered since the force has begun acting. ";
+
+"solution10" = "Soluzione 1";
+"solution11" = "You can determine the acceleration of the body, that is constant and whose form and is a = F / m. \n The force has  direction opposite to the motion, so it is a deceleration. The motion is therefore uniformly accelerated with negative acceleration. We choose zero as the moment that the force begins acting, so the law of motion and the law of speed become: \n x (t) = v0t - 1/2 at2, v ( t) = v0 - at \n From the second equation you get the instant t1 in which the body stops, that is, when its velocity is zero: \n t1 = v0 = mv0 = 0.43s. \n Substituting this result in the first equation you get the position after stopping and then the distance traveled:\n v02 MV02 x (t1) = 2a = 2F = 0.80m.";
+
+"excercise20" = "Lesson 2";
+"excercise21" = "You want to push a 150kg body, resting on the floor, with a force of 350N. \n Between the body and the floor there is a friction with a static friction coefficient of 0.3. \n Based on the force exerted, can you move the body ? ";
+
+"solution20" = "Solution 2";
+"solution21" = "To move the body it is necessary to impose a force exceeding the force of static friction. \n The static friction force is equal to: \n FS = us * m * a = 0.3 * 150kg * 9.8m / s ^ 2 = 441.45N. \n The force impressed on the body is equal to 350N, lower than the frictional force, by which the body does not move.";
