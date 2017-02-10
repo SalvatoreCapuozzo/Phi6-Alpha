@@ -408,6 +408,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
             diameterSlider.value = Float(scene.pauseDiameter)
             diameterLabel.text! = String(describing: round((scene.pauseDiameter/145)*100)/100)
         }
+        
+        scene.deleteSliders()
     }
     
     @IBAction func setDiameter() {
