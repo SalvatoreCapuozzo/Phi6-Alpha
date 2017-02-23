@@ -29,6 +29,7 @@
 		8715F5FC1E36510F001E2DEA /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715F5FB1E36510F001E2DEA /* Singleton.swift */; };
 		8715F6081E368279001E2DEA /* ObjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715F6071E368279001E2DEA /* ObjectTableViewCell.swift */; };
 		8715F60A1E36828A001E2DEA /* ObjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715F6091E36828A001E2DEA /* ObjectTableViewController.swift */; };
+		871858981E5DAE0C008BE0F5 /* PhisphereRed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871858971E5DAE0C008BE0F5 /* PhisphereRed.swift */; };
 		87283AB91E4331DE00FDEE95 /* GameObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87283AB81E4331DE00FDEE95 /* GameObjectNode.swift */; };
 		87283ABC1E43325100FDEE95 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87283ABA1E43325100FDEE95 /* Character.swift */; };
 		87283ABD1E43325100FDEE95 /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87283ABB1E43325100FDEE95 /* Obstacle.swift */; };
@@ -59,6 +60,7 @@
 		8731F2F31E40E2D1002C5253 /* RBBSpringAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8731F2EF1E40E2D1002C5253 /* RBBSpringAnimation.swift */; };
 		8731F2FE1E412965002C5253 /* SensorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8731F2FD1E412965002C5253 /* SensorTableViewController.swift */; };
 		8731F3001E4129A5002C5253 /* SensorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8731F2FF1E4129A5002C5253 /* SensorTableViewCell.swift */; };
+		878691591E5C61480000B57C /* LaserPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878691581E5C61480000B57C /* LaserPhotoCell.swift */; };
 		878B00FA1E4B929B005EDFFD /* Fulcrum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878B00F91E4B929B005EDFFD /* Fulcrum.swift */; };
 		878B00FC1E4B9313005EDFFD /* Beam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878B00FB1E4B9313005EDFFD /* Beam.swift */; };
 		878B00FE1E4BA527005EDFFD /* Pendulum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878B00FD1E4BA527005EDFFD /* Pendulum.swift */; };
@@ -103,6 +105,7 @@
 		8715F5FB1E36510F001E2DEA /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		8715F6071E368279001E2DEA /* ObjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectTableViewCell.swift; sourceTree = "<group>"; };
 		8715F6091E36828A001E2DEA /* ObjectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectTableViewController.swift; sourceTree = "<group>"; };
+		871858971E5DAE0C008BE0F5 /* PhisphereRed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhisphereRed.swift; sourceTree = "<group>"; };
 		87283AB81E4331DE00FDEE95 /* GameObjectNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObjectNode.swift; sourceTree = "<group>"; };
 		87283ABA1E43325100FDEE95 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		87283ABB1E43325100FDEE95 /* Obstacle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Obstacle.swift; sourceTree = "<group>"; };
@@ -134,6 +137,7 @@
 		8731F2EF1E40E2D1002C5253 /* RBBSpringAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RBBSpringAnimation.swift; path = EasyAnimation/RBBSpringAnimation/RBBSpringAnimation.swift; sourceTree = "<group>"; };
 		8731F2FD1E412965002C5253 /* SensorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorTableViewController.swift; sourceTree = "<group>"; };
 		8731F2FF1E4129A5002C5253 /* SensorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorTableViewCell.swift; sourceTree = "<group>"; };
+		878691581E5C61480000B57C /* LaserPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaserPhotoCell.swift; sourceTree = "<group>"; };
 		878B00F91E4B929B005EDFFD /* Fulcrum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fulcrum.swift; sourceTree = "<group>"; };
 		878B00FB1E4B9313005EDFFD /* Beam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beam.swift; sourceTree = "<group>"; };
 		878B00FD1E4BA527005EDFFD /* Pendulum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pendulum.swift; sourceTree = "<group>"; };
@@ -252,6 +256,7 @@
 				8731F2BF1E40D6FE002C5253 /* SimpleObject.swift */,
 				8731F2BD1E40D6FE002C5253 /* Rectangle.swift */,
 				87FACC341E449400005B6F67 /* Circle.swift */,
+				871858971E5DAE0C008BE0F5 /* PhisphereRed.swift */,
 				8731F2C11E40D6FE002C5253 /* Triangle.swift */,
 			);
 			name = SimpleObject;
@@ -278,6 +283,7 @@
 				8731F2B81E40D6FE002C5253 /* LoadCell.swift */,
 				8731F2B31E40D6FE002C5253 /* Chronometer.swift */,
 				8731F2C01E40D6FE002C5253 /* SpeedCamera.swift */,
+				878691581E5C61480000B57C /* LaserPhotoCell.swift */,
 			);
 			name = Sensor;
 			sourceTree = "<group>";
@@ -388,7 +394,7 @@
 				TargetAttributes = {
 					87DC85121E34BA4B0068555D = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 2AT3SG7857;
+						DevelopmentTeam = 84543EX3ME;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -509,6 +515,7 @@
 				87283ABD1E43325100FDEE95 /* Obstacle.swift in Sources */,
 				87DC851D1E34BA4B0068555D /* GameScene.swift in Sources */,
 				8731F2D01E40D6FE002C5253 /* SpeedCamera.swift in Sources */,
+				871858981E5DAE0C008BE0F5 /* PhisphereRed.swift in Sources */,
 				8731F2C71E40D6FE002C5253 /* LaserRangefinder.swift in Sources */,
 				3084EA041E487A0E0064C869 /* LevelViewController.swift in Sources */,
 				8731F2E71E40E209002C5253 /* EAAnimationFuture.swift in Sources */,
@@ -522,6 +529,7 @@
 				8731F2F11E40E2D1002C5253 /* RBBBlockBasedArray.swift in Sources */,
 				8731F3001E4129A5002C5253 /* SensorTableViewCell.swift in Sources */,
 				87283AB91E4331DE00FDEE95 /* GameObjectNode.swift in Sources */,
+				878691591E5C61480000B57C /* LaserPhotoCell.swift in Sources */,
 				8731F2DA1E40DD5C002C5253 /* MainViewController.swift in Sources */,
 				5A72AB931E44C49700227938 /* PhysicsCategory.swift in Sources */,
 				8731F2CE1E40D6FE002C5253 /* Sensor.swift in Sources */,
@@ -678,10 +686,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 2AT3SG7857;
+				DEVELOPMENT_TEAM = 84543EX3ME;
 				INFOPLIST_FILE = "Phi6 Alpha/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "it.Phi6-Alpha";
+				PRODUCT_BUNDLE_IDENTIFIER = "it.Phi6-Alpha-SalvatoreCapuozzo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Phi6 Alpha-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -695,10 +703,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 2AT3SG7857;
+				DEVELOPMENT_TEAM = 84543EX3ME;
 				INFOPLIST_FILE = "Phi6 Alpha/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "it.Phi6-Alpha";
+				PRODUCT_BUNDLE_IDENTIFIER = "it.Phi6-Alpha-SalvatoreCapuozzo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Phi6 Alpha-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

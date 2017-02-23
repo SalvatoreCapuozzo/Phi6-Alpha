@@ -30,6 +30,9 @@ class Fulcrum: SKSpriteNode, SimpleObject {
             physics.isDynamic = true
             physics.linearDamping = 0.75
             physics.angularDamping = 0.75
+            physics.collisionBitMask = 1
+            physics.categoryBitMask = PhysicsCategory.Sensor
+            physics.contactTestBitMask = PhysicsCategory.Phisphere
         }
         return sprite
     }

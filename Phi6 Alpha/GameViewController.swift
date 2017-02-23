@@ -71,7 +71,9 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     let arrayOfSensors = [
         "Rectangle",
         "Circle",
+        "PhiSphereRed",
         "PhotoCellDefault",
+        "LaserPhotoCell",
         "SpeedCamera",
         "LaserAccelerometer(V)",
         "LoadCell",
@@ -84,7 +86,9 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     let arrayDark = [
         "Rectangle Dark",
         "Circle Dark",
+        "PhiSphereRed Dark",
         "Photocell Default (H&V) Dark",
+        "LaserPhotoCell Dark",
         "Speed Camera (H&V) Dark",
         "Laser Accelerometer (V) Dark",
         "Load Cell (V) Dark",
@@ -200,7 +204,7 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
             //view.showsFPS = true
             //view.showsNodeCount = true
             
-            //view.showsPhysics = true
+            view.showsPhysics = true
             //view.showsFields = true
         }
         if (selectedNode) != nil {
@@ -286,10 +290,14 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
             addLoadCell()
         case "PhotoCellDefault":
             addPhotoCell()
+        case "LaserPhotoCell":
+            addLaserPhotoCell()
         case "Circle":
             addCircle()
         case "Rectangle":
             addRectangle()
+        case "PhiSphereRed":
+            addPhisphereRed()
         case "Chronometer":
             addChronometer()
         case "LaserRangefinder(H)":
@@ -433,6 +441,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
             title = "Rectangular Block"
         } else if arrayOfSensors[Int(index)] == "Circle" {
             title = "Circular Block"
+        } else if arrayOfSensors[Int(index)] == "PhiSphereRed" {
+            title = "Extra PhiSphere"
         } else if arrayOfSensors[Int(index)] == "SpeedCamera" {
             title = "Speed Camera\nMeasures instant velocity of the PhiSphere"
         } else if arrayOfSensors[Int(index)] == "Chronometer" {
@@ -447,6 +457,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
             title = "Simple Lever"
         } else if arrayOfSensors[Int(index)] == "LoadCell" {
             title = "Load Cell\nMeasures force delivered by the PhiSphere"
+        } else if arrayOfSensors[Int(index)] == "LaserPhotoCell" {
+            title = "Laser Photo Cell\nDetects the passage of the Phisphere"
         }
         
         return title
@@ -469,8 +481,16 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         adder.addCircle(scene: scene)
     }
     
+    @IBAction func addPhisphereRed() {
+        adder.addPhisphereRed(scene: scene)
+    }
+    
     @IBAction func addPhotoCell() {
         adder.addPhotoCell(scene: scene)
+    }
+    
+    @IBAction func addLaserPhotoCell() {
+        adder.addLaserPhotoCell(scene: scene)
     }
     
     @IBAction func addSpeedCamera() {
@@ -597,7 +617,7 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         scene.phisphereAccDy = CGFloat(((scene.beforeAfterVelocityDy["final"]!) - (scene.beforeAfterVelocityDy["initial"]!)) / (scene.deltaTime))
         //print("--Programmatic acceleration: \(round(scene.phisphereAcc*1000)/1000)")
         //print("----------")
-        
+        timerAction3()
     }
     
     func timerAction2() {
@@ -607,6 +627,25 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         } else {
             scene.counter += 0.02
             print("Running time: \(scene.counter)")
+        }
+    }
+    
+    func timerAction3() {
+        
+        for object in Singleton.shared.objects {
+            if object.name == "phiSphereRed" {
+                var phiSphereRed = object as! PhisphereRed
+                // The old final velocity becomes the new initial velocity
+                phiSphereRed.beforeAfterVelocityDx["initial"] = phiSphereRed.beforeAfterVelocityDx["final"]
+                phiSphereRed.beforeAfterVelocityDy["initial"] = phiSphereRed.beforeAfterVelocityDy["final"]
+                // The new final velocity is the current velocity of the phisphere
+                phiSphereRed.beforeAfterVelocityDx["final"] = phiSphereRed.physicsBody?.velocity.dx
+                phiSphereRed.beforeAfterVelocityDy["final"] = phiSphereRed.physicsBody?.velocity.dy
+                
+                // Definition of derivative
+                phiSphereRed.phiSphereAccDx = CGFloat(((phiSphereRed.beforeAfterVelocityDx["final"]!) - (phiSphereRed.beforeAfterVelocityDx["initial"]!)) / (scene.deltaTime))
+                phiSphereRed.phiSphereAccDy = CGFloat(((phiSphereRed.beforeAfterVelocityDy["final"]!) - (phiSphereRed.beforeAfterVelocityDy["initial"]!)) / (scene.deltaTime))
+            }
         }
     }
     

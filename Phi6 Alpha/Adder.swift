@@ -41,6 +41,38 @@ class Adder{
     
         print(sprite.name!)
     }
+    
+    func addLaserPhotoCell(scene: GameScene) {
+        scene.deleteSliders()
+        let position = Singleton.shared.getPosition()
+        let sprite = LaserPhotoCell.laserPhotoCell(location: position)
+        sprite.physicsBody?.affectedByGravity = false
+        sprite.physicsBody?.isDynamic = false
+        
+        sprite.physicsBody?.collisionBitMask = 0
+        sprite.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
+        sprite.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
+        
+        sprite.size.width = scene.objectWidth * 2
+        sprite.size.height = scene.objectHeight * 2
+        sprite.unset()
+        //sprite.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -scene.objectWidth/2, y: -scene.objectHeight/2, width: scene.objectWidth, height: scene.objectHeight/10))
+        
+        sprite.physicsBody?.collisionBitMask = 0
+        sprite.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
+        sprite.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
+        print(sprite.xScale)
+        Singleton.shared.addNewObject(anObject: sprite)
+        scene.addChild(sprite)
+        scene.arrayOfSensors.append(sprite)
+        
+        if sprite.name == nil {
+            sprite.name = "sensor"// + String(number)
+        }
+        //addChronometer(scene: scene, sensor: sprite)
+        
+        print(sprite.name!)
+    }
 
     func addSpeedCamera(scene: GameScene) {
         scene.deleteSliders()
@@ -186,7 +218,7 @@ class Adder{
         Singleton.shared.addNewObject(anObject: rectangle)
         scene.addChild(rectangle)
         
-        let jointLever = SKPhysicsJointPin.joint(withBodyA: rectangle.physicsBody!, bodyB: circle.physicsBody!, anchor: rectangle.position)
+        let jointLever = SKPhysicsJointPin.joint(withBodyA: rectangle.physicsBody!, bodyB: circle.physicsBody!, anchor: CGPoint(x: circle.position.x-0.37, y: circle.position.y))
         scene.physicsWorld.add(jointLever)
  
         /*
@@ -239,51 +271,80 @@ class Adder{
 
     func addRectangle(scene: GameScene) {
         let position = Singleton.shared.getPosition()
-    let sprite = Rectangle.rectangle(location: position)
-    sprite.physicsBody?.affectedByGravity = false
-    sprite.physicsBody?.isDynamic = false
-    sprite.physicsBody?.usesPreciseCollisionDetection = true
+        let sprite = Rectangle.rectangle(location: position)
+        sprite.physicsBody?.affectedByGravity = false
+        sprite.physicsBody?.isDynamic = false
+        sprite.physicsBody?.usesPreciseCollisionDetection = true
     
-    sprite.size.width = scene.objectWidth
-    sprite.size.height = scene.objectHeight
-    sprite.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -scene.objectWidth/2, y: -scene.objectHeight/2, width: scene.objectWidth, height: scene.objectHeight))
-    print(sprite.xScale)
-    Singleton.shared.addNewObject(anObject: sprite)
-    scene.addChild(sprite)
+        sprite.size.width = scene.objectWidth
+        sprite.size.height = scene.objectHeight
+        sprite.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -scene.objectWidth/2, y: -scene.objectHeight/2, width: scene.objectWidth, height: scene.objectHeight))
+        print(sprite.xScale)
+        Singleton.shared.addNewObject(anObject: sprite)
+        scene.addChild(sprite)
     
-    if sprite.name == nil {
-        sprite.name = "object"// + String(number)
+        if sprite.name == nil {
+            sprite.name = "object"// + String(number)
+        }
+        print(sprite.name!)
     }
-    print(sprite.name!)
-}
 
-func addCircle(scene: GameScene) {
-    let position = Singleton.shared.getPosition()
-    let sprite = Circle.circle(location: position)
-    sprite.physicsBody?.affectedByGravity = false
-    sprite.physicsBody?.isDynamic = false
-    sprite.physicsBody?.usesPreciseCollisionDetection = true
+    func addCircle(scene: GameScene) {
+        let position = Singleton.shared.getPosition()
+        let sprite = Circle.circle(location: position)
+        sprite.physicsBody?.affectedByGravity = false
+        sprite.physicsBody?.isDynamic = false
+        sprite.physicsBody?.usesPreciseCollisionDetection = true
     
-    sprite.size.width = scene.objectWidth
-    sprite.size.height = scene.objectWidth
-    sprite.physicsBody = SKPhysicsBody(circleOfRadius: scene.objectWidth/2)
-    sprite.physicsBody?.affectedByGravity = false
-    sprite.physicsBody?.isDynamic = false
-    Singleton.shared.addNewObject(anObject: sprite)
-    scene.addChild(sprite)
+        sprite.size.width = scene.objectWidth
+        sprite.size.height = scene.objectWidth
+        sprite.physicsBody = SKPhysicsBody(circleOfRadius: scene.objectWidth/2)
+        sprite.physicsBody?.affectedByGravity = false
+        sprite.physicsBody?.isDynamic = false
+        Singleton.shared.addNewObject(anObject: sprite)
+        scene.addChild(sprite)
     
-    if sprite.name == nil {
-        sprite.name = "objectCircle" //+ String(number)
+        if sprite.name == nil {
+            sprite.name = "objectCircle" //+ String(number)
+        }
+        print(sprite.name!)
     }
-    print(sprite.name!)
-}
+    
+    func addPhisphereRed(scene: GameScene) {
+        let position = Singleton.shared.getPosition()
+        let sprite = PhisphereRed.circle(location: position)
+        sprite.physicsBody?.affectedByGravity = false
+        sprite.physicsBody?.isDynamic = false
+        sprite.physicsBody?.usesPreciseCollisionDetection = true
+        
+        sprite.size.width = scene.objectWidth
+        sprite.size.height = scene.objectWidth
+        sprite.xScale = 0.04
+        sprite.yScale = 0.04
+        var diameter = sprite.size.width
+        sprite.physicsBody = SKPhysicsBody(circleOfRadius: diameter/2)
+        sprite.physicsBody?.affectedByGravity = false
+        sprite.physicsBody?.isDynamic = false
+        sprite.physicsBody?.collisionBitMask = 1
+        sprite.physicsBody?.categoryBitMask = 1
+        sprite.physicsBody?.contactTestBitMask = 0
+        sprite.physicsBody?.mass = 10
+        sprite.zPosition = 2
+        Singleton.shared.addNewObject(anObject: sprite)
+        scene.addChild(sprite)
+        
+        if sprite.name == nil {
+            sprite.name = "phiSphereRed" //+ String(number)
+        }
+        print(sprite.name!)
+    }
 
 func addInitSlider(scene: GameScene) {
     scene.deleteSliders()
     // Set Velocity Text Field
     scene.sliderInitV = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
     scene.sliderInitV.setThumbImage(UIImage(named: "SliderThumb.png"), for: .normal)
-    scene.sliderInitV?.layer.position = CGPoint(x: scene.phisphere.position.x + (scene.frame.size.width / 2) + 100, y: -scene.phisphere.position.y + (scene.frame.size.height / 2) + 15)
+    scene.sliderInitV?.layer.position = CGPoint(x: scene.phisphere.position.x + (scene.frame.size.width / 2) + 130, y: -scene.phisphere.position.y + (scene.frame.size.height / 2) + 15)
     scene.sliderInitV?.backgroundColor = UIColor.clear
     scene.sliderInitV?.tintColor = UIColor.green
     scene.sliderInitV?.layer.cornerRadius = 15.0
@@ -296,7 +357,7 @@ func addInitSlider(scene: GameScene) {
     scene.sliderInitV.addTarget(scene, action: #selector(scene.setInitialV), for: UIControlEvents.valueChanged)
     
     scene.labelInitV = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-    scene.labelInitV.layer.position = CGPoint(x: scene.phisphere.position.x + scene.phisphere.size.width + scene.frame.maxX + (scene.sliderInitV?.frame.width)! * 2 - 100, y: -scene.phisphere.position.y + (scene.frame.size.height / 2) + 15)
+    scene.labelInitV.layer.position = CGPoint(x: scene.phisphere.position.x + scene.phisphere.size.width + scene.frame.maxX + (scene.sliderInitV?.frame.width)! * 2 - 60, y: -scene.phisphere.position.y + (scene.frame.size.height / 2) + 15)
     
     scene.labelInitV.textColor! = UIColor.black
     scene.labelInitV?.text = String(describing: round((scene.phisphere.physicsBody?.velocity.dx)!*10)/10)
@@ -314,7 +375,7 @@ func addInitSlider(scene: GameScene) {
     {
         scene.sliderInitA = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
         scene.sliderInitA.setThumbImage(UIImage(named: "SliderThumb.png"), for: .normal)
-        scene.sliderInitA?.layer.position = CGPoint(x: scene.phisphere.position.x + (scene.frame.size.width / 2) + 100, y: -scene.phisphere.position.y + (scene.frame.size.height / 2) + 50)
+        scene.sliderInitA?.layer.position = CGPoint(x: scene.phisphere.position.x + (scene.frame.size.width / 2) + 130, y: -scene.phisphere.position.y + (scene.frame.size.height / 2) + 50)
         scene.sliderInitA?.backgroundColor = UIColor.clear
         scene.sliderInitA?.tintColor = UIColor.red
         scene.sliderInitA?.layer.cornerRadius = 15.0
@@ -328,7 +389,7 @@ func addInitSlider(scene: GameScene) {
         
         
         scene.labelInitA = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        scene.labelInitA.layer.position = CGPoint(x: scene.phisphere.position.x + scene.phisphere.size.width + scene.frame.maxX + (scene.sliderInitA?.frame.width)! * 2 - 100, y: -scene.phisphere.position.y + (scene.frame.size.height / 2) + 40)
+        scene.labelInitA.layer.position = CGPoint(x: scene.phisphere.position.x + scene.phisphere.size.width + scene.frame.maxX + (scene.sliderInitA?.frame.width)! * 2 - 60, y: -scene.phisphere.position.y + (scene.frame.size.height / 2) + 50)
         
         scene.labelInitA.textColor! = UIColor.black
         scene.labelInitA?.text = String(describing: round((scene.phisphereAccDx)*10)/10)
@@ -379,10 +440,26 @@ func addInitSlider(scene: GameScene) {
     }
     
     func setMass(node: SKSpriteNode) {
+        // Set Velocity Icon
+        let velocityImage = UIImage(named: "VelocityIcon.png")
+        scene.velocityImageView = UIImageView(image: velocityImage)
+        scene.velocityImageView.frame = CGRect(x: node.position.x + (scene.frame.size.width / 2) + 30, y: -node.position.y + (scene.frame.size.height / 2) + 5, width: 20, height: 20)
+        // Set Acceleration Icon
+        if !scene.gravity {
+            let accelerationImage = UIImage(named: "AccelerationIcon.png")
+            scene.accelerationImageView = UIImageView(image: accelerationImage)
+            scene.accelerationImageView.frame = CGRect(x: node.position.x + (scene.frame.size.width / 2) + 30, y: -node.position.y + (scene.frame.size.height / 2) + 40, width: 20, height: 20)
+        }
+        // Set Mass Icon
+        let massImage = UIImage(named: "Mass.png")
+        scene.massImageView = UIImageView(image: massImage)
+        scene.massImageView.frame = CGRect(x: node.position.x + (scene.frame.size.width / 2) + 30, y: -node.position.y + (scene.frame.size.height / 2) - 30, width: 20, height: 20)
+        
+
         // Set Mass Slider
         scene.sliderMass = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
         scene.sliderMass.setThumbImage(UIImage(named: "SliderThumb.png"), for: .normal)
-        scene.sliderMass?.layer.position = CGPoint(x: node.position.x + (scene.frame.size.width / 2) + 100, y: -node.position.y + (scene.frame.size.height / 2) - 20)
+        scene.sliderMass?.layer.position = CGPoint(x: node.position.x + (scene.frame.size.width / 2) + 130, y: -node.position.y + (scene.frame.size.height / 2) - 20)
         scene.sliderMass?.backgroundColor = UIColor.clear
         scene.sliderMass?.layer.cornerRadius = 15.0
         scene.sliderMass?.layer.shadowOpacity = 0.5
@@ -392,7 +469,7 @@ func addInitSlider(scene: GameScene) {
         scene.sliderMass?.value = Float((node.physicsBody?.mass)!)
         // Set Mass Label
         scene.labelMass = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        scene.labelMass.layer.position = CGPoint(x: scene.sliderMass.frame.width * 2 + scene.sliderMass.layer.position.x - 170, y: scene.sliderMass.layer.position.y)
+        scene.labelMass.layer.position = CGPoint(x: scene.sliderMass.frame.width * 2 + scene.sliderMass.layer.position.x - 160, y: scene.sliderMass.layer.position.y)
         scene.labelMass.textColor! = UIColor.black
         scene.labelMass?.text = String(describing: (round((scene.sliderMass.value)*100)/100)) + " kg"
         if scene.labelMass.text != nil {
@@ -403,6 +480,14 @@ func addInitSlider(scene: GameScene) {
         scene.view?.addSubview(scene.sliderMass!)
         scene.arrayOfLabelMass.append(scene.labelMass!)
         scene.view?.addSubview(scene.labelMass!)
+        scene.arrayOfImageView.append(scene.massImageView!)
+        scene.view?.addSubview(scene.massImageView!)
+        scene.arrayOfImageView.append(scene.velocityImageView!)
+        scene.view?.addSubview(scene.velocityImageView!)
+        if !scene.gravity {
+            scene.arrayOfImageView.append(scene.accelerationImageView!)
+            scene.view?.addSubview(scene.accelerationImageView!)
+        }
     }
     
     //setWidth(node: scene.phisphere)
@@ -424,13 +509,18 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
     
     if let object = Singleton.shared.GetObjectAt(index: selectedObjID)
     {
-        if object.name != "speedCamera" && object.name != "laserAccelerometer" && object.name != "laserRangefinder" && object.name != "sensor" && object.name != "chronometer" && object.name != "pendulum" && object.name != "loadCell" {
+        if object.name != "speedCamera" && object.name != "laserAccelerometer" && object.name != "laserRangefinder" && object.name != "chronometer" && object.name != "pendulum" && object.name != "loadCell" {
             
             func setWidth(node: SKSpriteNode) {
+                // Set Width Icon
+                let widthImage = UIImage(named: "Width.png")
+                scene.widthImageView = UIImageView(image: widthImage)
+                scene.widthImageView.frame = CGRect(x: object.position.x + (scene.frame.size.width / 2) + 30, y: -object.position.y + (scene.frame.size.height / 2) - 65, width: 20, height: 20)
+                //scene.view?.addSubview(widthImageView)
                 // Set Width Slider
                 scene.mySlider = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
                 scene.mySlider.setThumbImage(UIImage(named: "SliderThumb.png"), for: .normal)
-                scene.mySlider?.layer.position = CGPoint(x: object.position.x + (scene.frame.size.width / 2) + 100, y: -object.position.y + (scene.frame.size.height / 2) - 55)
+                scene.mySlider?.layer.position = CGPoint(x: object.position.x + (scene.frame.size.width / 2) + 130, y: -object.position.y + (scene.frame.size.height / 2) - 55)
                 scene.mySlider?.backgroundColor = UIColor.clear
                 scene.mySlider?.layer.cornerRadius = 15.0
                 scene.mySlider?.layer.shadowOpacity = 0.5
@@ -445,7 +535,7 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
                 }
                 // Set Width Label
                 scene.myLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-                scene.myLabel.layer.position = CGPoint(x: scene.mySlider.frame.width * 2 + (scene.mySlider?.layer.position.x)! - 170, y: (scene.mySlider?.layer.position.y)!)
+                scene.myLabel.layer.position = CGPoint(x: scene.mySlider.frame.width * 2 + (scene.mySlider?.layer.position.x)! - 160, y: (scene.mySlider?.layer.position.y)!)
                 scene.myLabel.textColor! = UIColor.black
                 if node.name! == "beam" || node.name! == "fulcrum" {
                     scene.myLabel?.text = String(describing: (round((scene.mySlider.value/(145*2))*100)/100)) + " x 2 m"
@@ -460,13 +550,19 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
                 scene.view?.addSubview(scene.mySlider!)
                 scene.arrayOfLabel.append(scene.myLabel!)
                 scene.view?.addSubview(scene.myLabel!)
+                scene.arrayOfImageView.append(scene.widthImageView!)
+                scene.view?.addSubview(scene.widthImageView!)
             }
             
             func setHeight() {
+                // Set Height Icon
+                let heightImage = UIImage(named: "Height.png")
+                scene.heightImageView = UIImageView(image: heightImage)
+                scene.heightImageView.frame = CGRect(x: object.position.x + (scene.frame.size.width / 2) + 30, y: -object.position.y + (scene.frame.size.height / 2) - 30, width: 20, height: 20)
                 // Set Height Slider
                 scene.sliderHeight = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
                 scene.sliderHeight.setThumbImage(UIImage(named: "SliderThumb.png"), for: .normal)
-                scene.sliderHeight?.layer.position = CGPoint(x: object.position.x + (scene.frame.size.width / 2) + 100, y: -object.position.y + (scene.frame.size.height / 2) - 20)
+                scene.sliderHeight?.layer.position = CGPoint(x: object.position.x + (scene.frame.size.width / 2) + 130, y: -object.position.y + (scene.frame.size.height / 2) - 20)
                 scene.sliderHeight?.backgroundColor = UIColor.clear
                 scene.sliderHeight?.layer.cornerRadius = 15.0
                 scene.sliderHeight?.layer.shadowOpacity = 0.5
@@ -476,7 +572,7 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
                 scene.sliderHeight?.value = Float(node.size.height)
                 // Set Height Label
                 scene.labelHeight = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-                scene.labelHeight.layer.position = CGPoint(x: scene.sliderHeight.frame.width * 2 + scene.sliderHeight.layer.position.x - 170, y: scene.sliderHeight.layer.position.y)
+                scene.labelHeight.layer.position = CGPoint(x: scene.sliderHeight.frame.width * 2 + scene.sliderHeight.layer.position.x - 160, y: scene.sliderHeight.layer.position.y)
                 scene.labelHeight.textColor! = UIColor.black
                 scene.labelHeight?.text = String(describing: (round((scene.sliderHeight.value/145)*100)/100)) + " m"
                 if scene.labelHeight.text != nil {
@@ -487,13 +583,19 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
                 scene.view?.addSubview(scene.sliderHeight!)
                 scene.arrayOfLabelHeight.append(scene.labelHeight!)
                 scene.view?.addSubview(scene.labelHeight!)
+                scene.arrayOfImageView.append(scene.heightImageView!)
+                scene.view?.addSubview(scene.heightImageView!)
             }
         
             func setRotation(node: SKSpriteNode) {
+                // Set Rotation Icon
+                let rotationImage = UIImage(named: "Rotation.png")
+                scene.rotationImageView = UIImageView(image: rotationImage)
+                scene.rotationImageView.frame = CGRect(x: object.position.x + (scene.frame.size.width / 2) + 30, y: -object.position.y + (scene.frame.size.height / 2) + 5, width: 20, height: 20)
                 // Set Rotation Slider
                 scene.sliderRotationLine = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
                 scene.sliderRotationLine.setThumbImage(UIImage(named: "SliderThumb.png"), for: .normal)
-                scene.sliderRotationLine?.layer.position = CGPoint(x: object.position.x + (scene.frame.size.width / 2) + 100, y: -object.position.y + (scene.frame.size.height / 2) + 15)
+                scene.sliderRotationLine?.layer.position = CGPoint(x: object.position.x + (scene.frame.size.width / 2) + 130, y: -object.position.y + (scene.frame.size.height / 2) + 15)
                 scene.sliderRotationLine?.backgroundColor = UIColor.clear
                 scene.sliderRotationLine?.layer.cornerRadius = 15.0
                 scene.sliderRotationLine?.layer.shadowOpacity = 0.5
@@ -504,7 +606,7 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
                 print(Float(node.zRotation))
                 // Set Rotation Label
                 scene.labelRotation = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-                scene.labelRotation.layer.position = CGPoint(x: scene.sliderRotationLine.frame.width * 2 + scene.sliderRotationLine.layer.position.x - 170, y: scene.sliderRotationLine.layer.position.y)
+                scene.labelRotation.layer.position = CGPoint(x: scene.sliderRotationLine.frame.width * 2 + scene.sliderRotationLine.layer.position.x - 160, y: scene.sliderRotationLine.layer.position.y)
                 scene.labelRotation.textColor! = UIColor.black
                 scene.labelRotation?.text = String(describing: round(-scene.sliderRotationLine.value*10)/10) + "°"
                 if scene.labelRotation.text != nil {
@@ -519,13 +621,19 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
                 scene.view?.addSubview(scene.sliderRotationLine!)
                 scene.arrayOfLabelRotation.append(scene.labelRotation!)
                 scene.view?.addSubview(scene.labelRotation!)
+                scene.arrayOfImageView.append(scene.rotationImageView!)
+                scene.view?.addSubview(scene.rotationImageView!)
             }
             
             func setFriction() {
+                // Set Friction Icon
+                let frictionImage = UIImage(named: "Friction.png")
+                scene.frictionImageView = UIImageView(image: frictionImage)
+                scene.frictionImageView.frame = CGRect(x: object.position.x + (scene.frame.size.width / 2) + 30, y: -object.position.y + (scene.frame.size.height / 2) + 40, width: 20, height: 20)
                 // Set Friction Slider
                 scene.sliderFriction = UISlider(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
                 scene.sliderFriction.setThumbImage(UIImage(named: "SliderThumb.png"), for: .normal)
-                scene.sliderFriction?.layer.position = CGPoint(x: object.position.x + (scene.frame.size.width / 2) + 100, y: -object.position.y + (scene.frame.size.height / 2) + 50)
+                scene.sliderFriction?.layer.position = CGPoint(x: object.position.x + (scene.frame.size.width / 2) + 130, y: -object.position.y + (scene.frame.size.height / 2) + 50)
                 scene.sliderFriction?.backgroundColor = UIColor.clear
                 scene.sliderFriction?.layer.cornerRadius = 15.0
                 scene.sliderFriction?.layer.shadowOpacity = 0.5
@@ -535,7 +643,7 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
                 scene.sliderFriction?.value = Float((node.physicsBody?.friction)!)
                 // Set Friction Label
                 scene.labelFriction = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-                scene.labelFriction.layer.position = CGPoint(x: scene.sliderFriction.frame.width * 2 + scene.sliderFriction.layer.position.x - 170, y: scene.sliderFriction.layer.position.y)
+                scene.labelFriction.layer.position = CGPoint(x: scene.sliderFriction.frame.width * 2 + scene.sliderFriction.layer.position.x - 160, y: scene.sliderFriction.layer.position.y)
                 scene.labelFriction.textColor! = UIColor.black
                 scene.labelFriction?.text = String(describing: round(scene.sliderFriction.value*10)/10)
                 if scene.labelFriction.text != nil {
@@ -546,6 +654,8 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
                 scene.view?.addSubview(scene.sliderFriction!)
                 scene.arrayOfLabelFriction.append(scene.labelFriction!)
                 scene.view?.addSubview(scene.labelFriction!)
+                scene.arrayOfImageView.append(scene.frictionImageView!)
+                scene.view?.addSubview(scene.frictionImageView!)
             }
             
             if object.name == "object" {
@@ -564,6 +674,8 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
                 //setWidth(node: beam!)
                 setRotation(node: beam!)
                 scene.myNode = beam!
+            } else if object.name == "sensor" {
+                setRotation(node: object)
             }
         
             if(node.name == "phisphere"){
@@ -584,6 +696,8 @@ func addSlider(node: SKSpriteNode, scene: GameScene) {
             } else if (node.name == "beam" || node.name == "fulcrum") {
                 scene.mySlider?.addTarget(scene, action: #selector(scene.setWidth2), for: UIControlEvents.valueChanged)
                 scene.sliderRotationLine?.addTarget(scene, action: #selector(scene.setRotation), for: UIControlEvents.valueChanged)
+            } else if (node.name == "sensor") {
+                 scene.sliderRotationLine?.addTarget(scene, action: #selector(scene.setRotation), for: UIControlEvents.valueChanged)
             }
         
         

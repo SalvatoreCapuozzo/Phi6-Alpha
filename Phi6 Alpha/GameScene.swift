@@ -51,6 +51,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var labelRotation: UILabel!
     var labelFriction: UILabel!
     var labelMass: UILabel!
+    var widthImageView: UIImageView!
+    var heightImageView: UIImageView!
+    var rotationImageView: UIImageView!
+    var frictionImageView: UIImageView!
+    var massImageView: UIImageView!
+    var velocityImageView: UIImageView!
+    var accelerationImageView: UIImageView!
     var arrayOfSlider = [UISlider]()
     var arrayOfSliderHeight = [UISlider]()
     var arrayOfSliderRotation2 = [MTCircularSlider]()
@@ -66,6 +73,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var arrayOfLabelSensors = [UILabel]()
     var arrayOfLabelTimer = [UILabel]()
     var arrayOfLabelLaser = [UILabel]()
+    var arrayOfImageView = [UIImageView]()
     
     var labelInitV: UILabel!
     var sliderInitV: UISlider!
@@ -238,11 +246,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                                     print(object.name!)
                                                     number += 1
                                                 }
-                                            } else if object.name == "speedCamera" || object.name == "laserAccelerometer" || object.name == "laserRangefinder" || object.name == "sensor" {
+                                            } else if object.name == "phiSphereRed" {
+                                                deleteSliders()
+                                                object.physicsBody?.collisionBitMask = 1
+                                                object.physicsBody?.categoryBitMask = 1//PhysicsCategory.Sensor
+                                                object.physicsBody?.contactTestBitMask = 0//PhysicsCategory.Phisphere
+                                            } else if object.name == "speedCamera" || object.name == "laserAccelerometer" || object.name == "laserRangefinder" {
                                                 deleteSliders()
                                                 object.physicsBody?.collisionBitMask = 1
                                                 object.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
                                                 object.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
+                                            } else if object.name == "sensor" {
+                                                deleteSliders()
+                                                object.physicsBody?.collisionBitMask = 1
+                                                object.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
+                                                object.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
+                                                selectedNode = object
+                                                myNode = object
                                             } else if object.name == "loadCell" {
                                                 deleteSliders()
                                                 object.physicsBody?.collisionBitMask = 2
@@ -414,6 +434,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     if sliderInitA?.value == 0 {
                         if counter < 0.1 {
                             phisphere.physicsBody?.velocity.dx = CGFloat(Float(sliderInitV.value))
+                            //phisphere.physicsBody?.applyImpulse(CGVector(dx: CGFloat(sliderInitV.value), dy: 0))
                             print("Initial velocity: \((phisphere.physicsBody?.velocity.dx)!/145)")
                         }
                     } else if sliderInitV.value == 0 {
@@ -459,10 +480,59 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     shapeLayerRope.lineWidth = 0.5
                     self.view?.layer.addSublayer(shapeLayerRope)
                 } else if object.name! == "beam" {
+                    object.physicsBody?.isDynamic = true
+                    object.physicsBody?.restitution = 0
                     if gravity {
                         object.physicsBody?.affectedByGravity = true
                     } else {
                         object.physicsBody?.affectedByGravity = false
+                    }
+                } else if object.name == "phiSphereRed" {
+                    //object.physicsBody?.collisionBitMask = 3
+                    //object.physicsBody?.categoryBitMask = PhysicsCategory.Sensor
+                    //object.physicsBody?.contactTestBitMask = PhysicsCategory.Phisphere
+                    object.physicsBody?.isDynamic = true
+                    if gravity {
+                        object.physicsBody?.affectedByGravity = true
+                    } else {
+                        object.physicsBody?.affectedByGravity = false
+                    }
+                    var phiSphereRed = object as! PhisphereRed
+                    // Vettore velocità
+                    let startV = CGPoint(x: object.position.x + (self.frame.size.width / 2), y: -object.position.y + (self.frame.size.height / 2))
+                    
+                    let endV = CGPoint(x: object.position.x + (self.frame.size.width / 2) + (object.physicsBody?.velocity.dx)!/15, y: -object.position.y + (self.frame.size.height / 2) - (object.physicsBody?.velocity.dy)!/15)
+                    
+                    let pathV = UIBezierPath.arrow(from: startV, to: endV,
+                                                   tailWidth: 2.0, headWidth: 5.0, headLength: 5.0)
+                    // Vettore accelerazione
+                    let startA = CGPoint(x: object.position.x + (self.frame.size.width / 2), y: -object.position.y + (self.frame.size.height / 2))
+                    
+                    let endA = CGPoint(x: object.position.x + (self.frame.size.width / 2) + phiSphereRed.phiSphereAccDx/15, y: -object.position.y + (self.frame.size.height / 2) - phiSphereRed.phiSphereAccDy/15)
+                    
+                    let pathA = UIBezierPath.arrow(from: startA, to: endA,
+                                                   tailWidth: 2.0, headWidth: 5.0, headLength: 5.0)
+                    // Inserimento nel layer
+                    if seeVelocity {
+                        phiSphereRed.shapeLayerV.path = pathV.cgPath
+                        phiSphereRed.shapeLayerV.strokeColor = UIColor.green.cgColor
+                        phiSphereRed.shapeLayerV.lineWidth = 2.0
+                        self.view?.layer.addSublayer(phiSphereRed.shapeLayerV)
+                    }
+                    if seeAcceleration {
+                        phiSphereRed.shapeLayerA.path = pathA.cgPath
+                        phiSphereRed.shapeLayerA.strokeColor = UIColor.red.cgColor
+                        phiSphereRed.shapeLayerA.lineWidth = 2.0
+                        self.view?.layer.addSublayer(phiSphereRed.shapeLayerA)
+                    }
+                    
+                    if abs(Double((object.physicsBody?.velocity.dx)!)) < 0.1 &&  abs(Double((object.physicsBody?.velocity.dy)!)) < 0.1{
+                        phiSphereRed.shapeLayerV.removeFromSuperlayer()
+                    }
+                    if abs(Double(phiSphereRed.phiSphereAccDx)) < 0.1 &&  abs(Double(phiSphereRed.phiSphereAccDy)) < 0.1{
+                        phiSphereRed.shapeLayerA.removeFromSuperlayer()
+                    } else if abs(Double(phiSphereRed.phiSphereAccDx)) > 3000 || abs(Double(phiSphereRed.phiSphereAccDy)) > 3000 {
+                        phiSphereRed.shapeLayerA.removeFromSuperlayer()
                     }
                 } else {
                     object.physicsBody?.affectedByGravity = false
@@ -578,6 +648,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         shapeLayerRope.lineWidth = 0.5
                         self.view?.layer.addSublayer(shapeLayerRope)
                     }
+                } else if object.name == "phiSphereRed" {
+                    var phiSphereRed = object as! PhisphereRed
+                    phiSphereRed.pausePosition = object.position
                 }
             }
         }
@@ -624,6 +697,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         sliderInitV?.value = 0
         
         deleteSliders()
+        
+        for object in Singleton.shared.objects {
+            if object.name == "phiSphereRed" {
+                object.physicsBody?.isDynamic = false
+                object.zRotation = 0
+                let phiSphereRed = object as? PhisphereRed
+                object.position = (phiSphereRed?.pausePosition)!
+                phiSphereRed?.shapeLayerV.removeFromSuperlayer()
+                phiSphereRed?.shapeLayerA.removeFromSuperlayer()
+            } else if object.name == "beam" {
+                object.physicsBody?.isDynamic = false
+                object.physicsBody?.restitution = 0
+                object.zRotation = 0
+            }
+        }
         
         if arrayOfLabelSensors.count >= 0 {
             for label in arrayOfLabelSensors {
@@ -745,6 +833,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             arrayOfLabelMass.removeAll()
         }
+        if arrayOfImageView.count >= 0 {
+            for imageView in arrayOfImageView {
+                imageView.removeFromSuperview()
+            }
+            arrayOfImageView.removeAll()
+        }
 
     }
     
@@ -851,7 +945,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func setRotation() {
-        if (myNode.name! == "object" || myNode.name! == "beam") {
+        if (myNode.name! == "object" || myNode.name! == "beam" || myNode.name! == "sensor") {
             myNode.zRotation = CGFloat(-sliderRotationLine.value/360*2*Float(M_PI))
         } else if (myNode.name! == "fulcrum") {
             let index = (Singleton.shared.GetObjectIndex(object: myNode))!
@@ -900,6 +994,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if ((firstBody.categoryBitMask & PhysicsCategory.Phisphere != 0) &&
             (secondBody.categoryBitMask & PhysicsCategory.Sensor != 0)) {
             
+            if firstBody.node?.name! == "phiSphereRed" {
+                print("I'm here")
+            }
+            
             if secondBody.node?.name! == "speedCamera" {
                 timer2.invalidate()
                 if let phisphereNode = firstBody.node as? SKSpriteNode, let
@@ -921,20 +1019,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     //alertMessage = Int((sphereSpeedF + sphereSpeedI)/2*timing)
                     //print( "la spazio vale: \(Int((sphereSpeedF + sphereSpeedI)/2*timing))")
                 }
-            } else if (secondBody.node?.name)! == "loadCell" && (secondBody.node?.position.y)! < (firstBody.node?.position.y)! - 10 {
-                timer2.invalidate()
-                if let phisphereNode = firstBody.node as? SKSpriteNode, let Sensor = secondBody.node as? LoadCell {
-                    // Cheating time
-                    let force: CGFloat
-                    if gravity && phisphere.physicsBody?.velocity.dx == 0 {
-                        force = (phisphereNode.physicsBody?.mass)! * 9.81
-                    } else {
-                        force = (phisphereNode.physicsBody?.mass)! * ((sqrt(pow(phisphereAccDx, 2)+pow(phisphereAccDy, 2)))/145)
+            } else if secondBody.node?.name! == "loadCell" {
+                if (secondBody.node?.position.y)! < (firstBody.node?.position.y)! - 10 {
+                    timer2.invalidate()
+                    if let phisphereNode = firstBody.node as? SKSpriteNode, let Sensor = secondBody.node as? LoadCell {
+                        // Cheating time
+                        let force: CGFloat
+                        if gravity && phisphere.physicsBody?.velocity.dx == 0 {
+                            force = (phisphereNode.physicsBody?.mass)! * 9.81
+                        } else {
+                            force = (phisphereNode.physicsBody?.mass)! * ((sqrt(pow(phisphereAccDx, 2)+pow(phisphereAccDy, 2)))/145)
+                        }
+                        Sensor.setLoadCellValue(force)
+                        print(Sensor.value)
+                        setValueDisplayLC(Sensor)
                     }
-                    Sensor.setLoadCellValue(force)
-                    print(Sensor.value)
-                    setValueDisplayLC(Sensor)
                 }
+                
             } else if secondBody.node?.name! == "laserAccelerometer" {
                 timer2.invalidate()
                 if let _ = firstBody.node as? SKSpriteNode, let
@@ -962,13 +1063,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if let _ = firstBody.node as? SKSpriteNode, let
                     Sensor = secondBody.node as? PhotoCell {
                     Sensor.setPhotoCellValue()
+                } else if let _ = firstBody.node as? SKSpriteNode, let Sensor = secondBody.node as? LaserPhotoCell {
+                    if Sensor.imgName == "LaserPhotoCell.png" {
+                        Sensor.setLaserPhotoCellValue()
+                    }
                 }
-            } /*else if secondBody.node?.name! == "pendulum" {
-                if let phisphereNode = firstBody.node as? SKSpriteNode, let
-                    Pendulum = secondBody.node as? Pendulum {
-                    Pendulum.physicsBody?.affectedByGravity = true
-                }
-            }*/
+            }
             //pause = true
             //viewController.showAlert()
         }

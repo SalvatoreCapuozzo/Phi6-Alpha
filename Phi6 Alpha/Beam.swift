@@ -29,6 +29,7 @@ class Beam: SKSpriteNode, SimpleObject {
             physics.isDynamic = true;
             physics.linearDamping = 0.75
             physics.angularDamping = 0.75
+            physics.restitution = 0
         }
         return sprite
     }
