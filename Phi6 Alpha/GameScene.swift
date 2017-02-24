@@ -112,6 +112,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var viewController: GameViewController!
     var alertMessage: Any?
     var adder = Adder()
+    var locked = false
+    var editable = true
     
     var shapeLayerRope = CAShapeLayer()
     var pendulumFulcrum: CGPoint!
@@ -221,7 +223,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         Singleton.shared.setPosition(position: touchLocation)
                         print(node.name!)
                         if let sprite = node as? SKSpriteNode {
-                            if sprite == phisphere {
+                            if sprite == phisphere && !locked {
                                 deleteSliders()
                                 phisphere.position = touchLocation
                                 adder.addInitSlider(scene: self)
@@ -333,9 +335,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     for node in [firstNode] {
                         if let sprite = node as? SKSpriteNode {
                             if sprite == phisphere {
-                                phisphere.position = touchLocation
-                                adder.addInitSlider(scene: self)
-                                myNode = sprite
+                                if !locked {
+                                    phisphere.position = touchLocation
+                                }
+                                if editable {
+                                    adder.addInitSlider(scene: self)
+                                    myNode = sprite
+                                }
                             } else {
                                 for object in Singleton.shared.objects {
                                     if sprite == object {

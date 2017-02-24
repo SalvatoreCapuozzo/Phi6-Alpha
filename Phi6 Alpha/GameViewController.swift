@@ -188,7 +188,7 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
-            if let scene = GameScene(fileNamed: "GameScene") {
+            if let scene = GameScene(fileNamed: "LevelScene") {
                 // Set the scale mode to scale to fit the window
                 self.scene = scene
                 scene.levelSelected = String(describing: self.levelNumber)
