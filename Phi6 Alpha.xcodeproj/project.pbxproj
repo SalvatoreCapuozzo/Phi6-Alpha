@@ -66,6 +66,11 @@
 		878B00FE1E4BA527005EDFFD /* Pendulum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878B00FD1E4BA527005EDFFD /* Pendulum.swift */; };
 		87B05EFB1E601CBA00887F53 /* LevelScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 87B05EFA1E601CBA00887F53 /* LevelScene.sks */; };
 		87B05EFD1E601CFE00887F53 /* LevelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B05EFC1E601CFE00887F53 /* LevelScene.swift */; };
+		87B05F231E60413600887F53 /* SimpleStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B05F1E1E60413600887F53 /* SimpleStateMachine.swift */; };
+		87B05F241E60413600887F53 /* sksTutorial1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 87B05F1F1E60413600887F53 /* sksTutorial1.sks */; };
+		87B05F251E60413600887F53 /* sksTutorial1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B05F201E60413600887F53 /* sksTutorial1.swift */; };
+		87B05F261E60413600887F53 /* TutorialFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B05F211E60413600887F53 /* TutorialFunctions.swift */; };
+		87B05F271E60413600887F53 /* viewTutorialInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B05F221E60413600887F53 /* viewTutorialInfo.swift */; };
 		87DC85171E34BA4B0068555D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DC85161E34BA4B0068555D /* AppDelegate.swift */; };
 		87DC85191E34BA4B0068555D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 87DC85181E34BA4B0068555D /* GameScene.sks */; };
 		87DC851B1E34BA4B0068555D /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 87DC851A1E34BA4B0068555D /* Actions.sks */; };
@@ -145,6 +150,11 @@
 		878B00FD1E4BA527005EDFFD /* Pendulum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pendulum.swift; sourceTree = "<group>"; };
 		87B05EFA1E601CBA00887F53 /* LevelScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LevelScene.sks; sourceTree = "<group>"; };
 		87B05EFC1E601CFE00887F53 /* LevelScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelScene.swift; sourceTree = "<group>"; };
+		87B05F1E1E60413600887F53 /* SimpleStateMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleStateMachine.swift; sourceTree = "<group>"; };
+		87B05F1F1E60413600887F53 /* sksTutorial1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = sksTutorial1.sks; sourceTree = "<group>"; };
+		87B05F201E60413600887F53 /* sksTutorial1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sksTutorial1.swift; sourceTree = "<group>"; };
+		87B05F211E60413600887F53 /* TutorialFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialFunctions.swift; sourceTree = "<group>"; };
+		87B05F221E60413600887F53 /* viewTutorialInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = viewTutorialInfo.swift; sourceTree = "<group>"; };
 		87DC85131E34BA4B0068555D /* Phi6 Alpha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Phi6 Alpha.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87DC85161E34BA4B0068555D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87DC85181E34BA4B0068555D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -224,6 +234,11 @@
 				5A00DAD21E48C15200F13164 /* CellViews */,
 				87DC851C1E34BA4B0068555D /* GameScene.swift */,
 				87B05EFC1E601CFE00887F53 /* LevelScene.swift */,
+				87B05F1E1E60413600887F53 /* SimpleStateMachine.swift */,
+				87B05F1F1E60413600887F53 /* sksTutorial1.sks */,
+				87B05F201E60413600887F53 /* sksTutorial1.swift */,
+				87B05F211E60413600887F53 /* TutorialFunctions.swift */,
+				87B05F221E60413600887F53 /* viewTutorialInfo.swift */,
 				87B05EFA1E601CBA00887F53 /* LevelScene.sks */,
 				87DC85181E34BA4B0068555D /* GameScene.sks */,
 				87DC85201E34BA4B0068555D /* Main.storyboard */,
@@ -441,6 +456,7 @@
 				81982EFF1E4CB2B100E592F5 /* button-37.mp3 in Resources */,
 				8167535F1E4C9EC8002219DE /* Bag Raiders - Shooting Stars.mp3 in Resources */,
 				301045861E4B355500D27A48 /* SourceSansPro-Regular.ttf in Resources */,
+				87B05F241E60413600887F53 /* sksTutorial1.sks in Resources */,
 				87DC85241E34BA4B0068555D /* Assets.xcassets in Resources */,
 				87DC85271E34BA4B0068555D /* LaunchScreen.storyboard in Resources */,
 				81982EFB1E4CA86F00E592F5 /* Crypt of the Necrodancer OST - Portabellohead (2-3).mp3 in Resources */,
@@ -513,7 +529,9 @@
 				8731F2D11E40D6FE002C5253 /* Triangle.swift in Sources */,
 				8731F2C21E40D6FE002C5253 /* AndGate.swift in Sources */,
 				5A4A66721E4B60F600C137B8 /* CategoryLesson.swift in Sources */,
+				87B05F231E60413600887F53 /* SimpleStateMachine.swift in Sources */,
 				878B00FA1E4B929B005EDFFD /* Fulcrum.swift in Sources */,
+				87B05F271E60413600887F53 /* viewTutorialInfo.swift in Sources */,
 				8731F2C81E40D6FE002C5253 /* LoadCell.swift in Sources */,
 				8731F2CC1E40D6FE002C5253 /* PhotoCell.swift in Sources */,
 				5A4A66741E4B615700C137B8 /* LessonViewController.swift in Sources */,
@@ -524,10 +542,12 @@
 				8731F2D01E40D6FE002C5253 /* SpeedCamera.swift in Sources */,
 				871858981E5DAE0C008BE0F5 /* PhisphereRed.swift in Sources */,
 				8731F2C71E40D6FE002C5253 /* LaserRangefinder.swift in Sources */,
+				87B05F261E60413600887F53 /* TutorialFunctions.swift in Sources */,
 				3084EA041E487A0E0064C869 /* LevelViewController.swift in Sources */,
 				8731F2E71E40E209002C5253 /* EAAnimationFuture.swift in Sources */,
 				87DC851F1E34BA4B0068555D /* GameViewController.swift in Sources */,
 				8731F2F31E40E2D1002C5253 /* RBBSpringAnimation.swift in Sources */,
+				87B05F251E60413600887F53 /* sksTutorial1.swift in Sources */,
 				8731F2C91E40D6FE002C5253 /* Logic.swift in Sources */,
 				8731F2C51E40D6FE002C5253 /* GameObject.swift in Sources */,
 				3093494D1E449B920006F622 /* Arrow.swift in Sources */,

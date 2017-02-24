@@ -240,6 +240,24 @@
                                     <action selector="setSlowMotion" destination="BV1-FR-VrT" eventType="touchUpInside" id="PGJ-Cq-eLx"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FHv-oN-jbg" customClass="viewTutorialInfo" customModule="Phi6_Alpha" customModuleProvider="target">
+                                <rect key="frame" x="20" y="15" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eWw-N4-ZRb">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="textInfo" destination="eWw-N4-ZRb" id="lRW-wl-4VH"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -273,12 +291,14 @@
                         <outlet property="diameterSlider" destination="5Lc-4L-BMh" id="bNW-od-3RJ"/>
                         <outlet property="excerciseTextView" destination="Zui-TD-0FH" id="TIi-7S-ooM"/>
                         <outlet property="gravityButton" destination="1mN-Ry-oqx" id="58V-OX-8td"/>
+                        <outlet property="infoButton" destination="eYH-Uq-11M" id="nK4-Ff-ZGD"/>
                         <outlet property="massLabel" destination="b3g-LM-iqm" id="8dc-jp-Jd0"/>
                         <outlet property="massSlider" destination="r9y-25-dcC" id="6zH-GD-pKa"/>
                         <outlet property="pauseButton" destination="Um6-qM-LTS" id="XWQ-46-pxE"/>
                         <outlet property="showSolutionButton" destination="Ob3-9J-OYU" id="ZGd-B8-MUL"/>
                         <outlet property="slowMotionButton" destination="mzt-o8-55P" id="hgH-Dr-bsQ"/>
                         <outlet property="topView" destination="3se-qz-xqx" id="cLP-eU-zHv"/>
+                        <outlet property="tutorialInfoView" destination="FHv-oN-jbg" id="GpN-Tx-nzJ"/>
                         <outlet property="velButton" destination="HkO-8C-lfr" id="bn6-k1-kao"/>
                     </connections>
                 </viewController>

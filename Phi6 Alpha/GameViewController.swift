@@ -15,6 +15,7 @@ import AVFoundation
 
 class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizerDelegate, UITextViewDelegate, BAMContextualMenuDelegate, BAMContextualMenuDataSource {
     
+    @IBOutlet var tutorialInfoView: UIView!
     @IBOutlet var topView: SKView?
     
     @IBOutlet weak var infoButton: UIButton!
@@ -188,7 +189,7 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
-            if let scene = GameScene(fileNamed: "LevelScene") {
+            if let scene = GameScene(fileNamed: "sksTutorial1") {
                 // Set the scale mode to scale to fit the window
                 self.scene = scene
                 scene.levelSelected = String(describing: self.levelNumber)

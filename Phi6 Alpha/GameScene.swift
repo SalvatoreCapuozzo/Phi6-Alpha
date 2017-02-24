@@ -329,7 +329,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if let touch = touches.first {
                 let touchLocation = touch.location(in: self)
                 let touchedWhere = nodes(at: touchLocation)
-                let firstNode = touchedWhere.first!
+                //let firstNode = touchedWhere.first!
+                
+                let firstNode: SKNode!
+                if let first = touchedWhere.first {
+                    firstNode = first
                 
                 if !touchedWhere.isEmpty {
                     for node in [firstNode] {
@@ -408,6 +412,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                             }
                         }
                     }
+                }
                 }
             }
         }
