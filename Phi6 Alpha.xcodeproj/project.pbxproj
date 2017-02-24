@@ -14,6 +14,7 @@
 		3093494D1E449B920006F622 /* Arrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3093494C1E449B920006F622 /* Arrow.swift */; };
 		30AB47C61E49D90400671FA0 /* TheoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AB47C51E49D90400671FA0 /* TheoryViewController.swift */; };
 		3F5DAC2C1E4CD2EA00AE47D1 /* Lever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5DAC2B1E4CD2EA00AE47D1 /* Lever.swift */; };
+		3FC52C161E604C6E00F6733D /* BaseTutorialScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC52C151E604C6E00F6733D /* BaseTutorialScene.swift */; };
 		5A00863C1E4D2E6500035DC2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A00863E1E4D2E6500035DC2 /* Localizable.strings */; };
 		5A00DAD41E48C16B00F13164 /* Adder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00DAD31E48C16B00F13164 /* Adder.swift */; };
 		5A2F7E041E4BD06900FEDC4A /* Excercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2F7E031E4BD06900FEDC4A /* Excercise.swift */; };
@@ -92,6 +93,7 @@
 		3093494C1E449B920006F622 /* Arrow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arrow.swift; sourceTree = "<group>"; };
 		30AB47C51E49D90400671FA0 /* TheoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheoryViewController.swift; sourceTree = "<group>"; };
 		3F5DAC2B1E4CD2EA00AE47D1 /* Lever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lever.swift; sourceTree = "<group>"; };
+		3FC52C151E604C6E00F6733D /* BaseTutorialScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTutorialScene.swift; sourceTree = "<group>"; };
 		5A0086381E4D2E5600035DC2 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Main.strings; sourceTree = "<group>"; };
 		5A0086391E4D2E5700035DC2 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		5A00863D1E4D2E6500035DC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				8731F2D31E40D827002C5253 /* Logic */,
 				8731F2D41E40D82B002C5253 /* Sensor */,
 				5A72AB921E44C49700227938 /* PhysicsCategory.swift */,
+				3FC52C151E604C6E00F6733D /* BaseTutorialScene.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				5A4A66741E4B615700C137B8 /* LessonViewController.swift in Sources */,
 				3F5DAC2C1E4CD2EA00AE47D1 /* Lever.swift in Sources */,
 				8715F5FC1E36510F001E2DEA /* Singleton.swift in Sources */,
+				3FC52C161E604C6E00F6733D /* BaseTutorialScene.swift in Sources */,
 				87283ABD1E43325100FDEE95 /* Obstacle.swift in Sources */,
 				87DC851D1E34BA4B0068555D /* GameScene.swift in Sources */,
 				8731F2D01E40D6FE002C5253 /* SpeedCamera.swift in Sources */,
