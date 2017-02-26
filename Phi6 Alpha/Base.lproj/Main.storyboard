@@ -327,8 +327,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PhiSphereRed" translatesAutoresizingMaskIntoConstraints="NO" id="0D4-OV-wi0">
-                                <rect key="frame" x="304" y="161" width="59" height="53"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PhiSphereRed" translatesAutoresizingMaskIntoConstraints="NO" id="0D4-OV-wi0">
+                                <rect key="frame" x="-22" y="161" width="59" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
