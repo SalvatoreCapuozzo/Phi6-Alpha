@@ -336,6 +336,7 @@
                     </view>
                     <connections>
                         <outlet property="phiSphere" destination="0D4-OV-wi0" id="Qbj-tA-uas"/>
+                        <segue destination="wgD-cz-GGm" kind="presentation" identifier="startSegue" modalTransitionStyle="crossDissolve" id="mlO-07-aJd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UXC-W2-H1R" userLabel="First Responder" sceneMemberID="firstResponder"/>
