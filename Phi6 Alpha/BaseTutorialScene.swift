@@ -55,12 +55,15 @@ class BaseTutorialScene : GameScene, TutorialScene
             if stepCompleted
             {
                 currentStep += 1
+                self.viewController.tutorialInfoView.isHidden = true
+                self.viewController.pointerImg.isHidden = true
                 tutorialSteps[currentStep].action()
             }
         }
         else
         {
             self.viewController.tutorialInfoView.isHidden = true
+            self.viewController.pointerImg.isHidden = true
         }
     }
     
@@ -70,6 +73,10 @@ class BaseTutorialScene : GameScene, TutorialScene
         
         if !loaded
         {
+            // Blocca le modifiche alle sfera
+            self.locked = true
+            self.editable = false
+            // Inizializza l'FSM
             InitStates()
             loaded = true
             

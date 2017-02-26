@@ -17,6 +17,7 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     
     @IBOutlet var tutorialInfoView: UIView!
     @IBOutlet var topView: SKView?
+    @IBOutlet var pointerImg: UIImageView!
     
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!

@@ -30,6 +30,25 @@ func Focus(view: viewTutorialInfo, obj: NSObject, text: String, offset: CGPoint)
     view.textInfo.text = text
 }
 
+func Point(pointer: UIImageView, obj: NSObject, offset: CGPoint)
+{
+    var pos = CGPoint(x: 0, y: 0)
+    
+    if let skNode = obj as? SKSpriteNode
+    {
+        let nodePos = skNode.position
+        pos = CGPoint(x: nodePos.x + offset.x, y: nodePos.y + offset.y)
+    }
+    else if let button = obj as? UIButton
+    {
+        pos = button.frame.origin
+    }
+    
+    pointer.frame.origin = CGPoint(x: pos.x - pointer.frame.width / 2, y: pos.y + pointer.frame.height / 2 - 50)
+    pointer.isHidden = false
+    
+}
+
 // NOTA: Aggiungendo degli SKSpriteNode all'effectNode con effectNode.addChild() applicherà l'effetto su di essi
 func CreateBlurEffectNode(position: CGPoint, blurAmount: CGFloat) -> SKEffectNode
 {
@@ -43,4 +62,17 @@ func CreateBlurEffectNode(position: CGPoint, blurAmount: CGFloat) -> SKEffectNod
     effectNode.blendMode = .alpha
     
     return effectNode
+}
+
+func Search(name: String) -> Bool
+{
+    for obj in Singleton.shared.objects
+    {
+        if name == obj.name!
+        {
+            return true
+        }
+    }
+    
+    return false
 }
