@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="b82-Wq-vTo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wgD-cz-GGm">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -240,6 +240,28 @@
                                     <action selector="setSlowMotion" destination="BV1-FR-VrT" eventType="touchUpInside" id="PGJ-Cq-eLx"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FHv-oN-jbg" customClass="viewTutorialInfo" customModule="Phi6_Alpha" customModuleProvider="target">
+                                <rect key="frame" x="20" y="15" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eWw-N4-ZRb">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="textInfo" destination="eWw-N4-ZRb" id="lRW-wl-4VH"/>
+                                </connections>
+                            </view>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Pointer" translatesAutoresizingMaskIntoConstraints="NO" id="Fg7-Cz-6Pf">
+                                <rect key="frame" x="325" y="122" width="110" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -273,50 +295,21 @@
                         <outlet property="diameterSlider" destination="5Lc-4L-BMh" id="bNW-od-3RJ"/>
                         <outlet property="excerciseTextView" destination="Zui-TD-0FH" id="TIi-7S-ooM"/>
                         <outlet property="gravityButton" destination="1mN-Ry-oqx" id="58V-OX-8td"/>
+                        <outlet property="infoButton" destination="eYH-Uq-11M" id="nK4-Ff-ZGD"/>
                         <outlet property="massLabel" destination="b3g-LM-iqm" id="8dc-jp-Jd0"/>
                         <outlet property="massSlider" destination="r9y-25-dcC" id="6zH-GD-pKa"/>
                         <outlet property="pauseButton" destination="Um6-qM-LTS" id="XWQ-46-pxE"/>
+                        <outlet property="pointerImg" destination="Fg7-Cz-6Pf" id="LNp-A1-BZ1"/>
                         <outlet property="showSolutionButton" destination="Ob3-9J-OYU" id="ZGd-B8-MUL"/>
                         <outlet property="slowMotionButton" destination="mzt-o8-55P" id="hgH-Dr-bsQ"/>
                         <outlet property="topView" destination="3se-qz-xqx" id="cLP-eU-zHv"/>
+                        <outlet property="tutorialInfoView" destination="FHv-oN-jbg" id="GpN-Tx-nzJ"/>
                         <outlet property="velButton" destination="HkO-8C-lfr" id="bn6-k1-kao"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-833.43328335832086" y="1973.5999999999999"/>
-        </scene>
-        <!--Starting View Controller-->
-        <scene sceneID="iKU-jb-Ppu">
-            <objects>
-                <viewController id="b82-Wq-vTo" customClass="StartingViewController" customModule="Phi6_Alpha" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="bBW-5m-fp5"/>
-                        <viewControllerLayoutGuide type="bottom" id="uQD-1q-SDr"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="TU9-dg-rxf">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mainBackground" translatesAutoresizingMaskIntoConstraints="NO" id="omW-zL-Npu">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PhiSphereRed" translatesAutoresizingMaskIntoConstraints="NO" id="dVD-8a-CCs">
-                                <rect key="frame" x="-11" y="161" width="53" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="phiSphere" destination="dVD-8a-CCs" id="twY-nO-kPt"/>
-                        <segue destination="wgD-cz-GGm" kind="presentation" identifier="startSegue" modalTransitionStyle="crossDissolve" id="Qwd-gJ-Jql"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qO3-jH-9XM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1526.0869565217392" y="-3495.1999999999998"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="5Se-Rh-HyU">
@@ -818,7 +811,7 @@
         <image name="Lock" width="472" height="606"/>
         <image name="No SlowMotion" width="700" height="700"/>
         <image name="Oval 5" width="25" height="25"/>
-        <image name="PhiSphereRed" width="428" height="428"/>
+        <image name="Pointer" width="800" height="800"/>
         <image name="Sandbox" width="87" height="26"/>
         <image name="Velocity Dark" width="538" height="533"/>
         <image name="arcade3d" width="200" height="200"/>
