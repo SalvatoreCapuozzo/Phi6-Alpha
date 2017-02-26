@@ -9,7 +9,9 @@
 import UIKit
 
 class StartingViewController: UIViewController {
+    
     @IBOutlet weak var phiSphere: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
