@@ -114,6 +114,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var adder = Adder()
     var locked = false
     var editable = true
+    var neededObject: String = "None"
     
     var shapeLayerRope = CAShapeLayer()
     var pendulumFulcrum: CGPoint!

@@ -65,4 +65,5 @@ class LaserPhotoCell : SKSpriteNode, Sensor {
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.isDynamic = false
     }
+    
 }

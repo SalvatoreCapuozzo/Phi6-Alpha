@@ -40,6 +40,7 @@ class Chronometer : SKSpriteNode, Sensor {
     func startTimer() {
         timer.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+        self.value = 1
     }
     
     func timerAction() {
@@ -51,4 +52,5 @@ class Chronometer : SKSpriteNode, Sensor {
     func unset() {
         self.value = 0
     }
+    
 }

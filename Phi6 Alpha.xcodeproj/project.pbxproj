@@ -31,6 +31,9 @@
 		8715F6081E368279001E2DEA /* ObjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715F6071E368279001E2DEA /* ObjectTableViewCell.swift */; };
 		8715F60A1E36828A001E2DEA /* ObjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715F6091E36828A001E2DEA /* ObjectTableViewController.swift */; };
 		871858981E5DAE0C008BE0F5 /* PhisphereRed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871858971E5DAE0C008BE0F5 /* PhisphereRed.swift */; };
+		871B2CC61E633A00005FE851 /* LSCTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B2CC51E633A00005FE851 /* LSCTutorial.swift */; };
+		871B2CC81E633C49005FE851 /* LSCTutorial.sks in Resources */ = {isa = PBXBuildFile; fileRef = 871B2CC71E633C49005FE851 /* LSCTutorial.sks */; };
+		871B2CCA1E637C9C005FE851 /* ContextualMenu.gif in Resources */ = {isa = PBXBuildFile; fileRef = 871B2CC91E637C9C005FE851 /* ContextualMenu.gif */; };
 		87283AB91E4331DE00FDEE95 /* GameObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87283AB81E4331DE00FDEE95 /* GameObjectNode.swift */; };
 		87283ABC1E43325100FDEE95 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87283ABA1E43325100FDEE95 /* Character.swift */; };
 		87283ABD1E43325100FDEE95 /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87283ABB1E43325100FDEE95 /* Obstacle.swift */; };
@@ -115,6 +118,9 @@
 		8715F6071E368279001E2DEA /* ObjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectTableViewCell.swift; sourceTree = "<group>"; };
 		8715F6091E36828A001E2DEA /* ObjectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectTableViewController.swift; sourceTree = "<group>"; };
 		871858971E5DAE0C008BE0F5 /* PhisphereRed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhisphereRed.swift; sourceTree = "<group>"; };
+		871B2CC51E633A00005FE851 /* LSCTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LSCTutorial.swift; sourceTree = "<group>"; };
+		871B2CC71E633C49005FE851 /* LSCTutorial.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LSCTutorial.sks; sourceTree = "<group>"; };
+		871B2CC91E637C9C005FE851 /* ContextualMenu.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = ContextualMenu.gif; path = Images/ContextualMenu.gif; sourceTree = SOURCE_ROOT; };
 		87283AB81E4331DE00FDEE95 /* GameObjectNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObjectNode.swift; sourceTree = "<group>"; };
 		87283ABA1E43325100FDEE95 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		87283ABB1E43325100FDEE95 /* Obstacle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Obstacle.swift; sourceTree = "<group>"; };
@@ -240,6 +246,8 @@
 				87B05F1E1E60413600887F53 /* SimpleStateMachine.swift */,
 				87B05F1F1E60413600887F53 /* sksTutorial1.sks */,
 				87B05F201E60413600887F53 /* sksTutorial1.swift */,
+				871B2CC51E633A00005FE851 /* LSCTutorial.swift */,
+				871B2CC71E633C49005FE851 /* LSCTutorial.sks */,
 				87B05F211E60413600887F53 /* TutorialFunctions.swift */,
 				87B05F221E60413600887F53 /* viewTutorialInfo.swift */,
 				87B05EFA1E601CBA00887F53 /* LevelScene.sks */,
@@ -375,6 +383,7 @@
 				8731F2B01E40D64D002C5253 /* View */,
 				8731F2B11E40D654002C5253 /* Controller */,
 				8715F5FB1E36510F001E2DEA /* Singleton.swift */,
+				871B2CC91E637C9C005FE851 /* ContextualMenu.gif */,
 				87DC85281E34BA4B0068555D /* Info.plist */,
 				5A00DAD31E48C16B00F13164 /* Adder.swift */,
 				5A4A66711E4B60F600C137B8 /* CategoryLesson.swift */,
@@ -456,10 +465,12 @@
 				301045851E4B355500D27A48 /* SourceSansPro-Light.ttf in Resources */,
 				301045841E4B355500D27A48 /* SourceSansPro-ExtraLight.ttf in Resources */,
 				87DC85191E34BA4B0068555D /* GameScene.sks in Resources */,
+				871B2CC81E633C49005FE851 /* LSCTutorial.sks in Resources */,
 				81982EFF1E4CB2B100E592F5 /* button-37.mp3 in Resources */,
 				8167535F1E4C9EC8002219DE /* Bag Raiders - Shooting Stars.mp3 in Resources */,
 				301045861E4B355500D27A48 /* SourceSansPro-Regular.ttf in Resources */,
 				87B05F241E60413600887F53 /* sksTutorial1.sks in Resources */,
+				871B2CCA1E637C9C005FE851 /* ContextualMenu.gif in Resources */,
 				87DC85241E34BA4B0068555D /* Assets.xcassets in Resources */,
 				87DC85271E34BA4B0068555D /* LaunchScreen.storyboard in Resources */,
 				81982EFB1E4CA86F00E592F5 /* Crypt of the Necrodancer OST - Portabellohead (2-3).mp3 in Resources */,
@@ -576,6 +587,7 @@
 				87DC85171E34BA4B0068555D /* AppDelegate.swift in Sources */,
 				8731F2F21E40E2D1002C5253 /* RBBLinearInterpolation.swift in Sources */,
 				8731F2CB1E40D6FE002C5253 /* OrGate.swift in Sources */,
+				871B2CC61E633A00005FE851 /* LSCTutorial.swift in Sources */,
 				8731F2C31E40D6FE002C5253 /* Chronometer.swift in Sources */,
 				8715F6081E368279001E2DEA /* ObjectTableViewCell.swift in Sources */,
 				8715F60A1E36828A001E2DEA /* ObjectTableViewController.swift in Sources */,

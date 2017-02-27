@@ -23,11 +23,11 @@ class sksTutorial1 : BaseTutorialScene
         }
         
         let step2 = SimpleFSM_State(stateType: .FOCUS) {
-            Focus(view: self.viewController.tutorialInfoView as! viewTutorialInfo, obj: self.childNode(withName: "phisphere")!, text: "perdindirindina", offset: CGPoint(x: self.frame.size.width / 2, y: 0))
+            Tap(view: self.viewController.tutorialInfoView as! viewTutorialInfo, obj: self.childNode(withName: "phisphere")!, text: "perdindirindina", offset: CGPoint(x: self.frame.size.width / 2, y: 0))
         }
         
         let step3 = SimpleFSM_State(stateType: .FOCUS) {
-            Focus(view: self.viewController.tutorialInfoView as! viewTutorialInfo, obj: self.viewController.infoButton, text: "daghediogan", offset: CGPoint(x: self.frame.size.width / 2, y: 0))
+            Tap(view: self.viewController.tutorialInfoView as! viewTutorialInfo, obj: self.viewController.infoButton, text: "daghediogan", offset: CGPoint(x: self.frame.size.width / 2, y: 0))
         }
         
         tutorialSteps.append(step2)

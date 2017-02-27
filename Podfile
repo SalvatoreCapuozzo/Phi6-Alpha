@@ -6,5 +6,6 @@ target ‘Phi6 Alpha’ do
 	pod ‘iCarousel’
 	pod ‘MTCircularSlider’
     pod "iOSContextualMenu"
+	pod 'SwiftyGif'
 
 end

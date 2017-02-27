@@ -44,4 +44,5 @@ class SpeedCamera : SKSpriteNode, Sensor {
     func unset() {
         self.value = 0
     }
+    
 }

@@ -18,6 +18,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     @IBOutlet var tutorialInfoView: UIView!
     @IBOutlet var topView: SKView?
     @IBOutlet var pointerImg: UIImageView!
+    @IBOutlet var pointerTapImg: UIImageView!
+    @IBOutlet var pointerHoldImg: UIImageView!
     
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
@@ -74,7 +76,7 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         "Rectangle",
         "Circle",
         "PhiSphereRed",
-        "PhotoCellDefault",
+        //"PhotoCellDefault",
         "LaserPhotoCell",
         "SpeedCamera",
         "LaserAccelerometer(V)",
@@ -89,7 +91,7 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         "Rectangle Dark",
         "Circle Dark",
         "PhiSphereRed Dark",
-        "Photocell Default (H&V) Dark",
+        //"Photocell Default (H&V) Dark",
         "LaserPhotoCell Dark",
         "Speed Camera (H&V) Dark",
         "Laser Accelerometer (V) Dark",
@@ -190,7 +192,7 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
-            if let scene = GameScene(fileNamed: "sksTutorial1") {
+            if let scene = GameScene(fileNamed: "LSCTutorial") {
                 // Set the scale mode to scale to fit the window
                 self.scene = scene
                 scene.levelSelected = String(describing: self.levelNumber)
@@ -290,8 +292,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
             addSpeedCamera()
         case "LoadCell":
             addLoadCell()
-        case "PhotoCellDefault":
-            addPhotoCell()
+        //case "PhotoCellDefault":
+            //addPhotoCell()
         case "LaserPhotoCell":
             addLaserPhotoCell()
         case "Circle":
@@ -395,7 +397,7 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     }
     
     
-    @IBAction func pressPlay(_ sender: UIButton) {
+    @IBAction func pressPlay() {
         if scene.isStopped() {
             scene.play()
             pauseButton?.setTitle("reset", for: UIControlState(rawValue: 0))
@@ -437,9 +439,9 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     func contextualMenu(_ contextualMenu: BAMContextualMenu!, titleForMenuItemAt index: UInt) -> String! {
         var title = ""
         
-        if arrayOfSensors[Int(index)] == "PhotoCellDefault" {
+        /*if arrayOfSensors[Int(index)] == "PhotoCellDefault" {
             return "Photo Cell\nDetects the passage of the PhiSphere"
-        } else if arrayOfSensors[Int(index)] == "Rectangle" {
+        } else*/ if arrayOfSensors[Int(index)] == "Rectangle" {
             title = "Rectangular Block"
         } else if arrayOfSensors[Int(index)] == "Circle" {
             title = "Circular Block"
@@ -651,7 +653,7 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         }
     }
     
-    @IBAction func goBack(_ sender: UIButton) {
+    @IBAction func goBack() {
         self.dismiss(animated: true, completion: nil)
         backPlayer.play()
         

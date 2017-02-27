@@ -48,6 +48,24 @@ class BaseTutorialScene : GameScene, TutorialScene
                      {
                      stepCompleted = true
                      }*/
+                case .ADD:
+                    if Search(name: neededObject) {
+                        stepCompleted = true
+                    } else {
+                        stepCompleted = false
+                    }
+                case .ROTATE:
+                    if Rotate(name: neededObject) {
+                        stepCompleted = true
+                    } else {
+                        stepCompleted = false
+                    }
+                case .ACTIVATE:
+                    if Activate(name: neededObject) {
+                        stepCompleted = true
+                    } else {
+                        stepCompleted = false
+                    }
                 default:
                     stepCompleted = false
             }
@@ -57,6 +75,14 @@ class BaseTutorialScene : GameScene, TutorialScene
                 currentStep += 1
                 self.viewController.tutorialInfoView.isHidden = true
                 self.viewController.pointerImg.isHidden = true
+                self.viewController.pointerTapImg.isHidden = true
+                self.viewController.pointerHoldImg.isHidden = true
+                for subview in (self.view?.subviews)! {
+                    if subview.tag == 100 || subview.tag == 101 {
+                        // 100 is ContMenu, 101 is Selector
+                        subview.removeFromSuperview()
+                    }
+                }
                 tutorialSteps[currentStep].action()
             }
         }
@@ -64,6 +90,14 @@ class BaseTutorialScene : GameScene, TutorialScene
         {
             self.viewController.tutorialInfoView.isHidden = true
             self.viewController.pointerImg.isHidden = true
+            self.viewController.pointerTapImg.isHidden = true
+            self.viewController.pointerHoldImg.isHidden = true
+            for subview in (self.view?.subviews)! {
+                if subview.tag == 100 || subview.tag == 101 {
+                    // 100 is ContMenu, 101 is Selector
+                    subview.removeFromSuperview()
+                }
+            }
         }
     }
     

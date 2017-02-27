@@ -13,6 +13,9 @@ enum StateType
     case FOCUS
     case POINT
     case MOVE_TO_POINT
+    case ADD
+    case ROTATE
+    case ACTIVATE
 }
 
 class SimpleFSM_State
@@ -30,7 +33,7 @@ class SimpleFSM_State
     {
         switch(type)
         {
-            case .FOCUS, .POINT:
+            case .FOCUS, .POINT, .ADD, .ROTATE, .ACTIVATE:
                 // Se il tap è stato concluso
                 if sender.state == .ended
                 {

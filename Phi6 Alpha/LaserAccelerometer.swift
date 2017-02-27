@@ -65,4 +65,5 @@ class LaserAccelerometer : SKSpriteNode, Sensor {
     func unset() {
         self.value = 0
     }
+    
 }
