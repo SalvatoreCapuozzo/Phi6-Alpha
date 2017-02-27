@@ -321,6 +321,38 @@
             </objects>
             <point key="canvasLocation" x="-833.43328335832086" y="1973.5999999999999"/>
         </scene>
+        <!--Starting View Controller-->
+        <scene sceneID="2ys-tk-mYq">
+            <objects>
+                <viewController id="SEe-Qk-1dr" customClass="StartingViewController" customModule="Phi6_Alpha" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2Es-PV-kbs"/>
+                        <viewControllerLayoutGuide type="bottom" id="n3t-uC-Pg9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FlC-XM-aTJ" customClass="Star">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mainBackground" translatesAutoresizingMaskIntoConstraints="NO" id="HgU-kD-SHs">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PhiSphereRed" translatesAutoresizingMaskIntoConstraints="NO" id="0D4-OV-wi0">
+                                <rect key="frame" x="-22" y="161" width="59" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="phiSphere" destination="0D4-OV-wi0" id="Qbj-tA-uas"/>
+                        <segue destination="wgD-cz-GGm" kind="presentation" identifier="startSegue" modalTransitionStyle="crossDissolve" id="mlO-07-aJd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UXC-W2-H1R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1648.4257871064469" y="-3495.1999999999998"/>
+        </scene>
         <!--Main View Controller-->
         <scene sceneID="5Se-Rh-HyU">
             <objects>
@@ -821,9 +853,8 @@
         <image name="Lock" width="472" height="606"/>
         <image name="No SlowMotion" width="700" height="700"/>
         <image name="Oval 5" width="25" height="25"/>
-        <image name="Pointer" width="700" height="700"/>
-        <image name="PointerHold" width="700" height="700"/>
-        <image name="PointerTap" width="700" height="700"/>
+        <image name="PhiSphereRed" width="428" height="428"/>
+        <image name="Pointer" width="800" height="800"/>
         <image name="Sandbox" width="87" height="26"/>
         <image name="Velocity Dark" width="538" height="533"/>
         <image name="arcade3d" width="200" height="200"/>
@@ -840,6 +871,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eal-7s-mY9"/>
-        <segue reference="HFc-k2-QxN"/>
+        <segue reference="cWG-ga-9hn"/>
     </inferredMetricsTieBreakers>
 </document>

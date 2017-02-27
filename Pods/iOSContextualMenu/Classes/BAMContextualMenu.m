@@ -26,11 +26,11 @@
 #import "BAMContextualMenu.h"
 
 //Circle View Constants
-#define circleViewWidthHeight					50.0f
+#define circleViewWidthHeight					75.0f
 #define startCircleStrokeWidth					4.0f
 #define defaultTotalAmountOfCirclesThatCanFit	8
-#define topAndBottomTitleLabelPadding			5.0
-#define titleLabelPadding						2.5
+#define topAndBottomTitleLabelPadding			15.0
+#define titleLabelPadding						34.5
 #define tapHighlightInset						-30.0
 
 //Helpful Macros
@@ -197,7 +197,7 @@
             longPressActivationGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressActivated:)];
             longPressActivationGestureRecognizer.delegate = self;
             [self.containerView addGestureRecognizer:longPressActivationGestureRecognizer];
-            longPressActivationGestureRecognizer.minimumPressDuration = 1.5;
+            longPressActivationGestureRecognizer.minimumPressDuration = 0.5;
             
             startCircleView.hidden = NO;
             break;
