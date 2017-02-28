@@ -28,6 +28,8 @@
 		81982EFF1E4CB2B100E592F5 /* button-37.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81982EFE1E4CB2B100E592F5 /* button-37.mp3 */; };
 		81982F011E4CB47C00E592F5 /* button-27.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81982F001E4CB47C00E592F5 /* button-27.mp3 */; };
 		81C9F4D51E601CAF00E3664E /* StartingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C9F4D41E601CAF00E3664E /* StartingViewController.swift */; };
+		871509741E65610100EAB7C0 /* sksTutorial1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 871509721E65610100EAB7C0 /* sksTutorial1.sks */; };
+		871509751E65610100EAB7C0 /* sksTutorial1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871509731E65610100EAB7C0 /* sksTutorial1.swift */; };
 		8715F5FC1E36510F001E2DEA /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715F5FB1E36510F001E2DEA /* Singleton.swift */; };
 		8715F6081E368279001E2DEA /* ObjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715F6071E368279001E2DEA /* ObjectTableViewCell.swift */; };
 		8715F60A1E36828A001E2DEA /* ObjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715F6091E36828A001E2DEA /* ObjectTableViewController.swift */; };
@@ -72,8 +74,6 @@
 		87B05EFB1E601CBA00887F53 /* LevelScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 87B05EFA1E601CBA00887F53 /* LevelScene.sks */; };
 		87B05EFD1E601CFE00887F53 /* LevelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B05EFC1E601CFE00887F53 /* LevelScene.swift */; };
 		87B05F231E60413600887F53 /* SimpleStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B05F1E1E60413600887F53 /* SimpleStateMachine.swift */; };
-		87B05F241E60413600887F53 /* sksTutorial1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 87B05F1F1E60413600887F53 /* sksTutorial1.sks */; };
-		87B05F251E60413600887F53 /* sksTutorial1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B05F201E60413600887F53 /* sksTutorial1.swift */; };
 		87B05F261E60413600887F53 /* TutorialFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B05F211E60413600887F53 /* TutorialFunctions.swift */; };
 		87B05F271E60413600887F53 /* viewTutorialInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B05F221E60413600887F53 /* viewTutorialInfo.swift */; };
 		87DC85171E34BA4B0068555D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DC85161E34BA4B0068555D /* AppDelegate.swift */; };
@@ -116,6 +116,8 @@
 		81982EFE1E4CB2B100E592F5 /* button-37.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "button-37.mp3"; sourceTree = "<group>"; };
 		81982F001E4CB47C00E592F5 /* button-27.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "button-27.mp3"; sourceTree = "<group>"; };
 		81C9F4D41E601CAF00E3664E /* StartingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartingViewController.swift; sourceTree = "<group>"; };
+		871509721E65610100EAB7C0 /* sksTutorial1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = sksTutorial1.sks; sourceTree = "<group>"; };
+		871509731E65610100EAB7C0 /* sksTutorial1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sksTutorial1.swift; sourceTree = "<group>"; };
 		8715F5FB1E36510F001E2DEA /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		8715F6071E368279001E2DEA /* ObjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectTableViewCell.swift; sourceTree = "<group>"; };
 		8715F6091E36828A001E2DEA /* ObjectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectTableViewController.swift; sourceTree = "<group>"; };
@@ -161,8 +163,6 @@
 		87B05EFA1E601CBA00887F53 /* LevelScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LevelScene.sks; sourceTree = "<group>"; };
 		87B05EFC1E601CFE00887F53 /* LevelScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelScene.swift; sourceTree = "<group>"; };
 		87B05F1E1E60413600887F53 /* SimpleStateMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleStateMachine.swift; sourceTree = "<group>"; };
-		87B05F1F1E60413600887F53 /* sksTutorial1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = sksTutorial1.sks; sourceTree = "<group>"; };
-		87B05F201E60413600887F53 /* sksTutorial1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sksTutorial1.swift; sourceTree = "<group>"; };
 		87B05F211E60413600887F53 /* TutorialFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialFunctions.swift; sourceTree = "<group>"; };
 		87B05F221E60413600887F53 /* viewTutorialInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = viewTutorialInfo.swift; sourceTree = "<group>"; };
 		87DC85131E34BA4B0068555D /* Phi6 Alpha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Phi6 Alpha.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,8 +246,8 @@
 				87DC851C1E34BA4B0068555D /* GameScene.swift */,
 				87B05EFC1E601CFE00887F53 /* LevelScene.swift */,
 				87B05F1E1E60413600887F53 /* SimpleStateMachine.swift */,
-				87B05F1F1E60413600887F53 /* sksTutorial1.sks */,
-				87B05F201E60413600887F53 /* sksTutorial1.swift */,
+				871509721E65610100EAB7C0 /* sksTutorial1.sks */,
+				871509731E65610100EAB7C0 /* sksTutorial1.swift */,
 				871B2CC51E633A00005FE851 /* LSCTutorial.swift */,
 				871B2CC71E633C49005FE851 /* LSCTutorial.sks */,
 				87B05F211E60413600887F53 /* TutorialFunctions.swift */,
@@ -430,7 +430,7 @@
 				TargetAttributes = {
 					87DC85121E34BA4B0068555D = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = DLB63FGKHQ;
+						DevelopmentTeam = 84543EX3ME;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -472,7 +472,6 @@
 				81982EFF1E4CB2B100E592F5 /* button-37.mp3 in Resources */,
 				8167535F1E4C9EC8002219DE /* Bag Raiders - Shooting Stars.mp3 in Resources */,
 				301045861E4B355500D27A48 /* SourceSansPro-Regular.ttf in Resources */,
-				87B05F241E60413600887F53 /* sksTutorial1.sks in Resources */,
 				871B2CCA1E637C9C005FE851 /* ContextualMenu.gif in Resources */,
 				87DC85241E34BA4B0068555D /* Assets.xcassets in Resources */,
 				87DC85271E34BA4B0068555D /* LaunchScreen.storyboard in Resources */,
@@ -480,6 +479,7 @@
 				81982F011E4CB47C00E592F5 /* button-27.mp3 in Resources */,
 				87DC851B1E34BA4B0068555D /* Actions.sks in Resources */,
 				8731F2EA1E40E209002C5253 /* Info.plist in Resources */,
+				871509741E65610100EAB7C0 /* sksTutorial1.sks in Resources */,
 				87B05EFB1E601CBA00887F53 /* LevelScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -558,6 +558,7 @@
 				87283ABD1E43325100FDEE95 /* Obstacle.swift in Sources */,
 				87DC851D1E34BA4B0068555D /* GameScene.swift in Sources */,
 				8731F2D01E40D6FE002C5253 /* SpeedCamera.swift in Sources */,
+				871509751E65610100EAB7C0 /* sksTutorial1.swift in Sources */,
 				871858981E5DAE0C008BE0F5 /* PhisphereRed.swift in Sources */,
 				8731F2C71E40D6FE002C5253 /* LaserRangefinder.swift in Sources */,
 				87B05F261E60413600887F53 /* TutorialFunctions.swift in Sources */,
@@ -565,7 +566,6 @@
 				8731F2E71E40E209002C5253 /* EAAnimationFuture.swift in Sources */,
 				87DC851F1E34BA4B0068555D /* GameViewController.swift in Sources */,
 				8731F2F31E40E2D1002C5253 /* RBBSpringAnimation.swift in Sources */,
-				87B05F251E60413600887F53 /* sksTutorial1.swift in Sources */,
 				8731F2C91E40D6FE002C5253 /* Logic.swift in Sources */,
 				8731F2C51E40D6FE002C5253 /* GameObject.swift in Sources */,
 				3093494D1E449B920006F622 /* Arrow.swift in Sources */,
@@ -734,10 +734,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = DLB63FGKHQ;
+				DEVELOPMENT_TEAM = 84543EX3ME;
 				INFOPLIST_FILE = "Phi6 Alpha/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "it.Phi6-Alpha-SalvatoreCapuozzosborra";
+				PRODUCT_BUNDLE_IDENTIFIER = "it.Phi6-Alpha-SalvatoreCapuozzo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Phi6 Alpha-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -751,10 +751,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = DLB63FGKHQ;
+				DEVELOPMENT_TEAM = 84543EX3ME;
 				INFOPLIST_FILE = "Phi6 Alpha/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "it.Phi6-Alpha-SalvatoreCapuozzosborra";
+				PRODUCT_BUNDLE_IDENTIFIER = "it.Phi6-Alpha-SalvatoreCapuozzo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Phi6 Alpha-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

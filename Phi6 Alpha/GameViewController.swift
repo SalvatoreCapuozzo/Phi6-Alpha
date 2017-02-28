@@ -69,6 +69,8 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     @IBOutlet var excerciseTextView: UITextView!
     @IBOutlet var blockNotes: UITextView!
     
+    var simulatorTest: (started: Bool, stopped: Bool) = (false, false)
+    
     var adder = Adder()
     var centerOriginView: CGPoint?
     
@@ -192,7 +194,7 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
-            if let scene = GameScene(fileNamed: "LSCTutorial") {
+            if let scene = GameScene(fileNamed: "sksTutorial1") {
                 // Set the scale mode to scale to fit the window
                 self.scene = scene
                 scene.levelSelected = String(describing: self.levelNumber)
@@ -367,6 +369,17 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
     func setTextInView(text: String){
         excerciseTextView.text = text
     }
+    
+    // Fa sì che l'UI non sia interagibile
+    func BlockAllInteractions()
+    {
+        self.infoButton.isEnabled = false
+        self.pauseButton.isEnabled = false
+        self.slowMotionButton.isEnabled = false
+        self.gravityButton.isEnabled = false
+        self.velButton.isEnabled = false
+        self.accButton.isEnabled = false
+    }
 
     override var shouldAutorotate: Bool {
         return true
@@ -436,6 +449,19 @@ class GameViewController: UIViewController, SKSceneDelegate, UIGestureRecognizer
         diameterLabel.text! = String(describing: round((scene.phisphere.size.width/145)*100)/100)
         
     }
+    
+    @IBAction func CheckSimulationToggle()
+    {
+      if(!simulatorTest.started)
+      {
+        simulatorTest.started = true
+      }
+      else
+      {
+        simulatorTest.stopped = true
+      }
+    }
+
     func contextualMenu(_ contextualMenu: BAMContextualMenu!, titleForMenuItemAt index: UInt) -> String! {
         var title = ""
         

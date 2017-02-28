@@ -54,7 +54,18 @@ func Focus(view: viewTutorialInfo, obj: NSObject, text: String, offset: CGPoint,
     }
     else if let button = obj as? UIButton
     {
-        pos = button.frame.origin
+        pos = CGPoint(x: button.frame.origin.x + offset.x, y: button.frame.origin.y +  offset.y)
+        var sel = UIImage(named: "Selector")!
+        //sel.size.width = skNode.size.width
+        //sel.size.height = skNode.size.height
+        var selView = UIImageView(image: sel)
+        selView.frame.size.width = button.frame.width + 20
+        selView.frame.size.height = button.frame.height + 20
+        selView.tag = 101
+        //selView.sizeThatFits(CGSize(width: skNode.size.width, height: skNode.size.height))
+        selView.layer.position = CGPoint(x: pos.x + button.frame.width/2, y: -pos.y + button.frame.height + selView.frame.height/4)
+        scene.view?.addSubview(selView)
+
     }
     // Focus effect
     

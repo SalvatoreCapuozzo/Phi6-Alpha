@@ -16,12 +16,14 @@ enum StateType
     case ADD
     case ROTATE
     case ACTIVATE
+    case CONDITION
 }
 
 class SimpleFSM_State
 {
     let type: StateType
     let action: () -> ()
+    private var condition: (() -> (Bool))!
     
     init(stateType: StateType, action: @escaping () -> ())
     {
@@ -33,7 +35,7 @@ class SimpleFSM_State
     {
         switch(type)
         {
-            case .FOCUS, .POINT, .ADD, .ROTATE, .ACTIVATE:
+            case .FOCUS, .POINT, .ADD, .ROTATE, .ACTIVATE, .CONDITION:
                 // Se il tap è stato concluso
                 if sender.state == .ended
                 {
@@ -44,5 +46,15 @@ class SimpleFSM_State
         }
         
         return false
+    }
+    
+    func SetCondition(condition: @escaping () -> (Bool))
+    {
+        self.condition = condition
+    }
+    
+    func ConditionSatisfied() -> Bool
+    {
+        return condition()
     }
 }

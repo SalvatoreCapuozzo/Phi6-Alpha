@@ -122,6 +122,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="PLAY" image="play"/>
                                         <connections>
+                                            <action selector="CheckSimulationToggle" destination="BV1-FR-VrT" eventType="touchUpInside" id="4u8-Pv-23y"/>
                                             <action selector="pressPlay" destination="BV1-FR-VrT" eventType="touchUpInside" id="vlV-Mm-Lkc"/>
                                         </connections>
                                     </button>
@@ -854,7 +855,9 @@
         <image name="No SlowMotion" width="700" height="700"/>
         <image name="Oval 5" width="25" height="25"/>
         <image name="PhiSphereRed" width="428" height="428"/>
-        <image name="Pointer" width="800" height="800"/>
+        <image name="Pointer" width="700" height="700"/>
+        <image name="PointerHold" width="700" height="700"/>
+        <image name="PointerTap" width="700" height="700"/>
         <image name="Sandbox" width="87" height="26"/>
         <image name="Velocity Dark" width="538" height="533"/>
         <image name="arcade3d" width="200" height="200"/>

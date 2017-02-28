@@ -66,6 +66,8 @@ class BaseTutorialScene : GameScene, TutorialScene
                     } else {
                         stepCompleted = false
                     }
+                case .CONDITION:
+                    stepCompleted = tutorialSteps[currentStep].ConditionSatisfied()
                 default:
                     stepCompleted = false
             }
